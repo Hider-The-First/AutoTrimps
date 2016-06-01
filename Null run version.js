@@ -950,40 +950,38 @@ function buyStorage() {
            autoTrimpSettings.MaxGateway.value = (game.resources.fragments.owned / getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1));
        }
 
-       //Corruption dealing
-       if(191 > game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
+        //Corruption dealing
+       if((getPageSetting('CustomAutoPortal')-10) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       }
-       if(191 > game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
+       } else if ((getPageSetting('CustomAutoPortal')-10) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if(201> game.global.world >= 191 && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
+       if((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       }
-       if(201> game.global.world >= 191 && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
+       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       }
-       if(201> game.global.world >= 191 && game.global.lastClearedCell > 79 && game.global.mapBonus < 9) {
+       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9) {
            document.getElementById('Prestige').selectedIndex = 13;
            autoTrimpSettings.Prestige.selected = "GambesOP";
+       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus == 9) {
+           document.getElementById('Prestige').selectedIndex = 2;
+           autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if(game.global.world == 201 && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
+       if(game.global.world == getPageSetting('CustomAutoPortal') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       }
-       if(game.global.world > 181 && game.global.mapBonus == 9) {
+       } else if (game.global.world > getPageSetting('CustomAutoPortal') && game.global.mapBonus == 9) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if(game.global.world < 181) {
+       if (game.global.world < getPageSetting('CustomAutoPortal')-20) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-          
        
     }
 }
