@@ -950,35 +950,36 @@ function buyStorage() {
            autoTrimpSettings.MaxGateway.value = (game.resources.fragments.owned / getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1));
        }
 
-              //Corruption dealing
-       if((getPageSetting('CustomAutoPortal')-10) > game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
+       //Corruption dealing
+       if(191 > game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')-10) > game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
+       }
+       if(191 > game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if((getPageSetting('CustomAutoPortal')) > game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
+       if(201> game.global.world >= 191 && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
+       }
+       if(201> game.global.world >= 191 && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9) {
+       }
+       if(201> game.global.world >= 191 && game.global.lastClearedCell > 79 && game.global.mapBonus < 9) {
            document.getElementById('Prestige').selectedIndex = 13;
            autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus == 9) {
-           document.getElementById('Prestige').selectedIndex = 2;
-           autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if(game.global.world == getPageSetting('CustomAutoPortal') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
+       if(game.global.world == 201 && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if (game.global.world > getPageSetting('CustomAutoPortal') && game.global.mapBonus == 9) {
+       }
+       if(game.global.world > 181 && game.global.mapBonus == 9) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if (game.global.world < getPageSetting('CustomAutoPortal')-20) {
+       if(game.global.world < 181) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
@@ -1544,8 +1545,20 @@ function autoMap() {
     if(!getPageSetting('DisableFarm')) {
         shouldFarm = shouldFarm ? getEnemyMaxHealth(game.global.world) / (baseDamage*4) > 2.5 : getEnemyMaxHealth(game.global.world) / (baseDamage*4) > 4;
     }
-    
-    needToVoid = getPageSetting('VoidMaps') > 0 && game.global.totalVoidMaps > 0 && ((game.global.world == getPageSetting('VoidMaps') && !getPageSetting('RunNewVoids')) || (game.global.world >= getPageSetting('VoidMaps') && getPageSetting('RunNewVoids'))) && (game.global.challengeActive != 'Lead' || game.global.lastClearedCell > 93);
+    //DECIMAL VOID MAPS:
+    var voidMapLevelSetting = getPageSetting('VoidMaps');
+    //using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
+    var voidMapLevelSettingZone = (voidMapLevelSetting+"").split(".")[0];
+    var voidMapLevelSettingMap = (voidMapLevelSetting+"").split(".")[1];
+    if (voidMapLevelSettingMap === undefined || game.global.challengeActive == 'Lead') 
+        voidMapLevelSettingMap = 95;
+    if (voidMapLevelSettingMap.length == 1) voidMapLevelSettingMap += "0";  //entering 187.70 becomes 187.7, this will bring it back to 187.70
+    var voidsuntil = getPageSetting('RunNewVoidsUntil');
+    needToVoid = voidMapLevelSetting > 0 && game.global.totalVoidMaps > 0 && game.global.lastClearedCell + 1 >= voidMapLevelSettingMap && 
+                                ((game.global.world == voidMapLevelSettingZone && !getPageSetting('RunNewVoids')) 
+                                                                || 
+                                 (game.global.world >= voidMapLevelSettingZone && getPageSetting('RunNewVoids')))
+                         && (voidsuntil != -1 && game.global.world <= voidsuntil);
     if (game.global.mapsUnlocked) {
         var enemyDamage = getEnemyMaxAttack(game.global.world + 1, 30, 'Snimp', .85);
         var enemyHealth = getEnemyMaxHealth(game.global.world + 1);
@@ -1584,6 +1597,7 @@ function autoMap() {
         var shouldDoMap = "world";
         
         
+
         //if we are at max map bonus, and we don't need to farm, don't do maps
         if(game.global.mapBonus == 10 && !shouldFarm) shouldDoMaps = false;
         //if we are prestige mapping, force equip first mode
@@ -1807,8 +1821,9 @@ function autoMap() {
             } else if (!game.global.mapsActive) {
                 if (shouldDoMap != "world") {
                     //if shouldFarm, don't switch until after megamining //genBTC changed.
-                    if (!game.global.switchToMaps && ((shouldFarm && game.global.lastClearedCell >= 59) || !shouldFarm)) {
-                        mapsClicked();
+                    if (!game.global.switchToMaps){
+                        if ((shouldDoMaps && game.global.lastClearedCell < 10) || (shouldFarm && game.global.lastClearedCell >= 59) || needPrestige || doVoids || shouldDoMap!="world")
+                            mapsClicked();
                     }
                     ////Get Impatient/Abandon if: need prestige / _NEED_ to do void maps / on lead in odd world. AND a new army is ready, OR _need_ to void map OR lead farming and we're almost done with the zone )
                     if(
@@ -2217,7 +2232,6 @@ function mainLoop() {
     if(game.resources.trimps.soldiers == 0) noFight ++;
 
 }
-
 function delayStart() {
     initializeAutoTrimps();
     setTimeout(delayStartAgain, 2000);
@@ -2227,7 +2241,6 @@ function delayStartAgain(){
     updateCustomButtons();
     //setInterval(updateCustomButtons, 10000);
 }
-
 //we copied message function because this was not able to be called from function debug() without getting a weird scope? related "cannot find function" error.
 var lastmessagecount = 1;
 function message2(messageString, type, lootIcon, extraClass) {
@@ -2264,9 +2277,7 @@ function message2(messageString, type, lootIcon, extraClass) {
     if (needsScroll) log.scrollTop = log.scrollHeight;
     trimMessages(type);
 }
-
 //HTML For adding a 5th tab to the message window
-
 var ATbutton = document.createElement("button");
 ATbutton.innerHTML = 'AutoTrimps';
 ATbutton.setAttribute('id', 'AutoTrimpsFilter');
