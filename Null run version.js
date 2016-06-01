@@ -974,7 +974,7 @@ function buyStorage() {
        if(game.global.world == getPageSetting('CustomAutoPortal') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if (game.global.world > getPageSetting('CustomAutoPortal') && game.global.mapBonus == 9) {
+       } else if (game.global.world == getPageSetting('CustomAutoPortal') && game.global.mapBonus >= 9) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
