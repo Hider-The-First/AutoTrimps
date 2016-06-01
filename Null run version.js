@@ -28,8 +28,6 @@ var newCoord = false;
 
 var noFight = 0;
 
-A
-
 
 var baseDamage = 0;
 var baseBlock = 0;
