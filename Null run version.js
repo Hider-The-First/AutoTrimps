@@ -25,6 +25,7 @@ var shouldFarm = false;
 var enoughDamage = true;
 var enoughHealth = true;
 var newCoord = false;
+var letItGo = 0;
 
 var noFight = 0;
 
@@ -892,6 +893,8 @@ function easyMode() {
         if (getBuildingItemPrice(game.buildings.House, "food", false, 1) * 10 < game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)) {
     	  	autoTrimpSettings.MaxHouse.value = 100;
     	}
+    	autoTrimpSettings.DeltaGigastation.value = 50;
+    	autoTrimpSettings.FirstGigastation.value = 50;
     	autoTrimpSettings.MaxTrainers.value = 150;
         autoTrimpSettings.FarmerRatio.value = '5';
         autoTrimpSettings.LumberjackRatio.value = '5';
@@ -949,25 +952,37 @@ function buyStorage() {
        if (game.resources.fragments.owned > 20*getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1) && game.global.world < 80 ) {
            autoTrimpSettings.MaxGateway.value = (game.resources.fragments.owned / getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1));
        }
+       if (game.global.world == 82 && game.global.lastClearedCell == 1 ) {
+           LetItGo = game.buildings.Warpstation.owned;
+       }
+       if (game.global.world == 82 && game.global.lastClearedCell > 2 ) {
+           autoTrimpSettings.FirstGigastation.value = LetItGo;
+       }
+       if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
+           LetItGo = game.buildings.Warpstation.owned;
+       }
+       if (game.global.world == 89 && game.global.lastClearedCell > 2 ) {
+           autoTrimpSettings.DeltaGigastation.value = LetItGo-autoTrimpSettings.FirstGigastation.value;
+       }
 
         //Corruption dealing
-       if((getPageSetting('CustomAutoPortal')-10) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
+       if((getPageSetting('CustomAutoPortal')-10) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')-10) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
+       } else if ((getPageSetting('CustomAutoPortal')-10) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
+       if((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
+       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9) {
            document.getElementById('Prestige').selectedIndex = 13;
            autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus == 9) {
+       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
@@ -2172,7 +2187,8 @@ function mainLoop() {
     setScienceNeeded();
     updateValueFields();
 
-    if (getPageSetting('EasyMode')) easyMode(); //This needs a UI input
+    //if (getPageSetting('EasyMode')) easyMode(); //This needs a UI input
+    easyMode();
     if (getPageSetting('BuyUpgrades')) buyUpgrades();
     if (getPageSetting('BuyStorage')) buyStorage();
     if (getPageSetting('BuyBuildings')) buyBuildings();
