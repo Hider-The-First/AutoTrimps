@@ -978,7 +978,7 @@ function buyStorage() {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if (game.global.world < 20) {
+       if (game.global.world < getPageSetting('CustomAutoPortal'-20)) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
