@@ -950,141 +950,37 @@ function buyStorage() {
            autoTrimpSettings.MaxGateway.value = (game.resources.fragments.owned / getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1));
        }
 
-       //Dagger run special settings
-       if(document.getElementById('Prestige').selectedIndex == 2 && game.global.world >= 189 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 3;
-            autoTrimpSettings.Prestige.selected = "Bootboost";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 3 && game.global.world >= 189 && game.global.mapBonus == 10) {
+              //Corruption dealing
+       if((getPageSetting('CustomAutoPortal'-10)) > game.global.world >= (getPageSetting('CustomAutoPortal'-20)) && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
+            document.getElementById('Prestige').selectedIndex = 13;
+            autoTrimpSettings.Prestige.selected = "GambesOP";
+       } else if ((getPageSetting('CustomAutoPortal'-10)) > game.global.world >= (getPageSetting('CustomAutoPortal'-20)) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if(document.getElementById('Prestige').selectedIndex == 2 && game.global.world >= 190 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 3;
-            autoTrimpSettings.Prestige.selected = "Bootboost";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 3 && game.global.world >= 191 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 4;
-            autoTrimpSettings.Prestige.selected = "Megamace";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 4 && game.global.world >= 191 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 3;
-           autoTrimpSettings.Prestige.selected = "Bootboost";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 3 && game.global.world >= 192 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 4;
-            autoTrimpSettings.Prestige.selected = "Megamace";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 4 && game.global.world >= 193 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 5;
-            autoTrimpSettings.Prestige.selected = "Hellishmet";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 5 && game.global.world >= 193 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 4;
-           autoTrimpSettings.Prestige.selected = "Megamace";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 4 && game.global.world >= 194 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 5;
-            autoTrimpSettings.Prestige.selected = "Hellishmet";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 5 && game.global.world >= 195 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 6;
-            autoTrimpSettings.Prestige.selected = "Polierarm";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 6 && game.global.world >= 195 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 5;
-           autoTrimpSettings.Prestige.selected = "Hellishmet";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 5 && game.global.world >= 196 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 6;
-            autoTrimpSettings.Prestige.selected = "Polierarm";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 6 && game.global.world >= 197 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 7;
-            autoTrimpSettings.Prestige.selected = "Pantastic";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 7 && game.global.world >= 197 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 6;
-           autoTrimpSettings.Prestige.selected = "Polierarm";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 6 && game.global.world >= 198 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 7;
-            autoTrimpSettings.Prestige.selected = "Pantastic";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 7 && game.global.world >= 199 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 8;
-            autoTrimpSettings.Prestige.selected = "Axeidic";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 8 && game.global.world >= 199 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 7;
-           autoTrimpSettings.Prestige.selected = "Pantastic";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 7 && game.global.world >= 200 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 8;
-            autoTrimpSettings.Prestige.selected = "Axeidic";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 8 && game.global.world >= 999 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 9;
-            autoTrimpSettings.Prestige.selected = "Smoldershoulder";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 9 && game.global.world >= 999 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 8;
-           autoTrimpSettings.Prestige.selected = "Axeidic";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 8 && game.global.world >= 202 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 9;
-            autoTrimpSettings.Prestige.selected = "Smoldershoulder";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 9 && game.global.world >= 202 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 10;
-            autoTrimpSettings.Prestige.selected = "Greatersword";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 10 && game.global.world >= 203 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 9;
-           autoTrimpSettings.Prestige.selected = "Smoldershoulder";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 9 && game.global.world >= 204 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 10;
-            autoTrimpSettings.Prestige.selected = "Greatersword";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 10 && game.global.world >= 204 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 11;
-            autoTrimpSettings.Prestige.selected = "Bestplate";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 11 && game.global.world >= 205 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 10;
-           autoTrimpSettings.Prestige.selected = "Greatersword";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 10 && game.global.world >= 206 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 11;
-            autoTrimpSettings.Prestige.selected = "Bestplate";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 11 && game.global.world >= 206 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 12;
-            autoTrimpSettings.Prestige.selected = "Harmbalest";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 12 && game.global.world >= 207 && game.global.mapBonus == 10) {
-           document.getElementById('Prestige').selectedIndex = 11;
-           autoTrimpSettings.Prestige.selected = "Bestplate";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 11 && game.global.world >= 208 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
-            document.getElementById('Prestige').selectedIndex = 12;
-            autoTrimpSettings.Prestige.selected = "Harmbalest";
-       }
-       if(document.getElementById('Prestige').selectedIndex == 12 && game.global.world >= 208 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
+       if((getPageSetting('CustomAutoPortal')) > game.global.world >= (getPageSetting('CustomAutoPortal'-10)) && game.global.lastClearedCell < 79 && game.global.mapBonus < 5) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       //}
-       //if(document.getElementById('Prestige').selectedIndex == 13 && 201 < game.global.world < 20) {
-        //   document.getElementById('Prestige').selectedIndex = 2;
-        //   autoTrimpSettings.Prestige.selected = "Dagadder";
+       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world >= (getPageSetting('CustomAutoPortal'-10)) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 5) {
+           document.getElementById('Prestige').selectedIndex = 2;
+           autoTrimpSettings.Prestige.selected = "Dagadder";
+       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world >= (getPageSetting('CustomAutoPortal'-10)) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9) {
+           document.getElementById('Prestige').selectedIndex = 13;
+           autoTrimpSettings.Prestige.selected = "GambesOP";
+       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world >= (getPageSetting('CustomAutoPortal'-10)) && game.global.lastClearedCell > 79 && game.global.mapBonus == 9) {
+           document.getElementById('Prestige').selectedIndex = 2;
+           autoTrimpSettings.Prestige.selected = "Dagadder";
+       }
+       if(game.global.world == getPageSetting('CustomAutoPortal') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
+            document.getElementById('Prestige').selectedIndex = 13;
+            autoTrimpSettings.Prestige.selected = "GambesOP";
+       } else if (game.global.world > getPageSetting('CustomAutoPortal') && game.global.mapBonus == 9) {
+           document.getElementById('Prestige').selectedIndex = 2;
+           autoTrimpSettings.Prestige.selected = "Dagadder";
        }
        if (game.global.world < 20) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       //} else {
-           //document.getElementById('Prestige').selectedIndex = 2;
-           //autoTrimpSettings.Prestige.selected = "Dagadder";  
        }
           
        
@@ -1646,12 +1542,9 @@ function autoMap() {
     baseDamage *= mapbonusmulti;
     //farm if basedamage is between 10 and 16)
     if(!getPageSetting('DisableFarm')) {
-    shouldFarm = getEnemyMaxHealth(game.global.world) / baseDamage > 0.0001;
+        shouldFarm = shouldFarm ? getEnemyMaxHealth(game.global.world) / (baseDamage*4) > 2.5 : getEnemyMaxHealth(game.global.world) / (baseDamage*4) > 4;
     }
-    console.log("The value of shouldfarm is: " + shouldFarm);
-    console.log("The value of baseDamage is " + baseDamage);
-    console.log("getEnemyMaxHealth(game.global.world) divided by baseDamage is " + getEnemyMaxHealth(game.global.world) / baseDamage);
-
+    
     needToVoid = getPageSetting('VoidMaps') > 0 && game.global.totalVoidMaps > 0 && ((game.global.world == getPageSetting('VoidMaps') && !getPageSetting('RunNewVoids')) || (game.global.world >= getPageSetting('VoidMaps') && getPageSetting('RunNewVoids'))) && (game.global.challengeActive != 'Lead' || game.global.lastClearedCell > 93);
     if (game.global.mapsUnlocked) {
         var enemyDamage = getEnemyMaxAttack(game.global.world + 1, 30, 'Snimp', .85);
