@@ -984,7 +984,7 @@ function buyStorage() {
         }
         if (game.global.world > 82) {
         autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*0.031)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
-       
+        }
        //if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
        //    LetItGo = game.buildings.Warpstation.owned;
        //}
