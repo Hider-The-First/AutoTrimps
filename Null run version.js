@@ -27,6 +27,9 @@ var enoughHealth = true;
 var newCoord = false;
 var letItGo = 0;
 
+createSetting('IDontNeedFarm', 'IDontNeedFarm', 'So you dont want to farm? 4 is if you think you are God', 'dropdown', '0', ['0', '1', '2', '3', '4']);
+
+
 var noFight = 0;
 
 
@@ -966,34 +969,34 @@ function buyStorage() {
        }
 
         //Corruption dealing
-       if((getPageSetting('CustomAutoPortal')-10) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4) {
+       if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')-10) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4) {
+       } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4) {
+       if((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4) {
+       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9) {
+       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 13;
            autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('CustomAutoPortal')) > game.global.world && game.global.world >= (getPageSetting('CustomAutoPortal')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9) {
+       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if(game.global.world == getPageSetting('CustomAutoPortal') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
+       if(game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if (game.global.world == getPageSetting('CustomAutoPortal') && game.global.mapBonus >= 9) {
+       } else if (game.global.world == getPageSetting('VoidMaps') && game.global.mapBonus >= 9) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if (game.global.world < getPageSetting('CustomAutoPortal')-20) {
+       if (game.global.world < getPageSetting('VoidMaps')-20) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
