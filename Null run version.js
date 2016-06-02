@@ -894,8 +894,8 @@ function easyMode() {
         if (getBuildingItemPrice(game.buildings.House, "food", false, 1) * 10 < game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)) {
     	  	autoTrimpSettings.MaxHouse.value = 100;
     	}
-    	autoTrimpSettings.DeltaGigastation.value = 50;
-    	autoTrimpSettings.FirstGigastation.value = 50;
+    	//autoTrimpSettings.DeltaGigastation.value = 50;
+    	//autoTrimpSettings.FirstGigastation.value = 50;
     	autoTrimpSettings.MaxTrainers.value = 150;
         autoTrimpSettings.FarmerRatio.value = '5';
         autoTrimpSettings.LumberjackRatio.value = '5';
@@ -953,18 +953,18 @@ function buyStorage() {
        if (game.resources.fragments.owned > 20*getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1) && game.global.world < 80 ) {
            autoTrimpSettings.MaxGateway.value = (game.resources.fragments.owned / getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1));
        }
-       if (game.global.world == 82 && game.global.lastClearedCell == 1 ) {
-           LetItGo = game.buildings.Warpstation.owned;
-       }
-       if (game.global.world == 82 && game.global.lastClearedCell > 2 ) {
-           autoTrimpSettings.FirstGigastation.value = LetItGo;
-       }
-       if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
-           LetItGo = game.buildings.Warpstation.owned;
-       }
-       if (game.global.world == 89 && game.global.lastClearedCell > 2 ) {
-           autoTrimpSettings.DeltaGigastation.value = LetItGo-autoTrimpSettings.FirstGigastation.value;
-       }
+      // if (game.global.world == 82 && game.global.lastClearedCell == 1 ) {
+       //    LetItGo = game.buildings.Warpstation.owned;
+       //}
+       ////if (game.global.world == 82 && game.global.lastClearedCell > 2 ) {
+       //    autoTrimpSettings.FirstGigastation.value = LetItGo;
+      // }
+      // if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
+       //    LetItGo = game.buildings.Warpstation.owned;
+       //}
+       //if (game.global.world == 89 && game.global.lastClearedCell > 2 ) {
+        //   autoTrimpSettings.DeltaGigastation.value = LetItGo-autoTrimpSettings.FirstGigastation.value;
+       //}
        //neede to fix one day//createSetting('IDontNeedFarm', 'IDontNeedFarm', 'So you dont want to farm? 4 is if you think you are God', 'dropdown', '0', ['0', '1', '2', '3', '4']);
         //So you dont want to farm? 4 is if you think you are God (you can lower it to 0)
        var IDontNeedFarm = 0;
