@@ -965,6 +965,8 @@ function buyStorage() {
        if (game.global.world == 89 && game.global.lastClearedCell > 2 ) {
            autoTrimpSettings.DeltaGigastation.value = LetItGo-autoTrimpSettings.FirstGigastation.value;
        }
+       //neede to fix one day//createSetting('IDontNeedFarm', 'IDontNeedFarm', 'So you dont want to farm? 4 is if you think you are God', 'dropdown', '0', ['0', '1', '2', '3', '4']);
+        //So you dont want to farm? 4 is if you think you are God (you can lower it to 0)
        var IDontNeedFarm = 0;
        
         //Corruption dealing
