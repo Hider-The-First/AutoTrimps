@@ -968,19 +968,19 @@ function buyStorage() {
            Gigas=0;
         }
         if (getPageSetting('VoidMaps')<70) {
-           Gigas=autoTrimpSettings.FirstGigastation.value-60;
+           Gigas=getPageSetting('VoidMaps')-60;
         }
         if (getPageSetting('VoidMaps')<80) {
-          Gigas=9+(Math.ceil((autoTrimpSettings.FirstGigastation.value-69)/2));
+          Gigas=9+(Math.ceil((getPageSetting('VoidMaps')-69)/2));
         }
         if (getPageSetting('VoidMaps')<93) {
-          Gigas=14+(Math.round((autoTrimpSettings.FirstGigastation.value-79)/3));
+          Gigas=14+(Math.round((getPageSetting('VoidMaps')-79)/3));
         }
         if (getPageSetting('VoidMaps')<170) {
-          Gigas=18+(Math.round((autoTrimpSettings.FirstGigastation.value-92)/5));
+          Gigas=18+(Math.round((getPageSetting('VoidMaps')-92)/5));
         }
         if (getPageSetting('VoidMaps')>170) {
-          Gigas=34+(Math.floor((autoTrimpSettings.FirstGigastation.value-170)/10));
+          Gigas=34+(Math.floor((getPageSetting('VoidMaps')-170)/10));
         }
         autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*0.031)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
        
