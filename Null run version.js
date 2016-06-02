@@ -965,7 +965,8 @@ function buyStorage() {
        if (game.global.world == 89 && game.global.lastClearedCell > 2 ) {
            autoTrimpSettings.DeltaGigastation.value = LetItGo-autoTrimpSettings.FirstGigastation.value;
        }
-
+       var IDontNeedFarm = 0;
+       
         //Corruption dealing
        if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
             document.getElementById('Prestige').selectedIndex = 13;
@@ -2324,6 +2325,5 @@ function filterMessage2(what){
     }
     log.scrollTop = log.scrollHeight;
     }
-    createSetting('IDontNeedFarm', 'IDontNeedFarm', 'So you dont want to farm? 4 is if you think you are God', 'dropdown', '0', ['0', '1', '2', '3', '4']);
 
 }
