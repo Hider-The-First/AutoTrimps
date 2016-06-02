@@ -963,10 +963,7 @@ function buyStorage() {
            LetItGo = game.buildings.Warpstation.owned;
        }
        if (game.global.world == 89 && game.global.lastClearedCell > 2 ) {
-           autoTrimpSettings.FirstGigastation.value = (((LetItGo-)autoTrimpSettings.FirstGigastation.value)/1.3);
-       }
-       if (game.global.world == 90 ) {
-           autoTrimpSettings.DeltaGigastation.value /= 1.3;
+           autoTrimpSettings.DeltaGigastation.value = LetItGo-autoTrimpSettings.FirstGigastation.value;
        }
        //neede to fix one day//createSetting('IDontNeedFarm', 'IDontNeedFarm', 'So you dont want to farm? 4 is if you think you are God', 'dropdown', '0', ['0', '1', '2', '3', '4']);
         //So you dont want to farm? 4 is if you think you are God (you can lower it to 0)
