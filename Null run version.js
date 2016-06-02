@@ -2324,6 +2324,5 @@ function filterMessage2(what){
         toChange[x].style.display = displayed;
     }
     log.scrollTop = log.scrollHeight;
-    }
 
 }
