@@ -990,6 +990,8 @@ function buyStorage() {
        //if (game.global.world == 89 && game.global.lastClearedCell > 2 ) {
         //   autoTrimpSettings.DeltaGigastation.value = LetItGo-autoTrimpSettings.FirstGigastation.value;
        //}
+       //var list = [61,62,63,64,65,66,67,68,69,70,72,74,76,78,81,84,87,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,190,200,210,220,230,240,250,260,270,280,290,300];
+
        //neede to fix one day//createSetting('IDontNeedFarm', 'IDontNeedFarm', 'So you dont want to farm? 4 is if you think you are God', 'dropdown', '0', ['0', '1', '2', '3', '4']);
         //So you dont want to farm? 4 is if you think you are God (you can lower it to 0)
        var IDontNeedFarm = 0;
