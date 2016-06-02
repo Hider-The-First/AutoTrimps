@@ -27,8 +27,6 @@ var enoughHealth = true;
 var newCoord = false;
 var letItGo = 0;
 
-createSetting('IDontNeedFarm', 'IDontNeedFarm', 'So you dont want to farm? 4 is if you think you are God', 'dropdown', '0', ['0', '1', '2', '3', '4']);
-
 
 var noFight = 0;
 
@@ -2325,4 +2323,7 @@ function filterMessage2(what){
         toChange[x].style.display = displayed;
     }
     log.scrollTop = log.scrollHeight;
+    }
+    createSetting('IDontNeedFarm', 'IDontNeedFarm', 'So you dont want to farm? 4 is if you think you are God', 'dropdown', '0', ['0', '1', '2', '3', '4']);
+
 }
