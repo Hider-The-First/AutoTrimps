@@ -951,38 +951,38 @@ function buyStorage() {
                 setGather('buildings');
             }
         }
-       if (game.resources.fragments.owned > 20*getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1) && game.global.world < 80 ) {
+        if (game.resources.fragments.owned > 20*getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1) && game.global.world < 80 ) {
            autoTrimpSettings.MaxGateway.value = (game.resources.fragments.owned / getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1));
-       }
-       if (game.global.world > 82) {
-         autoTrimpSettings.DeltaGigastation.value = 50;
-         autoTrimpSettings.FirstGigastation.value = 50;
-       }
-       if (game.global.world == 82 && game.global.lastClearedCell == 1 ) {
+        }
+        if (game.global.world < 82) {
+           autoTrimpSettings.DeltaGigastation.value = 50;
+           autoTrimpSettings.FirstGigastation.value = 50;
+        }
+        if (game.global.world == 82 && game.global.lastClearedCell == 1 ) {
            LetItGo = game.buildings.Warpstation.owned;
-       }
-       if (game.global.world == 82 && game.global.lastClearedCell > 2 ) {
+        }
+        if (game.global.world == 82 && game.global.lastClearedCell > 2 ) {
            autoTrimpSettings.FirstGigastation.value = LetItGo;
-       }
-       if (autoTrimpSettings.FirstGigastation.value<60) {
-         Gigas=0;
-       }
-       if (autoTrimpSettings.FirstGigastation.value<70) {
-         Gigas=autoTrimpSettings.FirstGigastation.value-60;
-       }
-       if (autoTrimpSettings.FirstGigastation.value<80) {
-         Gigas=9+(math.ceil((autoTrimpSettings.FirstGigastation.value-69)/2));
-       }
-       if (autoTrimpSettings.FirstGigastation.value<93) {
-         Gigas=14+(math.round((autoTrimpSettings.FirstGigastation.value-79)/3));
-       }
-       if (autoTrimpSettings.FirstGigastation.value<170) {
-         Gigas=18+(math.round((autoTrimpSettings.FirstGigastation.value-92)/5));
-       }
-       if (autoTrimpSettings.FirstGigastation.value>170) {
-         Gigas=34+(math.floor((autoTrimpSettings.FirstGigastation.value-170)/10));
-       }
-       autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*0.031)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
+        }
+        if (autoTrimpSettings.FirstGigastation.value<60) {
+           Gigas=0;
+        }
+        if (autoTrimpSettings.FirstGigastation.value<70) {
+           Gigas=autoTrimpSettings.FirstGigastation.value-60;
+        }
+        if (autoTrimpSettings.FirstGigastation.value<80) {
+          Gigas=9+(math.ceil((autoTrimpSettings.FirstGigastation.value-69)/2));
+        }
+        if (autoTrimpSettings.FirstGigastation.value<93) {
+          Gigas=14+(math.round((autoTrimpSettings.FirstGigastation.value-79)/3));
+        }
+        if (autoTrimpSettings.FirstGigastation.value<170) {
+          Gigas=18+(math.round((autoTrimpSettings.FirstGigastation.value-92)/5));
+        }
+        if (autoTrimpSettings.FirstGigastation.value>170) {
+          Gigas=34+(math.floor((autoTrimpSettings.FirstGigastation.value-170)/10));
+        }
+        autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*0.031)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
        
        //if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
        //    LetItGo = game.buildings.Warpstation.owned;
