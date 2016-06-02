@@ -982,6 +982,7 @@ function buyStorage() {
         if (getPageSetting('VoidMaps')>170) {
           Gigas=34+(Math.floor((getPageSetting('VoidMaps')-170)/10));
         }
+        if (game.global.world > 82) {
         autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*0.031)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
        
        //if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
