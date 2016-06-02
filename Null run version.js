@@ -971,16 +971,16 @@ function buyStorage() {
            Gigas=autoTrimpSettings.FirstGigastation.value-60;
         }
         if (autoTrimpSettings.FirstGigastation.value<80) {
-          Gigas=9+(math.ceil((autoTrimpSettings.FirstGigastation.value-69)/2));
+          Gigas=9+(Math.ceil((autoTrimpSettings.FirstGigastation.value-69)/2));
         }
         if (autoTrimpSettings.FirstGigastation.value<93) {
-          Gigas=14+(math.round((autoTrimpSettings.FirstGigastation.value-79)/3));
+          Gigas=14+(Math.round((autoTrimpSettings.FirstGigastation.value-79)/3));
         }
         if (autoTrimpSettings.FirstGigastation.value<170) {
-          Gigas=18+(math.round((autoTrimpSettings.FirstGigastation.value-92)/5));
+          Gigas=18+(Math.round((autoTrimpSettings.FirstGigastation.value-92)/5));
         }
         if (autoTrimpSettings.FirstGigastation.value>170) {
-          Gigas=34+(math.floor((autoTrimpSettings.FirstGigastation.value-170)/10));
+          Gigas=34+(Math.floor((autoTrimpSettings.FirstGigastation.value-170)/10));
         }
         autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*0.031)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
        
