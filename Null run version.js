@@ -998,17 +998,17 @@ function buyStorage() {
        var IDontNeedFarm = 0;
        
         //Corruption dealing
-       if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
+       if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus < 1-IDontNeedFarm) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4-IDontNeedFarm) {
+       } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 1-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
-       if((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
+       if((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 9-IDontNeedFarm) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4-IDontNeedFarm) {
+       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
