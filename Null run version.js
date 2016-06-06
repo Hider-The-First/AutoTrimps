@@ -1700,7 +1700,7 @@ function autoMap() {
             shouldDoNullMaps = true;
             console.log("now null running = true");
         }
-        shouldFarm = shouldDoNullMaps ? false : shouldFarm;
+        shouldFarm = shouldDoNullMaps ? true : shouldFarm;
         enoughDamage = shouldDoNullMaps ? true : enoughDamage;
         enoughHealth = shouldDoNullMaps ? true : enoughHealth;
         //Create siphonology on demand section.
@@ -1865,7 +1865,7 @@ function autoMap() {
                     if (stackingTox && (game.challenges.Toxicity.stacks + game.global.mapGridArray.length - (game.global.lastClearedMapCell + 1) >= 1500)){
                         repeatClicked();
                     }
-                    //turn off repeat maps if we doing Watch maps or Null maps
+                    //turn off repeat maps if we doing Watch maps
                     if (shouldDoWatchMaps)
                         repeatClicked();
                 } else {
