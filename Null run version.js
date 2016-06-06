@@ -999,8 +999,8 @@ function buyStorage() {
        
         //Corruption dealing
        if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
-            document.getElementById('Prestige').selectedIndex = 4;
-            autoTrimpSettings.Prestige.selected = "Megamace";
+            document.getElementById('Prestige').selectedIndex = 6;
+            autoTrimpSettings.Prestige.selected = "Polierarm";
        } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
@@ -1012,8 +1012,8 @@ function buyStorage() {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
-           document.getElementById('Prestige').selectedIndex = 6;
-           autoTrimpSettings.Prestige.selected = "Polierarm";
+           document.getElementById('Prestige').selectedIndex = 8;
+           autoTrimpSettings.Prestige.selected = "Axeidic";
        } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
@@ -1693,13 +1693,19 @@ function autoMap() {
         }
         //here we do maps for 1:10 since its fun
         var shouldDoNullMaps = false;
-        if (game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205) {
+        if ((game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205)
+        || (game.global.lastClearedCell > 83 && game.global.world > 205 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 70)){
             shouldDoMaps = true;
             shouldDoNullMaps = true;
+            console.log("now null running = true");
         }
-        if (game.global.lastClearedCell > 83 && game.global.world > 205 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 70) {
-            shouldDoMaps = true;
-            shouldDoNullMaps = true;
+        else {
+            shouldDoMaps = false;
+            shouldDoNullMaps = false;
+            shouldFarm = false;
+            enoughDamage = true;
+            enoughHealth = true;
+            console.log("now null running = false");
         }
         
         //Create siphonology on demand section.
