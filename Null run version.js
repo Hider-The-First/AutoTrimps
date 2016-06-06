@@ -1865,7 +1865,7 @@ function autoMap() {
                         repeatClicked();
                     }
                     //turn off repeat maps if we doing Watch maps or Null maps
-                    if (shouldDoWatchMaps || shouldDoNullMaps)
+                    if (shouldDoWatchMaps)
                         repeatClicked();
                 } else {
                     //otherwise, make sure repeat map is off
