@@ -1700,7 +1700,7 @@ function autoMap() {
         var shouldDoNullMaps = false;
         if ((game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205) ||
         (game.global.lastClearedCell > 83 && game.global.world > 205 &&
-        ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 70)){
+        ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 20)){
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
