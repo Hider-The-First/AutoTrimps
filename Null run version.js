@@ -1703,8 +1703,7 @@ function autoMap() {
         shouldFarm = shouldDoNullMaps ? false : shouldFarm;
         enoughDamage = shouldDoNullMaps ? true : enoughDamage;
         enoughHealth = shouldDoNullMaps ? true : enoughHealth;
-the last 3 lines will only be tampered with if nullmaps is true, otherwise it will use its original old value
-        
+        }
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
 
