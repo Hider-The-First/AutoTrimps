@@ -1693,20 +1693,17 @@ function autoMap() {
         }
         //here we do maps for 1:10 since its fun
         var shouldDoNullMaps = false;
-        if ((game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205)
-        || (game.global.lastClearedCell > 83 && game.global.world > 205 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 70)){
+        if ((game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205) ||
+        (game.global.lastClearedCell > 83 && game.global.world > 205 &&
+        ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 70)){
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
         }
-        else {
-            shouldDoMaps = false;
-            shouldDoNullMaps = false;
-            shouldFarm = false;
-            enoughDamage = true;
-            enoughHealth = true;
-            console.log("now null running = false");
-        }
+        shouldFarm = shouldDoNullMaps ? false : shouldFarm;
+        enoughDamage = shouldDoNullMaps ? true : enoughDamage;
+        enoughHealth = shouldDoNullMaps ? true : enoughHealth;
+the last 3 lines will only be tampered with if nullmaps is true, otherwise it will use its original old value
         
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
