@@ -1691,6 +1691,16 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoWatchMaps = true;
         }
+        //here we do maps for 1:10 since its fun
+        var shouldDoNullMaps = false;
+        if (game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205) {
+            shouldDoMaps = true;
+            shouldDoNullMaps = true;
+        }
+        if (game.global.lastClearedCell > 83 && game.global.world > 205 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 70) {
+            shouldDoMaps = true;
+            shouldDoNullMaps = true;
+        }
         
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
@@ -1854,8 +1864,8 @@ function autoMap() {
                     if (stackingTox && (game.challenges.Toxicity.stacks + game.global.mapGridArray.length - (game.global.lastClearedMapCell + 1) >= 1500)){
                         repeatClicked();
                     }
-                    //turn off repeat maps if we doing Watch maps.
-                    if (shouldDoWatchMaps)
+                    //turn off repeat maps if we doing Watch maps or Null maps
+                    if (shouldDoWatchMaps || shouldDoNullMaps)
                         repeatClicked();
                 } else {
                     //otherwise, make sure repeat map is off
@@ -1886,7 +1896,7 @@ function autoMap() {
                     }
                 }
                 //forcibly run watch maps
-                if (shouldDoWatchMaps)
+                if (shouldDoWatchMaps||shouldDoNullMaps)
                     mapsClicked();                
             }
         } else if (game.global.preMapsActive) {
