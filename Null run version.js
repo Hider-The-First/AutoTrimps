@@ -1093,6 +1093,11 @@ function buyJobs() {
     var minerRatio = parseInt(getPageSetting('MinerRatio'));
     var totalRatio = farmerRatio + lumberjackRatio + minerRatio;
     var scientistRatio = totalRatio / 25;
+    
+    //solve late game scientists
+    if (game.global.world > 150) {
+        scientistRatio = totalRatio / 75;
+    }
 
     
     if (game.global.challengeActive == 'Watch'){
