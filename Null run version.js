@@ -1703,7 +1703,6 @@ function autoMap() {
         shouldFarm = shouldDoNullMaps ? false : shouldFarm;
         enoughDamage = shouldDoNullMaps ? true : enoughDamage;
         enoughHealth = shouldDoNullMaps ? true : enoughHealth;
-        }
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
 
