@@ -1696,10 +1696,10 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoWatchMaps = true;
         }
-        //here we do maps for 1:10 since its fun
+        //here we do maps for 20 min since its fun (and also for spire)
         var shouldDoNullMaps = false;
         if ((game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205) ||
-        (game.global.lastClearedCell > 83 && game.global.world > 205 &&
+        (game.global.lastClearedCell > 83 && game.global.world > 205 || game.global.world == 200 &&
         ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 20)){
             shouldDoMaps = true;
             shouldDoNullMaps = true;
