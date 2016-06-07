@@ -998,10 +998,10 @@ function buyStorage() {
        var IDontNeedFarm = 0;
        
         //Corruption dealing
-       if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
+       if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-15) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
             document.getElementById('Prestige').selectedIndex = 6;
             autoTrimpSettings.Prestige.selected = "Polierarm";
-       } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-20) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
+       } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-15) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
@@ -1699,7 +1699,7 @@ function autoMap() {
         //here we do maps for 20 min since its fun (and also for spire)
         var shouldDoNullMaps = false;
         if ((game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205) ||
-        (game.global.lastClearedCell > 83 && game.global.world > 205 || game.global.world == 200 &&
+        (game.global.lastClearedCell > 83 && game.global.world > 205 || game.global.world == 209 &&
         ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 20)){
             shouldDoMaps = true;
             shouldDoNullMaps = true;
