@@ -999,15 +999,15 @@ function buyStorage() {
        
         //Corruption dealing
        if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-17) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
-            document.getElementById('Prestige').selectedIndex = 6;
-            autoTrimpSettings.Prestige.selected = "Polierarm";
+            document.getElementById('Prestige').selectedIndex = 13;
+            autoTrimpSettings.Prestige.selected = "GambesOP";
        } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-17) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
        if((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 9-IDontNeedFarm) {
-            document.getElementById('Prestige').selectedIndex = 8;
-            autoTrimpSettings.Prestige.selected = "Axeidic";
+            document.getElementById('Prestige').selectedIndex = 13;
+            autoTrimpSettings.Prestige.selected = "GambesOP";
        } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
