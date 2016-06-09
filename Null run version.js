@@ -998,10 +998,10 @@ function buyStorage() {
        var IDontNeedFarm = 0;
        
         //Corruption dealing
-       if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-18) && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
+       if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-18) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4-IDontNeedFarm) {
+       } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
@@ -1011,10 +1011,10 @@ function buyStorage() {
        } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 6-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 6-IDontNeedFarm) {
+       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 13;
            autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 6-IDontNeedFarm) {
+       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        }
@@ -1698,9 +1698,7 @@ function autoMap() {
         }
         //here we do maps for 20 min since its fun (and also for spire)
         var shouldDoNullMaps = false;
-        if ((game.global.lastClearedCell < 83 && game.global.mapBonus <= 9 && game.global.world > 205) ||
-        (game.global.lastClearedCell > 83 && game.global.world > 205 || game.global.world == 209 &&
-        ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 20)){
+        if (game.global.mapBonus <= 9 && game.global.world > 210) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
@@ -1824,28 +1822,34 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 1.5) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 1.75) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 2) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 2.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
+                if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 3.25) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
                 if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 3) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 4) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 3 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 4 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 50) {
+                    shouldDoMap = theMap.id;
+                    break;
+               }
+                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 50 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 100) {
                     shouldDoMap = theMap.id;
                     break;
                 }
