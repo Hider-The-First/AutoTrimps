@@ -1844,7 +1844,7 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 7 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 6 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
                     shouldDoMap = theMap.id;
                     break;
