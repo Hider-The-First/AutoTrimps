@@ -1819,32 +1819,32 @@ function autoMap() {
                 }
                 //other unique maps here
                 if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 2) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 1) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 3) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 1.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 4) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 2) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 5) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 2.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 6) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 3) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 6 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 3 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
                     shouldDoMap = theMap.id;
                     break;
