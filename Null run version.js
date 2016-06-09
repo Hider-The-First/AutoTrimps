@@ -1819,6 +1819,32 @@ function autoMap() {
                 }
                 //other unique maps here
             }
+                //other unique maps here
+                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+            }
             
 
         }
