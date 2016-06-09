@@ -1818,8 +1818,6 @@ function autoMap() {
                     }
                 }
                 //other unique maps here
-            }
-                //other unique maps here
                 if(theMap.name == 'Bionic Wonderland' && game.global.world == 200) {
                     shouldDoMap = theMap.id;
                     break;
