@@ -964,6 +964,7 @@ function buyStorage() {
         if (game.global.world < 82) {
            autoTrimpSettings.DeltaGigastation.value = 50;
            autoTrimpSettings.FirstGigastation.value = 50;
+        }
         if (game.global.world < 201) {
             getPageSetting('VoidMaps') = 215;
         }
