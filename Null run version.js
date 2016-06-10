@@ -296,10 +296,8 @@ function highlightHousing() {
                 if (getPageSetting('WarpstationCap') && bestBuilding == "Warpstation" &&
                     (game.buildings.Warpstation.owned >= (Math.floor(game.upgrades.Gigastation.done * getPageSetting('DeltaGigastation')) + getPageSetting('FirstGigastation'))))
                     bestBuilding = null;
-            } else if (WarpstationWall == true && bestBuilding == "Warpstation") {
-                 bestBuilding = null;
-            }
-                
+                    if (WarpstationWall == true && bestBuilding == "Warpstation")
+                        bestBuilding = null;
                 break;
             }
         }
