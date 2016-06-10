@@ -997,38 +997,38 @@ function buyStorage() {
         //So you dont want to farm? 4 is if you think you are God (you can lower it to 0)
        var IDontNeedFarm = 0;
        
-        //Corruption dealing
-       if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
-            document.getElementById('Prestige').selectedIndex = 13;
-            autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4-IDontNeedFarm) {
-           document.getElementById('Prestige').selectedIndex = 2;
-           autoTrimpSettings.Prestige.selected = "Dagadder";
-       }
-       if((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 6-IDontNeedFarm) {
-            document.getElementById('Prestige').selectedIndex = 13;
-            autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 6-IDontNeedFarm) {
-           document.getElementById('Prestige').selectedIndex = 2;
-           autoTrimpSettings.Prestige.selected = "Dagadder";
-       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
-           document.getElementById('Prestige').selectedIndex = 13;
-           autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
-           document.getElementById('Prestige').selectedIndex = 2;
-           autoTrimpSettings.Prestige.selected = "Dagadder";
-       }
-       if(game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
-            document.getElementById('Prestige').selectedIndex = 13;
-            autoTrimpSettings.Prestige.selected = "GambesOP";
-       } else if (game.global.world == getPageSetting('VoidMaps') && game.global.mapBonus >= 9) {
-           document.getElementById('Prestige').selectedIndex = 2;
-           autoTrimpSettings.Prestige.selected = "Dagadder";
-       }
-       if (game.global.world < getPageSetting('VoidMaps')-20) {
-           document.getElementById('Prestige').selectedIndex = 2;
-           autoTrimpSettings.Prestige.selected = "Dagadder";
-       }
+        //Corruption dealing (suspended since spire need null maps setting and not prestige)
+       //if((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus < 4-IDontNeedFarm) {
+        //    document.getElementById('Prestige').selectedIndex = 13;
+        //    autoTrimpSettings.Prestige.selected = "GambesOP";
+       //} else if ((getPageSetting('VoidMaps')-10) > game.global.world && game.global.world >= 181 && game.global.lastClearedCell < 79 && game.global.mapBonus >= 4-IDontNeedFarm) {
+        //   document.getElementById('Prestige').selectedIndex = 2;
+        //   autoTrimpSettings.Prestige.selected = "Dagadder";
+       //}
+       //if((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus < 6-IDontNeedFarm) {
+        //    document.getElementById('Prestige').selectedIndex = 13;
+        //    autoTrimpSettings.Prestige.selected = "GambesOP";
+       //} else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell < 79 && game.global.mapBonus >= 6-IDontNeedFarm) {
+        //   document.getElementById('Prestige').selectedIndex = 2;
+        //   autoTrimpSettings.Prestige.selected = "Dagadder";
+       //} else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus < 9-IDontNeedFarm) {
+        //   document.getElementById('Prestige').selectedIndex = 13;
+        //   autoTrimpSettings.Prestige.selected = "GambesOP";
+       //} else if ((getPageSetting('VoidMaps')) > game.global.world && game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.lastClearedCell > 79 && game.global.mapBonus >= 9-IDontNeedFarm) {
+        //   document.getElementById('Prestige').selectedIndex = 2;
+        //   autoTrimpSettings.Prestige.selected = "Dagadder";
+       //}
+       //if(game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
+        //    document.getElementById('Prestige').selectedIndex = 13;
+        //    autoTrimpSettings.Prestige.selected = "GambesOP";
+       //} else if (game.global.world == getPageSetting('VoidMaps') && game.global.mapBonus >= 9) {
+        //   document.getElementById('Prestige').selectedIndex = 2;
+        //   autoTrimpSettings.Prestige.selected = "Dagadder";
+       //}
+       //if (game.global.world < getPageSetting('VoidMaps')-20) {
+        //   document.getElementById('Prestige').selectedIndex = 2;
+        //   autoTrimpSettings.Prestige.selected = "Dagadder";
+       //}
        
     }
 }
@@ -1698,7 +1698,7 @@ function autoMap() {
         }
         //here we do maps for 20 min since its fun (and also for spire)
         var shouldDoNullMaps = false;
-        if (game.global.mapBonus <= 9 && game.global.world > 210) {
+        if (game.global.mapBonus < 9 && game.global.world > 180) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
@@ -1816,7 +1816,7 @@ function autoMap() {
                     }
                 }
                 //other unique maps here
-                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 &&
+                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.lastClearedCell > 60
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 1) {
                     shouldDoMap = theMap.id;
                     break;
@@ -1843,13 +1843,13 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 4 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 50) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
                     shouldDoMap = theMap.id;
                     break;
                }
-                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 50 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 100) {
+                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 80
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 30 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 80) {
                     shouldDoMap = theMap.id;
                     break;
                 }
