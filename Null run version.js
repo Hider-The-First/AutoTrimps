@@ -297,7 +297,7 @@ function highlightHousing() {
                     (game.buildings.Warpstation.owned >= (Math.floor(game.upgrades.Gigastation.done * getPageSetting('DeltaGigastation')) + getPageSetting('FirstGigastation'))))
                     bestBuilding = null;
                     if (WarpstationWall == true && bestBuilding == "Warpstation" &&
-                    10 * getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) < game.resources.metal.owned)
+                    10 * getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) > game.resources.metal.owned)
                         bestBuilding = null;
                 break;
             }
