@@ -966,10 +966,10 @@ function buyStorage() {
            autoTrimpSettings.FirstGigastation.value = 50;
         }
         if (game.global.world < 201) {
-            getPageSetting('VoidMaps') = 215;
+            autoTrimpSettings.VoidMaps.value = 215;
         }
         if (game.global.world >= 201) {
-            getPageSetting('VoidMaps') = 205;
+            autoTrimpSettings.VoidMaps.value = 205;
         }
         if (game.global.world == 82 && game.global.lastClearedCell == 1 ) {
            LetItGo = game.buildings.Warpstation.owned;
