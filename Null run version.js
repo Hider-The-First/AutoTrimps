@@ -1682,9 +1682,8 @@ function autoMap() {
                 stackingTox = true;
             //force abandon army
             if(!game.global.mapsActive && !game.global.preMapsActive) {
-http://gadgetsgo.com/images/D/Avian-Fashions-Bird_Diapers-Parrot-parakeet_leash-and-poop_pouch-SOLID-ROYALBLUE.jpg
-            }
-
+                mapsClicked();
+                mapsClicked();
         }
         else stackingTox = false;
         
