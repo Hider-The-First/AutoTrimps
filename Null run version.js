@@ -27,6 +27,7 @@ var enoughHealth = true;
 var newCoord = false;
 var letItGo = 0;
 var Gigas = 0;
+var WarpstationWall = false;
 
 
 var noFight = 0;
@@ -292,7 +293,7 @@ function highlightHousing() {
                 bestBuilding = keysSorted[best];
                 
                 //Warpstation Cap - if we are past the basewarp+deltagiga level, "cap" and just wait for next giga.
-                if (getPageSetting('WarpstationCap') && bestBuilding == "Warpstation" &&
+                if (getPageSetting('WarpstationCap') || WarpstationWall == true && bestBuilding == "Warpstation" &&
                     (game.buildings.Warpstation.owned >= (Math.floor(game.upgrades.Gigastation.done * getPageSetting('DeltaGigastation')) + getPageSetting('FirstGigastation'))))
                     bestBuilding = null;
                 
@@ -723,6 +724,7 @@ function evaluateEfficiency(equipName) {
     }
     if (10*Cos > NextCost) {
         Wall = true;
+        WarpstationWall = true;
     }
 
     return {
