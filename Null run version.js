@@ -1682,8 +1682,7 @@ function autoMap() {
                 stackingTox = true;
             //force abandon army
             if(!game.global.mapsActive && !game.global.preMapsActive) {
-                mapsClicked();
-                mapsClicked();
+http://gadgetsgo.com/images/D/Avian-Fashions-Bird_Diapers-Parrot-parakeet_leash-and-poop_pouch-SOLID-ROYALBLUE.jpg
             }
 
         }
@@ -1816,40 +1815,45 @@ function autoMap() {
                     }
                 }
                 //other unique maps here
-                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 1) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 1.75) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200 &&
+                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.lastClearedCell > 20 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 2.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
+                if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 3.25) {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200 &&
+                if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 4) {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 4 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
+                if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 4.75) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 5.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 5.5 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 15.75 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
+                    shouldDoMap = theMap.id;
+                    break;
+                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 70 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 30.75 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 40) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 50) {
                     shouldDoMap = theMap.id;
                     break;
                 //}
