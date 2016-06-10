@@ -721,7 +721,7 @@ function evaluateEfficiency(equipName) {
     if (game.global.world >= 58 && game.global.world < 60 && getPageSetting('WaitTill60')){
         Wall = true;
     }
-    if (2*Cos > NextCost) {
+    if (10*Cos > NextCost) {
         Wall = true;
     }
 
