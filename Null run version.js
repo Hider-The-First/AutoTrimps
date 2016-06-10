@@ -1684,6 +1684,7 @@ function autoMap() {
             if(!game.global.mapsActive && !game.global.preMapsActive) {
                 mapsClicked();
                 mapsClicked();
+            }
         }
         else stackingTox = false;
         
@@ -1850,6 +1851,7 @@ function autoMap() {
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
                     shouldDoMap = theMap.id;
                     break;
+                }
                 if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 70 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 30.75 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 50) {
