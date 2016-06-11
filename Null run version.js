@@ -1980,7 +1980,7 @@ function autoMap() {
                     document.getElementById("mapLevelInput").value = game.global.world;
                 else
                     document.getElementById("mapLevelInput").value = siphlvl;
-                if (game.global.world > 80) {
+                if (game.global.world > 86) {
                     sizeAdvMapsRange.value = 9;
                     adjustMap('size', 9);
                     difficultyAdvMapsRange.value = 9;
@@ -1990,15 +1990,15 @@ function autoMap() {
 
                     biomeAdvMapsSelect.value = "Mountain";
                     updateMapCost();
-                } else if (game.global.world < 16) {
+                } else if (game.global.world < 36) {
                     sizeAdvMapsRange.value = 9;
                     adjustMap('size', 9);
                     difficultyAdvMapsRange.value = 0;
                     adjustMap('difficulty', 0);
-                    lootAdvMapsRange.value = 9;
-                    adjustMap('loot', 9);
+                    lootAdvMapsRange.value = 0;
+                    adjustMap('loot', 0);
 
-                    biomeAdvMapsSelect.value = "Sea";
+                    biomeAdvMapsSelect.value = "Random";
                     updateMapCost();
                 } else {
                     sizeAdvMapsRange.value = 9;
