@@ -969,7 +969,7 @@ function buyStorage() {
         if (game.resources.fragments.owned > 20*getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1) && game.global.world < 80 ) {
            autoTrimpSettings.MaxGateway.value = (game.resources.fragments.owned / getBuildingItemPrice(game.buildings.Gateway, "fragments", false, 1));
         }
-        if (game.global.world < 82) {
+        if (game.global.world < Math.floor((getPageSetting('VoidMaps')/2.45))) {
            autoTrimpSettings.DeltaGigastation.value = 50;
            autoTrimpSettings.FirstGigastation.value = 50;
         }
@@ -980,10 +980,10 @@ function buyStorage() {
         //if (game.global.world >= 201) {
         //    autoTrimpSettings.VoidMaps.value = 205;
         //}
-        if (game.global.world == 82 && game.global.lastClearedCell == 1 ) {
+        if (game.global.world == Math.floor((getPageSetting('VoidMaps')/2.45)) && game.global.lastClearedCell == 1 ) {
            LetItGo = game.buildings.Warpstation.owned;
         }
-        if (game.global.world == 82 && game.global.lastClearedCell > 2 ) {
+        if (game.global.world == Math.floor((getPageSetting('VoidMaps')/2.45)) && game.global.lastClearedCell > 2 ) {
            autoTrimpSettings.FirstGigastation.value = LetItGo;
         }
         if (getPageSetting('VoidMaps')<60) {
@@ -1004,7 +1004,7 @@ function buyStorage() {
         if (getPageSetting('VoidMaps')>170) {
           Gigas=34+(Math.floor((getPageSetting('VoidMaps')-170)/10));
         }
-        if (game.global.world > 82) {
+        if (game.global.world >= Math.floor((getPageSetting('VoidMaps')/2.45))) {
         autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*0.031)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
         }
        //if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
