@@ -974,6 +974,7 @@ function buyStorage() {
         if (game.global.world < Math.floor((getPageSetting('VoidMaps')/2.45))) {
            autoTrimpSettings.DeltaGigastation.value = 50;
            autoTrimpSettings.FirstGigastation.value = 50;
+           autoTrimpSettings.GeneticistTimer.value = '0';
         }
         //to use on spire for giga delta calculations
         //if (game.global.world < 201) {
@@ -1866,6 +1867,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10) {
+                    autoTrimpSettings.GeneticistTimer.value = '120';
                     shouldDoMap = theMap.id;
                     break;
                 }
