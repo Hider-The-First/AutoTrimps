@@ -733,11 +733,11 @@ function evaluateEfficiency(equipName) {
         Wall = true;
         WarpstationWall = true;
     }
-    //was a test (failed)
-    //if (gameResource.level > 5) {
-    //    document.getElementById(Best[stat].Name).style.color = 'white';
-    //    Wall = true;
-    //}
+    // a test
+    if (gameResource.level > 5) {
+        document.getElementById(Best[stat].Name).style.color = 'white';
+        Wall = true;
+    }
 
     return {
         Stat: equip.Stat,
@@ -1267,7 +1267,7 @@ function autoLevelEquipment() {
         // debug('Equip: ' + equip + ' EquipIndex ' + equipName);
         var gameResource = equip.Equip ? game.equipment[equipName] : game.buildings[equipName];
         // debug('Game Resource: ' + gameResource);
-        if (!gameResource.locked || gameResource.level > 5) {
+        if (!gameResource.locked) {
             document.getElementById(equipName).style.color = 'white';
             var evaluation = evaluateEfficiency(equipName);
             // debug(equipName + ' evaluation ' + evaluation.Status);
