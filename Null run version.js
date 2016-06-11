@@ -973,12 +973,13 @@ function buyStorage() {
            autoTrimpSettings.DeltaGigastation.value = 50;
            autoTrimpSettings.FirstGigastation.value = 50;
         }
-        if (game.global.world < 201) {
-            autoTrimpSettings.VoidMaps.value = 215;
-        }
-        if (game.global.world >= 201) {
-            autoTrimpSettings.VoidMaps.value = 205;
-        }
+        //to use on spire for giga delta calculations
+        //if (game.global.world < 201) {
+        //    autoTrimpSettings.VoidMaps.value = 215;
+        //}
+        //if (game.global.world >= 201) {
+        //    autoTrimpSettings.VoidMaps.value = 205;
+        //}
         if (game.global.world == 82 && game.global.lastClearedCell == 1 ) {
            LetItGo = game.buildings.Warpstation.owned;
         }
@@ -1862,26 +1863,23 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 5 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 15.5 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 70 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 30.5 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 50) {
-                    shouldDoMap = theMap.id;
-                    break;
+                //Optional for full spire farming
+                //if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 70 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 80) {
+                //    shouldDoMap = theMap.id;
+                //    break;
                 //}
                 //if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 80
-                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) >= 30 &&
-                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 80) {
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 210) {
                     //shouldDoMap = theMap.id;
                     //break;
                 }
