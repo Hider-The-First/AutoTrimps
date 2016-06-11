@@ -1882,7 +1882,6 @@ function autoMap() {
                 //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 210) {
                     //shouldDoMap = theMap.id;
                     //break;
-                }
             }
             
 
