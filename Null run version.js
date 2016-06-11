@@ -1912,7 +1912,7 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 70 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 89.75) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) == 89.75) {
                     shouldDoMap = theMap.id;
                     mapsClicked();
                     mapsClicked();
@@ -1924,7 +1924,7 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 119.75) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) == 119.75) {
                     shouldDoMap = theMap.id;
                     mapsClicked();
                     mapsClicked();
