@@ -1839,7 +1839,7 @@ function autoMap() {
                     }
                 }
                 //other unique maps here
-                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.lastClearedCell > 20 &&
+                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.mapBonus > 9 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 2.5) {
                     shouldDoMap = theMap.id;
                     break;
@@ -1869,9 +1869,23 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
+                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15.5) {
                     shouldDoMap = theMap.id;
+                    mapsClicked();
+                    mapsClicked();
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 35) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 35.5) {
+                    shouldDoMap = theMap.id;
+                    mapsClicked();
+                    mapsClicked();
                     break;
                 }
                 //Optional for full spire farming
