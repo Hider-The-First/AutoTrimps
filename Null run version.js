@@ -735,7 +735,7 @@ function evaluateEfficiency(equipName) {
     }
     // a test
     if (gameResource.level > 5) {
-        document.getElementById(Best[stat].Name).style.color = 'white';
+        Res = 0;
         Wall = true;
     }
 
