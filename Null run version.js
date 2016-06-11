@@ -734,7 +734,7 @@ function evaluateEfficiency(equipName) {
         WarpstationWall = true;
     }
     // a test
-    if (gameResource.level > 5) {
+    if (gameResource.level > 8) {
         Res = 0;
         Wall = true;
     }
@@ -974,10 +974,6 @@ function buyStorage() {
         if (game.global.world < Math.floor((getPageSetting('VoidMaps')/2.45))) {
            autoTrimpSettings.DeltaGigastation.value = 50;
            autoTrimpSettings.FirstGigastation.value = 50;
-           autoTrimpSettings.GeneticistTimer.value = '30';
-        }
-        if (game.global.world > 200) {
-           autoTrimpSettings.GeneticistTimer.value = '30';
         }
         //to use on spire for giga delta calculations
         //if (game.global.world < 201) {
@@ -1869,16 +1865,8 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10) {
-                    autoTrimpSettings.GeneticistTimer.value = '120';
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) {
                     shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) == 9.75) {
-                    shouldDoMap = theMap.id;
-                    mapsClicked();
-                    mapsClicked();
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 20 &&
@@ -1886,23 +1874,9 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 20 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) == 29.75) {
-                    shouldDoMap = theMap.id;
-                    mapsClicked();
-                    mapsClicked();
-                    break;
-                }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 70) {
                     shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) == 69.75) {
-                    shouldDoMap = theMap.id;
-                    mapsClicked();
-                    mapsClicked();
                     break;
                 }
                 //Optional for full spire farming
@@ -1911,23 +1885,9 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 70 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) == 89.75) {
-                    shouldDoMap = theMap.id;
-                    mapsClicked();
-                    mapsClicked();
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
+                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 120) {
                     shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) == 119.75) {
-                    shouldDoMap = theMap.id;
-                    mapsClicked();
-                    mapsClicked();
                     break;
                 }
             }
