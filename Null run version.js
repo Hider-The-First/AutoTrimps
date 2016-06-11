@@ -1949,7 +1949,7 @@ function autoMap() {
                 if (shouldDoMap != "world") {
                     //if shouldFarm, don't switch until after megamining //genBTC changed.
                     if (!game.global.switchToMaps){
-                        if ((shouldDoMaps && game.global.lastClearedCell < 10) || (shouldFarm && game.global.lastClearedCell >= 59) || needPrestige || doVoids || shouldDoMap!="world")
+                        if ((shouldDoMaps && game.global.lastClearedCell < 10) || (shouldFarm && game.global.lastClearedCell >= 81) || needPrestige || doVoids || shouldDoMap!="world")
                             mapsClicked();
                     }
                     ////Get Impatient/Abandon if: need prestige / _NEED_ to do void maps / on lead in odd world. AND a new army is ready, OR _need_ to void map OR lead farming and we're almost done with the zone )
@@ -1980,7 +1980,7 @@ function autoMap() {
                     document.getElementById("mapLevelInput").value = game.global.world;
                 else
                     document.getElementById("mapLevelInput").value = siphlvl;
-                if (game.global.world > 70) {
+                if (game.global.world > 80) {
                     sizeAdvMapsRange.value = 9;
                     adjustMap('size', 9);
                     difficultyAdvMapsRange.value = 9;
