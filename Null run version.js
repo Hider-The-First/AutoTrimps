@@ -899,12 +899,17 @@ function initializeAutoTrimps() {
 function easyMode() {
     if (game.resources.trimps.realMax() > 50000000) {
         autoTrimpSettings.MaxHouse.value = 50;
+        if (game.buildings.Tribute.owned < 2100) {
         autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
-        if (getBuildingItemPrice(game.buildings.Gym, "wood", false, 1) > 100*getBuildingItemPrice(game.buildings.Nursery, "wood", false, 1)) {
-            autoTrimpSettings.MaxNursery.value = -1;
         } else {
-            autoTrimpSettings.MaxNursery.value = 600;
+            autoTrimpSettings.MaxTrainers.value = -1:
         }
+        //save some wood
+        //if (getBuildingItemPrice(game.buildings.Gym, "wood", false, 1) > 100*getBuildingItemPrice(game.buildings.Nursery, "wood", false, 1)) {
+        //    autoTrimpSettings.MaxNursery.value = -1;
+        //} else {
+        //    autoTrimpSettings.MaxNursery.value = 600;
+        //}
         autoTrimpSettings.FarmerRatio.value = '2';
         autoTrimpSettings.LumberjackRatio.value = '2';
         autoTrimpSettings.MinerRatio.value = '25';
