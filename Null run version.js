@@ -2260,11 +2260,12 @@ function manageGenes() {
         buyUpgrade('Potency');
     }
         //otherwise, if we have some geneticists, start firing them
-    else if ((targetBreed*1.02 < getBreedTime() || targetBreed*1.02 < getBreedTime(true)) && !game.jobs.Geneticist.locked && game.jobs.Geneticist.owned > 10) {
-        safeBuyJob('Geneticist', -10);
+        // this was made by devil so i blocked it and let it stay here so others will see how evil look like
+    //else if ((targetBreed*1.02 < getBreedTime() || targetBreed*1.02 < getBreedTime(true)) && !game.jobs.Geneticist.locked && game.jobs.Geneticist.owned > 10) {
+     //   safeBuyJob('Geneticist', -10);
         //debug('fired a geneticist');
-        
-    }
+    //    
+    //}
         //if our time remaining to full trimps is still too high, fire some jobs to get-er-done
         //needs option to toggle? advanced options?
     else if ((targetBreed < getBreedTime(true) || (game.resources.trimps.soldiers == 0 && getBreedTime(true) > 6)) && breedFire == false && getPageSetting('BreedFire') && game.global.world > 10) {
