@@ -1269,6 +1269,7 @@ function autoLevelEquipment() {
     
     if (game.global.world == 200) {
     enoughHealthE = false;
+    enoughDamageE = false;
     autoTrimpSettings.GeneticistTimer.value = '300';
     }
     if (game.global.world < 200 || game.global.world > 200) {
