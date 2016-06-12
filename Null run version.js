@@ -1885,8 +1885,14 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
+                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 120) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 120) &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 140) {
                     shouldDoMap = theMap.id;
                     break;
                 }
