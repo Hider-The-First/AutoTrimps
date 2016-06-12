@@ -1127,6 +1127,9 @@ function buyJobs() {
     if (game.global.world > 150) {
         scientistRatio = totalRatio / 75;
     }
+    if (game.global.world > 180) {
+        scientistRatio = totalRatio / 500;
+    }
 
     
     if (game.global.challengeActive == 'Watch'){
