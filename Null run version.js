@@ -902,7 +902,7 @@ function easyMode() {
         if (game.buildings.Tribute.owned < 2100) {
         autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
         } else {
-            autoTrimpSettings.MaxTrainers.value = -1:
+            autoTrimpSettings.MaxTrainers.value = -1;
         }
         //save some wood
         //if (getBuildingItemPrice(game.buildings.Gym, "wood", false, 1) > 100*getBuildingItemPrice(game.buildings.Nursery, "wood", false, 1)) {
