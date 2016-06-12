@@ -1890,20 +1890,20 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 30) &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 30 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 50) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 //Optional for bone+ spire farming
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 70 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 50) &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 50 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 60) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 60) &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 60 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 70) {
                     shouldDoMap = theMap.id;
                     break;
