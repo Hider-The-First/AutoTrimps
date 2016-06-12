@@ -302,7 +302,7 @@ function highlightHousing() {
                 //Warpstation Wall - if we try to save to next prestige, allow only warps that cost allot less then current metal.
                 if (WarpstationWall == true && bestBuilding == "Warpstation" &&
                     4 * getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) > game.resources.metal.owned)
-                        bestBuilding = Collector;
+                        bestBuilding = null;
                         
                 break;
             }
@@ -734,7 +734,7 @@ function evaluateEfficiency(equipName) {
         WarpstationWall = true;
     }
     // a test
-    if (gameResource.level > 8) {
+    if (gameResource.level > 7) {
         Res = 0;
         Wall = true;
     }
@@ -1309,6 +1309,8 @@ function autoLevelEquipment() {
                         && 
                 //Only buy Armor prestiges when 'DelayArmorWhenNeeded' is on, IF:
                         (
+                            (getPageSetting('DelayArmorWhenNeeded') && game.global.world == 200)  // not in level 200
+                            ||                                                       //     or
                             (getPageSetting('DelayArmorWhenNeeded') && !shouldFarm)  // not during "Farming" mode 
                             ||                                                       //     or
                             (getPageSetting('DelayArmorWhenNeeded') && enoughDamage) //  has enough damage (not in "Wants more Damage" mode)
@@ -1889,17 +1891,17 @@ function autoMap() {
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 90) {
                     shouldDoMap = theMap.id;
                     break;
-                }
-                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 120) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 120 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 140) {
-                    shouldDoMap = theMap.id;
-                    break;
+                //}
+                //if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 120) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
+                //if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 80 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 120 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 140) {
+                //    shouldDoMap = theMap.id;
+                 //   break;
                 }
             }
         }
