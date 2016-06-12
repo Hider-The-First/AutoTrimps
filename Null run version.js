@@ -1309,7 +1309,7 @@ function autoLevelEquipment() {
                         && 
                 //Only buy Armor prestiges when 'DelayArmorWhenNeeded' is on, IF:
                         (
-                            (getPageSetting('DelayArmorWhenNeeded') && game.global.world == 200)  // not in level 200
+                            (game.global.world == 200)  // not in level 200
                             ||                                                       //     or
                             (getPageSetting('DelayArmorWhenNeeded') && !shouldFarm)  // not during "Farming" mode 
                             ||                                                       //     or
