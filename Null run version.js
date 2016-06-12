@@ -1270,13 +1270,14 @@ function autoLevelEquipment() {
     var enoughHealthE = (baseHealth * 4 > 30 * (enemyDamage - baseBlock / 2 > 0 ? enemyDamage - baseBlock / 2 : enemyDamage * 0.2) || baseHealth > 30 * (enemyDamage - baseBlock > 0 ? enemyDamage - baseBlock : enemyDamage * 0.2));
     var enoughDamageE = (baseDamage * 4 > enemyHealth);
     
-    if (game.global.world == 200 && game.global.lastClearedCell > 60){
+    if (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40) {
     enoughHealthE = false;
     enoughDamageE = false;
-    autoTrimpSettings.GeneticistTimer.value = '300';
     }
     if (game.global.world < 200 || game.global.world > 200) {
     autoTrimpSettings.GeneticistTimer.value = '30';
+    } else {
+    autoTrimpSettings.GeneticistTimer.value = '300';
     }
 
     for (var equipName in equipmentList) {
