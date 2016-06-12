@@ -302,7 +302,7 @@ function highlightHousing() {
                 //Warpstation Wall - if we try to save to next prestige, allow only warps that cost allot less then current metal.
                 if (WarpstationWall == true && bestBuilding == "Warpstation" &&
                     4 * getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) > game.resources.metal.owned)
-                        bestBuilding = null;
+                        bestBuilding = Collector;
                         
                 break;
             }
@@ -1156,7 +1156,7 @@ function buyJobs() {
     //Simple buy if you can
     if (getPageSetting('MaxTrainers') > game.jobs.Trainer.owned || getPageSetting('MaxTrainers') == -1) {
         game.global.buyAmt = 1;
-        if (canAffordJob('Trainer', false) &&  game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)*100 < game.resources.food.owned) {
+        if (canAffordJob('Trainer', false) &&  game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)*2 < game.resources.food.owned) {
             freeWorkers = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
             if (freeWorkers <= 0) safeBuyJob('Farmer', -1);
             safeBuyJob('Trainer');
