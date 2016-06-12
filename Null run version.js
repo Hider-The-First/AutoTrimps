@@ -1269,6 +1269,10 @@ function autoLevelEquipment() {
     
     if (game.global.world == 200) {
     enoughHealthE = false;
+    autoTrimpSettings.GeneticistTimer.value = '180';
+    }
+    if (game.global.world < 200 || game.global.world > 200) {
+    autoTrimpSettings.GeneticistTimer.value = '30';
     }
 
     for (var equipName in equipmentList) {
