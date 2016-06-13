@@ -1270,14 +1270,14 @@ function autoLevelEquipment() {
     var enoughHealthE = (baseHealth * 4 > 30 * (enemyDamage - baseBlock / 2 > 0 ? enemyDamage - baseBlock / 2 : enemyDamage * 0.2) || baseHealth > 30 * (enemyDamage - baseBlock > 0 ? enemyDamage - baseBlock : enemyDamage * 0.2));
     var enoughDamageE = (baseDamage * 4 > enemyHealth);
     
-    if (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 20) {
+    if (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 25) {
     enoughHealthE = false;
     enoughDamageE = false;
     }
-    if (game.global.world < 200 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 30) {
+    if (game.global.world < 200 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40) {
     autoTrimpSettings.GeneticistTimer.value = '30';
     } else {
-    autoTrimpSettings.GeneticistTimer.value = '300';
+    autoTrimpSettings.GeneticistTimer.value = '240';
     }
 
     for (var equipName in equipmentList) {
@@ -1896,7 +1896,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 16 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 25) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 35) {
                     shouldDoMap = theMap.id;
                     break;
                 }
