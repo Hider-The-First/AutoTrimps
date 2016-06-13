@@ -1912,7 +1912,7 @@ function autoMap() {
                 //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 70) {
                 //    shouldDoMap = theMap.id;
                 //    break;
-                }
+                //}
             }
         }
         //map if we don't have health/dmg or we need to clear void maps or if we are prestige mapping, and our set item has a new prestige available 
