@@ -281,11 +281,8 @@ function highlightHousing() {
                 // document.getElementById(unlockedHousing[house]).removeEventListener("click", update);
             }
             //don't consider Warpstation if we can't afford it right now and over 2100 Tribute
-            if(unlockedHousing[house] == "Warpstation" && !canAffordBuilding('Warpstation') && game.buildings.Tribute.owned > 2100) continue;
-            obj[unlockedHousing[house]] = ratio;
-            if (document.getElementById(unlockedHousing[house]).style.border = "1px solid #00CC00") {
-                document.getElementById(unlockedHousing[house]).style.border = "1px solid #FFFFFF";
-                // document.getElementById(unlockedHousing[house]).removeEventListener("click", update);
+            if(unlockedHousing[house] == "Warpstation" && !canAffordBuilding('Warpstation') && game.buildings.Tribute.owned > 2100) {
+            bestBuilding = "Collector";
             }
         }
         var keysSorted = Object.keys(obj).sort(function(a, b) {
