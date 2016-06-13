@@ -305,11 +305,6 @@ function highlightHousing() {
                         bestBuilding = null;
                         
                 break;
-               
-                //if over 2100 Tribute buy Collector if cant Warpstation
-                if (bestBuilding == "Warpstation" && !canAffordBuilding('Warpstation') && game.buildings.Tribute.owned > 2100)
-                bestBuilding = "Collector";
-                break;
             }
         }
         if (bestBuilding) {
