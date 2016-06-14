@@ -1274,10 +1274,10 @@ function autoLevelEquipment() {
     enoughHealthE = false;
     enoughDamageE = false;
     }
-    if (game.global.world < 200 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40) {
+    if (game.global.world < 200 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 50) {
     autoTrimpSettings.GeneticistTimer.value = '30';
     } else {
-    autoTrimpSettings.GeneticistTimer.value = '240';
+    autoTrimpSettings.GeneticistTimer.value = '270';
     }
 
     for (var equipName in equipmentList) {
@@ -1896,7 +1896,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 16 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 35) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 45) {
                     shouldDoMap = theMap.id;
                     break;
                 }
