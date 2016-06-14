@@ -1739,9 +1739,11 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoWatchMaps = true;
         }
-        //here we do maps for 20 min since its fun (and also for spire)
+        //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
-        if (game.global.mapBonus < 9 && game.global.world > 180) {
+        if ((game.global.mapBonus < 5 && game.global.world > 190) ||
+        (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 25) ||
+        (game.global.mapBonus < 10 && game.global.world > 200)) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
@@ -1860,49 +1862,49 @@ function autoMap() {
                 }
                 //other unique maps here
                 if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.mapBonus > 9 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 2.5) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 25.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 3) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 26) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 3.5) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 26.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 4) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 27) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 4.5) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 27.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 30) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 20 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 35) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 16 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 45) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 36 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 50) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 //Optional for bone+ spire farming
                 if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 45 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 50 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 60) {
                     shouldDoMap = theMap.id;
                     break;
