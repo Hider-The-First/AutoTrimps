@@ -1274,7 +1274,7 @@ function autoLevelEquipment() {
     enoughHealthE = false;
     enoughDamageE = false;
     }
-    if (game.global.world < 200 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 50) {
+    if (game.global.world < 200 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 75) {
     autoTrimpSettings.GeneticistTimer.value = '30';
     } else {
     autoTrimpSettings.GeneticistTimer.value = '270';
@@ -1901,18 +1901,18 @@ function autoMap() {
                     break;
                 }
                 //Optional for bone+ spire farming
-                //if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 45 &&
-                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 60) {
-                //    shouldDoMap = theMap.id;
-                //    break;
-                //}
-                //if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 60 &&
-                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 70) {
-                //    shouldDoMap = theMap.id;
-                //    break;
-                //}
+                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 45 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 60) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
+                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 60 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 70) {
+                    shouldDoMap = theMap.id;
+                    break;
+                }
             }
         }
         //map if we don't have health/dmg or we need to clear void maps or if we are prestige mapping, and our set item has a new prestige available 
