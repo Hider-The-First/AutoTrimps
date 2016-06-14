@@ -1741,9 +1741,9 @@ function autoMap() {
         }
         //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
-        if ((game.global.mapBonus < 5 && game.global.world > 190) ||
-        (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 25) ||
-        (game.global.mapBonus < 10 && game.global.world > 200)) {
+        if ((game.global.mapBonus < 6 && game.global.world > 185) ||
+        (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 32.5) ||
+        (game.global.mapBonus < 9 && game.global.world > 200)) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
