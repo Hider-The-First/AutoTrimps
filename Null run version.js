@@ -734,7 +734,7 @@ function evaluateEfficiency(equipName) {
         WarpstationWall = true;
     }
     // a test
-    if (gameResource.level > 7) {
+    if (gameResource.level > 4) {
         Res = 0;
         Wall = true;
     }
