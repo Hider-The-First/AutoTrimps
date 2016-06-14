@@ -734,7 +734,7 @@ function evaluateEfficiency(equipName) {
         WarpstationWall = true;
     }
     // a test
-    if (gameResource.level > 4) {
+    if (gameResource.level > 6) {
         Res = 0;
         Wall = true;
     }
@@ -1904,23 +1904,23 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40.5 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 45) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                //Optional for bone+ spire farming
-                if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 45 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 55) {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 55 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 65) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
+                //Optional for bone+ spire farming (no need if every thing is 7 or more)
+                //if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 45 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 55) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
+                //if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 55 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 65) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
             }
         }
         //map if we don't have health/dmg or we need to clear void maps or if we are prestige mapping, and our set item has a new prestige available 
