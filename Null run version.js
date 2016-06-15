@@ -901,8 +901,14 @@ function easyMode() {
         autoTrimpSettings.MaxHouse.value = 50;
         if (game.buildings.Tribute.owned < 2100) {
         autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
+        autoTrimpSettings.FarmerRatio.value = '2';
+        autoTrimpSettings.LumberjackRatio.value = '2';
+        autoTrimpSettings.MinerRatio.value = '25';
         } else {
-            autoTrimpSettings.MaxTrainers.value = -1;
+        autoTrimpSettings.MaxTrainers.value = -1;
+        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.LumberjackRatio.value = '5';
+        autoTrimpSettings.MinerRatio.value = '25';
         }
         //save some wood
         //if (getBuildingItemPrice(game.buildings.Gym, "wood", false, 1) > 100*getBuildingItemPrice(game.buildings.Nursery, "wood", false, 1)) {
@@ -910,9 +916,6 @@ function easyMode() {
         //} else {
         //    autoTrimpSettings.MaxNursery.value = 600;
         //}
-        autoTrimpSettings.FarmerRatio.value = '2';
-        autoTrimpSettings.LumberjackRatio.value = '2';
-        autoTrimpSettings.MinerRatio.value = '25';
     } else if (game.resources.trimps.realMax() > 500000) {
         if (getBuildingItemPrice(game.buildings.House, "food", false, 1) * 10 < game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)) {
     	    	autoTrimpSettings.MaxHouse.value = 100;
@@ -1277,7 +1280,7 @@ function autoLevelEquipment() {
     if (game.global.world < 200 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 85) {
     autoTrimpSettings.GeneticistTimer.value = '30';
     } else {
-    autoTrimpSettings.GeneticistTimer.value = '300';
+    autoTrimpSettings.GeneticistTimer.value = '420';
     }
 
     for (var equipName in equipmentList) {
