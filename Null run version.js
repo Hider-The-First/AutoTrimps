@@ -1102,7 +1102,7 @@ function buyBuildings() {
             (getBuildingItemPrice(game.buildings.Nursery, "gems", false, 1) < 0.05 * getBuildingItemPrice(game.buildings.Collector, "gems", false, 1) || game.buildings.Collector.locked || !game.buildings.Warpstation.locked))
         {
             safeBuyBuilding('Nursery');
-        } else if ((getPageSetting('MaxNursery') > game.buildings.Nursery.owned || getPageSetting('MaxNursery') == -1) && game.buildings.Tribute.owned > 2100 {
+        } else if ((getPageSetting('MaxNursery') > game.buildings.Nursery.owned || getPageSetting('MaxNursery') == -1) && game.buildings.Tribute.owned > 2100) {
             safeBuyBuilding('Nursery');
         }
     }
