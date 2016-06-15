@@ -1864,7 +1864,7 @@ function autoMap() {
                     }
                 }
                 //other unique maps here
-                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.mapBonus > 1 &&
+                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.lastClearedCell > 5 &&
                 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 16) {
                     shouldDoMap = theMap.id;
                     break;
