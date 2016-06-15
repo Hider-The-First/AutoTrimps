@@ -1084,7 +1084,7 @@ function buyBuildings() {
     if(getPageSetting('MaxWormhole') > 0 && game.buildings.Wormhole.owned < getPageSetting('MaxWormhole') && !game.buildings.Wormhole.locked) safeBuyBuilding('Wormhole');
 
     //Buy non-housing buildings
-    if (!game.buildings.Gym.locked && (getPageSetting('MaxGym') > game.buildings.Gym.owned || getPageSetting('MaxGym') == -1)) {
+    if (!game.buildings.Gym.locked && (getPageSetting('MaxGym') > game.buildings.Gym.owned || getPageSetting('MaxGym') == -1) && if !game.global.world == 200) {
         safeBuyBuilding('Gym');
     }
     if (!game.buildings.Tribute.locked && (getPageSetting('MaxTribute') > game.buildings.Tribute.owned || getPageSetting('MaxTribute') == -1)) {
@@ -1280,7 +1280,7 @@ function autoLevelEquipment() {
     if (game.global.world < 200 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 85) {
     autoTrimpSettings.GeneticistTimer.value = '30';
     } else {
-    autoTrimpSettings.GeneticistTimer.value = '420';
+    autoTrimpSettings.GeneticistTimer.value = '360';
     }
 
     for (var equipName in equipmentList) {
