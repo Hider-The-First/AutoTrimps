@@ -1873,27 +1873,27 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 18) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 17.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 18.5) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 18) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 19) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 18.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 19.5) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 19) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 20) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 19.5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
@@ -1903,8 +1903,8 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40.5 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 65) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40.25 &&
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 60) {
                     shouldDoMap = theMap.id;
                     break;
                 }
