@@ -1748,9 +1748,9 @@ function autoMap() {
         }
         //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
-        if ((game.global.mapBonus < 6 && game.global.world > 185) ||
+        if ((game.global.mapBonus < 4 && game.global.world > 184) ||
         (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) ||
-        (game.global.mapBonus < 9 && game.global.world > 200)) {
+        (game.global.mapBonus < 9 && game.global.world > 208)) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
@@ -1869,7 +1869,7 @@ function autoMap() {
                 }
                 //other unique maps here
                 if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.lastClearedCell > 5 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 16) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 17) {
                     shouldDoMap = theMap.id;
                     break;
                 }
@@ -1899,16 +1899,16 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 40) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 55) {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40.25 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 60) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
+                //if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40.25 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 60) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
                 //Optional for bone+ spire farming (no need if every thing is 7 or more)
                 //if(theMap.name == 'Bionic Wonderland VII' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
                 //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 45 &&
