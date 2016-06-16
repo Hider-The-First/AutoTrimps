@@ -900,11 +900,15 @@ function initializeAutoTrimps() {
 function easyMode() {
     if (game.resources.trimps.realMax() > 50000000) {
         autoTrimpSettings.MaxHouse.value = 150;
-        if (game.buildings.Tribute.owned < 2100) {
+        if (game.buildings.Tribute.owned < 1900) {
         autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
         autoTrimpSettings.FarmerRatio.value = '10';
-        autoTrimpSettings.LumberjackRatio.value = '5';
+        autoTrimpSettings.LumberjackRatio.value = '2';
         autoTrimpSettings.MinerRatio.value = '20';
+        } else if (game.buildings.Tribute.owned < 2100 && game.buildings.Tribute.owned > 1900) {
+        autoTrimpSettings.FarmerRatio.value = '5';
+        autoTrimpSettings.LumberjackRatio.value = '2';
+        autoTrimpSettings.MinerRatio.value = '25';
         } else {
         autoTrimpSettings.MaxTrainers.value = -1;
         autoTrimpSettings.FarmerRatio.value = '1';
