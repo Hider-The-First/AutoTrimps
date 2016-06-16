@@ -899,17 +899,17 @@ function initializeAutoTrimps() {
 
 function easyMode() {
     if (game.resources.trimps.realMax() > 50000000) {
-        autoTrimpSettings.MaxHouse.value = 50;
+        autoTrimpSettings.MaxHouse.value = 150;
         if (game.buildings.Tribute.owned < 2100) {
         autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
-        autoTrimpSettings.FarmerRatio.value = '2';
-        autoTrimpSettings.LumberjackRatio.value = '2';
-        autoTrimpSettings.MinerRatio.value = '25';
+        autoTrimpSettings.FarmerRatio.value = '10';
+        autoTrimpSettings.LumberjackRatio.value = '5';
+        autoTrimpSettings.MinerRatio.value = '20';
         } else {
         autoTrimpSettings.MaxTrainers.value = -1;
         autoTrimpSettings.FarmerRatio.value = '1';
-        autoTrimpSettings.LumberjackRatio.value = '5';
-        autoTrimpSettings.MinerRatio.value = '25';
+        autoTrimpSettings.LumberjackRatio.value = '10';
+        autoTrimpSettings.MinerRatio.value = '50';
         }
         //save some wood
         //if (getBuildingItemPrice(game.buildings.Gym, "wood", false, 1) > 100*getBuildingItemPrice(game.buildings.Nursery, "wood", false, 1)) {
@@ -1105,6 +1105,7 @@ function buyBuildings() {
             safeBuyBuilding('Nursery');
         } else if ((getPageSetting('MaxNursery') > game.buildings.Nursery.owned || getPageSetting('MaxNursery') == -1) && game.buildings.Tribute.owned > 2100) {
             safeBuyBuilding('Nursery');
+            safeBuyBuilding('Collector');
         }
     }
 }
@@ -2014,7 +2015,7 @@ function autoMap() {
                     document.getElementById("mapLevelInput").value = game.global.world;
                 else
                     document.getElementById("mapLevelInput").value = siphlvl;
-                if (game.global.world > 86) {
+                if (game.global.world > 126) {
                     sizeAdvMapsRange.value = 9;
                     adjustMap('size', 9);
                     difficultyAdvMapsRange.value = 9;
@@ -2027,12 +2028,12 @@ function autoMap() {
                 } else if (game.global.world < 36) {
                     sizeAdvMapsRange.value = 9;
                     adjustMap('size', 9);
-                    difficultyAdvMapsRange.value = 0;
-                    adjustMap('difficulty', 0);
-                    lootAdvMapsRange.value = 0;
-                    adjustMap('loot', 0);
+                    difficultyAdvMapsRange.value = 9;
+                    adjustMap('difficulty', 9);
+                    lootAdvMapsRange.value = 9;
+                    adjustMap('loot', 9);
 
-                    biomeAdvMapsSelect.value = "Random";
+                    biomeAdvMapsSelect.value = "Sea";
                     updateMapCost();
                 } else {
                     sizeAdvMapsRange.value = 9;
