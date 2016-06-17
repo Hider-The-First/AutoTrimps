@@ -900,12 +900,12 @@ function initializeAutoTrimps() {
 function easyMode() {
     if (game.resources.trimps.realMax() > 50000000) {
         autoTrimpSettings.MaxHouse.value = 150;
-        if (game.buildings.Tribute.owned < 1900) {
+        if (game.buildings.Tribute.owned < 950) {
         autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
         autoTrimpSettings.FarmerRatio.value = '10';
         autoTrimpSettings.LumberjackRatio.value = '2';
         autoTrimpSettings.MinerRatio.value = '20';
-        } else if (game.buildings.Tribute.owned < 2100 && game.buildings.Tribute.owned > 1900) {
+        } else if (game.buildings.Tribute.owned < 2100 && game.buildings.Tribute.owned > 950) {
         autoTrimpSettings.FarmerRatio.value = '5';
         autoTrimpSettings.LumberjackRatio.value = '2';
         autoTrimpSettings.MinerRatio.value = '25';
@@ -2019,7 +2019,7 @@ function autoMap() {
                     document.getElementById("mapLevelInput").value = game.global.world;
                 else
                     document.getElementById("mapLevelInput").value = siphlvl;
-                if (game.global.world > 126) {
+                if (game.global.world > 96) {
                     sizeAdvMapsRange.value = 9;
                     adjustMap('size', 9);
                     difficultyAdvMapsRange.value = 9;
