@@ -1755,7 +1755,7 @@ function autoMap() {
         if ((game.global.mapBonus < 4 && game.global.world > 184 && game.global.world < 200) ||
         (game.global.mapBonus < 1 && (game.global.world == 15 || game.global.world == 25 || game.global.world == 33 || game.global.world == 35 || game.global.world == 37 || game.global.world == 40 || game.global.world == 47 || game.global.world == 50 || game.global.world == 80 || game.global.world == 125 || game.global.world == 170) && game.global.lastClearedCell > 81) ||
         (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 12) ||
-        (game.global.mapBonus < 9 && game.global.world > 208))) {
+        (game.global.mapBonus < 9 && game.global.world > 208)) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
