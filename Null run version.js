@@ -1866,7 +1866,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland' && (game.global.challengeActive == "Crushed" || getPageSetting('VoidMaps') > 200)) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 125 && game.global.mapBonus < 1) {
+                    if(game.global.world == 125 && game.global.mapBonus < 3) {
                         shouldDoMap = theMap.id;
                         break;
                     }
