@@ -1753,7 +1753,7 @@ function autoMap() {
         //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
         if ((game.global.mapBonus < 4 && game.global.world > 184 && game.global.world < 200) ||
-        (game.global.mapBonus < 1 && game.global.world > 125) ||
+        (game.global.mapBonus < 1 && game.global.world == 125) ||
         //(game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) ||
         (game.global.mapBonus < 9 && game.global.world > 208)) {
             shouldDoMaps = true;
