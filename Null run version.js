@@ -1729,7 +1729,7 @@ function autoMap() {
         //leaving it in for now. Manually setting heliumGrowing to true in console should allow it to be used for a maximum total helium gained tox run (for bone trader)
         
         //stack tox stacks if heliumGrowing has been set to true, or if we need to clear our void maps
-        if(game.global.challengeActive == 'Toxicity' && game.global.lastClearedCell > 93 && game.challenges.Toxicity.stacks < 1500 && ((getPageSetting('MaxTox') && game.global.world > 59) || needToVoid)) {
+        if(game.global.challengeActive == 'Toxicity' && game.global.lastClearedCell > 81 && game.challenges.Toxicity.stacks < 1500 && ((getPageSetting('MaxTox') && game.global.world > 59) || needToVoid)) {
             shouldDoMaps = true;
             if (needToVoid && game.challenges.Toxicity.stacks > 1415)   //we willl get at least 85 toxstacks from the 1st voidmap
                 stackingTox = false;
@@ -2041,7 +2041,7 @@ function autoMap() {
                     }
                 }
                 //forcibly run watch maps
-                if ((shouldDoWatchMaps||shouldDoNullMaps) && (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 || game.global.lastClearedCell > 91 ))
+                if ((shouldDoWatchMaps||shouldDoNullMaps) && (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 || game.global.lastClearedCell > 81 ))
                     mapsClicked();                
             }
         } else if (game.global.preMapsActive) {
