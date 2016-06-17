@@ -1474,9 +1474,12 @@ function manualLabor() {
 function autoStance() {
     if (game.global.gridArray.length === 0) return;
     var missingHealth = game.global.soldierHealthMax - game.global.soldierHealth;
-    var newSquadRdy = game.resources.trimps.realMax() <= game.resources.trimps.owned + 1;
+    if (game.global.world == 200) {
+        var newSquadRdy = false;
+    } else {
+        var newSquadRdy = game.resources.trimps.realMax() <= game.resources.trimps.owned + 1;
+    }
 
-    
     baseDamage = game.global.soldierCurrentAttack * 2 * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     if (game.global.formation == 2) {
         baseDamage /= 4;
