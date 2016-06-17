@@ -1752,7 +1752,7 @@ function autoMap() {
         }
         //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
-        if ((game.global.mapBonus < 4 && game.global.world > 184 && game.global.world < 200) ||
+        if ((game.global.mapBonus < 4 && game.global.world > 185 && game.global.world < 200) ||
         (game.global.mapBonus < 1 && (game.global.world == 15 || game.global.world == 25 || game.global.world == 33 || game.global.world == 35 || game.global.world == 37 || game.global.world == 41 || game.global.world == 47 || game.global.world == 51 || game.global.world == 81 || game.global.world == 125 || game.global.world == 171) && game.global.lastClearedCell > 81) ||
         (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 12) ||
         (game.global.mapBonus < 9 && game.global.world > 208) ||
