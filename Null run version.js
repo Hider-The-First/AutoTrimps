@@ -2043,7 +2043,7 @@ function autoMap() {
                     }
                 }
                 //forcibly run watch maps
-                if ((shouldDoWatchMaps||shouldDoNullMaps) && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 )
+                if ((shouldDoWatchMaps||shouldDoNullMaps) && (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 || game.global.lastClearedCell > 91 ))
                     mapsClicked();                
             }
         } else if (game.global.preMapsActive) {
