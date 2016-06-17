@@ -1753,6 +1753,7 @@ function autoMap() {
         //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
         if ((game.global.mapBonus < 4 && game.global.world > 184 && game.global.world < 200) ||
+        (game.global.mapBonus < 1 && game.global.world > 125) ||
         //(game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) ||
         (game.global.mapBonus < 9 && game.global.world > 208)) {
             shouldDoMaps = true;
@@ -1872,7 +1873,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland II' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 141 && game.global.mapBonus < 3) {
+                    if(game.global.world == 139 && game.global.mapBonus < 1) {
                         shouldDoMap = theMap.id;
                         break;
                     }
@@ -1886,7 +1887,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland IV' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 171 && game.global.mapBonus < 3) {
+                    if(game.global.world == 169 && game.global.mapBonus < 1) {
                         shouldDoMap = theMap.id;
                         break;
                     }
