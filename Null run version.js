@@ -1759,7 +1759,7 @@ function autoMap() {
         (game.global.mapBonus < 1 && (game.global.world == 15 || game.global.world == 25 || game.global.world == 33 || game.global.world == 35 || game.global.world == 37 || game.global.world == 41 || game.global.world == 47 || game.global.world == 51 || game.global.world == 81 || game.global.world == 125 || game.global.world == 171) && game.global.lastClearedCell > 81) ||
         (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 12) ||
         (game.global.mapBonus < 9 && game.global.world > 208) ||
-        ((game.global.world == 91 || game.global.world == 101 || game.global.world == 111) && game.global.mapBonus < 9)) {
+        ((game.global.world == 71 || game.global.world == 91 || game.global.world == 101 || game.global.world == 111) && game.global.mapBonus < 9)) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
@@ -2026,7 +2026,7 @@ function autoMap() {
                 if (shouldDoMap != "world") {
                     //if shouldFarm, don't switch until after megamining //genBTC changed.
                     if (!game.global.switchToMaps){
-                        if ((shouldDoMaps && game.global.lastClearedCell < 10 && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95) || (shouldFarm && game.global.lastClearedCell >= 81) || (needPrestige && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95)|| doVoids || shouldDoMap!="world")
+                        if ((shouldDoMaps && game.global.lastClearedCell > 81) || (shouldFarm && game.global.lastClearedCell >= 81) || (needPrestige && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 && || game.global.lastClearedCell > 81)|| doVoids || shouldDoMap!="world")
                             mapsClicked();
                     }
                     ////Get Impatient/Abandon if: need prestige / _NEED_ to do void maps / on lead in odd world. AND a new army is ready, OR _need_ to void map OR lead farming and we're almost done with the zone )
