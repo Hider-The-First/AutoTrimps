@@ -1753,7 +1753,7 @@ function autoMap() {
         //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
         if ((game.global.mapBonus < 4 && game.global.world > 184 && game.global.world < 200) ||
-        (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) ||
+        //(game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 15) ||
         (game.global.mapBonus < 9 && game.global.world > 208)) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
@@ -1863,47 +1863,83 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Bionic Wonderland' && game.global.challengeActive == "Crushed" ) {
+                if(theMap.name == 'Bionic Wonderland' && (game.global.challengeActive == "Crushed" || getPageSetting('VoidMaps') > 200)) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world >= 125 + wonderlandDifficulty) {
-
+                    if(game.global.world = 125 && game.global.mapBonus < 1) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
+                if(theMap.name == 'Bionic Wonderland II' && getPageSetting('VoidMaps') > 200) {
+                    var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
+                    if(game.global.world >= 140 && game.global.mapBonus < 1) {
+                        shouldDoMap = theMap.id;
+                        break;
+                    }
+                }
+                if(theMap.name == 'Bionic Wonderland III' && getPageSetting('VoidMaps') > 200) {
+                    var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
+                    if(game.global.world >= 155 && game.global.mapBonus < 1) {
+                        shouldDoMap = theMap.id;
+                        break;
+                    }
+                }
+                if(theMap.name == 'Bionic Wonderland IV' && getPageSetting('VoidMaps') > 200) {
+                    var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
+                    if(game.global.world >= 170 && game.global.mapBonus < 1) {
+                        shouldDoMap = theMap.id;
+                        break;
+                    }
+                }
+                if(theMap.name == 'Bionic Wonderland V' && getPageSetting('VoidMaps') > 200) {
+                    var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
+                    if(game.global.world >= 185 && game.global.mapBonus < 1) {
+                        shouldDoMap = theMap.id;
+                        break;
+                    }
+                }
+                //if(theMap.name == 'Bionic Wonderland VI' && getPageSetting('VoidMaps') > 200) {
+                //    var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
+                //    if(game.global.world >= 200 && game.global.mapBonus < 1) {
+                //        shouldDoMap = theMap.id;
+                //        break;
+                //    }
+                //}
+                
+                
                 //other unique maps here
-                if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.lastClearedCell > 5 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 17) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 17.5) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 18) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 18.5) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
-                if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 19) {
-                    shouldDoMap = theMap.id;
-                    break;
-                }
+                //if(theMap.name == 'Bionic Wonderland' && game.global.world == 200 && game.global.lastClearedCell > 5 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 17) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
+                //if(theMap.name == 'Bionic Wonderland II' && game.global.world == 200 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 17.5) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
+                //if(theMap.name == 'Bionic Wonderland III' && game.global.world == 200 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 18) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
+                //if(theMap.name == 'Bionic Wonderland IV' && game.global.world == 200 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 18.5) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
+                //if(theMap.name == 'Bionic Wonderland V' && game.global.world == 200 &&
+                //((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 19) {
+                //    shouldDoMap = theMap.id;
+                //    break;
+                //}
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 19.5) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10) {
                     shouldDoMap = theMap.id;
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 55) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 45) {
                     shouldDoMap = theMap.id;
                     break;
                 }
