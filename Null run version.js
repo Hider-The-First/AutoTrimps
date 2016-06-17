@@ -1281,7 +1281,7 @@ function autoLevelEquipment() {
     var enoughHealthE = (baseHealth * 4 > 30 * (enemyDamage - baseBlock / 2 > 0 ? enemyDamage - baseBlock / 2 : enemyDamage * 0.2) || baseHealth > 30 * (enemyDamage - baseBlock > 0 ? enemyDamage - baseBlock : enemyDamage * 0.2));
     var enoughDamageE = (baseDamage * 4 > enemyHealth);
     
-    if (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 40 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 50){
+    if (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 25 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 35){
     enoughHealthE = false;
     enoughDamageE = false;
     }
@@ -1750,7 +1750,7 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoWatchMaps = true;
         }
-        //here we start doing maps for null its fun (and also for spire) 25,35,50
+        //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
         if ((game.global.mapBonus < 4 && game.global.world > 184 && game.global.world < 200) ||
         (game.global.mapBonus < 1 && (game.global.world == 15 || game.global.world == 25 || game.global.world == 33 || game.global.world == 35 || game.global.world == 50 || game.global.world == 80 || game.global.world == 125 || game.global.world == 170) && game.global.lastClearedCell > 81) ||
@@ -1937,7 +1937,7 @@ function autoMap() {
                     break;
                 }
                 if(theMap.name == 'Bionic Wonderland VI' && game.global.world == 200 && game.global.lastClearedCell > 60 &&
-                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 55) {
+                ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 40) {
                     shouldDoMap = theMap.id;
                     break;
                 }
