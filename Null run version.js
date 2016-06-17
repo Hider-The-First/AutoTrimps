@@ -1863,35 +1863,35 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland' && (game.global.challengeActive == "Crushed" || getPageSetting('VoidMaps') > 200)) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 125 && game.global.mapBonus < 2 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 125 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland II' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 139 && game.global.mapBonus < 1 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 139 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland III' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 155 && game.global.mapBonus < 1 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 155 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland IV' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 169 && game.global.mapBonus < 1 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 169 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland V' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 185 && game.global.mapBonus < 1 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 185 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
