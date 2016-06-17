@@ -2045,7 +2045,7 @@ function autoMap() {
                     }
                 }
                 //forcibly run watch maps
-                if ((shouldDoWatchMaps||shouldDoNullMaps) && (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 || game.global.lastClearedCell > 81 ))
+                if ((shouldDoWatchMaps||shouldDoNullMaps||shouldDoMap == game.global.currentMapId) && (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 || game.global.lastClearedCell > 81 ))
                     mapsClicked();                
             }
         } else if (game.global.preMapsActive) {
