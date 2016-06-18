@@ -1653,9 +1653,9 @@ var voidCheckPercent = 0;
 var HDratio = 0;
 
 function autoMap() {
-    //allow script to handle abandoning
-    //if(game.options.menu.alwaysAbandon.enabled == 1) toggleSetting('alwaysAbandon');
-    //    
+    allow script to handle abandoning
+    if(game.options.menu.alwaysAbandon.enabled == 1) toggleSetting('alwaysAbandon');
+        
     var mapbonusmulti = 1 + (0.20*game.global.mapBonus);
     baseDamage *= mapbonusmulti;
     //farm if basedamage is between 10 and 16)
@@ -1771,9 +1771,9 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
-        //    shouldFarm = true;
-        //    enoughDamage = false;
-        //    shouldDoMaps = true;
+            shouldFarm = true;
+            enoughDamage = false;
+            enoughHealth = false;
         }
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
