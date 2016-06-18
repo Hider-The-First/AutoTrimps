@@ -1069,7 +1069,7 @@ function buyStorage() {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
        }
-       if (game.global.world < 176 && game.global.world != 31 && game.global.world != 32) {
+       if (game.global.world < 200 && game.global.world != 31 && game.global.world != 32 && game.global.world != 181 && game.global.world != 182) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
        } else if (game.global.world != 200) {
@@ -1908,7 +1908,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland V' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 183 && game.global.mapBonus < 2) {
+                    if(game.global.world == 183 && game.global.mapBonus < 4) {
                         shouldDoMap = theMap.id;
                         break;
                     }
