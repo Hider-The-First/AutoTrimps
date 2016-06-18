@@ -1069,10 +1069,10 @@ function buyStorage() {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
        }
-       if (game.global.world < 176) {
+       if (game.global.world < 176 && game.global.world != 31 && game.global.world != 32) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       } else if (game.global.world != 200 || game.global.world != 31 || game.global.world != 31) {
+       } else if (game.global.world != 200) {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
        }
