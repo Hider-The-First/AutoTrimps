@@ -1019,8 +1019,11 @@ function buyStorage() {
         if (getPageSetting('VoidMaps')>170) {
           Gigas=34+(Math.floor((getPageSetting('VoidMaps')-170)/10));
         }
+        //Delta push logic range is 1/10,000 just in case its a slow run in any case so larger giga wont hurt,
+        //to 10/10,000 that means a huge giga that maybe can be used in Max Tox runs
+        var DeltaPush = 5/10000
         if (game.global.world >= Math.floor((getPageSetting('VoidMaps')/2.45))) {
-        autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*0.031)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
+        autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*(0.031+Push)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
         }
        //if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
        //    LetItGo = game.buildings.Warpstation.owned;
@@ -1853,7 +1856,7 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'The Prison' && game.global.world == 81 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
+                if(theMap.name == 'The Prison' && game.global.world == 81 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
                      shouldDoMap = theMap.id;
                      break;
                 }
@@ -1861,7 +1864,7 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Trimple of Doom' && game.global.world == 33 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
+                if(theMap.name == 'Trimple of Doom' && game.global.world == 33 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
                     shouldDoMap = theMap.id;
                     break;
                 }
@@ -1871,35 +1874,35 @@ function autoMap() {
                 //}
                 if(theMap.name == 'Bionic Wonderland' && (game.global.challengeActive == "Crushed" || getPageSetting('VoidMaps') > 200)) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 125 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 125 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland II' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 139 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 139 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland III' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 155 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 155 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland IV' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 169 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 169 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland V' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 185 && game.global.mapBonus < 10 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 185 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
                         shouldDoMap = theMap.id;
                         break;
                     }
