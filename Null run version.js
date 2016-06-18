@@ -1072,7 +1072,7 @@ function buyStorage() {
        if (game.global.world < 176) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       } else if (game.global.world != 200) {
+       } else if (game.global.world != 200 || game.global.world != 31 || game.global.world != 31) {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
        }
@@ -1860,7 +1860,7 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'The Prison' && game.global.world == 81 && game.global.mapBonus < 2 && game.global.lastClearedCell > 81) {
+                if(theMap.name == 'The Prison' && game.global.world == 81 && game.global.mapBonus < 5 && game.global.lastClearedCell > 81) {
                      shouldDoMap = theMap.id;
                      break;
                 }
@@ -1869,7 +1869,7 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Trimple of Doom' && game.global.world == 33 && game.global.mapBonus < 2 && game.global.lastClearedCell > 81) {
+                if(theMap.name == 'Trimple of Doom' && game.global.world == 33 && game.global.mapBonus < 5 && game.global.lastClearedCell > 81) {
                     shouldDoMap = theMap.id;
                     break;
                 }
