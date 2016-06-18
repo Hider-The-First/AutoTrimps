@@ -1904,7 +1904,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland V' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 184 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 183 && game.global.mapBonus < 4) {
                         shouldDoMap = theMap.id;
                         break;
                     }
