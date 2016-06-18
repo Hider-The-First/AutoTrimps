@@ -1062,10 +1062,14 @@ function buyStorage() {
         //   document.getElementById('Prestige').selectedIndex = 2;
         //   autoTrimpSettings.Prestige.selected = "Dagadder";
        //}
-       //if (game.global.world < getPageSetting('VoidMaps')-20) {
-        //   document.getElementById('Prestige').selectedIndex = 2;
-        //   autoTrimpSettings.Prestige.selected = "Dagadder";
-       //}
+       if (game.global.world < 36) {
+           document.getElementById('Prestige').selectedIndex = 2;
+           autoTrimpSettings.Prestige.selected = "Dagadder";
+       } else {
+           document.getElementById('Prestige').selectedIndex = 0;
+           autoTrimpSettings.Prestige.selected = "Off";
+       }
+       }
        
     }
 }
@@ -1756,7 +1760,7 @@ function autoMap() {
         //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
         if ((game.global.mapBonus < 4 && game.global.world > 185 && game.global.world < 200) ||
-        (game.global.mapBonus < 1 && (game.global.world == 15 || game.global.world == 25 || game.global.world == 33 || game.global.world == 35 || game.global.world == 37 || game.global.world == 41 || game.global.world == 47 || game.global.world == 81 || game.global.world == 125) && game.global.lastClearedCell > 81) ||
+        (game.global.mapBonus < 1 && (game.global.world == 25 || game.global.world == 33 || game.global.world == 35 || game.global.world == 37 || game.global.world == 41 || game.global.world == 47 || game.global.world == 81 || game.global.world == 125) && game.global.lastClearedCell > 81) ||
         (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 12) ||
         (game.global.mapBonus < 9 && game.global.world > 208) ||
         ((game.global.world == 51 || game.global.world == 61 || game.global.world == 71 || game.global.world == 91 || game.global.world == 101 || game.global.world == 111) && game.global.mapBonus < 9)) {
@@ -1838,14 +1842,15 @@ function autoMap() {
                 }
                 break;
             }
-
-
-            if ((theMap.noRecycle && getPageSetting('RunUniqueMaps')) || getPageSetting('VoidMaps') > 200) {
-                if (theMap.name == 'The Wall' && game.global.world == 15 && game.global.mapBonus < 5 && game.global.lastClearedCell > 81) {
+            
+            if (theMap.noRecycle && getPageSetting('RunUniqueMaps')) {
+                if (theMap.name == 'The Wall' && game.upgrades.Bounty.allowed == 0) {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if (theMap.name == 'Dimension of Anger' && game.global.world == 21 && game.global.mapBonus < 1 && game.global.lastClearedCell > 81) {
+                if (theMap.name == 'Dimension of Anger' && document.getElementById("portalBtn").style.display == "none") {
+                    var doaDifficulty = Math.ceil(theMap.difficulty / 2);
+                    if(game.global.world < 20) continue; 
                     shouldDoMap = theMap.id;
                     break;
                 }
