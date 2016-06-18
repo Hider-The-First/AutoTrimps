@@ -14,6 +14,7 @@
 //Variables/////////////////////////////
 ////////////////////////////////////////
 var AutoTrimpsDebugTabVisible = true;
+
 var runInterval = 100; //How often to loop through logicc
 var enableDebug = true; //Spam console?
 var autoTrimpSettings = new Object();
@@ -1659,9 +1660,9 @@ function autoMap() {
     var mapbonusmulti = 1 + (0.20*game.global.mapBonus);
     baseDamage *= mapbonusmulti;
     //farm if basedamage is between 10 and 16)
-    //if(!getPageSetting('DisableFarm')) {
-    //    shouldFarm = shouldFarm ? getEnemyMaxHealth(game.global.world) / (baseDamage*4) > 2.5 : getEnemyMaxHealth(game.global.world) / (baseDamage*4) > 4;
-    //}
+    if(!getPageSetting('DisableFarm')) {
+        shouldFarm = shouldFarm ? getEnemyMaxHealth(game.global.world) / (baseDamage*4) > 2.5 : getEnemyMaxHealth(game.global.world) / (baseDamage*4) > 4;
+    }
     //DECIMAL VOID MAPS:
     var voidMapLevelSetting = getPageSetting('VoidMaps');
     //using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
@@ -1741,7 +1742,7 @@ function autoMap() {
         //leaving it in for now. Manually setting heliumGrowing to true in console should allow it to be used for a maximum total helium gained tox run (for bone trader)
         
         //stack tox stacks if heliumGrowing has been set to true, or if we need to clear our void maps
-        if(game.global.challengeActive == 'Toxicity' && game.global.lastClearedCell > 81 && game.challenges.Toxicity.stacks < 1500 && ((getPageSetting('MaxTox') && game.global.world > 59) || needToVoid)) {
+        if(game.global.challengeActive == 'Toxicity' && game.global.lastClearedCell > 93 && game.challenges.Toxicity.stacks < 1500 && ((getPageSetting('MaxTox') && game.global.world > 59) || needToVoid)) {
             shouldDoMaps = true;
             if (needToVoid && game.challenges.Toxicity.stacks > 1415)   //we willl get at least 85 toxstacks from the 1st voidmap
                 stackingTox = false;
@@ -1770,10 +1771,11 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
-            shouldFarm = true;
-            enoughDamage = false;
-            enoughHealth = false;
+
         }
+        shouldFarm = shouldDoNullMaps ? true : shouldFarm;
+        enoughDamage = shouldDoNullMaps ? true : enoughDamage;
+        enoughHealth = shouldDoNullMaps ? true : enoughHealth;
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
 
@@ -1845,7 +1847,8 @@ function autoMap() {
                 }
                 break;
             }
-            
+
+
             if (theMap.noRecycle && getPageSetting('RunUniqueMaps')) {
                 if (theMap.name == 'The Wall' && game.upgrades.Bounty.allowed == 0) {
                     shouldDoMap = theMap.id;
@@ -1861,6 +1864,7 @@ function autoMap() {
                      shouldDoMap = theMap.id;
                      break;
                 }
+
                 if(theMap.name == 'The Block' && !game.upgrades.Shieldblock.allowed && (game.global.challengeActive == "Scientist" || game.global.challengeActive == "Trimp" || getPageSetting('BuyShieldblock'))) {
                     shouldDoMap = theMap.id;
                     break;
@@ -1886,6 +1890,7 @@ function autoMap() {
                         shouldDoMap = theMap.id;
                         break;
                     }
+
                 }
                 if(theMap.name == 'Bionic Wonderland III' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
@@ -2007,7 +2012,7 @@ function autoMap() {
 
                 
                 //if we are doing the right map, and it's not a norecycle (unique) map, and we aren't going to hit max map bonus
-                if ((shouldDoMap == game.global.currentMapId && game.global.mapBonus < 9) && !game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)].noRecycle && (game.global.mapBonus < 9 || shouldFarm || stackingTox || needPrestige)) {
+                if (shouldDoMap == game.global.currentMapId && !game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)].noRecycle && (game.global.mapBonus < 9 || shouldFarm || stackingTox || needPrestige)) {
                     var targetPrestige = autoTrimpSettings.Prestige.selected;
                     //make sure repeat map is on
                     if (!game.global.repeatMap) {
@@ -2034,7 +2039,7 @@ function autoMap() {
                 if (shouldDoMap != "world") {
                     //if shouldFarm, don't switch until after megamining //genBTC changed.
                     if (!game.global.switchToMaps){
-                        if ((shouldDoMaps && game.global.lastClearedCell >= 81) || (shouldDoMap == game.global.currentMapId && game.global.lastClearedCell > 81 && game.global.mapBonus < 1)  || (shouldFarm && game.global.lastClearedCell >= 81) || (needPrestige && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95) || game.global.lastClearedCell > 81 || doVoids || shouldDoMap!="world")
+                        if ((shouldDoMaps && game.global.lastClearedCell < 10 && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95) || (shouldFarm && game.global.lastClearedCell >= 81) || (needPrestige && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95)|| doVoids || shouldDoMap!="world")
                             mapsClicked();
                     }
                     ////Get Impatient/Abandon if: need prestige / _NEED_ to do void maps / on lead in odd world. AND a new army is ready, OR _need_ to void map OR lead farming and we're almost done with the zone )
@@ -2053,7 +2058,7 @@ function autoMap() {
                     }
                 }
                 //forcibly run watch maps
-                if ((shouldDoWatchMaps||shouldDoNullMaps||(shouldDoMap == game.global.currentMapId && game.global.mapBonus < 9)) && (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 || game.global.lastClearedCell > 81 ))
+                if ((shouldDoWatchMaps||shouldDoNullMaps) && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95 )
                     mapsClicked();                
             }
         } else if (game.global.preMapsActive) {
