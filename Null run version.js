@@ -1773,7 +1773,7 @@ function autoMap() {
             console.log("now null running = true");
             shouldFarm = true;
             enoughDamage = false;
-            enoughHealth = true;
+            shouldDoMaps = true;
         }
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
@@ -2035,7 +2035,7 @@ function autoMap() {
                 if (shouldDoMap != "world") {
                     //if shouldFarm, don't switch until after megamining //genBTC changed.
                     if (!game.global.switchToMaps){
-                        if ((shouldDoMaps && game.global.lastClearedCell > 81) || (shouldFarm && game.global.lastClearedCell >= 81) || (needPrestige && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95) || game.global.lastClearedCell > 81 || doVoids || shouldDoMap!="world")
+                        if ((shouldDoMaps && game.global.lastClearedCell >= 81) || (shouldFarm && game.global.lastClearedCell >= 81) || (needPrestige && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.95) || game.global.lastClearedCell > 81 || doVoids || shouldDoMap!="world")
                             mapsClicked();
                     }
                     ////Get Impatient/Abandon if: need prestige / _NEED_ to do void maps / on lead in odd world. AND a new army is ready, OR _need_ to void map OR lead farming and we're almost done with the zone )
