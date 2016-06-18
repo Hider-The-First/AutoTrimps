@@ -1860,7 +1860,7 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'The Prison' && game.global.world == 81 && game.global.mapBonus < 5 && game.global.lastClearedCell > 81) {
+                if(theMap.name == 'The Prison' && game.global.world == 81 && game.global.mapBonus < 5) {
                      shouldDoMap = theMap.id;
                      break;
                 }
@@ -1869,7 +1869,7 @@ function autoMap() {
                     shouldDoMap = theMap.id;
                     break;
                 }
-                if(theMap.name == 'Trimple of Doom' && game.global.world == 33 && game.global.mapBonus < 5 && game.global.lastClearedCell > 81) {
+                if(theMap.name == 'Trimple of Doom' && game.global.world == 33 && game.global.mapBonus < 5) {
                     shouldDoMap = theMap.id;
                     break;
                 }
