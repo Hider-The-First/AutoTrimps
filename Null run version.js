@@ -14,7 +14,6 @@
 //Variables/////////////////////////////
 ////////////////////////////////////////
 var AutoTrimpsDebugTabVisible = true;
-
 var runInterval = 100; //How often to loop through logicc
 var enableDebug = true; //Spam console?
 var autoTrimpSettings = new Object();
@@ -1023,7 +1022,7 @@ function buyStorage() {
         //to 10/10,000 that means a huge giga that maybe can be used in Max Tox runs
         var DeltaPush = 5/10000
         if (game.global.world >= Math.floor((getPageSetting('VoidMaps')/2.45))) {
-        autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*(0.031+Push)))-autoTrimpSettings.FirstGigastation.value)/Gigas;
+        autoTrimpSettings.DeltaGigastation.value = ((Gigas*(1.5+((getPageSetting('VoidMaps')-80)*(0.031+(DeltaPush)))))-autoTrimpSettings.FirstGigastation.value)/Gigas;
         }
        //if (game.global.world == 89 && game.global.lastClearedCell == 1 ) {
        //    LetItGo = game.buildings.Warpstation.owned;
