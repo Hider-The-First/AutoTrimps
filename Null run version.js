@@ -1654,8 +1654,8 @@ var HDratio = 0;
 
 function autoMap() {
     //allow script to handle abandoning
-    if(game.options.menu.alwaysAbandon.enabled == 1) toggleSetting('alwaysAbandon');
-        
+    //if(game.options.menu.alwaysAbandon.enabled == 1) toggleSetting('alwaysAbandon');
+    //    
     var mapbonusmulti = 1 + (0.20*game.global.mapBonus);
     baseDamage *= mapbonusmulti;
     //farm if basedamage is between 10 and 16)
