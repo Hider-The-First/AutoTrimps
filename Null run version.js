@@ -1064,14 +1064,10 @@ function buyStorage() {
         //   document.getElementById('Prestige').selectedIndex = 2;
         //   autoTrimpSettings.Prestige.selected = "Dagadder";
        //}
-       if (game.global.world == 200) {
-            document.getElementById('Prestige').selectedIndex = 13;
-            autoTrimpSettings.Prestige.selected = "GambesOP";
-       }
        if (game.global.world < 36) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       } else if (game.global.world != 200) {
+       } else {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
        }
@@ -1766,6 +1762,7 @@ function autoMap() {
         var shouldDoNullMaps = false;
         if ((game.global.mapBonus < 4 && game.global.world > 185 && game.global.world < 200) ||
         (game.global.mapBonus < 1 && (game.global.world == 25 || game.global.world == 33 || game.global.world == 35 || game.global.world == 37 || game.global.world == 41 || game.global.world == 47 || game.global.world == 81 || game.global.world == 125) && game.global.lastClearedCell > 81) ||
+        (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 12) ||
         (game.global.mapBonus < 9 && game.global.world > 208) ||
         ((game.global.world == 51 || game.global.world == 61 || game.global.world == 71 || game.global.world == 91 || game.global.world == 101 || game.global.world == 111) && game.global.mapBonus < 9)) {
             shouldDoMaps = true;
@@ -1904,7 +1901,7 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland V' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 184 && game.global.mapBonus < 3 && game.global.lastClearedCell > 81) {
+                    if(game.global.world == 183 && game.global.mapBonus < 3) {
                         shouldDoMap = theMap.id;
                         break;
                     }
