@@ -1069,7 +1069,6 @@ function buyStorage() {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
        }
-       }
        
     }
 }
