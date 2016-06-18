@@ -1766,7 +1766,7 @@ function autoMap() {
         var shouldDoNullMaps = false;
         if ((game.global.mapBonus < 4 && game.global.world > 185 && game.global.world < 200) ||
         (game.global.mapBonus < 1 && (game.global.world == 125) && game.global.lastClearedCell > 81) ||
-        (game.global.mapBonus < 9 && game.global.world > 208) {
+        (game.global.mapBonus < 9 && game.global.world > 208)) {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
