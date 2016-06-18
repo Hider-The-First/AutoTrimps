@@ -1911,7 +1911,7 @@ function autoMap() {
                 //        shouldDoMap = theMap.id;
                 //        break;
                 //    }
-                /}
+                //}
                 //if(theMap.name == 'Bionic Wonderland VI' && getPageSetting('VoidMaps') > 200) {
                 //    var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
                 //    if(game.global.world >= 200 && game.global.mapBonus < 1) {
