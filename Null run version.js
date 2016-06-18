@@ -1766,10 +1766,10 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
+            shouldFarm = true;
+            enoughDamage = false;
+            enoughHealth = true;
         }
-        shouldFarm = shouldDoNullMaps ? true : shouldFarm;
-        enoughDamage = shouldDoNullMaps ? true : enoughDamage;
-        enoughHealth = shouldDoNullMaps ? true : enoughHealth;
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
 
