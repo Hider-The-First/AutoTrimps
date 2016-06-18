@@ -1771,9 +1771,9 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
-            shouldFarm = true;
-            enoughDamage = false;
-            shouldDoMaps = true;
+        //    shouldFarm = true;
+        //    enoughDamage = false;
+        //    shouldDoMaps = true;
         }
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
