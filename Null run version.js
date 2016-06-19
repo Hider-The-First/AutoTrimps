@@ -1070,8 +1070,8 @@ function buyStorage() {
             autoTrimpSettings.Prestige.selected = "GambesOP";
        }
        if (game.global.world < 200) { //&& game.global.world != 31 && game.global.world != 32 && game.global.world != 33 && game.global.world != 34 && game.global.world != 35 && game.global.world != 36) {
-           document.getElementById('Prestige').selectedIndex = 4;
-           autoTrimpSettings.Prestige.selected = "Megamace";
+           document.getElementById('Prestige').selectedIndex = 2;
+           autoTrimpSettings.Prestige.selected = "Dagadder";
        } else if (game.global.world != 200 && game.global.world != 201) {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
