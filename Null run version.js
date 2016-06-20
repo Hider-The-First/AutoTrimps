@@ -1062,8 +1062,8 @@ function buyStorage() {
        //     document.getElementById('Prestige').selectedIndex = 13;
         //    autoTrimpSettings.Prestige.selected = "GambesOP";
        if (game.global.world <= 200) {
-           document.getElementById('Prestige').selectedIndex = 4;
-           autoTrimpSettings.Prestige.selected = "Megamace";
+           document.getElementById('Prestige').selectedIndex = 2;
+           autoTrimpSettings.Prestige.selected = "Dagadder";
        }
        //if (game.global.world == 200 || game.global.world == 201) {
        //     document.getElementById('Prestige').selectedIndex = 13;
