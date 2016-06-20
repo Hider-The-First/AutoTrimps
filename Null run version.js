@@ -1058,24 +1058,24 @@ function buyStorage() {
         //   document.getElementById('Prestige').selectedIndex = 2;
         //   autoTrimpSettings.Prestige.selected = "Dagadder";
        //}
-       //if(game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell < 79 && game.global.mapBonus < 9) {
-        //    document.getElementById('Prestige').selectedIndex = 13;
-        //    autoTrimpSettings.Prestige.selected = "GambesOP";
-       //} else if (game.global.world == getPageSetting('VoidMaps') && game.global.mapBonus >= 9) {
-        //   document.getElementById('Prestige').selectedIndex = 2;
-        //   autoTrimpSettings.Prestige.selected = "Dagadder";
-       //}
-       if (game.global.world == 200 || game.global.world == 201) {
+       if(game.global.world > 171 && game.global.world < 179 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
             document.getElementById('Prestige').selectedIndex = 13;
             autoTrimpSettings.Prestige.selected = "GambesOP";
-       }
-       if (game.global.world < 200) { //&& game.global.world != 31 && game.global.world != 32 && game.global.world != 33 && game.global.world != 34 && game.global.world != 35 && game.global.world != 36) {
+       } else if (game.global.world <= 200) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-       } else if (game.global.world != 200 && game.global.world != 201) {
-           document.getElementById('Prestige').selectedIndex = 0;
-           autoTrimpSettings.Prestige.selected = "Off";
        }
+       //if (game.global.world == 200 || game.global.world == 201) {
+       //     document.getElementById('Prestige').selectedIndex = 13;
+       //     autoTrimpSettings.Prestige.selected = "GambesOP";
+       //}
+       //if (game.global.world < 200) { //&& game.global.world != 31 && game.global.world != 32 && game.global.world != 33 && game.global.world != 34 && game.global.world != 35 && game.global.world != 36) {
+       //    document.getElementById('Prestige').selectedIndex = 2;
+       //    autoTrimpSettings.Prestige.selected = "Dagadder";
+       //} else if (game.global.world != 200 && game.global.world != 201) {
+       //    document.getElementById('Prestige').selectedIndex = 0;
+       //    autoTrimpSettings.Prestige.selected = "Off";
+       //}
        
     }
 }
