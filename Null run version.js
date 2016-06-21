@@ -1061,10 +1061,14 @@ function buyStorage() {
        //if(game.global.world > 171 && game.global.world < 179 && game.global.lastClearedCell > 81 && game.global.mapBonus < 10) {
        //     document.getElementById('Prestige').selectedIndex = 13;
         //    autoTrimpSettings.Prestige.selected = "GambesOP";
-       if (game.global.world <= 200) {
+       if (game.global.world < 200) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
+       } else
+           document.getElementById('Prestige').selectedIndex = 13;
+           autoTrimpSettings.Prestige.selected = "GambesOP";
        }
+       //}
        //if (game.global.world == 200 || game.global.world == 201) {
        //     document.getElementById('Prestige').selectedIndex = 13;
        //     autoTrimpSettings.Prestige.selected = "GambesOP";
@@ -1765,9 +1769,9 @@ function autoMap() {
         }
         //here we start doing maps for null its fun (and also for spire)
         var shouldDoNullMaps = false;
-        if ((game.global.mapBonus < 3 && game.global.world > 185 && game.global.world < 200) || 
-        (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 20 && game.global.lastClearedCell > 20) ||
-        (game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 25 && game.global.lastClearedCell > 60)) {
+        if ((game.global.mapBonus < 10 && game.global.world > 180 && game.global.world != 200) {
+        //(game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 20 && game.global.lastClearedCell > 20) ||
+        //(game.global.world == 200 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 25 && game.global.lastClearedCell > 60)) {
         //(game.global.mapBonus < 1 && (game.global.world == 125) && game.global.lastClearedCell > 81) ||
         //(game.global.mapBonus < 9 && game.global.world > 208)) {
             shouldDoMaps = true;
