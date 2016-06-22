@@ -2269,7 +2269,7 @@ function checkSettings() {
         case "Watch":
             portalLevel = 181;
             break;
-        case "Corrupted"
+        case "Corrupted":
             portalLevel = 191;
             break;
     }
