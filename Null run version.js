@@ -2220,16 +2220,12 @@ function autoPortal() {
             break;
         case "Balance":
         case "Electricity":
-
         case "Crushed":
-
         case "Nom":
-
         case "Toxicity":
-
         case "Watch":
-
         case "Lead":
+        case "Corrupted":
             if(!game.global.challengeActive) {
                 pushData();
                 doPortal(autoTrimpSettings.AutoPortal.selected);
@@ -2272,6 +2268,9 @@ function checkSettings() {
             break;
         case "Watch":
             portalLevel = 181;
+            break;
+        case "Corrupted"
+            portalLevel = 191;
             break;
     }
     if(portalLevel == -1)
