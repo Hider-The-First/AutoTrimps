@@ -1886,28 +1886,28 @@ function autoMap() {
                 }
                 if(theMap.name == 'Bionic Wonderland' && (game.global.challengeActive == "Crushed" || getPageSetting('VoidMaps') > 200)) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 125 && game.global.mapBonus < 4) {
+                    if(game.global.world == 125 && game.global.mapBonus < 2) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland II' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 140 && game.global.mapBonus < 4) {
+                    if(game.global.world == 140 && game.global.mapBonus < 2) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland III' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 155 && game.global.mapBonus < 4) {
+                    if(game.global.world == 155 && game.global.mapBonus < 2) {
                         shouldDoMap = theMap.id;
                         break;
                     }
                 }
                 if(theMap.name == 'Bionic Wonderland IV' && getPageSetting('VoidMaps') > 200) {
                     var wonderlandDifficulty = Math.ceil(theMap.difficulty / 2);
-                    if(game.global.world == 170 && game.global.mapBonus < 4) {
+                    if(game.global.world == 170 && game.global.mapBonus < 2) {
                         shouldDoMap = theMap.id;
                         break;
                     }
