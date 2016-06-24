@@ -4,10 +4,11 @@
 // @version      2.1.1-genbtc-stable-5-21-2016
 // @description  try to take over the world!
 // @author       zininzinin, spindrjr, belaith, ishakaru, genBTC
-// @include      *trimps.github.io*
+// @include        *trimps.github.io*
 // @include        *kongregate.com/games/GreenSatellite/trimps
 // @grant        none
 // ==/UserScript==
+
 
 ////////////////////////////////////////
 //Variables/////////////////////////////
@@ -323,11 +324,19 @@ function highlightHousing() {
 }
 
 function buyFoodEfficientHousing() {
+    // Push the limit
+    autoTrimpSettings.MaxHut.value = 10+game.buildings.House.owned;
+    autoTrimpSettings.MaxMansion.value = 20+game.buildings.House.owned;
+    autoTrimpSettings.MaxHotel.value = 30+game.buildings.House.owned;
+    autoTrimpSettings.MaxResort.value = 40+game.buildings.House.owned;
+    autoTrimpSettings.MaxExplorers.value = 70+game.buildings.House.owned;
     var houseWorth = game.buildings.House.locked ? 0 : game.buildings.House.increase.by / getBuildingItemPrice(game.buildings.House, "food", false, 1);
     var hutWorth = game.buildings.Hut.increase.by / getBuildingItemPrice(game.buildings.Hut, "food", false, 1);
     var hutAtMax = (game.buildings.Hut.owned >= autoTrimpSettings.MaxHut.value && autoTrimpSettings.MaxHut.value != -1);
     //if hutworth is more, but huts are maxed , still buy up to house max
-    if ((houseWorth > hutWorth || hutAtMax) && canAffordBuilding('House') && (game.buildings.House.owned < autoTrimpSettings.MaxHouse.value || autoTrimpSettings.MaxHouse.value == -1)) {
+    if ((houseWorth > hutWorth || hutAtMax) && canAffordBuilding('House') &&
+    	(getBuildingItemPrice(game.buildings.House, "food", false, 1) * 100) < game.resources.food.owned &&
+    	 (game.buildings.House.owned < autoTrimpSettings.MaxHouse.value || autoTrimpSettings.MaxHouse.value == -1)) {
         safeBuyBuilding('House');
     } else {
         if (!hutAtMax) {
@@ -887,22 +896,44 @@ function initializeAutoTrimps() {
 }
 
 function easyMode() {
-    if (game.resources.trimps.realMax() > 3000000) {
-        autoTrimpSettings.FarmerRatio.value = '3';
-        autoTrimpSettings.LumberjackRatio.value = '1';
-        autoTrimpSettings.MinerRatio.value = '4';
-    } else if (game.resources.trimps.realMax() > 300000) {
-        autoTrimpSettings.FarmerRatio.value = '3';
-        autoTrimpSettings.LumberjackRatio.value = '3';
-        autoTrimpSettings.MinerRatio.value = '5';
+    if (game.resources.trimps.realMax() > 50000000) {
+        autoTrimpSettings.MaxHouse.value = 150;
+        if (game.buildings.Tribute.owned < 1100) {
+        autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
+        autoTrimpSettings.FarmerRatio.value = '10';
+        autoTrimpSettings.LumberjackRatio.value = '2';
+        autoTrimpSettings.MinerRatio.value = '20';
+        } else if (game.buildings.Tribute.owned < 2100 && game.buildings.Tribute.owned > 1100) {
+        autoTrimpSettings.FarmerRatio.value = '5';
+        autoTrimpSettings.LumberjackRatio.value = '2';
+        autoTrimpSettings.MinerRatio.value = '25';
+        } else {
+        autoTrimpSettings.MaxTrainers.value = -1;
+        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.LumberjackRatio.value = '10';
+        autoTrimpSettings.MinerRatio.value = '50';
+        }
+        //save some wood
+        //if (getBuildingItemPrice(game.buildings.Gym, "wood", false, 1) > 100*getBuildingItemPrice(game.buildings.Nursery, "wood", false, 1)) {
+        //    autoTrimpSettings.MaxNursery.value = -1;
+        //} else {
+        //    autoTrimpSettings.MaxNursery.value = 600;
+        //}
+    } else if (game.resources.trimps.realMax() > 500000) {
+        if (getBuildingItemPrice(game.buildings.House, "food", false, 1) * 10 < game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)) {
+    	    	autoTrimpSettings.MaxHouse.value = 100;
+    	}
+    	//autoTrimpSettings.DeltaGigastation.value = 50;
+    	//autoTrimpSettings.FirstGigastation.value = 50;
+    	  autoTrimpSettings.MaxTrainers.value = 150;
+        autoTrimpSettings.FarmerRatio.value = '5';
+        autoTrimpSettings.LumberjackRatio.value = '5';
+        autoTrimpSettings.MinerRatio.value = '10';
     } else {
-        autoTrimpSettings.FarmerRatio.value = '1';
-        autoTrimpSettings.LumberjackRatio.value = '1';
-        autoTrimpSettings.MinerRatio.value = '1';
-    }
-    if (game.global.challengeActive == 'Watch'){
-        autoTrimpSettings.FarmerRatio.value = '1';
-        autoTrimpSettings.LumberjackRatio.value = '1';
+        autoTrimpSettings.MaxHouse.value = 50;
+    	  autoTrimpSettings.MaxGateway.value = 20;
+        autoTrimpSettings.FarmerRatio.value = '5';
+        autoTrimpSettings.LumberjackRatio.value = '5';
         autoTrimpSettings.MinerRatio.value = '1';
     }
 }
