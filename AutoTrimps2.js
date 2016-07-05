@@ -1581,6 +1581,15 @@ function autoMap() {
             document.getElementById('Prestige').selectedIndex = 11;
             autoTrimpSettings.Prestige.selected = "Bestplate";
         }
+        //set prestige to off to make sure going for prestige wont mass up the FarmToCrit, Set prestige to dagger before FarmToCrit starts.
+        if (FarmToCrit > game.global.world) {
+            document.getElementById('Prestige').selectedIndex = 2;
+            autoTrimpSettings.Prestige.selected = "Dagadder";
+        }
+        if (FarmToCrit <= game.global.world) {
+            document.getElementById('Prestige').selectedIndex = 0;
+            autoTrimpSettings.Prestige.selected = "Off";
+        }
         
         //FarmWhenNomStacks7
         if(game.global.challengeActive == 'Nom' && getPageSetting('FarmWhenNomStacks7')) {
@@ -1618,6 +1627,19 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoWatchMaps = true;
         }
+        //Chose a point to start doing maps until you can crit all the cells in the map (need to add FarmToCrit in the script menu)
+        var CritTheMap = false;
+        if (
+        (game.global.world >= FarmToCrit && game.global.mapBonus <= 7) ||
+        (game.global.world >= FarmToCrit && game.global.lastClearedCell > 93 && ((new Date().getTime() - game.global.mapStarted > 8000 && game.global.mapsActive) || game.global.mapBonus <= 9))
+        ) {
+            shouldDoMaps = true;
+            CritTheMap = true;
+            console.log("now null running = true");
+        }
+        shouldFarm = shouldDoNullMaps ? true : shouldFarm;
+        enoughDamage = shouldDoNullMaps ? true : enoughDamage;
+        enoughHealth = shouldDoNullMaps ? true : enoughHealth;
         
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
@@ -1779,7 +1801,7 @@ function autoMap() {
                         repeatClicked();
                     }
                     //turn off repeat maps if we doing Watch maps.
-                    if (shouldDoWatchMaps)
+                    if (shouldDoWatchMaps || CritTheMap)
                         repeatClicked();
                 } else {
                     //otherwise, make sure repeat map is off
@@ -2185,8 +2207,9 @@ function prestigeChanging(){
     //find out the last zone (checks custom autoportal and challenge's portal zone)
     var lastzone = checkSettings() - 1; //subtract 1 because the function adds 1 for its own purposes.
     
-    if (lastzone < 0)
-        return; //stop doing anything if lastzone is not set
+    //set prestige to off to make sure going for prestige wont mass up the FarmToCrit. 
+    if (lastzone < 0 || FarmToCrit <= game.global.world)
+        return; //stop doing anything if lastzone is not set or we are doing FarmToCrit maps.
     
     //If we are between 20 and 10 zones before the last zone:
     if(game.global.world >= (lastzone-20) && game.global.world < (lastzone-10) && game.global.lastClearedCell < 79){
