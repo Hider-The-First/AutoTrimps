@@ -1649,7 +1649,15 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoWatchMaps = true;
         }
-        
+        //Makes sure we overkill for the next few zones
+	var lastOverkillCheck = -1
+	if (baseDamage < getEnemyMaxHealth(game.global.world + 4) && lastOverkillCheck < game.global.world - 3) {
+		shouldDoMaps = true
+		lastOverkillCheck = game.global.world
+		
+		else
+			shouldDoMaps = false
+	}
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
 
