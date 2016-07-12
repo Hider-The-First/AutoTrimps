@@ -4,11 +4,10 @@
 // @version      2.1.1-genbtc-stable-5-21-2016
 // @description  try to take over the world!
 // @author       zininzinin, spindrjr, belaith, ishakaru, genBTC
-// @include        *trimps.github.io*
+// @include      *trimps.github.io*
 // @include        *kongregate.com/games/GreenSatellite/trimps
 // @grant        none
 // ==/UserScript==
-
 
 ////////////////////////////////////////
 //Variables/////////////////////////////
@@ -324,19 +323,11 @@ function highlightHousing() {
 }
 
 function buyFoodEfficientHousing() {
-    // Push the limit
-    autoTrimpSettings.MaxHut.value = 10+game.buildings.House.owned;
-    autoTrimpSettings.MaxMansion.value = 20+game.buildings.House.owned;
-    autoTrimpSettings.MaxHotel.value = 30+game.buildings.House.owned;
-    autoTrimpSettings.MaxResort.value = 40+game.buildings.House.owned;
-    autoTrimpSettings.MaxExplorers.value = 70+game.buildings.House.owned;
     var houseWorth = game.buildings.House.locked ? 0 : game.buildings.House.increase.by / getBuildingItemPrice(game.buildings.House, "food", false, 1);
     var hutWorth = game.buildings.Hut.increase.by / getBuildingItemPrice(game.buildings.Hut, "food", false, 1);
     var hutAtMax = (game.buildings.Hut.owned >= autoTrimpSettings.MaxHut.value && autoTrimpSettings.MaxHut.value != -1);
     //if hutworth is more, but huts are maxed , still buy up to house max
-    if ((houseWorth > hutWorth || hutAtMax) && canAffordBuilding('House') &&
-    	(getBuildingItemPrice(game.buildings.House, "food", false, 1) * 100) < game.resources.food.owned &&
-    	 (game.buildings.House.owned < autoTrimpSettings.MaxHouse.value || autoTrimpSettings.MaxHouse.value == -1)) {
+    if ((houseWorth > hutWorth || hutAtMax) && canAffordBuilding('House') && (game.buildings.House.owned < autoTrimpSettings.MaxHouse.value || autoTrimpSettings.MaxHouse.value == -1)) {
         safeBuyBuilding('House');
     } else {
         if (!hutAtMax) {
@@ -886,54 +877,44 @@ function getBreedTime(remaining,round) {
 function initializeAutoTrimps() {
     debug('AutoTrimps Loaded!', '*spinner3');
     loadPageVariables();
-    javascript: with(document)(head.appendChild(createElement('script')).src = 'https://genbtc.github.io/AutoTrimps/NewUI.js')._;
-    javascript: with(document)(head.appendChild(createElement('script')).src = 'https://genbtc.github.io/AutoTrimps/Graphs.js')._;
-    //needed for local testing.
-    //javascript:with(document)(head.appendChild(createElement('script')).src = 'https://localhost:4445/NewUI.js')._;
-    //javascript:with(document)(head.appendChild(createElement('script')).src = 'https://localhost:4445/Graphs.js')._;    
+
+    var atscript = document.getElementById('AutoTrimps-script')
+      , base = 'https://genbtc.github.io/AutoTrimps'
+      ;
+    if (atscript !== null) {
+        base = atscript.getAttribute('src').replace(/\/AutoTrimps2\.js$/, '');
+    }
+    document.head.appendChild(document.createElement('script')).src = base + '/NewUI.js';
+    document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
     toggleSettingsMenu();
     toggleSettingsMenu();
 }
 
 function easyMode() {
-    if (game.resources.trimps.realMax() > 50000000) {
-        autoTrimpSettings.MaxHouse.value = 150;
-        if (game.buildings.Tribute.owned < 1100) {
-        autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
-        autoTrimpSettings.FarmerRatio.value = '10';
-        autoTrimpSettings.LumberjackRatio.value = '2';
-        autoTrimpSettings.MinerRatio.value = '20';
-        } else if (game.buildings.Tribute.owned < 2100 && game.buildings.Tribute.owned > 1100) {
-        autoTrimpSettings.FarmerRatio.value = '5';
-        autoTrimpSettings.LumberjackRatio.value = '2';
-        autoTrimpSettings.MinerRatio.value = '25';
-        } else {
-        autoTrimpSettings.MaxTrainers.value = -1;
+    if (game.buildings.Tribute.owned > 1500) {
         autoTrimpSettings.FarmerRatio.value = '1';
-        autoTrimpSettings.LumberjackRatio.value = '10';
-        autoTrimpSettings.MinerRatio.value = '50';
-        }
-        //save some wood
-        //if (getBuildingItemPrice(game.buildings.Gym, "wood", false, 1) > 100*getBuildingItemPrice(game.buildings.Nursery, "wood", false, 1)) {
-        //    autoTrimpSettings.MaxNursery.value = -1;
-        //} else {
-        //    autoTrimpSettings.MaxNursery.value = 600;
-        //}
-    } else if (game.resources.trimps.realMax() > 500000) {
-        if (getBuildingItemPrice(game.buildings.House, "food", false, 1) * 10 < game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)) {
-    	    	autoTrimpSettings.MaxHouse.value = 100;
-    	}
-    	//autoTrimpSettings.DeltaGigastation.value = 50;
-    	//autoTrimpSettings.FirstGigastation.value = 50;
-    	  autoTrimpSettings.MaxTrainers.value = 150;
-        autoTrimpSettings.FarmerRatio.value = '5';
-        autoTrimpSettings.LumberjackRatio.value = '5';
-        autoTrimpSettings.MinerRatio.value = '10';
+        autoTrimpSettings.LumberjackRatio.value = '2';
+        autoTrimpSettings.MinerRatio.value = '22';    
+    } else if (game.buildings.Tribute.owned > 1000) {
+        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.LumberjackRatio.value = '1';
+        autoTrimpSettings.MinerRatio.value = '10';    
+    } else if (game.resources.trimps.realMax() > 3000000) {
+        autoTrimpSettings.FarmerRatio.value = '3';
+        autoTrimpSettings.LumberjackRatio.value = '1';
+        autoTrimpSettings.MinerRatio.value = '4';
+    } else if (game.resources.trimps.realMax() > 300000) {
+        autoTrimpSettings.FarmerRatio.value = '3';
+        autoTrimpSettings.LumberjackRatio.value = '3';
+        autoTrimpSettings.MinerRatio.value = '5';
     } else {
-        autoTrimpSettings.MaxHouse.value = 50;
-    	  autoTrimpSettings.MaxGateway.value = 20;
-        autoTrimpSettings.FarmerRatio.value = '5';
-        autoTrimpSettings.LumberjackRatio.value = '5';
+        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.LumberjackRatio.value = '1';
+        autoTrimpSettings.MinerRatio.value = '1';
+    }
+    if (game.global.challengeActive == 'Watch'){
+        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.LumberjackRatio.value = '1';
         autoTrimpSettings.MinerRatio.value = '1';
     }
 }
@@ -1066,9 +1047,23 @@ function buyJobs() {
     
 
     var oldBuy = game.global.buyAmt;
-
-    //Simple buy if you can
-    if (getPageSetting('MaxTrainers') > game.jobs.Trainer.owned || getPageSetting('MaxTrainers') == -1) {
+    
+    //Trainers capped to tributes percentage.
+    var trainerpercent = getPageSetting('TrainerCaptoTributes');
+    if (trainerpercent > 0){
+        var curtrainercost = game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned);
+        var curtributecost = getBuildingItemPrice(game.buildings.Tribute, "food", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level);
+        if (curtrainercost < curtributecost * (trainerpercent / 100) && (getPageSetting('MaxTrainers') > game.jobs.Trainer.owned || getPageSetting('MaxTrainers') == -1)) {
+            game.global.buyAmt = 1;
+            if (canAffordJob('Trainer', false) && !game.jobs.Trainer.locked) {
+                freeWorkers = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+                if (freeWorkers <= 0) safeBuyJob('Farmer', -1);
+                safeBuyJob('Trainer');
+            }
+        }
+    }
+    //regular old way of hard capping trainers to a certain number. (sorry about lazy duplicate coding)
+    else if (getPageSetting('MaxTrainers') > game.jobs.Trainer.owned || getPageSetting('MaxTrainers') == -1) {
         game.global.buyAmt = 1;
         if (canAffordJob('Trainer', false) && !game.jobs.Trainer.locked) {
             freeWorkers = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
@@ -1394,17 +1389,21 @@ function autoStance() {
     //start analyzing autostance
     var missingHealth = game.global.soldierHealthMax - game.global.soldierHealth;
     var newSquadRdy = game.resources.trimps.realMax() <= game.resources.trimps.owned + 1;
-
+    var enemy;
     if (!game.global.mapsActive && !game.global.preMapsActive) {
-        var enemy;
         if (typeof game.global.gridArray[game.global.lastClearedCell + 1] === 'undefined') {
             enemy = game.global.gridArray[0];
         } else {
             enemy = game.global.gridArray[game.global.lastClearedCell + 1];
         }
-        var enemyFast = game.global.challengeActive != 'Nom' && (game.badGuys[enemy.name].fast || game.global.challengeActive == 'Slow');
+        var enemyFast = game.global.challengeActive == "Slow" || ((((game.badGuys[enemy.name].fast || enemy.corrupted) && game.global.challengeActive != "Nom") && game.global.challengeActive != "Coordinate"));
         var enemyHealth = enemy.health;
         var enemyDamage = enemy.attack * 1.2;   //changed by genBTC from 1.19 (there is no fluctuation)
+        //check for world Corruption
+        if (enemy.corrupted){
+            enemyHealth *= getCorruptScale("health");
+            enemyDamage *= getCorruptScale("attack");
+        }
         if (game.global.challengeActive == 'Lead') {
             enemyDamage *= (1 + (game.challenges.Lead.stacks * 0.04));
         }
@@ -1421,13 +1420,18 @@ function autoStance() {
         var bHealth = baseHealth/2;
     } else if (game.global.mapsActive && !game.global.preMapsActive) {
         if (typeof game.global.mapGridArray[game.global.lastClearedMapCell + 1] === 'undefined') {
-            var enemy = game.global.mapGridArray[0];
+            enemy = game.global.mapGridArray[0];
         } else {
-            var enemy = game.global.mapGridArray[game.global.lastClearedMapCell + 1];
+            enemy = game.global.mapGridArray[game.global.lastClearedMapCell + 1];
         }
-        var enemyFast = game.global.challengeActive != 'Nom' && (game.badGuys[enemy.name].fast || game.global.challengeActive == 'Slow' || game.global.voidBuff == 'doubleAttack');
+        var enemyFast = game.global.challengeActive == "Slow" || ((((game.badGuys[enemy.name].fast || enemy.corrupted) && game.global.challengeActive != "Nom") || game.global.voidBuff == "doubleAttack") && game.global.challengeActive != "Coordinate");
         var enemyHealth = enemy.health;
         var enemyDamage = enemy.attack * 1.2;   //changed by genBTC from 1.19 (there is no fluctuation)
+        //check for voidmap Corruption
+        if (getCurrentMapObject().location == "Void" && enemy.corrupted){
+            enemyHealth *= (getCorruptScale("health") / 2).toFixed(1);
+            enemyDamage *= (getCorruptScale("attack") / 2).toFixed(1);
+        }
         if (game.global.challengeActive == 'Lead') {
             enemyDamage *= (1 + (game.challenges.Lead.stacks * 0.04));
         }
@@ -1460,20 +1464,20 @@ function autoStance() {
         if(xHealth > baseBlock)
             xDamage = enemyDamage*5 - baseBlock > 0 ? enemyDamage*5 - baseBlock : 0;
     }
-    if (game.global.voidBuff == "bleed") {
+    if (game.global.voidBuff == "bleed" || (enemy && enemy.corrupted == 'corruptBleed')) {
         dDamage += game.global.soldierHealth * 0.2;
         xDamage += game.global.soldierHealth * 0.2;
         bDamage += game.global.soldierHealth * 0.2;
     }
     baseDamage *= (game.global.titimpLeft > 0 ? 2 : 1); //consider titimp
     //double attack is OK if the buff isn't double attack, or we will survive a double attack, or we are going to one-shot them (so they won't be able to double attack)
-    var doubleAttackOK = game.global.voidBuff != 'doubleAttack' || ((newSquadRdy && dHealth > dDamage * 2) || dHealth - missingHealth > dDamage * 2) || enemyHealth < baseDamage;
+    var doubleAttackOK = (game.global.voidBuff != 'doubleAttack' || (enemy && enemy.corrupted != 'corruptDbl')) || ((newSquadRdy && dHealth > dDamage * 2) || dHealth - missingHealth > dDamage * 2) || enemyHealth < baseDamage;
     //lead attack ok if challenge isn't lead, or we are going to one shot them, or we can survive the lead damage
     var leadDamage = game.challenges.Lead.stacks * 0.0005;
     var leadAttackOK = game.global.challengeActive != 'Lead' || enemyHealth < baseDamage || ((newSquadRdy && dHealth > dDamage + (dHealth * leadDamage)) || (dHealth - missingHealth > dDamage + (dHealth * leadDamage)));
     //added voidcrit.
     //voidcrit is OK if the buff isn't crit-buff, or we will survive a crit, or we are going to one-shot them (so they won't be able to crit)
-    var isCritVoidMap = game.global.voidBuff == 'getCrit';
+    var isCritVoidMap = game.global.voidBuff == 'getCrit' || (enemy && enemy.corrupted == 'corruptCrit');
     var voidCritinDok = !isCritVoidMap || (!enemyFast ? enemyHealth < baseDamage : false) || (newSquadRdy && dHealth > dVoidCritDamage) || (dHealth - missingHealth > dVoidCritDamage);
     var voidCritinXok = !isCritVoidMap || (!enemyFast ? enemyHealth < baseDamage : false) || (newSquadRdy && xHealth > xVoidCritDamage) || (xHealth - missingHealth > xVoidCritDamage);
 
@@ -1617,8 +1621,10 @@ function autoMap() {
             }
             //Go into maps on 30 stacks, and I assume our enemy health to damage ratio is worse than 10 (so that shouldfarm would be true),
             // and exit farming once we get enough damage to drop under 10.
-            if (game.global.gridArray[99].nomStacks == 30)
+            if (game.global.gridArray[99].nomStacks == 30){
                 shouldFarm = (HDratio > 20);
+                shouldDoMaps = true;
+            }
         }
 
         //stack tox stacks if heliumGrowing has been set to true, or if we need to clear our void maps
@@ -1672,6 +1678,8 @@ function autoMap() {
         if (keysSorted[0]) var highestMap = keysSorted[0];
         else shouldDoMap = "create";
          
+        //set the repeatBionics flag (farm bionics before spire), for the repeat management code below.
+        var repeatBionics = getPageSetting('RunBionicBeforeSpire') && game.global.bionicOwned >= 5; //WARNING: Currently repeats infinitely, no cue to exit, not sure under what conditions it should exit. When Farming is done? When is that? When player's Block exceeds cell 100's Spire improbability's attack?  We can get the attack data with this command: getSpireStats(100, "Improbability", "attack"). Needs to know there are no more prestige items so we can set this to false.
 
 
         //Look through all the maps we have - find Uniques or Voids and figure out if we need to run them.
@@ -1709,8 +1717,9 @@ function autoMap() {
                         shouldFarm = false;
                 }
                 shouldDoMap = theMap.id;
-                if(game.global.mapsActive && game.global.challengeActive == "Nom") {
-                    if(game.global.mapGridArray[game.global.lastClearedMapCell + 1].nomStacks > 6) {
+                //Restart the voidmap if we hit 30 nomstacks on the final boss
+                if(game.global.mapsActive && game.global.challengeActive == "Nom" && getPageSetting('FarmWhenNomStacks7')) {
+                    if(game.global.mapGridArray[theMap.size-1].nomStacks >= 100) {
                         mapsClicked(true);
                     }
                 }
@@ -1752,6 +1761,29 @@ function autoMap() {
                         break;
                     }
                 }
+                //run Bionics before spire to farm.
+                if (getPageSetting('RunBionicBeforeSpire') && (game.global.world == 199 || game.global.world == 200) && theMap.name.includes('Bionic Wonderland')){                    
+                    //this is how to check if a bionic is green or not.
+                    var bionicnumber = ((theMap.level - 125) / 15).toFixed(2);
+                    //if numbers match, map is green, so run it. (do the pre-requisite bionics one at a time in order)
+                    if (bionicnumber == game.global.bionicOwned && bionicnumber < 5){ 
+                        shouldDoMap = theMap.id;
+                        break;
+                    }
+                    //Count number of prestige items left,
+                    var prestigeitemsleft = addSpecials(true, true, theMap);
+                    //Always run Bionic Wonderland VI (if there are still prestige items available)
+                    if (theMap.name == 'Bionic Wonderland VI' && prestigeitemsleft > 0){
+                        shouldDoMap = theMap.id;
+                        break;
+                    }
+                    //Run Bionic Wonderland VII (if we have exhausted all the prestiges from VI) - Code will not get to here if we have items still.
+                    if (theMap.name == 'Bionic Wonderland VII' && prestigeitemsleft > 0){
+                        shouldDoMap = theMap.id;
+                        break;
+                    }
+                }
+                
                 //other unique maps here
             }
         }
@@ -1788,7 +1820,8 @@ function autoMap() {
             if (game.global.mapsActive) {
                 
                 //if we are doing the right map, and it's not a norecycle (unique) map, and we aren't going to hit max map bonus
-                if (shouldDoMap == game.global.currentMapId && !game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)].noRecycle && (game.global.mapBonus < 9 || shouldFarm || stackingTox || needPrestige)) {
+                //or repeatbionics is true and there are still prestige items available to get
+                if (shouldDoMap == game.global.currentMapId && (!game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)].noRecycle && (game.global.mapBonus < 9 || shouldFarm || stackingTox || needPrestige)) || (repeatBionics && addSpecials(true, true, game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)]) > 0)) {
                     var targetPrestige = autoTrimpSettings.Prestige.selected;
                     //make sure repeat map is on
                     if (!game.global.repeatMap) {
@@ -2254,6 +2287,7 @@ function message2(messageString, type, lootIcon, extraClass) {
     var needsScroll = ((log.scrollTop + 10) > (log.scrollHeight - log.clientHeight));
     var displayType = (AutoTrimpsDebugTabVisible) ? "block" : "none";
     var prefix = "";
+	if (game.options.menu.timestamps.enabled){ messageString = ((game.options.menu.timestamps.enabled == 1) ? getCurrentTime() : updatePortalTimer(true)) + " " + messageString; }
     if (lootIcon && lootIcon.charAt(0) == "*") {
         lootIcon = lootIcon.replace("*", "");
         prefix =  "icomoon icon-";
