@@ -1650,14 +1650,14 @@ function autoMap() {
             shouldDoWatchMaps = true;
         }
         // Makes sure we overkill for the next few zones
-		// var lastOverkillCheck = -1;
-		// var overkillDamage = 0.005*game.portal.Overkill.level*baseDamage;
-		// if (overkillDamage < getEnemyMaxHealth(game.global.world + 4) && lastOverkillCheck < game.global.world - 3); {
-			// shouldDoMaps = true;
-			// lastOverkillCheck = game.global.world;
+		var lastOverkillCheck = -1;
+		var overkillDamage = 0.005*game.portal.Overkill.level*baseDamage;
+		if (overkillDamage < getEnemyMaxHealth(game.global.world + 4) && lastOverkillCheck < game.global.world - 3) {
+			shouldDoMaps = true;
+			lastOverkillCheck = game.global.world;
 			
-			// else shouldDoMaps = false;
-		// }
+			else shouldDoMaps = false;
+		}
         //Create siphonology on demand section.
         var siphlvl = game.global.world - game.portal.Siphonology.level;
 
