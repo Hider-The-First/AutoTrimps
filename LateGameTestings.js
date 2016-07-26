@@ -1304,10 +1304,10 @@ function buyBuildings() {
             (getBuildingItemPrice(game.buildings.Nursery, "gems", false, 1) < 0.05 * getBuildingItemPrice(game.buildings.Collector, "gems", false, 1) || game.buildings.Collector.locked || !game.buildings.Warpstation.locked))
         {
             safeBuyBuilding('Nursery');
-        } else if ((getPageSetting('MaxNursery') > game.buildings.Nursery.owned || getPageSetting('MaxNursery') == -1) && game.buildings.Tribute.owned > 2100) {
+        } else if ((getPageSetting('MaxNursery') > game.buildings.Nursery.owned || getPageSetting('MaxNursery') == -1) && game.buildings.Tribute.owned > 2100 && !game.global.mapsActive) {
             safeBuyBuilding('Nursery');
             safeBuyBuilding('Collector');
-        } else if (game.buildings.Tribute.owned > 1400) {
+        } else if (game.buildings.Tribute.owned > 1400 && !game.global.mapsActive) {
             safeBuyBuilding('Collector');
         }
     }
@@ -1482,7 +1482,7 @@ function autoLevelEquipment() {
     if (game.global.world < 199 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 85) {
     autoTrimpSettings.GeneticistTimer.value = '30';
     } else {
-    autoTrimpSettings.GeneticistTimer.value = '60';
+    autoTrimpSettings.GeneticistTimer.value = '45';
     }
 
     for (var equipName in equipmentList) {
