@@ -1185,7 +1185,7 @@ function buyStorage() {
             safeBuyBuilding(B);
 
         }
-        if (getPageSetting('ManualGather')) {
+        if (getPageSetting('ManualGather') && !game.global.mapsActive) {
             setGather('buildings');
         }
 
@@ -1589,7 +1589,7 @@ function manualLabor() {
     
     if(breedingTrimps < 5 && game.buildings.Trap.owned == 0 && canAffordBuilding('Trap')) {
         //safeBuyBuilding returns false if item is already in queue
-        if(!safeBuyBuilding('Trap'))
+        if(!safeBuyBuilding('Trap') && !game.global.mapsActive)
             setGather('buildings');
     }
     else if (breedingTrimps < 5 && game.buildings.Trap.owned > 0) {
@@ -1597,12 +1597,12 @@ function manualLabor() {
     }
     else if (game.resources.science.owned < 100 && document.getElementById('scienceCollectBtn').style.display != 'none' && document.getElementById('science').style.visibility != 'hidden') setGather('science');
         //if we have more than 2 buildings in queue, or (our modifier is real fast and trapstorm is off), build                      
-    else if (game.global.buildingsQueue.length ? (game.global.buildingsQueue.length > 1 || game.global.autoCraftModifier == 0 || (getPlayerModifier() > 1000 && game.global.buildingsQueue[0] != 'Trap.1')) : false) {
+    else if (!game.global.mapsActive && game.global.buildingsQueue.length ? (game.global.buildingsQueue.length > 1 || game.global.autoCraftModifier == 0 || (getPlayerModifier() > 1000 && game.global.buildingsQueue[0] != 'Trap.1')) : false) {
         // debug('Gathering buildings??');
         setGather('buildings');
     }
         //if trapstorm is off (likely we havent gotten it yet, the game is still early, buildings take a while to build ), then Prioritize Storage buildings when they hit the front of the queue (should really be happening anyway since the queue should be >2(fits the clause above this), but in case they are the only object in the queue.)
-    else if (!game.global.trapBuildToggled && (game.global.buildingsQueue[0] == 'Shed.1' || game.global.buildingsQueue[0] == 'Barn.1' || game.global.buildingsQueue[0] == 'Forge.1')){
+    else if (!game.global.mapsActive && !game.global.trapBuildToggled && (game.global.buildingsQueue[0] == 'Shed.1' || game.global.buildingsQueue[0] == 'Barn.1' || game.global.buildingsQueue[0] == 'Forge.1')){
         setGather('buildings');
     }
         //if we have some upgrades sitting around which we don't have enough science for, gather science
@@ -1618,7 +1618,7 @@ function manualLabor() {
     }
     else if (getPageSetting('TrapTrimps') && parseInt(getPageSetting('GeneticistTimer')) < getBreedTime(true)){
         //combined to optimize code.
-        if (game.buildings.Trap.owned < 1 && canAffordBuilding('Trap')) { 
+        if (game.buildings.Trap.owned < 1 && canAffordBuilding('Trap') && !game.global.mapsActive ) { 
             safeBuyBuilding('Trap');
             setGather('buildings');
         }
@@ -1674,7 +1674,7 @@ function manualLabor() {
         } else  if (game.resources.science.owned < getPsString('science', true) * 60 && document.getElementById('scienceCollectBtn').style.display != 'none' && document.getElementById('science').style.visibility != 'hidden' && game.global.turkimpTimer < 1 && haveWorkers) {
             setGather('science');
         }
-        else if(getPageSetting('TrapTrimps') && game.global.trapBuildToggled == true && game.buildings.Trap.owned < 10000)
+        else if(getPageSetting('TrapTrimps') && game.global.trapBuildToggled == true && game.buildings.Trap.owned < 10000 && !game.global.mapsActive)
             setGather('buildings');
         else if (document.getElementById('scienceCollectBtn').style.display != 'none' && document.getElementById('science').style.visibility != 'hidden')
             setGather('science');
