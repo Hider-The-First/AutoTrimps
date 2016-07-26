@@ -1248,8 +1248,8 @@ function buyStorage() {
 
         //Prestige list for easy edit:
         //2'Dagger''Dagadder',4'Mace''Megamace',6'Polearm''Polierarm',8'Battleaxe''Axeidic',10'Greatsword''Greatersword',
-        //3'Boots''Bootboost',5'Helmet''Hellishmet',7'Pants''Pantastic',9'Shoulderguards''Smoldershoulder',10'Breastplate''Bestplate',
-        //11'Arbalest''Harmbalest',12'Gambeson''GambesOP',
+        //3'Boots''Bootboost',5'Helmet''Hellishmet',7'Pants''Pantastic',9'Shoulderguards''Smoldershoulder',11'Breastplate''Bestplate',
+        //12'Arbalest''Harmbalest',13'Gambeson''GambesOP',
         //1'Shield''Supershield',
 
 	//get daggers at the right levels from level 40 (nullmaps takes care to the early levels), after level 70 get the daggers later to get more metal and actually buy it, and Off prestige after Spire, to let nullmaps manage it from there.
@@ -1260,7 +1260,7 @@ function buyStorage() {
            document.getElementById('Prestige').selectedIndex = 1;
            autoTrimpSettings.Prestige.selected = "Supershield";
 	} else if (game.global.world == 280 && game.global.lastClearedCell > 80) {
-           document.getElementById('Prestige').selectedIndex = 11;
+           document.getElementById('Prestige').selectedIndex = 12;
            autoTrimpSettings.Prestige.selected = "Harmbalest";
 	} else {
            document.getElementById('Prestige').selectedIndex = 0;
