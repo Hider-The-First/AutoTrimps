@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         AutoTrimpsV2+genBTC
+// @name         AutoTrimpsV2+hider
 // @namespace    http://tampermonkey.net/
-// @version      2.1.1-genbtc-stable-5-21-2016
+// @version      2.3-hiderBeta-7-25-2016
 // @description  try to take over the world!
 // @author       zininzinin, spindrjr, belaith, ishakaru, genBTC, hider
 // @include      *trimps.github.io*
@@ -1070,9 +1070,9 @@ function initializeAutoTrimps() {
     loadPageVariables();
 
     var atscript = document.getElementById('AutoTrimps-script')
-      , base = 'https://genbtc.github.io/AutoTrimps';
+      , base = 'https://rawgit.com/Hider-The-First/AutoTrimps/patch-3';
     if (atscript !== null) {
-        base = atscript.getAttribute('src').replace(/\/AutoTrimps2\.js$/, '');
+        base = atscript.getAttribute('src').replace(/\/LateGameTestings\.js$/, '');
     }
     document.head.appendChild(document.createElement('script')).src = base + '/NewUI.js';
     document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
