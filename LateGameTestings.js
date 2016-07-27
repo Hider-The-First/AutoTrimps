@@ -1149,6 +1149,7 @@ function buyUpgrades() {
         var available = (gameUpgrade.allowed > gameUpgrade.done && canAffordTwoLevel(gameUpgrade));
             if (upgrade == 'Gigastation' && game.global.world >= getPageSetting('VoidMaps')) {
             buyUpgrade('Gigastation', true, true);
+            return;
         }
         if (upgrade == 'Coordination' && !canAffordCoordinationTrimps()) continue;
         if (upgrade == 'Shieldblock' && !getPageSetting('BuyShieldblock')) continue;
