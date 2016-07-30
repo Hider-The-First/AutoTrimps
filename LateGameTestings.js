@@ -2559,7 +2559,11 @@ function autoGoldenUpgrades() {
     var num = getAvailableGoldenUpgrades();
     if (num == 0) return;       //if we have nothing to buy, exit.
     //buy one upgrade per loop.
-    var what = ["Off","Helium", "Battle", "Void"]        
+    var what = ["Off","Helium", "Battle", "Void"]   
+    if (game.global.world < 100 && getPageSetting('VoidMaps') > 205) {
+    	settings = 4;
+    }
+    
     buyGoldenUpgrade(what[setting]);        
 }
 
