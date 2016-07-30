@@ -2557,7 +2557,7 @@ function autoGoldenUpgrades() {
     var setting = document.getElementById('AutoGoldenUpgrades').selectedIndex;
     if (setting == 0) return;   //if disabled, exit.
     // change to golden voids until level 100.
-    if (game.global.world < 100 && getPageSetting('VoidMaps') > 205) {
+    if (game.global.world < 145 && getPageSetting('VoidMaps') > 205) {
     	setting = 3;
     }
     var num = getAvailableGoldenUpgrades();
