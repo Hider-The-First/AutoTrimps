@@ -2556,13 +2556,14 @@ function autoGoldenUpgrades() {
     //get the numerical value of the selected index of the dropdown box
     var setting = document.getElementById('AutoGoldenUpgrades').selectedIndex;
     if (setting == 0) return;   //if disabled, exit.
+    // change to golden voids until level 100.
+    if (game.global.world < 100 && getPageSetting('VoidMaps') > 205) {
+    	setting = 3;
+    }
     var num = getAvailableGoldenUpgrades();
     if (num == 0) return;       //if we have nothing to buy, exit.
     //buy one upgrade per loop.
     var what = ["Off","Helium", "Battle", "Void"]   
-    if (game.global.world < 100 && getPageSetting('VoidMaps') > 205) {
-    	setting = 4;
-    }
     
     buyGoldenUpgrade(what[setting]);        
 }
