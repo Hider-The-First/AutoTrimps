@@ -2556,8 +2556,18 @@ function autoGoldenUpgrades() {
     //get the numerical value of the selected index of the dropdown box
     var setting = document.getElementById('AutoGoldenUpgrades').selectedIndex;
     if (setting == 0) return;   //if disabled, exit.
-    // change to golden voids until level 100.
-    if (game.global.world < 145 && getPageSetting('VoidMaps') > 205) {
+    // get golden voids based on voidmap,1/150, 2/180, 3/210 4/240, 5/270, 6/300.
+    if (game.global.world <= 180 && getPageSetting('VoidMaps') >= 300) {
+    	setting = 3;
+    } else if (game.global.world <= 150 && getPageSetting('VoidMaps') >= 270) {
+    	setting = 3;
+    } else if (game.global.world <= 120 && getPageSetting('VoidMaps') >= 240) {
+    	setting = 3;
+    } else if (game.global.world <= 90 && getPageSetting('VoidMaps') >= 210) {
+    	setting = 3;
+    } else if (game.global.world <= 60 && getPageSetting('VoidMaps') >= 180) {
+    	setting = 3;
+    } else if (game.global.world <= 30 && getPageSetting('VoidMaps') >= 150) {
     	setting = 3;
     }
     var num = getAvailableGoldenUpgrades();
