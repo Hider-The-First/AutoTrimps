@@ -337,11 +337,13 @@ function highlightHousing() {
 
 function buyFoodEfficientHousing() {
     // Push the limit auto change your max buildings settings
-    autoTrimpSettings.MaxHut.value = 10+game.buildings.House.owned;
-    autoTrimpSettings.MaxMansion.value = 20+game.buildings.House.owned;
-    autoTrimpSettings.MaxHotel.value = 30+game.buildings.House.owned;
-    autoTrimpSettings.MaxResort.value = 40+game.buildings.House.owned;
-    autoTrimpSettings.MaxExplorers.value = 70+game.buildings.House.owned;
+    autoTrimpSettings.MaxHut.value = game.global.world*2.5; //10+game.buildings.House.owned;2.5
+    autoTrimpSettings.MaxHouse.value =  game.global.world*2.7;
+    autoTrimpSettings.MaxMansion.value = game.global.world*2.9; //20+game.buildings.House.owned;2.9
+    autoTrimpSettings.MaxHotel.value = game.global.world*3.1; //30+game.buildings.House.owned;3.1
+    autoTrimpSettings.MaxResort.value = game.global.world*3.3; //40+game.buildings.House.owned; 3.3
+    //reset new script
+    autoTrimpSettings.MaxExplorers.value = 150;
     var houseWorth = game.buildings.House.locked ? 0 : game.buildings.House.increase.by / getBuildingItemPrice(game.buildings.House, "food", false, 1);
     var hutWorth = game.buildings.Hut.increase.by / getBuildingItemPrice(game.buildings.Hut, "food", false, 1);
     var hutAtMax = (game.buildings.Hut.owned >= autoTrimpSettings.MaxHut.value && autoTrimpSettings.MaxHut.value != -1);
@@ -1082,15 +1084,11 @@ function initializeAutoTrimps() {
 
 function easyMode() {
     if (game.resources.trimps.realMax() > 50000000) {
-        autoTrimpSettings.MaxHouse.value = (game.global.world * 2);
         if (game.global.turkimpTimer > 0 && game.global.world != 200 && getBuildingItemPrice(game.buildings.Warpstation, "gems", false, 1) > game.resources.gems.owned) {
-        autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
         autoTrimpSettings.FarmerRatio.value = '60';
         autoTrimpSettings.LumberjackRatio.value = '5';
         autoTrimpSettings.MinerRatio.value = '5';
         }else if (game.buildings.Tribute.owned < 1100) {
-        autoTrimpSettings.MaxTrainers.value = game.buildings.Tribute.owned/2.1;
-        autoTrimpSettings.MaxGateway.value = 50;
         autoTrimpSettings.FarmerRatio.value = '10';
         autoTrimpSettings.LumberjackRatio.value = '2';
         autoTrimpSettings.MinerRatio.value = '20';
@@ -1099,42 +1097,23 @@ function easyMode() {
         autoTrimpSettings.LumberjackRatio.value = '2';
         autoTrimpSettings.MinerRatio.value = '40';
         } else if (game.global.world < 200) {
-        autoTrimpSettings.MaxTrainers.value = -1;
         autoTrimpSettings.FarmerRatio.value = '1';
         autoTrimpSettings.LumberjackRatio.value = '40';
         autoTrimpSettings.MinerRatio.value = '60';
         } else if (game.global.world == 200) {
-        autoTrimpSettings.MaxTrainers.value = -1;
         autoTrimpSettings.FarmerRatio.value = '1';
         autoTrimpSettings.LumberjackRatio.value = '80';
         autoTrimpSettings.MinerRatio.value = '20';
         } else {
-        autoTrimpSettings.MaxTrainers.value = -1;
         autoTrimpSettings.FarmerRatio.value = '4';
         autoTrimpSettings.LumberjackRatio.value = '1';
         autoTrimpSettings.MinerRatio.value = '80';
         }
-        
-        //save some wood
-        //if (getBuildingItemPrice(game.buildings.Gym, "wood", false, 1) > 100*getBuildingItemPrice(game.buildings.Nursery, "wood", false, 1)) {
-        //    autoTrimpSettings.MaxNursery.value = -1;
-        //} else {
-        //    autoTrimpSettings.MaxNursery.value = 600;
-        //}
     } else if (game.resources.trimps.realMax() > 500000) {
-        if (getBuildingItemPrice(game.buildings.House, "food", false, 1) * 10 < game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)) {
-    	    	autoTrimpSettings.MaxHouse.value = 100;
-    	}
-    	//autoTrimpSettings.DeltaGigastation.value = 50;
-    	//autoTrimpSettings.FirstGigastation.value = 50;
-    	autoTrimpSettings.MaxTrainers.value = 150;
         autoTrimpSettings.FarmerRatio.value = '40';
         autoTrimpSettings.LumberjackRatio.value = '10';
         autoTrimpSettings.MinerRatio.value = '10';
-
     } else {
-        autoTrimpSettings.MaxHouse.value = 50;
-    	autoTrimpSettings.MaxGateway.value = 30;
         autoTrimpSettings.FarmerRatio.value = '40';
         autoTrimpSettings.LumberjackRatio.value = '10';
         autoTrimpSettings.MinerRatio.value = '1';
@@ -1191,7 +1170,9 @@ function buyStorage() {
         }
 
         if (game.global.world > 35) {
-            autoTrimpSettings.MaxGateway.value = 0.8 * game.global.world;
+        	autoTrimpSettings.MaxGateway.value = 0.8 * game.global.world;
+        } else {
+        	autoTrimpSettings.MaxGateway.value = 25;
         }
 
 //old way to calculate Giga/Delta.
@@ -1364,10 +1345,27 @@ function buyJobs() {
     
     var oldBuy = game.global.buyAmt;
     
-    //Simple buy if you can
-    if (getPageSetting('MaxTrainers') > game.jobs.Trainer.owned || getPageSetting('MaxTrainers') == -1) {
+    //reseting new script
+    autoTrimpSettings.MaxTrainers.value = -1;
+    autoTrimpSettings.TrainerCaptoTributes.value = 0.5;
+    //Trainers capped to tributes percentage.
+    var trainerpercent = getPageSetting('TrainerCaptoTributes');
+    if (trainerpercent > 0){
+        var curtrainercost = game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned);
+        var curtributecost = getBuildingItemPrice(game.buildings.Tribute, "food", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level);
+        if (curtrainercost < curtributecost * (trainerpercent / 100) && (getPageSetting('MaxTrainers') > game.jobs.Trainer.owned || getPageSetting('MaxTrainers') == -1)) {
+            game.global.buyAmt = 1;
+            if (canAffordJob('Trainer', false) && !game.jobs.Trainer.locked) {
+                freeWorkers = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+                if (freeWorkers <= 0) safeBuyJob('Farmer', -1);
+                safeBuyJob('Trainer');
+            }
+        }
+    }
+    //regular old way of hard capping trainers to a certain number. (sorry about lazy duplicate coding)
+    else if (getPageSetting('MaxTrainers') > game.jobs.Trainer.owned || getPageSetting('MaxTrainers') == -1) {
         game.global.buyAmt = 1;
-        if (canAffordJob('Trainer', false) &&  game.jobs.Trainer.cost.food[0]*Math.pow(game.jobs.Trainer.cost.food[1],game.jobs.Trainer.owned)*2 < game.resources.food.owned) {
+        if (canAffordJob('Trainer', false) && !game.jobs.Trainer.locked) {
             freeWorkers = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
             if (freeWorkers <= 0) safeBuyJob('Farmer', -1);
             safeBuyJob('Trainer');
@@ -2614,9 +2612,7 @@ function mainLoop() {
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
 
-    //if (getPageSetting('EasyMode')) easyMode(); //This needs a UI input
-    // no easy mode no script.
-    easyMode();
+    if (getPageSetting('EasyMode')) easyMode(); //This needs a UI input
     if (getPageSetting('BuyUpgrades')) buyUpgrades();
     autoGoldenUpgrades();
     if (getPageSetting('BuyStorage')) buyStorage();
