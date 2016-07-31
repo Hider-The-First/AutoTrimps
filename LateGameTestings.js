@@ -1480,11 +1480,11 @@ function autoLevelEquipment() {
     enoughHealthE = false;
     enoughDamageE = false;
     }
-    if (game.global.world < 199 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 85) {
-    autoTrimpSettings.GeneticistTimer.value = '30';
-    } else {
-    autoTrimpSettings.GeneticistTimer.value = '45';
-    }
+    //if (game.global.world < 199 || game.global.world > 200 || ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) > 85) {
+    //autoTrimpSettings.GeneticistTimer.value = '30';
+    //} else {
+    //autoTrimpSettings.GeneticistTimer.value = '45';
+    //}
 
     for (var equipName in equipmentList) {
         var equip = equipmentList[equipName];
