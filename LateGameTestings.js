@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoTrimpsV2+genBTC
 // @namespace    http://tampermonkey.net/
-// @version      2.1.1-genbtc-stable-5-21-2016
+// @version      2.1.1-genbtc-stable-5-21-2016d
 // @description  try to take over the world!
 // @author       zininzinin, spindrjr, belaith, ishakaru, genBTC, hider
 // @include      *trimps.github.io*
@@ -1254,15 +1254,15 @@ function buyStorage() {
         //1'Shield''Supershield',
 
 	//get daggers at the right levels from level 40 (nullmaps takes care to the early levels), after level 70 get the daggers later to get more metal and actually buy it, and Off prestige after Spire, to let nullmaps manage it from there.
-	if (game.global.world < 200 && game.global.world > 40 && ((game.global.world >= 41 && game.global.world <= 50) || (game.global.world >= 51 && game.global.world <= 60) || (game.global.world >= 65 && game.global.world <= 70))) {
+	if (game.global.world < 200 && game.global.world > 40 && ((game.global.world >= 41 && game.global.world <= 50) || (game.global.world >= 51 && game.global.world <= 60) || (game.global.world >= 65 && game.global.world <= 70) || game.global.world == 80 || game.global.world == 90 || game.global.world == 100 || game.global.world == 110 || game.global.world == 120 || game.global.world == 130 || game.global.world == 140 || game.global.world == 150 || game.global.world == 160 || game.global.world == 170 || game.global.world == 180 || game.global.world == 190)) {
            document.getElementById('Prestige').selectedIndex = 2;
            autoTrimpSettings.Prestige.selected = "Dagadder";
-	} else if (game.global.world < 200 && game.global.world > 40 && ((game.global.world >= 76 && game.global.world <= 80) || (game.global.world >= 88 && game.global.world <= 90) || (game.global.world >= 98 && game.global.world <= 100) || (game.global.world >= 108 && game.global.world <= 110) || (game.global.world >= 118 && game.global.world <= 120) || (game.global.world >= 128 && game.global.world <= 130) || (game.global.world >= 138 && game.global.world <= 140) || (game.global.world >= 148 && game.global.world <= 150) || (game.global.world >= 158 && game.global.world <= 160) || (game.global.world >= 168 && game.global.world <= 170) || (game.global.world >= 177 && game.global.world <= 180) || (game.global.world >= 186 && game.global.world <= 190) || (game.global.world == 199))) {
+	} else if (game.global.world < 200 && game.global.world > 40 && ((game.global.world >= 76 && game.global.world <= 79) || (game.global.world >= 88 && game.global.world <= 89) || (game.global.world >= 98 && game.global.world <= 99) || (game.global.world >= 108 && game.global.world <= 109) || (game.global.world >= 118 && game.global.world <= 119) || (game.global.world >= 128 && game.global.world <= 129) || (game.global.world >= 138 && game.global.world <= 139) || (game.global.world >= 148 && game.global.world <= 149) || (game.global.world >= 158 && game.global.world <= 159) || (game.global.world >= 168 && game.global.world <= 169) || (game.global.world >= 177 && game.global.world <= 179) || (game.global.world >= 186 && game.global.world <= 189) || (game.global.world == 199))) {
            document.getElementById('Prestige').selectedIndex = 1;
            autoTrimpSettings.Prestige.selected = "Supershield";
 	} else if (game.global.world >= 270 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
-           document.getElementById('Prestige').selectedIndex = 8;
-           autoTrimpSettings.Prestige.selected = "Axeidic";
+           document.getElementById('Prestige').selectedIndex = 6;
+           autoTrimpSettings.Prestige.selected = "Polierarm";
 	} else {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
@@ -2000,7 +2000,7 @@ function autoMap() {
         var shouldDoNullMaps = false;
         if (
         (game.global.mapBonus < 1 && !game.global.mapsActive && (game.global.world == 15 || game.global.world == 21 || game.global.world == 25 || game.global.world == 31 || game.global.world == 34 || game.global.world == 37)) ||
-        (game.global.mapBonus < 5 && (game.global.world == 210 || game.global.world == 220 || game.global.world == 230 || game.global.world == 240 || game.global.world >= (getPageSetting('VoidMaps') + 25))) ||
+        (game.global.mapBonus < 5 && ((game.global.world >= (getPageSetting('VoidMaps')-10) && game.global.world < getPageSetting('VoidMaps')) || game.global.world == 210 || game.global.world == 220 || game.global.world == 230 || game.global.world == 240 || game.global.world >= (getPageSetting('VoidMaps') + 25))) ||
         (game.global.mapBonus < 9 && (game.global.world >= (getPageSetting('VoidMaps') + 20) || (game.global.world >= (getPageSetting('VoidMaps')-5) && game.global.world < getPageSetting('VoidMaps')) || game.global.world == 200 || game.global.world == 250 || game.global.world == 260 || game.global.world == 270 || game.global.world == 280 || game.global.world == 290 || game.global.world == 300 || game.global.world == 310 || game.global.world == 320 || game.global.world == 330 || game.global.world == 340 || game.global.world == 350)) ||
         //enter map in zones that you cant overkill the first raw of them, the next command will make sure you keep farming if you can't overkill in the maps.
         (game.global.mapBonus < 1 && game.global.world >= 205 && (new Date().getTime() - game.global.zoneStarted) > (270 * 11) && game.global.lastClearedCell <= 10) ||
