@@ -1261,8 +1261,8 @@ function buyStorage() {
            document.getElementById('Prestige').selectedIndex = 1;
            autoTrimpSettings.Prestige.selected = "Supershield";
 	} else if (game.global.world >= 270 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
-           document.getElementById('Prestige').selectedIndex = 6;
-           autoTrimpSettings.Prestige.selected = "Polierarm";
+           document.getElementById('Prestige').selectedIndex = 8;
+           autoTrimpSettings.Prestige.selected = "Axeidic";
 	} else {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
