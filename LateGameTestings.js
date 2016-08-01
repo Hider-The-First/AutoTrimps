@@ -325,7 +325,7 @@ function highlightHousing() {
                 break;
             }
         }
-        if (game.global.mapsActive && bestBuilding != "Warpstation") {
+        if (game.global.mapsActive && bestBuilding != "Warpstation" && !game.buildings.Warpstation.locked) {
         	bestBuilding = "Warpstation";
         }
         if (bestBuilding) {
