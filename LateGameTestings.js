@@ -326,7 +326,7 @@ function highlightHousing() {
             }
         }
         if (game.global.mapsActive && bestBuilding != "Warpstation") {
-        	bestBuilding = null;
+        	bestBuilding = "Warpstation";
         }
         if (bestBuilding) {
             document.getElementById(bestBuilding).style.border = "1px solid #00CC00";
