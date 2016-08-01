@@ -340,11 +340,12 @@ function highlightHousing() {
 
 function buyFoodEfficientHousing() {
     // Push the limit auto change your max buildings settings
-    autoTrimpSettings.MaxHut.value = game.global.world*2.5; //10+game.buildings.House.owned;2.5
-    autoTrimpSettings.MaxHouse.value = game.global.world*2.7;
-    autoTrimpSettings.MaxMansion.value = game.global.world*2.9; //20+game.buildings.House.owned;2.9
-    autoTrimpSettings.MaxHotel.value = game.global.world*3.1; //30+game.buildings.House.owned;3.1
-    autoTrimpSettings.MaxResort.value = game.global.world*3.3; //40+game.buildings.House.owned; 3.3
+    autoTrimpSettings.MaxHut.value = game.global.world < 35 ? 50 : game.global.world*2.3; //10+game.buildings.House.owned;2.5
+    autoTrimpSettings.MaxHouse.value = game.global.world < 35 ? 50 : game.global.world*2.6;
+    autoTrimpSettings.MaxMansion.value = game.global.world < 35 ? 50 : game.global.world*2.8; //20+game.buildings.House.owned;2.9
+    autoTrimpSettings.MaxHotel.value = game.global.world < 35 ? 50 : game.global.world*3; //30+game.buildings.House.owned;3.1
+    autoTrimpSettings.MaxResort.value = game.global.world < 35 ? 50 : game.global.world*3.2; //40+game.buildings.House.owned; 3.3
+    autoTrimpSettings.MaxGateway.value = game.global.world < 35 ? 25 : game.global.world*0.8;
     //reset new script
     autoTrimpSettings.MaxExplorers.value = 150;
     var houseWorth = game.buildings.House.locked ? 0 : game.buildings.House.increase.by / getBuildingItemPrice(game.buildings.House, "food", false, 1);
@@ -1027,7 +1028,6 @@ function getBreedTime(remaining,round) {
     var trimps = game.resources.trimps;
     var breeding = trimps.owned - trimps.employed;
     var trimpsMax = trimps.realMax();
-
     var potencyMod = trimps.potency;
     //Broken Planet
     if (game.global.brokenPlanet) potencyMod /= 10;
@@ -1042,9 +1042,7 @@ function getBreedTime(remaining,round) {
     }
     if (game.global.voidBuff == "slowBreed"){
         potencyMod *= 0.2;
-
     }
-
     potencyMod = calcHeirloomBonus("Shield", "breedSpeed", potencyMod);
     breeding = breeding * potencyMod;
     updatePs(breeding, true);
@@ -1053,7 +1051,6 @@ function getBreedTime(remaining,round) {
     timeRemaining /= 10;
     if (remaining)
         return parseFloat(timeRemaining.toFixed(1));
-
 
     var fullBreed = 0;
     var adjustedMax = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : trimps.maxSoldiers;
@@ -1164,16 +1161,9 @@ function buyStorage() {
         }
         if (canAffordBuilding(B)) {
             safeBuyBuilding(B);
-
         }
         if (getPageSetting('ManualGather') && (!game.global.mapsActive || game.global.world < 80)) {
             setGather('buildings');
-        }
-
-        if (game.global.world > 35) {
-        	autoTrimpSettings.MaxGateway.value = 0.8 * game.global.world;
-        } else {
-        	autoTrimpSettings.MaxGateway.value = 25;
         }
 
 //old way to calculate Giga/Delta.
@@ -1426,8 +1416,6 @@ freeWorkers = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.tr
     }
     else if(breedFire)
         safeBuyJob('Lumberjack', game.jobs.Lumberjack.owned * -1);    
-
-
 }
 
 function autoLevelEquipment() {
