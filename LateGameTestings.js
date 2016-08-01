@@ -325,6 +325,9 @@ function highlightHousing() {
                 break;
             }
         }
+        if (game.global.mapsActive && bestBuilding != "Warpstation") {
+        	bestBuilding = null;
+        }
         if (bestBuilding) {
             document.getElementById(bestBuilding).style.border = "1px solid #00CC00";
         }
@@ -338,7 +341,7 @@ function highlightHousing() {
 function buyFoodEfficientHousing() {
     // Push the limit auto change your max buildings settings
     autoTrimpSettings.MaxHut.value = game.global.world*2.5; //10+game.buildings.House.owned;2.5
-    autoTrimpSettings.MaxHouse.value =  game.global.world*2.7;
+    autoTrimpSettings.MaxHouse.value = game.global.world*2.7;
     autoTrimpSettings.MaxMansion.value = game.global.world*2.9; //20+game.buildings.House.owned;2.9
     autoTrimpSettings.MaxHotel.value = game.global.world*3.1; //30+game.buildings.House.owned;3.1
     autoTrimpSettings.MaxResort.value = game.global.world*3.3; //40+game.buildings.House.owned; 3.3
