@@ -909,12 +909,10 @@ function evaluateEfficiency(equipName) {
     if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37) {
         Wall = true;
     }
-
     if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37) {
         Res = 0;
         Wall = true;
     }
-
     if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37) {
         Res = 0;
         Wall = true;
