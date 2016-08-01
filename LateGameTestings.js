@@ -1232,9 +1232,22 @@ function buyStorage() {
 	} else if (game.global.world < 200 && game.global.world > 40 && ((game.global.world >= 76 && game.global.world <= 79) || (game.global.world >= 88 && game.global.world <= 89) || (game.global.world >= 98 && game.global.world <= 99) || (game.global.world >= 108 && game.global.world <= 109) || (game.global.world >= 118 && game.global.world <= 119) || (game.global.world >= 128 && game.global.world <= 129) || (game.global.world >= 138 && game.global.world <= 139) || (game.global.world >= 148 && game.global.world <= 149) || (game.global.world >= 158 && game.global.world <= 159) || (game.global.world >= 168 && game.global.world <= 169) || (game.global.world >= 177 && game.global.world <= 179) || (game.global.world >= 186 && game.global.world <= 189) || (game.global.world == 199))) {
            document.getElementById('Prestige').selectedIndex = 1;
            autoTrimpSettings.Prestige.selected = "Supershield";
+        //unlock weapon prestige before clearing void maps.
+	} else if (game.global.world >= 330 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
+           document.getElementById('Prestige').selectedIndex = 12;
+           autoTrimpSettings.Prestige.selected = "Harmbalest";
+	} else if (game.global.world >= 300 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
+           document.getElementById('Prestige').selectedIndex = 10;
+           autoTrimpSettings.Prestige.selected = "Greatersword";
 	} else if (game.global.world >= 270 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
            document.getElementById('Prestige').selectedIndex = 8;
            autoTrimpSettings.Prestige.selected = "Axeidic";
+	} else if (game.global.world >= 240 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
+           document.getElementById('Prestige').selectedIndex = 6;
+           autoTrimpSettings.Prestige.selected = "Polierarm";
+	} else if (game.global.world >= 210 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
+           document.getElementById('Prestige').selectedIndex = 4;
+           autoTrimpSettings.Prestige.selected = "Megamace";
 	} else {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
@@ -2543,8 +2556,10 @@ function autoGoldenUpgrades() {
     //get the numerical value of the selected index of the dropdown box
     var setting = document.getElementById('AutoGoldenUpgrades').selectedIndex;
     if (setting == 0) return;   //if disabled, exit.
-    // get golden voids based on voidmap,(1(2%)/150, 2(6%)/180, 3(12%)/210 4(20%)/240, 5(30%)/270, 6(42%)/300.
-    if (game.global.world <= 180 && getPageSetting('VoidMaps') >= 300) {
+    // get golden voids based on voidmap,(1(30)=2%)/150, 2(60)=(6%)/180, 3(90)=(12%)/210 4(120)=(20%)/240, 5(150)=(30%)/270, 6(180)=(42%)/300, 7(210)=(54%)/330.
+    if (game.global.world <= 210 && getPageSetting('VoidMaps') >= 330) {
+    	setting = 3;
+    } else if (game.global.world <= 180 && getPageSetting('VoidMaps') >= 300) {
     	setting = 3;
     } else if (game.global.world <= 150 && getPageSetting('VoidMaps') >= 270) {
     	setting = 3;
