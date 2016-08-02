@@ -2220,7 +2220,7 @@ function autoMap() {
                     if(
                         game.global.switchToMaps 
                         && 
-                        ((game.global.lastClearedCell >= 81 && needPrestige && game.global.world !=200) || doVoids || shouldDoNullMaps || (game.global.challengeActive == 'Lead' && game.global.world % 2 == 1)) 
+                        ((game.global.lastClearedCell >= 81 && needPrestige && game.global.world !=200) || doVoids || shouldDoMaps || (game.global.challengeActive == 'Lead' && game.global.world % 2 == 1)) 
                         && 
                             (
                             (game.resources.trimps.realMax() <= game.resources.trimps.owned + 1)
@@ -2236,7 +2236,7 @@ function autoMap() {
                     mapsClicked();                
             }
         } else if (game.global.preMapsActive) {
-            if (shouldDoMap == "world") {
+            if (shouldDoMap == "world) {
                 mapsClicked();  //go back
             } 
             else if (shouldDoMap == "create") {
