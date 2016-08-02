@@ -1095,7 +1095,7 @@ function easyMode() {
         autoTrimpSettings.LumberjackRatio.value = '2';
         autoTrimpSettings.MinerRatio.value = '40';
         } else if (game.global.world < 200) {
-        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.FarmerRatio.value = '5';
         autoTrimpSettings.LumberjackRatio.value = '40';
         autoTrimpSettings.MinerRatio.value = '60';
         } else if (game.global.world == 200) {
@@ -1688,7 +1688,7 @@ function manualLabor() {
 function autoStance() {
     if (game.global.gridArray.length === 0) return;
     var missingHealth = game.global.soldierHealthMax - game.global.soldierHealth;
-    if (game.global.world == 9200) { // && !game.global.mapsActive
+    if (game.global.world == 200 && getPageSetting('VoidMaps') > 280) { // && !game.global.mapsActive
         var newSquadRdy = true;
     } else {
         var newSquadRdy = game.resources.trimps.realMax() <= game.resources.trimps.owned + 1;
@@ -2530,7 +2530,7 @@ function manageGenes() {
     }
         //if our time remaining to full trimps is still too high, fire some jobs to get-er-done
         //needs option to toggle? advanced options?
-    else if ((targetBreed < getBreedTime(true) || (game.resources.trimps.soldiers == 0 && getBreedTime(true) > 0.2)) && breedFire == false && (getPageSetting('BreedFire') || (game.global.world == 200)) && game.global.world > 10) {
+    else if ((targetBreed < getBreedTime(true) || (game.resources.trimps.soldiers == 0 && getBreedTime(true) > 0.2)) && breedFire == false && (getPageSetting('BreedFire') || (autoTrimpSettings.GeneticistTimer.value >= '60' && game.global.world == 200)) && game.global.world > 10) {
         breedFire = true;
     }
 
@@ -2544,7 +2544,66 @@ function autoRoboTrimp() {
     var robotrimpzone = parseInt(getPageSetting('AutoRoboTrimp'));
     //exit if we have the setting set to 0
     if (robotrimpzone == 0) return;
+    //activate the button when we are above the cutoff zone, and we are out of cooldown
+
+2520
+2521
+2522
+2523
+2524
+2525
+2526
+2527
+2528
+2529
+2530
+2531
+2532
+2533
+2534
+2535
+2536
+2537
+2538
+2539
+2540
+2541
+2542
+2543
+2544
+2545
+2546
+2547
+2548
+2549
+    }
+    //if we need to speed up our breeding
+    //if we have potency upgrades available, buy them. If geneticists are unlocked, or we aren't managing the breed timer, just buy them
+    if ((targetBreed < getBreedTime() || !game.jobs.Geneticist.locked || !getPageSetting('ManageBreedtimer') || game.global.challengeActive == 'Watch') && game.upgrades.Potency.allowed > game.upgrades.Potency.done && canAffordTwoLevel('Potency') && getPageSetting('BuyUpgrades')) {
+        buyUpgrade('Potency');
+    }
+    //otherwise, if we have some geneticists, start firing them
+    else if ((targetBreed*1.02 < getBreedTime() || targetBreed*1.02 < getBreedTime(true)) && !game.jobs.Geneticist.locked && game.jobs.Geneticist.owned > 10) {
+        safeBuyJob('Geneticist', -10);
+        //debug('fired a geneticist');
+    }
+        //if our time remaining to full trimps is still too high, fire some jobs to get-er-done
+        //needs option to toggle? advanced options?
+    else if ((targetBreed < getBreedTime(true) || (game.resources.trimps.soldiers == 0 && getBreedTime(true) > 0.2)) && breedFire == false && (getPageSetting('BreedFire') || (game.global.world == 200)) && game.global.world > 10) {
+        breedFire = true;
+    }
+    //reset breedFire once we have less than 2 seconds remaining
+    if(getBreedTime(true) < 0.4) breedFire = false;
+}
+function autoRoboTrimp() {
+    //exit if the cooldown is active, or we havent unlocked robotrimp.
+    if (game.global.roboTrimpCooldown > 0 || !game.global.roboTrimpLevel) return;
+    var robotrimpzone = parseInt(getPageSetting('AutoRoboTrimp'));
+    //exit if we have the setting set to 0
+    if (robotrimpzone == 0) return;
     //activate the button when we are above the cutoff zone, and we are out of cooldown (and the button is inactive)
+@Hider-The-First
+Commit changes (and the button is inactive)
     if (game.global.world >= robotrimpzone && !game.global.useShriek){
         magnetoShriek();
         debug("Activated Robotrimp Ability", '*podcast');
