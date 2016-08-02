@@ -2220,7 +2220,7 @@ function autoMap() {
                     if(
                         game.global.switchToMaps 
                         && 
-                        ((game.global.lastClearedCell >= 81 && needPrestige && game.global.world !=200) || doVoids || (game.global.challengeActive == 'Lead' && game.global.world % 2 == 1)) 
+                        ((game.global.lastClearedCell >= 81 && needPrestige && game.global.world !=200) || doVoids || shouldDoNullMaps || (game.global.challengeActive == 'Lead' && game.global.world % 2 == 1)) 
                         && 
                             (
                             (game.resources.trimps.realMax() <= game.resources.trimps.owned + 1)
