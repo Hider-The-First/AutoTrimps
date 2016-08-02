@@ -454,7 +454,7 @@ function autoHeirlooms2() {
         //PART 2: immediately begin carrying any protected heirlooms.
         var originalLength = game.global.heirloomsExtra.length;
         for(var index=0; index < originalLength; index++) {
-            var theLoom = game.global.heirloomsExtra[index];		            var theLoom = game.global.heirloomsExtra[index];
+            var theLoom = game.global.heirloomsExtra[index];
             if ((theLoom.protected) && (game.global.heirloomsCarried.length < game.global.maxCarriedHeirlooms)){
                 selectHeirloom(index, 'heirloomsExtra');
                 carryHeirloom();
