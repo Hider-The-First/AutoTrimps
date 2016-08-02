@@ -2049,50 +2049,9 @@ function autoMap() {
         //set the repeatBionics flag (farm bionics before spire), for the repeat management code below.
         var repeatBionics = getPageSetting('RunBionicBeforeSpire') && game.global.bionicOwned >= 5; //WARNING: Currently repeats infinitely, no cue to exit, not sure under what conditions it should exit. When Farming is done? When is that? When player's Block exceeds cell 100's Spire improbability's attack?  We can get the attack data with this command: getSpireStats(100, "Improbability", "attack"). Needs to know there are no more prestige items so we can set this to false.
 
-        //Look through all the maps we have - find Uniques or Voids and figure out if we need to run them.
+        //Run Uniques maps.
         for (var map in game.global.mapsOwnedArray) {
             var theMap = game.global.mapsOwnedArray[map];
-            //clear void maps if we need to
-            if(theMap.location == 'Void' && needToVoid) {
-                //if we are on toxicity, don't clear until we will have max stacks at the last cell.
-                if(game.global.challengeActive == 'Toxicity' && game.challenges.Toxicity.stacks < (1500 - theMap.size)) break;
-                doVoids = true;
-                //check to make sure we won't get 1-shot in nostance by boss
-                var eAttack = getEnemyMaxAttack(game.global.world, theMap.size, 'Voidsnimp', theMap.difficulty);
-                eAttack *= (getCorruptScale("attack") / 2).toFixed(1);
-                var ourHealth = baseHealth;
-                if(game.global.challengeActive == 'Balance') {
-                    var stacks = game.challenges.Balance.balanceStacks ? (game.challenges.Balance.balanceStacks > theMap.size) ? theMap.size : game.challenges.Balance.balanceStacks : false;
-                    eAttack *= 2;
-                    if(stacks) {
-                        for (i = 0; i < stacks; i++ ) {
-                            ourHealth *= 1.01;
-                        }
-                    }
-                }
-                if(game.global.challengeActive == 'Toxicity') eAttack *= 5;
-                //break to prevent finishing map to finish a challenge?
-                //continue to check for doable map?
-                var diff = parseInt(getPageSetting('VoidCheck')) > 0 ? parseInt(getPageSetting('VoidCheck')) : 2;
-                if(ourHealth/diff < eAttack - baseBlock) {
-                    shouldFarm = true;
-                    voidCheckPercent = Math.round((ourHealth/diff)/(eAttack-baseBlock)*100);
-                    break;
-                }
-                else {
-                    voidCheckPercent = 0;
-                    if(getPageSetting('DisableFarm'))
-                        shouldFarm = false;
-                }
-                shouldDoMap = theMap.id;
-                //Restart the voidmap if we hit 30 nomstacks on the final boss
-                if(game.global.mapsActive && game.global.challengeActive == "Nom" && getPageSetting('FarmWhenNomStacks7')) {
-                    if(game.global.mapGridArray[theMap.size-1].nomStacks >= 100) {
-                        mapsClicked(true);
-                    }
-                }
-                break;
-            }
             if (theMap.noRecycle && getPageSetting('RunUniqueMaps')) {
                 if (theMap.name == 'The Wall' && game.upgrades.Bounty.allowed == 0) {
                     shouldDoMap = theMap.id;
@@ -2153,7 +2112,102 @@ function autoMap() {
                 //other unique maps here
             }
         }
-            
+        /*
+        //VoidMaps: Function number 1 in reverse order, with 10x and 1x
+        var voidArray = [];
+        //values are hardest to easiest. (easiest has the highest value)
+        var prefixes = [0,"Destructive", "Poisonous", "Heinous", "Deadly"];
+        var suffixes = [0,"Pit", "Nightmare", "Void", "Descent"];
+        for (var map in game.global.mapsOwnedArray) {
+            var theMap = game.global.mapsOwnedArray[map];
+            if(theMap.location == 'Void') {
+                for (word in prefixes) { 
+                    if (theMap.name.includes(prefixes[word]))
+                        theMap.sortByDiff = 10 * word; 
+                }
+                for (word in suffixes) { 
+                    if (theMap.name.includes(suffixes[word]))
+                        theMap.sortByDiff += 1 * word; 
+                }
+                voidArray.push(theMap);
+            }
+        }
+        //sort the array:
+        var voidArraySorted = voidArray.sort(function(a, b) {
+            return b.sortByDiff - a.sortByDiff;
+        });
+        */
+        //VoidMaps: make sorted voidArray:
+        var voidArray = [];
+        //values are easiest to hardest. (hardest has the highest value)
+        var prefixlist = {'Deadly':10, 'Heinous':11, 'Poisonous':20, 'Destructive':30};
+        var prefixkeys = Object.keys(prefixlist);
+        var suffixlist = {'Descent':7.077, 'Void':8.822, 'Nightmare':9.436, 'Pit':10.6};
+        var suffixkeys = Object.keys(suffixlist);
+        for (var map in game.global.mapsOwnedArray) {
+            var theMap = game.global.mapsOwnedArray[map];
+            if(theMap.location == 'Void') {
+                for (var pre in prefixkeys) { 
+                    if (theMap.name.includes(prefixkeys[pre]))
+                        theMap.sortByDiff = 1 * prefixlist[prefixkeys[pre]]; 
+                }
+                for (var suf in suffixkeys) { 
+                    if (theMap.name.includes(suffixkeys[suf]))
+                        theMap.sortByDiff += 1 * suffixlist[suffixkeys[suf]]; 
+                }
+                voidArray.push(theMap);
+            }
+        }
+        //sort the array:
+        var voidArraySorted = voidArray.sort(function(a, b) {
+            return a.sortByDiff - b.sortByDiff;
+        });        
+        //Look through all the maps we have - find Uniques or Voids and figure out if we need to run them.
+        for (var map in voidArraySorted) {
+            var theMap = voidArraySorted[map];
+            //Only proceed if we needToVoid right now.
+            if(needToVoid) {
+                //if we are on toxicity, don't clear until we will have max stacks at the last cell.
+                if(game.global.challengeActive == 'Toxicity' && game.challenges.Toxicity.stacks < (1500 - theMap.size)) break;
+                doVoids = true;
+                //check to make sure we won't get 1-shot in nostance by boss
+                var eAttack = getEnemyMaxAttack(game.global.world, theMap.size, 'Voidsnimp', theMap.difficulty);
+                if (game.global.world >= 181 || (game.global.challengeActive == "Corrupted" && game.global.world >= 60))
+                    eAttack *= (getCorruptScale("attack") / 2).toFixed(1);
+                var ourHealth = baseHealth;
+                if(game.global.challengeActive == 'Balance') {
+                    var stacks = game.challenges.Balance.balanceStacks ? (game.challenges.Balance.balanceStacks > theMap.size) ? theMap.size : game.challenges.Balance.balanceStacks : false;
+                    eAttack *= 2;
+                    if(stacks) {
+                        for (i = 0; i < stacks; i++ ) {
+                            ourHealth *= 1.01;
+                        }
+                    }
+                }
+                if(game.global.challengeActive == 'Toxicity') eAttack *= 5;
+                //break to prevent finishing map to finish a challenge?
+                //continue to check for doable map?
+                var diff = parseInt(getPageSetting('VoidCheck')) > 0 ? parseInt(getPageSetting('VoidCheck')) : 2;
+                if(ourHealth/diff < eAttack - baseBlock) {
+                    shouldFarm = true;
+                    voidCheckPercent = Math.round((ourHealth/diff)/(eAttack-baseBlock)*100);
+                    break;
+                }
+                else {
+                    voidCheckPercent = 0;
+                    if(getPageSetting('DisableFarm'))
+                        shouldFarm = false;
+                }
+                shouldDoMap = theMap.id;
+                //Restart the voidmap if we hit 30 nomstacks on the final boss
+                if(game.global.mapsActive && game.global.challengeActive == "Nom" && getPageSetting('FarmWhenNomStacks7')) {
+                    if(game.global.mapGridArray[theMap.size-1].nomStacks >= 100) {
+                        mapsClicked(true);
+                    }
+                }
+                break;
+            }
+        } 
         //map if we don't have health/dmg or we need to clear void maps or if we are prestige mapping, and our set item has a new prestige available 
         if (shouldDoMaps || doVoids || needPrestige) {
             //shouldDoMap = world here if we haven't set it to create yet, meaning we found appropriate high level map, or siphon map
