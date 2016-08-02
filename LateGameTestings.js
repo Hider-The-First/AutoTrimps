@@ -2236,7 +2236,7 @@ function autoMap() {
                     mapsClicked();                
             }
         } else if (game.global.preMapsActive) {
-            if (shouldDoMap == "world) {
+            if (shouldDoMap == "world") {
                 mapsClicked();  //go back
             } 
             else if (shouldDoMap == "create") {
