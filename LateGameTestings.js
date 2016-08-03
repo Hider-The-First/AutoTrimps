@@ -2619,7 +2619,7 @@ function autoGoldenUpgrades() {
     //get the numerical value of the selected index of the dropdown box
     var setting = document.getElementById('AutoGoldenUpgrades').selectedIndex;
     if (setting == 0) return;   //if disabled, exit.
-    // get golden voids based on voidmap,(1(30)=2%)/150, 2(60)=(6%)/180, 3(90)=(12%)/210 4(120)=(20%)/240, 5(150)=(30%)/270, 6(180)=(42%)/300, 7(210)=(54%)/330.
+    // get golden voids based on voidmap,1(30)=(2%)/150, 2(60)=(6%)/180, 3(90)=(12%)/210 4(120)=(20%)/240, 5(150)=(30%)/270, 6(180)=(42%)/300, 7(210)=(56%)/330.
     if (game.global.world <= 210 && getPageSetting('VoidMaps') >= 330) {
     	setting = 3;
     } else if (game.global.world <= 180 && getPageSetting('VoidMaps') >= 300) {
