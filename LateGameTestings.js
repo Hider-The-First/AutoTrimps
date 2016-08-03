@@ -2022,7 +2022,6 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
-            shouldDoMap = "die";
         }
         shouldFarm = shouldDoNullMaps ? true : shouldFarm;
         enoughDamage = shouldDoNullMaps ? true : enoughDamage;
@@ -2274,7 +2273,7 @@ function autoMap() {
                     }
                 }
             } else if (!game.global.mapsActive) {
-                if (shouldDoMap != "world") {
+                if (shouldDoMap != "world" || shouldDoNullMaps) {
                     //if shouldFarm, don't switch until after megamining. if "wants damage", go in first 10 cells of zone (do map bonus simultaneously)
                     //if need prestige, go immediately.
                     if (!game.global.switchToMaps){
