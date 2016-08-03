@@ -2022,7 +2022,7 @@ function autoMap() {
             shouldDoMaps = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
-            shouldDoMap = "create";
+            shouldDoMap = "die";
         }
         shouldFarm = shouldDoNullMaps ? true : shouldFarm;
         enoughDamage = shouldDoNullMaps ? true : enoughDamage;
