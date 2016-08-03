@@ -2619,22 +2619,25 @@ function autoGoldenUpgrades() {
     //get the numerical value of the selected index of the dropdown box
     var setting = document.getElementById('AutoGoldenUpgrades').selectedIndex;
     if (setting == 0) return;   //if disabled, exit.
-    // get golden voids based on voidmap,1(30)=(2%)/150, 2(60)=(6%)/180, 3(90)=(12%)/210 4(120)=(20%)/240, 5(150)=(30%)/270, 6(180)=(42%)/300, 7(210)=(56%)/330.
-    if (game.global.world <= 210 && getPageSetting('VoidMaps') >= 330) {
+    /*
+    //suspended for now
+    // get golden voids based on voidmap: 420, 56%(77%(lose36%) He). 390, 42%(70%(lose21%) He). 360, 30%(63%(lose15%) He). 330, 20%(56%(lose10%) He). 270, 12%(49%(lose6%) He). 270, 6%(42%(lose3%) He). 240, 2%(35%(lose1%) He).
+    if (game.global.world <= 210 && getPageSetting('VoidMaps') >= 420) {
     	setting = 3;
-    } else if (game.global.world <= 180 && getPageSetting('VoidMaps') >= 300) {
+    } else if (game.global.world <= 180 && getPageSetting('VoidMaps') >= 390) {
     	setting = 3;
-    } else if (game.global.world <= 150 && getPageSetting('VoidMaps') >= 270) {
+    } else if (game.global.world <= 150 && getPageSetting('VoidMaps') >= 360) {
     	setting = 3;
-    } else if (game.global.world <= 120 && getPageSetting('VoidMaps') >= 240) {
+    } else if (game.global.world <= 120 && getPageSetting('VoidMaps') >= 330) {
     	setting = 3;
-    } else if (game.global.world <= 90 && getPageSetting('VoidMaps') >= 210) {
+    } else if (game.global.world <= 60 && getPageSetting('VoidMaps') >= 300) {
     	setting = 3;
-    } else if (game.global.world <= 60 && getPageSetting('VoidMaps') >= 180) {
+    } else if (game.global.world <= 60 && getPageSetting('VoidMaps') >= 270) {
     	setting = 3;
-    } else if (game.global.world <= 30 && getPageSetting('VoidMaps') >= 150) {
+    } else if (game.global.world <= 30 && getPageSetting('VoidMaps') >= 240) {
     	setting = 3;
     }
+    */
     var num = getAvailableGoldenUpgrades();
     if (num == 0) return;       //if we have nothing to buy, exit.
     //buy one upgrade per loop.
