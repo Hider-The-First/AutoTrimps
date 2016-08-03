@@ -2019,7 +2019,7 @@ function autoMap() {
         //option to force stay in zone X time in min and farm
         //(game.global.world == 200 && game.global.lastClearedCell > 20 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)
 	) {
-            shouldDoMaps = true;
+            shouldDoMap = true;
             shouldDoNullMaps = true;
             console.log("now null running = true");
         }
