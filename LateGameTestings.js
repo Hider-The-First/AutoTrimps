@@ -2015,7 +2015,7 @@ function autoMap() {
         (game.global.mapBonus < 5 && (game.global.world == 9210 || game.global.world == 9220 || game.global.world == 9230 || game.global.world == 9240)) ||
         (game.global.mapBonus < 9 && (game.global.world == 200 || game.global.world == 9250 || game.global.world == 9260 || game.global.world == 9270 || game.global.world == 9280 || game.global.world == 9290 || game.global.world == 9300 || game.global.world == 9310 || game.global.world == 9320 || game.global.world == 9330 || game.global.world == 9340 || game.global.world == 9350)) ||
         //enter map in zones that you cant overkill the first raw of them, the next command will make sure you keep farming if you can't overkill in the maps.
-        (game.global.mapBonus < 1 && game.global.world >= 205 && (new Date().getTime() - game.global.zoneStarted) > (270 * 11) && game.global.lastClearedCell <= 10) ||
+        (game.global.mapBonus < 1 && !game.global.mapsActive  && game.global.world >= 205 && (new Date().getTime() - game.global.zoneStarted) > (270 * 11) && game.global.lastClearedCell <= 10) ||
         //force to stay in nullmaps if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 205 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (270 * game.global.mapGridArray.length))
         //option to force stay in zone X time in min and farm
