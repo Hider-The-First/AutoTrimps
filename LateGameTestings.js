@@ -1234,6 +1234,7 @@ function buyStorage() {
 	} else if (game.global.world < 200 && game.global.world > 40 && ((game.global.world >= 76 && game.global.world <= 79) || (game.global.world >= 88 && game.global.world <= 89) || (game.global.world >= 98 && game.global.world <= 99) || (game.global.world >= 108 && game.global.world <= 109) || (game.global.world >= 118 && game.global.world <= 119) || (game.global.world >= 128 && game.global.world <= 129) || (game.global.world >= 138 && game.global.world <= 139) || (game.global.world >= 148 && game.global.world <= 149) || (game.global.world >= 158 && game.global.world <= 159) || (game.global.world >= 168 && game.global.world <= 169) || (game.global.world >= 177 && game.global.world <= 179) || (game.global.world >= 186 && game.global.world <= 189) || (game.global.world == 199))) {
            document.getElementById('Prestige').selectedIndex = 1;
            autoTrimpSettings.Prestige.selected = "Supershield";
+        /*
         //unlock weapon prestige before clearing void maps.
 	} else if (game.global.world >= 330 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
            document.getElementById('Prestige').selectedIndex = 12;
@@ -1250,6 +1251,7 @@ function buyStorage() {
 	} else if (game.global.world >= 210 && game.global.world == getPageSetting('VoidMaps') && game.global.lastClearedCell > 80) {
            document.getElementById('Prestige').selectedIndex = 4;
            autoTrimpSettings.Prestige.selected = "Megamace";
+        */
 	} else {
            document.getElementById('Prestige').selectedIndex = 0;
            autoTrimpSettings.Prestige.selected = "Off";
@@ -2010,8 +2012,8 @@ function autoMap() {
         var shouldDoNullMaps = false;
         if (
         (game.global.mapBonus < 1 && !game.global.mapsActive && (game.global.world == 15 || game.global.world == 21 || game.global.world == 25 || game.global.world == 31 || game.global.world == 34 || game.global.world == 37)) ||
-        (game.global.mapBonus < 5 && (game.global.world == 210 || game.global.world == 220 || game.global.world == 230 || game.global.world == 240)) ||
-        (game.global.mapBonus < 9 && (game.global.world == 200 || game.global.world == 250 || game.global.world == 260 || game.global.world == 270 || game.global.world == 280 || game.global.world == 290 || game.global.world == 300 || game.global.world == 310 || game.global.world == 320 || game.global.world == 330 || game.global.world == 340 || game.global.world == 350)) ||
+        (game.global.mapBonus < 5 && (game.global.world == 9210 || game.global.world == 9220 || game.global.world == 9230 || game.global.world == 9240)) ||
+        (game.global.mapBonus < 9 && (game.global.world == 200 || game.global.world == 9250 || game.global.world == 9260 || game.global.world == 9270 || game.global.world == 9280 || game.global.world == 9290 || game.global.world == 9300 || game.global.world == 9310 || game.global.world == 9320 || game.global.world == 9330 || game.global.world == 9340 || game.global.world == 9350)) ||
         //enter map in zones that you cant overkill the first raw of them, the next command will make sure you keep farming if you can't overkill in the maps.
         (game.global.mapBonus < 1 && game.global.world >= 205 && (new Date().getTime() - game.global.zoneStarted) > (270 * 11) && game.global.lastClearedCell <= 10) ||
         //force to stay in nullmaps if you overkill all the cells unless you are about to hit max map bonus.
@@ -2594,7 +2596,7 @@ function manageGenes() {
     }
         //if our time remaining to full trimps is still too high, fire some jobs to get-er-done
         //needs option to toggle? advanced options?
-    else if ((targetBreed < getBreedTime(true) || (game.resources.trimps.soldiers == 0 && getBreedTime(true) > 0.2)) && breedFire == false && (getPageSetting('BreedFire') || (autoTrimpSettings.GeneticistTimer.value >= '60' && game.global.world == 200)) && game.global.world > 10) {
+    else if ((targetBreed < getBreedTime(true) || (game.resources.trimps.soldiers == 0 && getBreedTime(true) > 6)) && breedFire == false && (getPageSetting('BreedFire') || (autoTrimpSettings.GeneticistTimer.value >= '60' && game.global.world == 200)) && game.global.world > 10) {
         breedFire = true;
     }
     //reset breedFire once we have less than 2 seconds remaining
