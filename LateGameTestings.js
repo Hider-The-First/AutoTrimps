@@ -2279,7 +2279,7 @@ function autoMap() {
                     //if shouldFarm, don't switch until after megamining. if "wants damage", go in first 10 cells of zone (do map bonus simultaneously)
                     //if need prestige, go immediately.
                     if (!game.global.switchToMaps){
-                        if ((shouldDoMaps && game.global.lastClearedCell < 10 && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.9999) || ((shouldFarm || shouldDoMaps) && game.global.lastClearedCell >= 81) || (game.global.lastClearedCell >= 81 && needPrestige && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.9999)|| doVoids || shouldDoMap!="world")
+                        if ((shouldDoMaps && game.global.lastClearedCell < 10 && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.995) || ((shouldFarm || shouldDoMaps) && game.global.lastClearedCell >= 81) || (game.global.lastClearedCell >= 81 && needPrestige && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.995)|| doVoids || shouldDoMap!="world")
                             mapsClicked();
                     }
                     ////Get Impatient/Abandon if: need prestige / _NEED_ to do void maps / on lead in odd world. AND a new army is ready, OR _need_ to void map OR lead farming and we're almost done with the zone )
@@ -2289,7 +2289,7 @@ function autoMap() {
                         ((game.global.lastClearedCell >= 81 && needPrestige && game.global.world !=200) || getPageSetting('VoidMaps') > 270 ||doVoids || shouldDoNullMaps || (game.global.challengeActive == 'Lead' && game.global.world % 2 == 1)) 
                         && 
                             (
-                            (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.999)
+                            (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.995)
                             || (game.global.challengeActive == 'Lead' && game.global.lastClearedCell > 93) 
                             || (doVoids && game.global.lastClearedCell > 93)
                             )
@@ -2298,7 +2298,7 @@ function autoMap() {
                     }
                 }
                 //forcibly run watch maps
-                if ((shouldDoWatchMaps) && (game.global.world !=200 || game.global.lastClearedCell > 990) && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.9999 )
+                if ((shouldDoWatchMaps) && (game.global.world !=200 || game.global.lastClearedCell > 990) && game.resources.trimps.owned > game.resources.trimps.realMax() * 0.995 )
                     mapsClicked();                
             }
         } else if (game.global.preMapsActive) {
