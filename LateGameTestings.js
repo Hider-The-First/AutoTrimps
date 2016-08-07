@@ -1084,7 +1084,7 @@ function initializeAutoTrimps() {
 
 function workerRatios() {
     if (game.resources.trimps.realMax() > 50000000) {
-        if (game.global.turkimpTimer > 0 && game.global.world != 200 && getBuildingItemPrice(game.buildings.Warpstation, "gems", false, 1) > game.resources.gems.owned) {
+        if (game.global.turkimpTimer > 0 && game.global.world == 9200 && getBuildingItemPrice(game.buildings.Warpstation, "gems", false, 1) > game.resources.gems.owned) { // Testing insted of: !200
         autoTrimpSettings.FarmerRatio.value = '60';
         autoTrimpSettings.LumberjackRatio.value = '5';
         autoTrimpSettings.MinerRatio.value = '5';
@@ -1097,17 +1097,17 @@ function workerRatios() {
         autoTrimpSettings.LumberjackRatio.value = '2';
         autoTrimpSettings.MinerRatio.value = '40';
         } else if (game.global.world < 200) {
-        autoTrimpSettings.FarmerRatio.value = '5';
-        autoTrimpSettings.LumberjackRatio.value = '40';
+        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.LumberjackRatio.value = '10';
         autoTrimpSettings.MinerRatio.value = '60';
         } else if (game.global.world == 200) {
         autoTrimpSettings.FarmerRatio.value = '1';
-        autoTrimpSettings.LumberjackRatio.value = '80';
-        autoTrimpSettings.MinerRatio.value = '20';
+        autoTrimpSettings.LumberjackRatio.value = '10';
+        autoTrimpSettings.MinerRatio.value = '60';
         } else {
         autoTrimpSettings.FarmerRatio.value = '4';
         autoTrimpSettings.LumberjackRatio.value = '1';
-        autoTrimpSettings.MinerRatio.value = '80';
+        autoTrimpSettings.MinerRatio.value = '300';
         }
     } else if (game.resources.trimps.realMax() > 500000) {
         autoTrimpSettings.FarmerRatio.value = '40';
@@ -1680,12 +1680,12 @@ function manualLabor() {
             setGather(lowestResource);
         } else if (game.global.turkimpTimer > 0 && game.global.world != 200 && getBuildingItemPrice(game.buildings.Warpstation, "gems", false, 1) > game.resources.gems.owned ) {
             //debug('Set gather ManualGather');
-            setGather('food');
+            setGather('metal'); // Testing insted of: food
         } else if (game.global.turkimpTimer > 0 && game.global.world != 200 ) {
             //debug('Set gather ManualGather');
             setGather('metal');
         } else if (game.global.turkimpTimer > 0 && game.global.world == 200) {
-            setGather('wood');
+            setGather('metal'); // Testing insted wood:
         } else  if (game.resources.science.owned < getPsString('science', true) * 60 && document.getElementById('scienceCollectBtn').style.display != 'none' && document.getElementById('science').style.visibility != 'hidden' && game.global.turkimpTimer < 1 && haveWorkers) {
             setGather('science');
         }
@@ -2326,7 +2326,7 @@ function autoMap() {
                     adjustMap('difficulty', 9);
                     lootAdvMapsRange.value = 9;
                     adjustMap('loot', 9);
-                    biomeAdvMapsSelect.value = "Forest";
+                    biomeAdvMapsSelect.value = "Mountain";// Testing insted of: Forest
                     updateMapCost();
                 } else if (game.global.world < 36) {
                     sizeAdvMapsRange.value = 9;
@@ -2335,7 +2335,7 @@ function autoMap() {
                     adjustMap('difficulty', 9);
                     lootAdvMapsRange.value = 9;
                     adjustMap('loot', 9);
-                    biomeAdvMapsSelect.value = "Sea";
+                    biomeAdvMapsSelect.value = "Mountain";// Testing insted of: Sea
                     updateMapCost();
                 } else {
                     sizeAdvMapsRange.value = 9;
@@ -2344,7 +2344,7 @@ function autoMap() {
                     adjustMap('difficulty', 9);
                     lootAdvMapsRange.value = 9;
                     adjustMap('loot', 9);
-                    biomeAdvMapsSelect.value = "Sea";
+                    biomeAdvMapsSelect.value = "Mountain";// Testing insted of: Sea
                     updateMapCost();
                 }
 				
