@@ -1308,8 +1308,8 @@ function buyBuildings() {
 function setTitle() {
     document.title = '(' + game.global.world + ')' + ' Trimps ' + document.getElementById('versionNumber').innerHTML;
     //for the dummies like me who always forget to turn automaps back on after portaling
-    if(getPageSetting('RunUniqueMaps') && !game.upgrades.Battle.done && autoTrimpSettings.RunMapsWhenStuck.enabled == false) {
-        settingChanged("RunMapsWhenStuck");
+    if(getPageSetting('RunUniqueMaps') && !game.upgrades.Battle.done && autoTrimpSettings.AutoMaps.enabled == false) {
+        settingChanged("AutoMaps");
     }
 }
 
@@ -2684,14 +2684,14 @@ function mainLoop() {
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
 
-    if (getPageSetting('workerRatios')) workerRatios(); //This needs a UI input
+    if (getPageSetting('WorkerRatios')) workerRatios(); //This needs a UI input
     if (getPageSetting('BuyUpgrades')) buyUpgrades();
     autoGoldenUpgrades();
     if (getPageSetting('BuyStorage')) buyStorage();
     if (getPageSetting('BuyBuildings')) buyBuildings();
     if (getPageSetting('BuyJobs')) buyJobs();
     if (getPageSetting('ManualGather')) manualLabor();
-    if (getPageSetting('RunMapsWhenStuck')) autoMap();
+    if (getPageSetting('AutoMaps')) autoMap();
     if (getPageSetting('GeneticistTimer') >= 0) manageGenes();
     if (autoTrimpSettings.AutoPortal.selected != "Off") autoPortal();
     if (getPageSetting('AutoHeirlooms2')) autoHeirlooms2();
