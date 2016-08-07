@@ -1082,7 +1082,7 @@ function initializeAutoTrimps() {
     toggleSettingsMenu();
 }
 
-function easyMode() {
+function workerRatios() {
     if (game.resources.trimps.realMax() > 50000000) {
         if (game.global.turkimpTimer > 0 && game.global.world != 200 && getBuildingItemPrice(game.buildings.Warpstation, "gems", false, 1) > game.resources.gems.owned) {
         autoTrimpSettings.FarmerRatio.value = '60';
@@ -1439,7 +1439,7 @@ function buyJobs() {
         var canBuy = Math.floor(trimps.owned - trimps.employed);
         safeBuyJob('Lumberjack',toBuy <= canBuy ? toBuy : canBuy);
     }
-    else if(breedFire)
+    else if(breedFire && game.global.turkimpTimer === 0)
         safeBuyJob('Lumberjack', game.jobs.Lumberjack.owned * -1);
 }
 
@@ -2684,7 +2684,7 @@ function mainLoop() {
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
 
-    if (getPageSetting('EasyMode')) easyMode(); //This needs a UI input
+    if (getPageSetting('workerRatios')) workerRatios(); //This needs a UI input
     if (getPageSetting('BuyUpgrades')) buyUpgrades();
     autoGoldenUpgrades();
     if (getPageSetting('BuyStorage')) buyStorage();
