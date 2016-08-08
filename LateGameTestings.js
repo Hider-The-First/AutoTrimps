@@ -1098,16 +1098,16 @@ function workerRatios() {
         autoTrimpSettings.MinerRatio.value = '30';
         } else if (game.global.world < 200) {
         autoTrimpSettings.FarmerRatio.value = '1';
-        autoTrimpSettings.LumberjackRatio.value = '4';
-        autoTrimpSettings.MinerRatio.value = '30';
+        autoTrimpSettings.LumberjackRatio.value = '5';
+        autoTrimpSettings.MinerRatio.value = '24';
         } else if (game.global.world == 200) {
         autoTrimpSettings.FarmerRatio.value = '1';
-        autoTrimpSettings.LumberjackRatio.value = '8';
-        autoTrimpSettings.MinerRatio.value = '60';
+        autoTrimpSettings.LumberjackRatio.value = '11';
+        autoTrimpSettings.MinerRatio.value = '48';
         } else {
-        autoTrimpSettings.FarmerRatio.value = '1';
-        autoTrimpSettings.LumberjackRatio.value = '4';
-        autoTrimpSettings.MinerRatio.value = '200';
+        autoTrimpSettings.FarmerRatio.value = '3';
+        autoTrimpSettings.LumberjackRatio.value = '3';
+        autoTrimpSettings.MinerRatio.value = '94';
         }
     } else if (game.resources.trimps.realMax() > 500000) {
         autoTrimpSettings.FarmerRatio.value = '4';
@@ -2335,7 +2335,7 @@ function autoMap() {
                     adjustMap('difficulty', 9);
                     lootAdvMapsRange.value = 9;
                     adjustMap('loot', 9);
-                    biomeAdvMapsSelect.value = "Mountain";// Testing insted of: Sea
+                    biomeAdvMapsSelect.value = "Sea";
                     updateMapCost();
                 } else {
                     sizeAdvMapsRange.value = 9;
@@ -2344,7 +2344,7 @@ function autoMap() {
                     adjustMap('difficulty', 9);
                     lootAdvMapsRange.value = 9;
                     adjustMap('loot', 9);
-                    biomeAdvMapsSelect.value = "Mountain";// Testing insted of: Sea
+                    biomeAdvMapsSelect.value = "Sea";
                     updateMapCost();
                 }
 				
