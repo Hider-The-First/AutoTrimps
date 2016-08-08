@@ -1105,9 +1105,9 @@ function workerRatios() {
         autoTrimpSettings.LumberjackRatio.value = '11';
         autoTrimpSettings.MinerRatio.value = '48';
         } else {
-        autoTrimpSettings.FarmerRatio.value = '3';
-        autoTrimpSettings.LumberjackRatio.value = '3';
-        autoTrimpSettings.MinerRatio.value = '94';
+        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.LumberjackRatio.value = '1';
+        autoTrimpSettings.MinerRatio.value = '98';
         }
     } else if (game.resources.trimps.realMax() > 500000) {
         autoTrimpSettings.FarmerRatio.value = '4';
