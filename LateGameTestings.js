@@ -1013,8 +1013,8 @@ function highlightHousing() {
                 // document.getElementById(unlockedHousing[house]).removeEventListener("click", update);
             }
         }
-		if (game.buildings.Tribute.owned > 1600 && getBuildingItemPrice(game.buildings.Warpstation, "gems", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.gems.owned/10)
-            safeBuyBuilding('Collector');
+	if (game.buildings.Tribute.owned > 1600 && getBuildingItemPrice(game.buildings.Warpstation, "gems", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.gems.owned/10) {
+        safeBuyBuilding('Collector');
         }
         var keysSorted = Object.keys(obj).sort(function(a, b) {
             return obj[a] - obj[b];
@@ -1048,7 +1048,7 @@ function highlightHousing() {
             document.getElementById(bestBuilding).style.border = "1px solid #00CC00";
         }
         // document.getElementById(bestBuilding).addEventListener('click', update, false);
-        else {
+        } else {
         bestBuilding = null;
     }
     game.global.buyAmt = oldBuy;
