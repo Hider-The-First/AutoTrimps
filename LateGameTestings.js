@@ -1047,8 +1047,9 @@ function highlightHousing() {
         if (bestBuilding) {
             document.getElementById(bestBuilding).style.border = "1px solid #00CC00";
         }
+	}
     // document.getElementById(bestBuilding).addEventListener('click', update, false);
-    else {
+    } else {
         bestBuilding = null;
     }
     game.global.buyAmt = oldBuy;
