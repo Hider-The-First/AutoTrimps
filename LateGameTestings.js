@@ -1967,8 +1967,7 @@ function autoMap() {
         shouldDoMaps = true;
         shouldDoWatchMaps = true;
     }
-    var WaitForBoss = true;
-    if ((getPageSetting('KeepClearTimeUP') || WaitForBoss) {
+    if (getPageSetting('KeepClearTimeUP') {
 	//mapYouSlow maps
         var mapYouSlow = false;
         var cellClearTime = 540;
@@ -1987,10 +1986,10 @@ function autoMap() {
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length))		
         //option to force stay in zone X time in min and farm		
         //(game.global.world == 200 && game.global.lastClearedCell > 20 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		
-		) {		
-            shouldDoMaps = true;		
-            mapYouSlow = true;		
-            console.log("now walking mapYouSlow = true");		
+	) {		
+        shouldDoMaps = true;		
+        mapYouSlow = true;		
+        console.log("now walking mapYouSlow = true");		
         }		
         shouldFarm = mapYouSlow ? true : shouldFarm;		
         enoughDamage = mapYouSlow ? true : enoughDamage;		
@@ -2894,4 +2893,6 @@ function generateHeirloomIcon(heirloom, location, number){
     html += '" onmouseover="tooltip(\'Heirloom\', null, event, null, ' + locText + ')" onmouseout="tooltip(\'hide\')" onclick="newSelectHeirloom(';
     html += locText + ', this)"> <span class="' + icon + '"></span></span>';
     return html;
+}
+createSetting('KeepClearTimeUP', 'Keep Clear Time UP', 'Do Maps if you are clearing the cells slow', 'boolean', null, null, 'genbtcadvancedSettings');
 }
