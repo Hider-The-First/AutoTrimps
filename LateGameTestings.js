@@ -1967,8 +1967,10 @@ function autoMap() {
         shouldDoMaps = true;
         shouldDoWatchMaps = true;
     }
-	//Hider maps
-        var shouldDoHiderMaps = false;
+    var WaitForBoss = true;
+    if ((getPageSetting('KeepClearTimeUP') || WaitForBoss) {
+	//mapYouSlow maps
+        var mapYouSlow = false;
         var cellClearTime = 540;
         if (game.portal.Overkill.level > 3) {
         	cellClearTime /= 2
@@ -1987,12 +1989,12 @@ function autoMap() {
         //(game.global.world == 200 && game.global.lastClearedCell > 20 ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		
 		) {		
             shouldDoMaps = true;		
-            shouldDoHiderMaps = true;		
-            console.log("now hider running = true");		
+            mapYouSlow = true;		
+            console.log("now walking mapYouSlow = true");		
         }		
-        shouldFarm = shouldDoHiderMaps ? true : shouldFarm;		
-        enoughDamage = shouldDoHiderMaps ? true : enoughDamage;		
-        enoughHealth = shouldDoHiderMaps ? true : enoughHealth;
+        shouldFarm = mapYouSlow ? true : shouldFarm;		
+        enoughDamage = mapYouSlow ? true : enoughDamage;		
+        enoughHealth = mapYouSlow ? true : enoughHealth;
 
     var shouldDoSpireMaps = false;
     //Get 200% map bonus before attempting Spire
@@ -2250,7 +2252,7 @@ function autoMap() {
             }
         }
         //forcibly run watch maps
-        if (shouldDoWatchMaps || shouldDoHiderMaps) {
+        if (shouldDoWatchMaps || mapYouSlow) {
             mapsClicked();
         }
     } else if (game.global.preMapsActive) {
