@@ -1041,13 +1041,12 @@ function highlightHousing() {
                 break;
             }
         }
-		if (game.global.mapsActive && bestBuilding != "Warpstation" && !game.buildings.Warpstation.locked && game.global.world < 190) {		
-        	bestBuilding = "Warpstation";
+	if (game.global.mapsActive && bestBuilding != "Warpstation" && !game.buildings.Warpstation.locked && game.global.world < 190) {		
+        bestBuilding = "Warpstation";
         }
         if (bestBuilding) {
             document.getElementById(bestBuilding).style.border = "1px solid #00CC00";
-        }
-        // document.getElementById(bestBuilding).addEventListener('click', update, false);
+    // document.getElementById(bestBuilding).addEventListener('click', update, false);
     } else {
         bestBuilding = null;
     }
