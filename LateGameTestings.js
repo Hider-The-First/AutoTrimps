@@ -915,9 +915,9 @@ function initializeAutoTrimps() {
     if (atscript !== null) {
         base = atscript.getAttribute('src').replace(/\/AutoTrimps2\.js$/, '');
     }
+    createSetting('KeepClearTimeUP', 'Keep Clear Time UP', 'Do Maps if you are clearing the cells slow', 'boolean', null, null, 'genbtcadvancedSettings');
     document.head.appendChild(document.createElement('script')).src = base + '/NewUI.js';
     document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
-    createSetting('KeepClearTimeUP', 'Keep Clear Time UP', 'Do Maps if you are clearing the cells slow', 'boolean', null, null, 'genbtcadvancedSettings');
     toggleSettingsMenu();
     toggleSettingsMenu();
 }
