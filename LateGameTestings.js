@@ -1970,6 +1970,7 @@ function autoMap() {
 	//mapYouSlow maps
         var mapYouSlow = false;
         var cellClearTime = 540;
+        OVKcellsWorld = document.getElementById("grid").getElementsByClassName("cellColorOverkill").length;
         if (game.portal.Overkill.level > 3) {
         	cellClearTime /= 2
         }
