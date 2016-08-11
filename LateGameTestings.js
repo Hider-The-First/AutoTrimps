@@ -919,6 +919,7 @@ function initializeAutoTrimps() {
     document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
     toggleSettingsMenu();
     toggleSettingsMenu();
+    createSetting('KeepClearTimeUP', 'Keep Clear Time UP', 'Do Maps if you are clearing the cells slow', 'boolean', null, null, 'genbtcadvancedSettings');
 }
 
 function workerRatios() {
@@ -2893,6 +2894,4 @@ function generateHeirloomIcon(heirloom, location, number){
     html += '" onmouseover="tooltip(\'Heirloom\', null, event, null, ' + locText + ')" onmouseout="tooltip(\'hide\')" onclick="newSelectHeirloom(';
     html += locText + ', this)"> <span class="' + icon + '"></span></span>';
     return html;
-}
-createSetting('KeepClearTimeUP', 'Keep Clear Time UP', 'Do Maps if you are clearing the cells slow', 'boolean', null, null, 'genbtcadvancedSettings');
 }
