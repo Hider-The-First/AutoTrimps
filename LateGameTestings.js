@@ -1967,7 +1967,7 @@ function autoMap() {
         shouldDoMaps = true;
         shouldDoWatchMaps = true;
     }
-    if (getPageSetting('KeepClearTimeUP') {
+    if (getPageSetting('KeepClearTimeUP')) {
 	//mapYouSlow maps
         var mapYouSlow = false;
         var cellClearTime = 540;
