@@ -2735,7 +2735,7 @@ function mainLoop() {
     else autoTrimpSettings.Prestige.selected = document.getElementById('Prestige').value; //if we dont want to, just make sure the UI setting and the internal setting are aligned.
     
     //track how many overkill world cells we have beaten in the current level. (game.stats.cellsOverkilled.value for the entire run)
-    if (game.portal.Overkill.level) OVKcellsWorld = document.getElementById("grid").getElementsByClassName("cellColorOverkill").length
+    if (game.portal.Overkill.level) OVKcellsWorld = document.getElementById("grid").getElementsByClassName("cellColorOverkill").length;
     
     //Runs any user provided scripts - by copying and pasting a function named userscripts() into the Chrome Dev console. (F12)
     userscripts();
