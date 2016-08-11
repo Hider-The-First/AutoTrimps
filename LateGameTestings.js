@@ -917,9 +917,9 @@ function initializeAutoTrimps() {
     }
     document.head.appendChild(document.createElement('script')).src = base + '/NewUI.js';
     document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
-    toggleSettingsMenu();
-    toggleSettingsMenu();
     createSetting('KeepClearTimeUP', 'Keep Clear Time UP', 'Do Maps if you are clearing the cells slow', 'boolean', null, null, 'genbtcadvancedSettings');
+    toggleSettingsMenu();
+    toggleSettingsMenu();
 }
 
 function workerRatios() {
