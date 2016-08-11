@@ -1967,7 +1967,7 @@ function autoMap() {
         shouldDoWatchMaps = true;
     }
 	//Hider maps
-        var hidermaps = false;		
+        var shouldDoHiderMaps = false;		
         if (		
         //enter map in zones that you cant overkill the first 40 cells of them, the script will make sure you keep farming if you can't overkill in the maps.		
         (game.global.mapBonus < 1 && game.global.world >= 205 && (new Date().getTime() - game.global.zoneStarted) > (270 * 41) && game.global.lastClearedCell <= 40) ||		
