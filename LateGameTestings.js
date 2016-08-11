@@ -2037,7 +2037,7 @@ function autoMap() {
                 break;
             }
             if (theMap.name == 'Dimension of Anger' && document.getElementById("portalBtn").style.display == "none") {
-                var doaDifficulty = Math.ceil(theMap.difficulty / 2);
+                var doaDifficulty = 0; //Math.ceil(theMap.difficulty / 2);
                 if(game.global.world < 20 + doaDifficulty) continue; 
                 selectedMap = theMap.id;
                 break;
