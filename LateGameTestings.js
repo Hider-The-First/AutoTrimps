@@ -1969,7 +1969,7 @@ function autoMap() {
     if (getPageSetting('BuyBuildings')) {
 	//mapYouSlow maps
         var mapYouSlow = false;
-        var cellClearTime = 540;
+        var cellClearTime = 600; // 540
         if (game.portal.Overkill.level > 3) {
         	cellClearTime /= 2
         }
