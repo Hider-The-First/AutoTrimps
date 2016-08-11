@@ -1324,7 +1324,6 @@ function buyJobs() {
         if (game.resources.trimps.owned < game.resources.trimps.realMax() * 0.9 && !breedFire) return;
     }
     
-
     var oldBuy = game.global.buyAmt;
     
     //Trainers capped to tributes percentage.
@@ -2252,7 +2251,7 @@ function autoMap() {
             }
         }
         //forcibly run watch maps
-        if (shouldDoWatchMaps || mapYouSlow) {
+        if (shouldDoWatchMaps || (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.999 && mapYouSlow)) {
             mapsClicked();
         }
     } else if (game.global.preMapsActive) {
