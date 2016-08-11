@@ -916,7 +916,6 @@ function initializeAutoTrimps() {
         base = atscript.getAttribute('src').replace(/\/AutoTrimps2\.js$/, '');
     }
     document.head.appendChild(document.createElement('script')).src = base + '/NewUI.js';
-    document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
     toggleSettingsMenu();
     toggleSettingsMenu();
 }
