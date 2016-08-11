@@ -915,7 +915,6 @@ function initializeAutoTrimps() {
     if (atscript !== null) {
         base = atscript.getAttribute('src').replace(/\/AutoTrimps2\.js$/, '');
     }
-    createSetting('KeepClearTimeUP', 'Keep Clear Time UP', 'Do Maps if you are clearing the cells slow', 'boolean', null, null, 'genbtcadvancedSettings');
     document.head.appendChild(document.createElement('script')).src = base + '/NewUI.js';
     document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
     toggleSettingsMenu();
@@ -1968,7 +1967,7 @@ function autoMap() {
         shouldDoMaps = true;
         shouldDoWatchMaps = true;
     }
-    if (getPageSetting('KeepClearTimeUP')) {
+    if (getPageSetting('BuyBuildings')) {
 	//mapYouSlow maps
         var mapYouSlow = false;
         var cellClearTime = 540;
