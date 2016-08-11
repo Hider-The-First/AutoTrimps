@@ -1995,6 +1995,7 @@ function autoMap() {
         shouldFarm = mapYouSlow ? true : shouldFarm;		
         enoughDamage = mapYouSlow ? true : enoughDamage;		
         enoughHealth = mapYouSlow ? true : enoughHealth;
+    }
 
     var shouldDoSpireMaps = false;
     //Get 200% map bonus before attempting Spire
