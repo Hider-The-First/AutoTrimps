@@ -1974,9 +1974,9 @@ function autoMap() {
         if (game.portal.Overkill.level > 3) {
         	cellClearTime /= 2
         }
-        if (game.talents.hyperspeed.purchased) {
-        	cellClearTime -= 50
-        }
+ //       if (game.talents.hyperspeed.purchased) {
+ //       	cellClearTime -= 50
+  //      }
         if (		
         //enter map in zones that you cant overkill the first 40 cells of them, the script will make sure you keep farming if you can't overkill in the maps.		
         (game.global.mapBonus < 1 && game.global.world >= 11 && (new Date().getTime() - game.global.zoneStarted) > (cellClearTime * 41) && game.global.lastClearedCell <= 40) ||		
