@@ -2518,11 +2518,12 @@ function manageGenes() {
         else autoTrimpSettings.GeneticistTimer.value = '30';
     }
     var inDamageStance = game.upgrades.Dominance.done ? game.global.formation == 2 : game.global.formation == 0;
+    var inScryerStance = (game.global.world >= 60 && game.global.highestLevelCleared >= 180) && game.global.formation == 4;
     var targetBreed = parseInt(getPageSetting('GeneticistTimer'));
     //if we need to hire geneticists
     //Don't hire geneticists if total breed time remaining is greater than our target breed time
     //Don't hire geneticists if we have already reached 30 anti stacks (put off further delay to next trimp group)
-    if (targetBreed > getBreedTime() && !game.jobs.Geneticist.locked && targetBreed > getBreedTime(true) && ((game.global.lastBreedTime/1000 + getBreedTime(true) < autoTrimpSettings.GeneticistTimer.value) || (targetBreed > getBreedTime() && getBreedTime(true) == 0)) && game.resources.trimps.soldiers > 0 && (inDamageStance || game.global.formation == "4") && !breedFire) {
+    if (targetBreed > getBreedTime() && !game.jobs.Geneticist.locked && targetBreed > getBreedTime(true) && ((game.global.lastBreedTime/1000 + getBreedTime(true) < autoTrimpSettings.GeneticistTimer.value) || (targetBreed > getBreedTime() && getBreedTime(true) == 0)) && game.resources.trimps.soldiers > 0 && (inDamageStance || inScryerStance) && !breedFire) {
         //insert 10% of total food limit here? or cost vs tribute?
         //if there's no free worker spots, fire a farmer
         if (fWorkers < 1 && canAffordJob('Geneticist', false)) {
@@ -2674,6 +2675,46 @@ function exitSpireCell() {
         endSpire();    
 }
 
+//use S stance
+function useScryerStance() {
+    if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180) return;
+    //grab settings variables
+    var useinmaps = getPageSetting('ScryerUseinMaps');
+    var useinvoids = getPageSetting('ScryerUseinVoidMaps');
+    var useinspire = getPageSetting('ScryerUseinSpire');
+    //var useinspiresafes = getPageSetting('ScryerUseinSpireSafes');
+    var minzone = getPageSetting('ScryerMinZone');
+    var maxzone = getPageSetting('ScryerMaxZone');
+    
+    //decide if we are going to use it.
+    var mapcheck = game.global.mapsActive;
+    var run = !mapcheck;    //initially set run with the opposite of "are we in a map" (if false, run will be true which means "run if we are in world")
+    if (mapcheck) {
+        //if we are in a map, set to check if he wants to use S in maps.
+        run = useinmaps;
+        //if we are in a void, set to check if he wants to use S in voids.
+        if (getCurrentMapObject().location == "Void")
+            run = useinvoids;
+    }
+    else {
+        //if we aren't in a map, are we in spire? if not, just go with run in world.
+        var spirecheck = (game.global.world == 200 && game.global.spireActive);
+        run = spirecheck ? useinspire : run;        
+    }
+    if (run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
+        setFormation(4);    //set the S stance
+        //calculate internal script variables normally processed by autostance.
+        baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+        baseBlock = game.global.soldierCurrentBlock;
+        baseHealth = game.global.soldierHealthMax;
+        baseDamage *= 2;
+        baseBlock *= 2;
+        baseHealth *= 2;
+    } else {
+        autoStance();    //falls back to autostance when not using S. 
+    }
+}
+
 ////////////////////////////////////////
 //Main DELAY Loop///////////////////////
 ////////////////////////////////////////
@@ -2730,7 +2771,10 @@ function mainLoop() {
     if (getPageSetting('AutoRoboTrimp')) autoRoboTrimp();   //"AutoRoboTrimp" (genBTC settings area)
     if (getPageSetting('AutoUpgradeHeirlooms') && !heirloomsShown) autoNull();  //"Auto Upgrade Heirlooms" (genBTC settings area)
     autoLevelEquipment();                                   //"Buy Armor", "Buy Armor Upgrades", "Buy Weapons","Buy Weapons Upgrades"
-    autoStance();                                           //"Auto Stance"
+     if (getPageSetting('UseScryerStance')) 
+        useScryerStance();                                  //"Use Scryer Stance"
+    else
+    	autoStance();                                           //"Auto Stance"
     if (getPageSetting('AutoFight')) betterAutoFight();     //"Better Auto Fight"
     if (getPageSetting('DynamicPrestige')) prestigeChanging2(); //"Dynamic Prestige" (genBTC settings area)
     else autoTrimpSettings.Prestige.selected = document.getElementById('Prestige').value; //if we dont want to, just make sure the UI setting and the internal setting are aligned.
