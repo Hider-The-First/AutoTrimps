@@ -2702,7 +2702,7 @@ function useScryerStance() {
         run = spirecheck ? useinspire : run;        
     }
     //!game.global.gridArray.corrupted  !game.global.gridArray[game.global.lastClearedCell+1].corrupted
-    if ((!game.global.gridArray.corrupted || (!game.global.gridArray[game.global.lastClearedCell+1].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML)) run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
+    if ((!game.global.gridArray.corrupted || (!game.global.gridArray[game.global.lastClearedCell+1].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML)) && run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
         //calculate internal script variables normally processed by autostance.
         baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
