@@ -1262,7 +1262,7 @@ function buyStorage() {
             jest = simpleSeconds(Bs[B], 45);
             jest = scaleToCurrentMap(jest);
         }
-        if ((game.global.world==1 && owned > max * 0.55) || (game.global.world >= 2 && game.global.world < 10 && owned > max * 0.5) || (owned + jest > max * 0.55)) {
+        if ((game.global.world==1 && owned > max * 0.55) || (game.global.world >= 2 && game.global.world < 10 && owned > max * 0.4) || (owned + jest > max * 0.5)) {
             // debug('Buying ' + B + '(' + Bs[B] + ') at ' + Math.floor(game.resources[Bs[B]].owned / (game.resources[Bs[B]].max * packMod * 0.99) * 100) + '%');
             if (canAffordBuilding(B) && game.triggers[B].done) {
                 safeBuyBuilding(B);
