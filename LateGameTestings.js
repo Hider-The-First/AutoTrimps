@@ -2705,7 +2705,7 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive && game.global.lastClearedCell < 85);
         run = spirecheck ? useinspire : run;
     }
-    if ((game.global.mapsActive || !game.global.gridArray[game.global.lastClearedCell+1].corrupted || game.global.world <= getPageSetting('VoidMaps') ||
+    if ((game.global.mapsActive || !game.global.gridArray[game.global.lastClearedCell+1].corrupted || game.global.world <= getPageSetting('VoidMaps') || game.global.lastClearedCell == 99 ||
     (!game.global.gridArray[game.global.lastClearedCell+2].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML))
     && run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
