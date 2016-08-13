@@ -2329,7 +2329,7 @@ function autoMap() {
                 updateMapCost();
             }
             //if we are "Farming" for resources, make sure it's metal
-            if(shouldFarm || needFarmSpire) {
+            if(game.global.world > 90 && (shouldFarm || needFarmSpire)) {
                 biomeAdvMapsSelect.value = "Mountain";
             } else {
                 //if we can't afford the map:
