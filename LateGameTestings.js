@@ -2682,7 +2682,6 @@ function exitSpireCell() {
 //use S stance
 function useScryerStance() {
     if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180) return;
-    if ((!game.global.gridArray[game.global.lastClearedCell+1].corrupted) || !game.global.gridArray[game.global.lastClearedCell+2].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML) return;
     //grab settings variables
     var useinmaps = getPageSetting('ScryerUseinMaps');
     var useinvoids = getPageSetting('ScryerUseinVoidMaps');
@@ -2706,7 +2705,7 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive && game.global.lastClearedCell < 85);
         run = spirecheck ? useinspire : run;        
     }
-    if (run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
+    if ((!game.global.gridArray[game.global.lastClearedCell+1].corrupted) || !game.global.gridArray[game.global.lastClearedCell+2].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML) && run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
         //calculate internal script variables normally processed by autostance.
         baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
