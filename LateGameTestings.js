@@ -2702,7 +2702,7 @@ function exitSpireCell() {
 
 //use S stance
 function useScryerStance() {
-    if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98)) return;
+    if ((game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98)) return;
     //grab settings variables
     var useinmaps = getPageSetting('ScryerUseinMaps');
     var useinvoids = getPageSetting('ScryerUseinVoidMaps');
@@ -2723,7 +2723,7 @@ function useScryerStance() {
     }
     else {
         //if we aren't in a map, are we in spire? if not, just go with run in world.
-        var spirecheck = (game.global.world == 200 && game.global.spireActive && game.global.lastClearedCell < 85);
+        var spirecheck = (game.global.world == 200 && game.global.spireActive);
         run = spirecheck ? useinspire : run;
     }
     if ((game.global.mapsActive || !game.global.gridArray[game.global.lastClearedCell+1].corrupted || game.global.world <= getPageSetting('VoidMaps') ||
