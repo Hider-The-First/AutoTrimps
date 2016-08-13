@@ -2682,7 +2682,7 @@ function exitSpireCell() {
 //use S stance
 function useScryerStance() {
     if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180) return;
-    if (game.global.gridArray.corrupted|| (!game.global.gridArray[game.global.lastClearedCell+1].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML)) return;
+    if (game.global.gridArray[game.global.lastClearedCell+1].corrupted || (!game.global.gridArray[game.global.lastClearedCell+2].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML)) return;
     
     //grab settings variables
     var useinmaps = getPageSetting('ScryerUseinMaps');
