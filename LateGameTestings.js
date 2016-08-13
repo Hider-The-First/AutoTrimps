@@ -2681,7 +2681,7 @@ function exitSpireCell() {
 
 //use S stance
 function useScryerStance() {
-    if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180) return;
+    if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell = 99)) return;
     //grab settings variables
     var useinmaps = getPageSetting('ScryerUseinMaps');
     var useinvoids = getPageSetting('ScryerUseinVoidMaps');
@@ -2705,7 +2705,7 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive && game.global.lastClearedCell < 85);
         run = spirecheck ? useinspire : run;
     }
-    if ((game.global.mapsActive || !game.global.gridArray[game.global.lastClearedCell+1].corrupted || game.global.world <= getPageSetting('VoidMaps') || game.global.lastClearedCell == 99 ||
+    if ((game.global.mapsActive || !game.global.gridArray[game.global.lastClearedCell+1].corrupted || game.global.world <= getPageSetting('VoidMaps') ||
     (!game.global.gridArray[game.global.lastClearedCell+2].corrupted && baseDamage*getPlayerCritDamageMult() > document.getElementById("badGuyHealth").innerHTML)/2)
     && run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
