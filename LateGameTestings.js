@@ -2728,7 +2728,7 @@ function useScryerStance() {
         run = spirecheck ? useinspire : run;
     }
     if ((game.global.mapsActive || !game.global.gridArray[game.global.lastClearedCell+1].corrupted || game.global.world <= getPageSetting('VoidMaps') ||
-    (!game.global.gridArray[game.global.lastClearedCell+2].corrupted && baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health)/2)
+    (!getCurrentEnemy(1).corrupted && baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health)/2)
     && run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
         //calculate internal script variables normally processed by autostance.
