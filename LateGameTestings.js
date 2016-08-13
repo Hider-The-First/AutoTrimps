@@ -2034,8 +2034,9 @@ function autoMap() {
     
     //Dynamic Siphonology section (when necessary)
     var siphlvl = game.global.world - game.portal.Siphonology.level;
+    var maxlvl = game.talents.mapLoot.purchased ? game.global.world - 1 : game.global.world;
     if (getPageSetting('DynamicSiphonology')){
-        for (siphlvl; siphlvl < game.global.world; siphlvl++) {
+        for (siphlvl; siphlvl < maxlvl; siphlvl++) {
             //check HP vs damage and find how many siphonology levels we need.
             var maphp = getEnemyMaxHealth(siphlvl);
             if (baseDamage * 2 < maphp){
