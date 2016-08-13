@@ -2702,7 +2702,8 @@ function exitSpireCell() {
 
 //use S stance
 function useScryerStance() {
-    if ((game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98)) autoStance(); return;
+    if ((game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98)) { autoStance(); return;
+    }
     //grab settings variables
     var useinmaps = getPageSetting('ScryerUseinMaps');
     var useinvoids = getPageSetting('ScryerUseinVoidMaps');
