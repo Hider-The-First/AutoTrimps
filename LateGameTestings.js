@@ -1983,9 +1983,9 @@ function autoMap() {
         //force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) // ||
         //option to force stay in zone X time in min/cleared maps and farm		
-  //      (game.global.world >= 280 && game.global.mapBonus < 9) ||
-  //      (game.global.world >= 60 && game.global.mapBonus < 1) ||
-  //      (game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)         
+        //(game.global.world >= 280 && game.global.mapBonus < 9) ||
+        //(game.global.world >= 60 && game.global.mapBonus < 1) ||
+        //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)         
         //option to force stay in zone X time in min and farm		
         //(game.global.world == 200 && game.global.lastClearedCell > 20 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		
 	) {		
@@ -2682,6 +2682,8 @@ function exitSpireCell() {
 //use S stance
 function useScryerStance() {
     if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180) return;
+    if (game.global.gridArray.corrupted|| (!game.global.gridArray[game.global.lastClearedCell+1].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML)) return;
+    
     //grab settings variables
     var useinmaps = getPageSetting('ScryerUseinMaps');
     var useinvoids = getPageSetting('ScryerUseinVoidMaps');
@@ -2706,15 +2708,7 @@ function useScryerStance() {
         run = spirecheck ? useinspire : run;        
     }
     //!game.global.gridArray.corrupted  !game.global.gridArray[game.global.lastClearedCell+1].corrupted
-    if (
-    	(!game.global.gridArray.corrupted
-    	||
-    	(!game.global.gridArray[game.global.lastClearedCell+1].corrupted && document.getElementById("badGuyHealthMax").innerHTML > 4*document.getElementById("badGuyHealth").innerHTML))
-    	&& run == true
-    	&& game.global.world >= 60
-    	&& (game.global.world >= minzone || minzone <= 0)
-    	&& (game.global.world < maxzone || maxzone <= 0)
-    	) {
+    if (run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
         //calculate internal script variables normally processed by autostance.
         baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
