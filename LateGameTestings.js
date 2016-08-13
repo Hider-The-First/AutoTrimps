@@ -2681,7 +2681,7 @@ function exitSpireCell() {
 
 //use S stance
 function useScryerStance() {
-    if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell == 99)) return;
+    if (game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98)) return;
     //grab settings variables
     var useinmaps = getPageSetting('ScryerUseinMaps');
     var useinvoids = getPageSetting('ScryerUseinVoidMaps');
