@@ -407,6 +407,26 @@ function getEnemyMaxHealth(world, level, corrupt) {
     return Math.floor(amt);
 }
 
+function getCurrentEnemy(current) {
+    if (!current)
+        current = 1;
+    var enemy;
+    if (!game.global.mapsActive && !game.global.preMapsActive) {
+        if (typeof game.global.gridArray[game.global.lastClearedCell + current] === 'undefined') {
+            enemy = game.global.gridArray[0];
+        } else {
+            enemy = game.global.gridArray[game.global.lastClearedCell + current];
+        }
+    } else if (game.global.mapsActive && !game.global.preMapsActive) {
+        if (typeof game.global.mapGridArray[game.global.lastClearedMapCell + current] === 'undefined') {
+            enemy = game.global.mapGridArray[0];
+        } else {
+            enemy = game.global.mapGridArray[game.global.lastClearedMapCell + current];
+        }
+    }
+    return enemy;
+}
+
 function getBreedTime(remaining,round) {
     var trimps = game.resources.trimps;
     var breeding = trimps.owned - trimps.employed;
