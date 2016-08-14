@@ -2007,10 +2007,10 @@ function autoMap() {
         //enter map in zones if you miss to overkill, the script will make sure you farm more if you can't overkill in the map.
         (game.global.mapBonus < 1 && game.global.world >= 11 && OVKcellsWorld+1 < game.global.lastClearedCell/2) ||
         //force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
-        (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) // ||
+        (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) ||
         //option to force stay in zone X time in min/cleared maps and farm		
-        //(game.global.world >= 280 && game.global.mapBonus < 9) ||
-        //(game.global.world >= 60 && game.global.mapBonus < 1) ||
+        (game.global.world == 90 && game.global.mapBonus < 1) ||
+        (game.global.world == 199 && game.global.mapBonus < 1)
         //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)         
         //option to force stay in zone X time in min and farm		
         //(game.global.world == 200 && game.global.lastClearedCell > 20 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		
