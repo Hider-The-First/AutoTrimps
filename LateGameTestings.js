@@ -2008,7 +2008,8 @@ function autoMap() {
         (game.global.mapBonus < 1 && game.global.world >= 11 && OVKcellsWorld+1 < game.global.lastClearedCell/2) ||
         //force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) ||
-        //option to force stay in zone X time in min/cleared maps and farm		
+        //option to force stay in zone X time in min/cleared maps and farm
+        (game.global.world == 50 && game.global.mapBonus < 1) ||
         (game.global.world == 90 && game.global.mapBonus < 1) ||
         (game.global.world == 199 && game.global.mapBonus < 1)
         //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)         
