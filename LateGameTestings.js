@@ -2282,7 +2282,7 @@ function autoMap() {
             }
         }
         //forcibly run watch maps
-        if (shouldDoWatchMaps || (game.resources.trimps.owned > game.resources.trimps.realMax() * 0.999 && mapYouSlow)) {
+        if (shouldDoWatchMaps || (getBreedTime(true) > 2 && mapYouSlow)) {
             mapsClicked();
         }
     } else if (game.global.preMapsActive) {
