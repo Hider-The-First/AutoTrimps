@@ -1509,13 +1509,13 @@ function autoLevelEquipment() {
                     ||
                     ( getPageSetting('BuyWeaponUpgrades') && equipmentList[equipName].Stat == 'block' )
                     ||
-                    ((getPageSetting('BuyArmorUpgrades') && ((equipmentList[equipName].Resource != 'metal') || ((gameResource.prestige+2 <= ((game.global.world-5)/5)) || (gameResource.prestige+2 <= ((game.global.world-5)/5) && game.global.world > getPageSetting('VoidMaps'))) || gameResource.prestige < 5) && (equipmentList[equipName].Stat == 'health'))
+                    ((getPageSetting('BuyArmorUpgrades') && ((equipmentList[equipName].Resource != 'metal') || ((gameResource.prestige+2 <= ((game.global.world-5)/5)) || (gameResource.prestige+2 <= ((game.global.world-5)/5) && game.global.world > getPageSetting('VoidMaps'))) || gameResource.prestige < 5 || game.global.world == 200 ) && (equipmentList[equipName].Stat == 'health'))
                         && 
                 //Only buy Armor prestiges when 'DelayArmorWhenNeeded' is on, IF:
                         (
                             (game.global.world == 200)  // not in level 200
                             ||
-							(getPageSetting('DelayArmorWhenNeeded') && !shouldFarm)  // not during "Farming" mode 
+			(getPageSetting('DelayArmorWhenNeeded') && !shouldFarm)  // not during "Farming" mode 
                             ||                                                       //     or
                             (getPageSetting('DelayArmorWhenNeeded') && enoughDamage) //  has enough damage (not in "Wants more Damage" mode)
                             ||                                                       //     or        
@@ -2570,7 +2570,7 @@ function manageGenes() {
         buyUpgrade('Potency');
     }
         //otherwise, if we have some geneticists, start firing them
-    else if ((targetBreed*1.02 < getBreedTime() || targetBreed*1.02 < getBreedTime(true)) && !game.jobs.Geneticist.locked && game.jobs.Geneticist.owned > 10) {
+    else if ((targetBreed*1.02 < getBreedTime() || targetBreed*1.02 < getBreedTime(true)) && !game.jobs.Geneticist.locked && game.jobs.Geneticist.owned > 10 && getBreedTime(true) > 2) {
         safeBuyJob('Geneticist', -10);
         //debug('fired a geneticist');
         
