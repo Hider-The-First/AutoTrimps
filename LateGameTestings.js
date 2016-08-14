@@ -1035,6 +1035,7 @@ function highlightHousing() {
         }
 	if (game.buildings.Tribute.owned > 1600 && getBuildingItemPrice(game.buildings.Collector, "gems", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) < game.resources.gems.owned/10) {
         safeBuyBuilding('Collector');
+        safeBuyBuilding('Nursery');
         }
         var keysSorted = Object.keys(obj).sort(function(a, b) {
             return obj[a] - obj[b];
