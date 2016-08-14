@@ -2004,9 +2004,11 @@ function autoMap() {
         	cellClearTime -= 50
         }
         //levels of new Giga
+        var stopToBuild = false;
         var stationLevel = [61,62,63,64,65,66,67,68,69,70,72,74,76,78,81,84,87,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,190,200,210,220,230,240,250,260,270,280,290,300];
         for (var stopToBuild in stationLevel) {
         stopToBuild = stationLevel[stopToBuild];
+        }
         if (		
         //enter map in zones if you miss to overkill, the script will make sure you farm more if you can't overkill in the map.
         (game.global.mapBonus < 1 && game.global.world >= 11 && OVKcellsWorld+1 < game.global.lastClearedCell/2) ||
