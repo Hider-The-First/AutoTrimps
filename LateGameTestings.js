@@ -1256,7 +1256,7 @@ function buyUpgrades() {
         }
         if (upgrade == 'Coordination' && !canAffordCoordinationTrimps()) continue;
         if (upgrade == 'Shieldblock' && !getPageSetting('BuyShieldblock')) continue;
-        if ((game.global.lastWarp >= game.buildings.Warpstation.owned && upgrade == 'Gigastation') || upgrade == 'Gigastation' && (game.global.lastWarp ? (game.buildings.Warpstation.owned < game.global.lastWarp + getPageSetting('DeltaGigastation') + 4 - gameUpgrade.allowed + gameUpgrade.done) : game.buildings.Warpstation.owned < getPageSetting('FirstGigastation'))) continue;
+        if ((game.global.lastWarp >= game.buildings.Warpstation.owned && upgrade == 'Gigastation') || upgrade == 'Gigastation' && (game.global.lastWarp ? (game.buildings.Warpstation.owned < game.global.lastWarp + getPageSetting('DeltaGigastation') + 0 - gameUpgrade.allowed + gameUpgrade.done) : game.buildings.Warpstation.owned < getPageSetting('FirstGigastation'))) continue;
         if ((!game.upgrades.Scientists.done && upgrade != 'Battle') ? (available && upgrade == 'Scientists' && game.upgrades.Scientists.allowed) : (available)) {
             buyUpgrade(upgrade, true, true);
             debug('Upgraded ' + upgrade,"*upload2");
@@ -2013,9 +2013,9 @@ function autoMap() {
         //Clear maps to unlcok nurseries for genetics.
         (game.global.world == 50 && game.global.mapBonus < 1) ||
         (game.global.world == 90 && game.global.mapBonus < 1) ||
-        (game.global.world == 199 && game.global.mapBonus < 1)||
+        (game.global.world == 199 && game.global.mapBonus < 1)
         //do maps before new gigastation
-        (stationLevel.indexOf(game.global.world) > -1 && game.global.mapBonus < 1)
+        //(stationLevel.indexOf(game.global.world) > -1 && game.global.mapBonus < 1)
         //option to force stay in zone X time in min/cleared maps and farm
         //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)         
         //option to force stay in zone X time in min and farm		
