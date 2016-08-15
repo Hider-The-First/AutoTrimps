@@ -950,16 +950,16 @@ function workerRatios() {
         }else if (game.buildings.Tribute.owned < 1100) {
         autoTrimpSettings.FarmerRatio.value = '4';
         autoTrimpSettings.LumberjackRatio.value = '1';
-        autoTrimpSettings.MinerRatio.value = '20';
+        autoTrimpSettings.MinerRatio.value = '45';
         } else if (game.buildings.Tribute.owned < 2000 && game.buildings.Tribute.owned >= 1100) {
         autoTrimpSettings.FarmerRatio.value = '4';
         autoTrimpSettings.LumberjackRatio.value = '1';
-        autoTrimpSettings.MinerRatio.value = '30';
-        } else if (game.global.world < 200) {
+        autoTrimpSettings.MinerRatio.value = '95';
+        } else if (game.global.world > 9200) {
         autoTrimpSettings.FarmerRatio.value = '1';
         autoTrimpSettings.LumberjackRatio.value = '5';
         autoTrimpSettings.MinerRatio.value = '24';
-        } else if (game.global.world == 200) {
+        } else if (game.global.world == 9200) {
         autoTrimpSettings.FarmerRatio.value = '1';
         autoTrimpSettings.LumberjackRatio.value = '11';
         autoTrimpSettings.MinerRatio.value = '48';
@@ -2309,7 +2309,7 @@ function autoMap() {
                 
                 biomeAdvMapsSelect.value = "Mountain";    //metal
                 updateMapCost();                
-            } else if (game.global.world > 90) {
+            } else if (game.global.world > 60) {
                 sizeAdvMapsRange.value = 9;
                 adjustMap('size', 9);
                 difficultyAdvMapsRange.value = 9;
