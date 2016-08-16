@@ -1220,14 +1220,14 @@ function evaluateEquipmentEfficiency(equipName) {
         Res = 9999 - gameResource.prestige;
     }
     //manage prestige
-    if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37) {
+    if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && HDratio < 7) {
         Wall = true;
     }
-    if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37) {		
+    if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37 && HDratio < 7) {		
         Res = 0;
         Wall = true;
     }
-    if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37) {		
+    if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37 && HDratio > 7) {		
         Res = 0;
         Wall = true;
     }
@@ -1679,6 +1679,10 @@ function manualLabor() {
 //Autostance - function originally created by Belaith (in 1971)
 //Automatically swap formations (stances) to avoid dying
 function autoStance() {
+    if (game.global.mapsActive && (document.getElementById("badGuyName").innerText == Jestimp || document.getElementById("badGuyName").innerText == Chronoimp) {
+    	setFormation(4);
+    	return;
+    }
     if (game.global.gridArray.length === 0) return;
     
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
@@ -2013,9 +2017,11 @@ function autoMap() {
         //Clear maps to unlcok nurseries for genetics.
         (game.global.world == 50 && game.global.mapBonus < 1) ||
         (game.global.world == 90 && game.global.mapBonus < 1) ||
-        (game.global.world == 199 && game.global.mapBonus < 1)
+        (game.global.world == 199 && game.global.mapBonus < 1) ||
         //do maps before new gigastation
         //(stationLevel.indexOf(game.global.world) > -1 && game.global.mapBonus < 1)
+        //Farm maps if you are way to slow
+        (HDratio > 7)
         //option to force stay in zone X time in min/cleared maps and farm
         //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)         
         //option to force stay in zone X time in min and farm		
@@ -2714,7 +2720,7 @@ function exitSpireCell() {
 
 //use S stance
 function useScryerStance() {
-    if ((game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98) || game.global.preMapsActive) { autoStance(); return;
+    if (HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98) || game.global.preMapsActive) { autoStance(); return;
     }
     //grab settings variables
     var useinmaps = getPageSetting('ScryerUseinMaps');
