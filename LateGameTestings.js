@@ -2985,3 +2985,15 @@ function generateHeirloomIcon(heirloom, location, number){
     html += locText + ', this)"> <span class="' + icon + '"></span></span>';
     return html;
 }
+
+var fightButtonCol = document.getElementById("battleBtnsColumn");
+//create hider status
+newContainer = document.createElement("DIV");
+newContainer.setAttribute("style", "display: block; font-size: 1.1vw; text-align: center; background-color: rgba(0,0,0,0.3);");
+abutton = document.createElement("SPAN");
+abutton.id = 'hiderStatus';
+newContainer.appendChild(abutton);
+fightButtonCol.appendChild(newContainer);
+
+var hiderStatus = document.getElementById('hiderStatus');
+hiderStatus.innerHTML = 'Hider The First';
