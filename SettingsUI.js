@@ -36,7 +36,7 @@ createSetting('LumberjackRatio', 'Lumberjack Ratio', '', 'value', '1');
 createSetting('MinerRatio', 'Miner Ratio', '', 'value', '1');
 createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150');
 createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1');
-createSetting('MaxHut', 'Max Huts', '', 'value', '50');
+createSetting('MaxHut', '', 'Max Huts', 'value', '50');
 createSetting('MaxHouse', 'Max Houses', '', 'value', '50');
 createSetting('MaxMansion', 'Max Mansions', '', 'value', '50');
 createSetting('MaxHotel', 'Max Hotels', '', 'value', '50');
