@@ -2591,9 +2591,12 @@ function manageGenes() {
     else if ((targetBreed < getBreedTime(true) || (game.resources.trimps.soldiers == 0 && getBreedTime(true) > 6)) && breedFire == false && getPageSetting('BreedFire') && game.global.world > 10) {
         breedFire = true;
     }
-
     //reset breedFire once we have less than 2 seconds remaining
     if(getBreedTime(true) < 2) breedFire = false;
+    //force deth if max antiStacks is available
+    if (game.global.antiStacks < 30 && getBreedTime() >= 30 && getBreedTime(true) == 0) {
+    mapsClicked(); mapsClicked();
+    }
 
 }
 
