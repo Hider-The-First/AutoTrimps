@@ -1679,7 +1679,7 @@ function manualLabor() {
 //Autostance - function originally created by Belaith (in 1971)
 //Automatically swap formations (stances) to avoid dying
 function autoStance() {
-    if (game.global.mapsActive && (document.getElementById("badGuyName").innerText == Jestimp || document.getElementById("badGuyName").innerText == Chronoimp) {
+    if (game.global.mapsActive && (document.getElementById("badGuyName").innerText == Jestimp || document.getElementById("badGuyName").innerText == Chronoimp)) {
     	setFormation(4);
     	return;
     }
