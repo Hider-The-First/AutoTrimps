@@ -930,7 +930,10 @@ function initializeAutoTrimps() {
     loadPageVariables();
 
     var atscript = document.getElementById('AutoTrimps-script')
-      , base = 'https://raw.githubusercontent.com/Hider-The-First/AutoTrimps/patch-3/LateGameTestings.js';
+      , base = 'https://raw.githubusercontent.com/Hider-The-First/AutoTrimps/patch-3';
+    if (atscript !== null) {
+        base = atscript.getAttribute('src').replace(/\/LateGameTestings.js$/, '');
+    }
     document.head.appendChild(document.createElement('script')).src = base + '/SettingsUI.js';
     document.head.appendChild(document.createElement('script')).src = base + '/HiderGraphs.js';
     toggleSettingsMenu();
