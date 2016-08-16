@@ -935,8 +935,13 @@ function initializeAutoTrimps() {
     if (atscript !== null) {
         base = atscript.getAttribute('src').replace(/\/AutoTrimps2\.js$/, '');
     }
-    document.head.appendChild(document.createElement('script')).src = base + '/NewUI.js';
-    document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
+        var atscript = document.getElementById('AutoTrimps-script')
+      , base = 'https://github.com/Hider-The-First/AutoTrimps'
+      ;
+    if (atscript !== null) {
+    }
+    document.head.appendChild(document.createElement('script')).src = base + '/SettingsUI.js';
+    document.head.appendChild(document.createElement('script')).src = base + '/HiderGraphs.js';
     toggleSettingsMenu();
     toggleSettingsMenu();
 }
