@@ -930,12 +930,6 @@ function initializeAutoTrimps() {
     loadPageVariables();
 
     var atscript = document.getElementById('AutoTrimps-script')
-      , base = 'https://genbtc.github.io/AutoTrimps'
-      ;
-    if (atscript !== null) {
-        base = atscript.getAttribute('src').replace(/\/AutoTrimps2\.js$/, '');
-    }
-        var atscript = document.getElementById('AutoTrimps-script')
       , base = 'https://github.com/Hider-The-First/AutoTrimps'
       ;
     if (atscript !== null) {
