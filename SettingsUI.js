@@ -21,7 +21,7 @@ createSetting('BuyArmorUpgrades', 'Buy Armor Upgrades', '(Prestiges) & Gymystic.
 createSetting('BuyWeapons', 'Buy Weapons', 'Auto-Buy/Level-Up the most cost efficient weapon available. ', 'boolean',true);
 createSetting('BuyWeaponUpgrades', 'Buy Weapon Upgrades', '(Prestiges) Will buy the most efficient weapon upgrade available. ', 'boolean',true);
 createSetting('BuyShieldblock', 'Buy Shield Block', 'Will buy the shield block upgrade. CAUTION: If you are progressing past zone 60, you probably don\'t want this :)', 'boolean',false);
-createSetting('AutoMaps', '', 'Automatically run maps to progress. Very Important.', 'boolean',true);
+createSetting('AutoMaps', 'Auto Maps', 'Automatically run maps to progress. Very Important.', 'boolean',true);
 createSetting('RunUniqueMaps', 'Run Unique Maps', 'Relies on AutoMaps to choose to run Unique maps. Required for AutoPortal. Also needed for challenges: Electricity, Mapocalypse, Meditate, and Crushed (etc). Needed to auto-run The Wall and Dimension of Anger. ', 'boolean',true);
 createSetting('AutoHeirlooms', 'Auto Heirlooms', 'Automatically evaluate and carry the best heirlooms, and recommend upgrades for equipped items. AutoHeirlooms will only change carried items when the heirlooms window is not open. Carried items will be compared and swapped with the types that are already carried. If a carry spot is empty, it will be filled with the best shield (if available). Evaluation is based ONLY on the following mods (listed in order of priority, high to low): Void Map Drop Chance/Trimp Attack, Crit Chance/Crit Damage, Miner Efficiency/Metal Drop, Gem Drop/Dragimp Efficiency, Farmer/Lumberjack Efficiency. For the purposes of carrying, rarity trumps all of the stat evaluations. Empty mod slots are valued at the average value of the best missing mod.', 'boolean',true);
 createSetting('HireScientists', 'Hire Scientists', 'Enable or disable hiring of scientists. Math: ScientistRatio=(FarmerRatio+LumberjackRatio+MinerRatio)/25 and stops hiring scientists after 250k Farmers.', 'boolean',true);
@@ -34,21 +34,9 @@ createSetting('GeneticistTimer', 'Geneticist Timer', 'Breed time in seconds to s
 createSetting('FarmerRatio', 'Farmer Ratio', '', 'value', '1');
 createSetting('LumberjackRatio', 'Lumberjack Ratio', '', 'value', '1');
 createSetting('MinerRatio', 'Miner Ratio', '', 'value', '1');
-createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150');
-createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1');
-createSetting('MaxHut', '', 'Max Huts', '', '50');
-createSetting('MaxHouse', 'Max Houses', 'test', '', '');
-createSetting('MaxMansion', 'Max Mansions', '', 'value', '');
-createSetting('MaxHotel', 'Max Hotels', '', 'value', '50');
-createSetting('MaxResort', 'Max Resorts', '', 'value', '50');
-createSetting('MaxGateway', 'Max Gateways', 'WARNING: Not recommended to raise above 25', 'value', '25');
 createSetting('MaxWormhole', 'Max Wormholes', 'WARNING: Wormholes cost helium! Values below 0 do nothing.', 'value', '0');
-createSetting('MaxCollector', 'Max Collectors', '', 'value', '-1');
 createSetting('FirstGigastation', 'First Gigastation', 'How many warpstations to buy before your first gigastation', 'value', '20');
 createSetting('DeltaGigastation', 'Delta Gigastation', 'How many extra warpstations to buy for each gigastation. Supports fractional values. For example 2.5 will buy +2/+3/+2/+3...', 'value', '2');
-createSetting('MaxGym', 'Max Gyms', '', 'value', '-1');
-createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1');
-createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1');
 createSetting('VoidMaps', 'Void Maps', 'The zone at which you want all your void maps to be cleared (Cell 96).  0 is off', 'value', '0');
 // createSetting('', '', '', 'value', '30');
 //Dropdown + context sensitive
@@ -63,8 +51,36 @@ createSetting('AutoPortal', 'Auto Portal', 'Automatically portal. Will NOT auto-
 createSetting('HeliumHourChallenge', 'Challenge for Helium per Hour and Custom', 'Automatically portal into this challenge when using helium per hour or custom autoportal. Custom portals after cell 100 of the zone specified. ', 'dropdown', 'None', ['None', 'Balance', 'Electricity', 'Crushed', 'Nom', 'Toxicity', 'Watch', 'Lead','Corrupted']);
 createSetting('CustomAutoPortal', 'Custom Portal', 'Automatically portal AFTER clearing this level.(ie: setting to 200 would portal when you first reach level 201)', 'value', '200');
 
-//advanced settings
+//Auto Auto Trimps area - Make a Dont tuch zone.
+var autoautoDontTuchBtn = document.createElement("DIV");
+autoautoDontTuchBtn.setAttribute('class', 'btn btn-default');
+autoautoDontTuchBtn.setAttribute('onclick', 'autoToggle(\'autoautoDontTuch\')');
+autoautoDontTuchBtn.innerHTML = 'Dont tuch zone';
+autoautoDontTuchBtn.setAttribute("onmouseover", 'tooltip(\"Auto Auto Dont tuch zone\", \"customText\", event, \"Here you can ruin things section.\")');
+autoautoDontTuchBtn.setAttribute("onmouseout", 'tooltip("hide")');
+autoautoDontTuchBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
+autoautoDontTuchBtn.id='autoautosDontTuchBTN';
+advHeader.appendChild(autoautosDontTuchBtn);
+//
+var autoautoDontTucadv = document.createElement("DIV");
+autoautoDontTucadv.id = 'scryerSettings';
+autoautoDontTucadv.style.display = 'none';
+document.getElementById("autoSettings").appendChild(autoautoDontTucadv);
+//Dont tuch settings - Dont tuch buttons - Dont tuch zone
+createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150');
+createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1');
+createSetting('MaxHut', 'Max Huts', '', 'value', '50');
+createSetting('MaxHouse', 'Max Houses', '', 'value', '50');
+createSetting('MaxMansion', 'Max Mansions', '', 'value', '50');
+createSetting('MaxHotel', 'Max Hotels', '', 'value', '50');
+createSetting('MaxResort', 'Max Resorts', '', 'value', '50');
+createSetting('MaxGateway', 'Max Gateways', 'WARNING: Not recommended to raise above 25', 'value', '25');
+createSetting('MaxCollector', 'Max Collectors', '', 'value', '-1');
+createSetting('MaxGym', 'Max Gyms', '', 'value', '-1');
+createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1');
+createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1');
 
+//advanced settings
 var advHeader = document.createElement("DIV");
 var advBtn = document.createElement("DIV");
 advBtn.setAttribute('class', 'btn btn-default');
