@@ -265,7 +265,7 @@ function automationMenuInit() {
     }
     //create the button Automation button
     var newItem = document.createElement("TD");
-    newItem.appendChild(document.createTextNode("Automation"));
+    newItem.appendChild(document.createTextNode("Script"));
     newItem.setAttribute("class", "btn btn-default");
     newItem.setAttribute("onclick", "autoToggle()");
     var settingbarRow = document.getElementById("settingsTable").firstElementChild.firstElementChild;
