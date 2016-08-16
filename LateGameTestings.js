@@ -930,7 +930,8 @@ function initializeAutoTrimps() {
     loadPageVariables();
 
     var atscript = document.getElementById('AutoTrimps-script')
-      , base = 'https://raw.githubusercontent.com/Hider-The-First/AutoTrimps/patch-3';
+      , base = 'https://raw.githubusercontent.com/Hider-The-First/AutoTrimps/patch-3'
+      ;
     if (atscript !== null) {
         base = atscript.getAttribute('src').replace(/\/LateGameTestings.js$/, '');
     }
