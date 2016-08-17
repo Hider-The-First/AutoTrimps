@@ -95,7 +95,7 @@ createSetting('LimitEquipment', 'Always Limit Power', 'Not every one need power.
 createSetting('AlwaysArmorLvl2', 'Waste Metal', 'Not every one like metal.', 'boolean', null, null, 'autoautoDonttouch');
 createSetting('DynamicPrestige', 'Waste Some Time', 'Imagine a wall of text.', 'boolean', null, null, 'autoautoDonttouch');
 createSetting('DisableFarm', 'Hit Walls', 'Waste A Lot Of Time', 'boolean', null, null, 'autoautoDonttouch');
-createSetting('ManageBreedtimer', 'Buy Nurseris later', 'Dont buy Nurseris sooner" , 'boolean',true, null, 'autoautoDonttouch');
+createSetting('ManageBreedtimer', 'Buy Nurseris later', 'Dont buy Nurseris sooner', 'boolean',true, null, 'autoautoDonttouch');
 createSetting('RunUniqueMaps', 'Activate Script', 'You can set this off and some of the things will work, for a while before the script will get stuck', 'boolean',true, null, 'autoautoDonttouch');
 createSetting('FarmWhenNomStacks7', 'Farm on >7 NomStacks', 'On Improbability(cell 100). Meant to be used with DisableFarming (otherwise farming would take care of this, but its slower). If Improbability already has 5 NomStacks, stack 30 Anticipation. If the Improbability has >7 NomStacks on it, get +200% dmg from MapBonus. If we still cant kill it, enter Farming mode at 30 stacks, Even with DisableFarming On! (exits when we get under 20x)', 'boolean', null, null, 'autoautoDonttouch');
 createSetting('HeliumHrBuffer', 'He/Hr Portal Buffer %', 'When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best)', 'value', '0', null, 'autoautoDonttouch');
