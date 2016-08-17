@@ -2735,8 +2735,8 @@ function useScryerStance() {
         var Sstance = 0.5;
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
-        hiderwindow.innerHTML = ovklHDratio;
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
+        hiderwindow.innerHTML = ovklHDratio;
         if (ovklHDratio > 0.8) {
             setFormation(4);
             return;
