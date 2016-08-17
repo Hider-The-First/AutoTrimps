@@ -1683,7 +1683,7 @@ function autoStance() {
     	return;
     }
     if (!getCurrentEnemy(1).corrupted || game.global.world-10 <= getPageSetting('VoidMaps') ||
-    (!getCurrentEnemy(2).corrupted && baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2)) {
+    (!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2)) {
     	setFormation(4);
     	return;
     }
