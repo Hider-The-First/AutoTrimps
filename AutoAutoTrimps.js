@@ -2724,7 +2724,7 @@ function exitSpireCell() {
 function useScryerStance() {
     
     //Scryer if Overkill
-    calcBaseDamageinX(); //calculate internal script variables normally processed by autostance.
+    //calculate internal script variables normally processed by autostance.
     var useoverkill = getPageSetting('ScryerUseWhenOverkill');
     if (useoverkill && game.portal.Overkill.level == 0)
         setPageSetting('ScryerUseWhenOverkill',false);
