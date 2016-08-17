@@ -2720,7 +2720,7 @@ function exitSpireCell() {
         endSpire();    
 }
 
-var ovklHDratio
+var ovklHDratio;
 //use S stance
 function useScryerStance() {
     
