@@ -70,7 +70,7 @@ advHeader.appendChild(autoautoDontTuchBtn);
 var autoautoDontTuchadv = document.createElement("DIV");
 autoautoDontTuchadv.id = 'autoautoDontTuch';
 autoautoDontTuchadv.style.display = 'none';
-document.getElementById("autoSettings").appendChild(autoautoDontTucahdv);
+document.getElementById("autoSettings").appendChild(autoautoDontTuchadv);
 //Dont tuch settings - Dont tuch buttons - Dont tuch zone
 createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150');
 createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1');
