@@ -3,6 +3,14 @@ if (autoTrimpSettings === undefined) {
     var autoTrimpSettings = new Object();
 }
 
+    //create the button Automation button
+    var newItem = document.createElement("TD");
+    newItem.appendChild(document.createTextNode("Script"));
+    newItem.setAttribute("class", "btn btn-default");
+    newItem.setAttribute("onclick", "autoToggle()");
+    var settingbarRow = document.getElementById("settingsTable").firstElementChild.firstElementChild;
+    settingbarRow.insertBefore(newItem, settingbarRow.childNodes[10]);
+
 automationMenuInit();
 
 //Booleans//
@@ -281,13 +289,6 @@ function automationMenuInit() {
         if (settingBtnSrch[i].getAttribute("onclick") === "toggleSettingsMenu()")
             settingBtnSrch[i].setAttribute("onclick", "autoPlusSettingsMenu()");
     }
-    //create the button Automation button
-    var newItem = document.createElement("TD");
-    newItem.appendChild(document.createTextNode("Script"));
-    newItem.setAttribute("class", "btn btn-default");
-    newItem.setAttribute("onclick", "autoToggle()");
-    var settingbarRow = document.getElementById("settingsTable").firstElementChild.firstElementChild;
-    settingbarRow.insertBefore(newItem, settingbarRow.childNodes[10]);
     //create automaps button
     var newContainer = document.createElement("DIV");
     newContainer.setAttribute("class", "battleSideBtnContainer");
