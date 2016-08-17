@@ -1678,6 +1678,15 @@ function manualLabor() {
 //Autostance - function originally created by Belaith (in 1971)
 //Automatically swap formations (stances) to avoid dying
 function autoStance() {
+	
+    //calculate internal script variables.
+    baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    baseBlock = game.global.soldierCurrentBlock;
+    baseHealth = game.global.soldierHealthMax;
+    baseDamage *= 2;
+    baseBlock *= 2;
+    baseHealth *= 2;   
+    
     if (game.global.mapsActive && (getCurrentEnemy(1).name == "Jestimp" || getCurrentEnemy(1).name == "Chronoimp")) {
     	setFormation(4);
     	return;
@@ -2729,8 +2738,6 @@ function exitSpireCell() {
 function useScryerStance() {
 	
     //Scryer if Overkill
-    //calculate internal script variables normally processed by autostance.
-    baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2) * 4);
     //calculate internal script variables normally processed by autostance.
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     baseBlock = game.global.soldierCurrentBlock;
