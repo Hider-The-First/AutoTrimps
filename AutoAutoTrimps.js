@@ -2748,7 +2748,7 @@ function useScryerStance() {
     baseBlock *= 2;
     baseHealth *= 2;    
     var ovklHDratio;
-    var useoverkill = !!getPageSetting('ScryerUseWhenOverkill');
+    var useoverkill = true; //!!getPageSetting('ScryerUseWhenOverkill');
     if (useoverkill && game.portal.Overkill.level == 0)
         setPageSetting('ScryerUseWhenOverkill',false);
     //Overkill button being on and being able to overkill in S will override any other setting, regardless.
