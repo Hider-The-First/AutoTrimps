@@ -2736,7 +2736,7 @@ function useScryerStance() {
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
-        hiderwindow = ovklHDratio;
+        hiderwindow = ovklHDratio*100;
         if (ovklHDratio > 0.8) {
             setFormation(4);
             return;
@@ -3020,5 +3020,5 @@ var hiderwindow = 0;
 function updateValueFields2() {
     var hiderWindow = document.getElementById('hiderWindow');
     var hiderStatus = document.getElementById('hiderStatus');
-    hiderStatus.innerHTML = 'OverKill Chance ' + hiderwindow.toFixed(3)*100 + '%'; 
+    hiderStatus.innerHTML = 'OverKill Chance ' + hiderwindow.toFixed(3) + '%'; 
 }
