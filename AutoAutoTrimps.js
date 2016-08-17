@@ -3014,4 +3014,4 @@ newContainer.appendChild(abutton);
 fightButtonCol.appendChild(newContainer);
 
 var hiderStatus = document.getElementById('hiderStatus');
-hiderStatus.innerHTML = 'Overkill Chance' + ovklHDratio*100 + '%';
+hiderStatus.innerHTML = 'Overkill Chance' + HDratio + '%'; //ovklHDratio*100 need to fix that
