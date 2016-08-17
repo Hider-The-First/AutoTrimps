@@ -67,10 +67,10 @@ autoautoDontTuchBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; 
 autoautoDontTuchBtn.id='autoautoDontTuchBTN';
 advHeader.appendChild(autoautoDontTuchBtn);
 //
-var autoautoDontTucadv = document.createElement("DIV");
-autoautoDontTucadv.id = 'autoautoDontTuc';
-autoautoDontTucadv.style.display = 'none';
-document.getElementById("autoSettings").appendChild(autoautoDontTucadv);
+var autoautoDontTuchadv = document.createElement("DIV");
+autoautoDontTuchadv.id = 'autoautoDontTuch';
+autoautoDontTuchadv.style.display = 'none';
+document.getElementById("autoSettings").appendChild(autoautoDontTucahdv);
 //Dont tuch settings - Dont tuch buttons - Dont tuch zone
 createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150');
 createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1');
