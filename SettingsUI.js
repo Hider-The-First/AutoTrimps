@@ -55,6 +55,7 @@ createSetting('CustomAutoPortal', 'Custom Portal', 'Automatically portal AFTER c
 var advHeader = document.createElement("DIV");
 var advBtn = document.createElement("DIV");
 advBtn.setAttribute('class', 'btn btn-default');
+advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
 
 //Auto Auto Trimps area - Make a Dont tuch zone.
 var autoautoDontTuchBtn = document.createElement("DIV");
@@ -97,7 +98,6 @@ advBtn.setAttribute('onclick', 'autoToggle(\'advancedSettings\')');
 advBtn.innerHTML = 'Advanced Settings';
 advBtn.setAttribute("onmouseover", 'tooltip(\"Advanced Settings\", \"customText\", event, \"Leave off unless you know what you\'re doing with them.\")');
 advBtn.setAttribute("onmouseout", 'tooltip("hide")');
-advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
 advBtn.id='advancedSettingsBTN';
 advHeader.appendChild(advBtn);
 
