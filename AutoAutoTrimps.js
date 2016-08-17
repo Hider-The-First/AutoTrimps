@@ -2821,7 +2821,8 @@ function mainLoop() {
     setTitle();          //set the browser title
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
-    
+    updateValueFields2(); //refresh the UI2
+
     if (getPageSetting('ExitSpireCell')) exitSpireCell(); //"Exit Spire After Cell" (genBTC settings area)
     if (getPageSetting('WorkerRatios')) workerRatios(); //"Auto Worker Ratios"
     if (getPageSetting('BuyUpgrades')) buyUpgrades();   //"Buy Upgrades"
