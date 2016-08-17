@@ -2743,7 +2743,7 @@ function useScryerStance() {
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
         hiderwindow = ovklHDratio*100;
-        if (hiderwindow > 100 && game.global.world > getPageSetting('VoidMaps')) {
+        if (hiderwindow > 100 && game.global.world < getPageSetting('VoidMaps')) {
             hiderwindow = 100; enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
         if (ovklHDratio > 0.8) {
