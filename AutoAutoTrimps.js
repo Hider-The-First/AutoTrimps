@@ -2725,7 +2725,7 @@ function useScryerStance() {
     
     //Scryer if Overkill
     //calculate internal script variables normally processed by autostance.
-    var useoverkill = getPageSetting('ScryerUseWhenOverkill');
+    var useoverkill = !!getPageSetting('ScryerUseWhenOverkill');
     if (useoverkill && game.portal.Overkill.level == 0)
         setPageSetting('ScryerUseWhenOverkill',false);
     //Overkill button being on and being able to overkill in S will override any other setting, regardless.
