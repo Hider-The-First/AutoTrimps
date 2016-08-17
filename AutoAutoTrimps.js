@@ -2737,6 +2737,9 @@ function useScryerStance() {
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
         hiderwindow = ovklHDratio*100;
+        if (hiderwindow > 100)
+            hiderwindow = 100;
+        }
         if (ovklHDratio > 0.8) {
             setFormation(4);
             return;
