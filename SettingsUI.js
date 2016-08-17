@@ -34,7 +34,7 @@ createSetting('LumberjackRatio', 'Lumberjack Ratio', '', 'value', '1');
 createSetting('MinerRatio', 'Miner Ratio', '', 'value', '1');
 createSetting('MaxWormhole', 'Max Wormholes', 'WARNING: Wormholes cost helium! Values below 0 do nothing.', 'value', '0');
 createSetting('FirstGigastation', 'First Gigastation', 'How many warpstations to buy before your first gigastation', 'value', '20');
-createSetting('DeltaGigastation', 'Min Warpstations', 'How many extra warpstations to buy more, after every gigastation (will build sonner to protect you if you set it to high).', 'value', '2');
+createSetting('DeltaGigastation', 'Min Warpstations', 'How many extra warpstations to buy more, after every gigastation (will build sooner to protect you if you set it to high).', 'value', '2');
 createSetting('VoidMaps', 'Void Maps', 'The zone at which you want all your void maps to be cleared (Cell 96).  0 is off', 'value', '0');
 // createSetting('', '', '', 'value', '30');
 //Dropdown + context sensitive
