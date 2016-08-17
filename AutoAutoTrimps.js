@@ -2731,6 +2731,13 @@ function useScryerStance() {
     //Scryer if Overkill
     //calculate internal script variables normally processed by autostance.
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2) * 4);
+    //calculate internal script variables normally processed by autostance.
+    baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    baseBlock = game.global.soldierCurrentBlock;
+    baseHealth = game.global.soldierHealthMax;
+    baseDamage *= 2;
+    baseBlock *= 2;
+    baseHealth *= 2;    
     var ovklHDratio;
     var useoverkill = !!getPageSetting('ScryerUseWhenOverkill');
     if (useoverkill && game.portal.Overkill.level == 0)
@@ -2738,12 +2745,12 @@ function useScryerStance() {
     //Overkill button being on and being able to overkill in S will override any other setting, regardless.
     if (useoverkill && game.portal.Overkill.level > 0) {
         var avgDamage = (baseDamage * (1-getPlayerCritChance()) + (baseDamage * getPlayerCritChance() * getPlayerCritDamageMult()))/2;
-        var Sstance = 0.5;
+        var Sstance = 0.125;
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
         hiderwindow = ovklHDratio*100;
-        if (hiderwindow > 100 && game.global.world < getPageSetting('VoidMaps')) {
+        if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
         if (ovklHDratio > 0.8) {
