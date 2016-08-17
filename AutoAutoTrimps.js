@@ -2720,12 +2720,12 @@ function exitSpireCell() {
         endSpire();    
 }
 
-var ovklHDratio;
 //use S stance
 function useScryerStance() {
     
     //Scryer if Overkill
     //calculate internal script variables normally processed by autostance.
+    var ovklHDratio;
     var useoverkill = !!getPageSetting('ScryerUseWhenOverkill');
     if (useoverkill && game.portal.Overkill.level == 0)
         setPageSetting('ScryerUseWhenOverkill',false);
@@ -2735,6 +2735,7 @@ function useScryerStance() {
         var Sstance = 0.5;
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
+        hiderwindow.innerHTML = ovklHDratio;
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
         if (ovklHDratio > 0.8) {
             setFormation(4);
@@ -3017,5 +3018,5 @@ function generateHeirloomIcon(heirloom, location, number){
 
 function updateValueFields2() {
     var hiderStatus = document.getElementById('hiderStatus');
-    hiderStatus.innerHTML = 'OverKill Chance' + ovklHDratio*100 + '%'; 
+    hiderStatus.innerHTML = 'hiderwindow.innerHTML' + ovklHDratio*100 + '%'; 
 }
