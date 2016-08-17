@@ -2722,6 +2722,25 @@ function exitSpireCell() {
 
 //use S stance
 function useScryerStance() {
+    
+    //Scryer if Overkill
+    calcBaseDamageinX(); //calculate internal script variables normally processed by autostance.
+    var useoverkill = getPageSetting('ScryerUseWhenOverkill');
+    if (useoverkill && game.portal.Overkill.level == 0)
+        setPageSetting('ScryerUseWhenOverkill',false);
+    //Overkill button being on and being able to overkill in S will override any other setting, regardless.
+    if (useoverkill && game.portal.Overkill.level > 0) {
+        var avgDamage = (baseDamage * (1-getPlayerCritChance()) + (baseDamage * getPlayerCritChance() * getPlayerCritDamageMult()))/2;
+        var Sstance = 0.5;
+        var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
+        //are we going to overkill in S?
+        var ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
+        if (ovklHDratio > 0.8) {
+            setFormation(4);
+            return;
+        }
+    }
+    //quit here if its right
     if (HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98) || game.global.preMapsActive) { autoStance(); return;
     }
     //grab settings variables
@@ -2984,7 +3003,7 @@ function generateHeirloomIcon(heirloom, location, number){
     html += locText + ', this)"> <span class="' + icon + '"></span></span>';
     return html;
 }
-/*
+
 var fightButtonCol = document.getElementById("battleBtnsColumn");
 //create hider status
 newContainer = document.createElement("DIV");
@@ -2995,5 +3014,4 @@ newContainer.appendChild(abutton);
 fightButtonCol.appendChild(newContainer);
 
 var hiderStatus = document.getElementById('hiderStatus');
-hiderStatus.innerHTML = 'Hider The First';
-*/
+hiderStatus.innerHTML = 'Overkill Chance' + ovklHDratio*100 + '%';
