@@ -3018,5 +3018,5 @@ function generateHeirloomIcon(heirloom, location, number){
 
 function updateValueFields2() {
     var hiderStatus = document.getElementById('hiderStatus');
-    hiderStatus.innerHTML = 'hiderwindow.innerHTML' + ovklHDratio*100 + '%'; 
+    hiderStatus.innerHTML = 'OverKill Chance' + hiderwindow.innerHTML*100 + '%'; 
 }
