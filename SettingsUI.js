@@ -3,7 +3,6 @@ if (autoTrimpSettings === undefined) {
     var autoTrimpSettings = new Object();
 }
 
-
 automationMenuInit();
 
 //Booleans//
@@ -53,12 +52,9 @@ createSetting('CustomAutoPortal', 'Custom Portal', 'Automatically portal AFTER c
 
 //advanced settings 2 - here settings will start now
 var advHeader = document.createElement("DIV");
-var advBtn = document.createElement("DIV");
-
-document.getElementById("autoSettings").appendChild(adv);
 
 //Auto Auto Trimps area - Make a Dont touch zone.
-var autoautoDontTouchBtn = document.createElement("DIV");
+var autoautoDonttouchBtn = document.createElement("DIV");
 autoautoDonttouchBtn.setAttribute('class', 'btn btn-default');
 autoautoDonttouchBtn.setAttribute('onclick', 'autoToggle(\'autoautoDonttouch\')');
 autoautoDonttouchBtn.innerHTML = 'Dont touch zone';
@@ -68,6 +64,7 @@ autoautoDonttouchBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw;
 autoautoDonttouchBtn.id='autoautoDonttouchBTN';
 advHeader.appendChild(autoautoDonttouchBtn);
 //
+document.getElementById("autoSettings").appendChild(advHeader);
 var autoautoDonttouchadv = document.createElement("DIV");
 autoautoDonttouchadv.id = 'autoautoDonttouch';
 autoautoDonttouchadv.style.display = 'none';
@@ -93,39 +90,22 @@ createSetting('FarmWhenNomStacks7', 'Farm on >7 NomStacks', 'On Improbability(ce
 createSetting('HeliumHrBuffer', 'He/Hr Portal Buffer %', 'When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best)', 'value', '0', null, 'autoautoDonttouch');
 createSetting('DynamicPrestige', 'Dynamic Prestige', 'EXPERIMENTAL: Skip getting prestiges at first, and Gradually work up to the desired Prestige setting you have set. Runs with Dagger to save a significant amount of time until we need better gear, then starts increasing the prestige setting near the end of the run. ---NEW ALGORITHM 7/23/2016--- Examines which prestiges you have, how many missing ones youd need to achieve the desired target and starts running 5 maps or 2 maps every zone, Until the target prestige is reached. Example: For mace, starts getting the prerequisite prestiges 10 zones away from max, then more and more, finally reaching the desired prestige by the last final zone (also goes for 9 mapbonus on the last zone). IMPORTANT NOTE PLEASE READ: Final Zone Number is inherently tied to the AutoPortal setting. When using the Helium per Hour setting, it uses the zone we portaled at last run (game.global.lastPortal). If the AutoPortal is set to a challenge, it will use the last zone of the challenge. CAUTION: EXPERIMENTAL, please come to Discord chat if you have problems.', 'boolean', null, null, 'autoautoDonttouch');
 
-advBtn.setAttribute('class', 'btn btn-default');
-advBtn.setAttribute('onclick', 'autoToggle(\'advancedSettings\')');
-advBtn.innerHTML = 'Advanced Settings';
-advBtn.setAttribute("onmouseover", 'tooltip(\"Advanced Settings\", \"customText\", event, \"Leave off unless you know what you\'re doing with them.\")');
-advBtn.setAttribute("onmouseout", 'tooltip("hide")');
-advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw;');
-advBtn.id='advancedSettingsBTN';
-advHeader.appendChild(advBtn);
-
-document.getElementById("autoSettings").appendChild(advHeader);
-var adv = document.createElement("DIV");
-adv.id = 'advancedSettings';
-adv.style.display = 'none';
-/*
 //advanced settings
-var advHeader = document.createElement("DIV");
 var advBtn = document.createElement("DIV");
 advBtn.setAttribute('class', 'btn btn-default');
 advBtn.setAttribute('onclick', 'autoToggle(\'advancedSettings\')');
 advBtn.innerHTML = 'Advanced Settings';
 advBtn.setAttribute("onmouseover", 'tooltip(\"Advanced Settings\", \"customText\", event, \"Leave off unless you know what you\'re doing with them.\")');
 advBtn.setAttribute("onmouseout", 'tooltip("hide")');
-advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw;');
+advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
 advBtn.id='advancedSettingsBTN';
 advHeader.appendChild(advBtn);
-
-document.getElementById("autoSettings").appendChild(advHeader);
+//
 var adv = document.createElement("DIV");
 adv.id = 'advancedSettings';
 adv.style.display = 'none';
 document.getElementById("autoSettings").appendChild(adv);
 
-*/
 //advanced settings
 createSetting('LimitEquipment', 'Limit Equipment', 'Limit levels of equipment bought to:(level 11 - the prestige level). At or Above Prestige X (10), your equipment will remain at level 1. In other words, do not level equipment after ~level ~51, and only buy Prestiges. CAUTION: may reduce He/hr performance in many cases.', 'boolean', null, null, 'advancedSettings');
 createSetting('BreedFire', 'Breed Fire', 'Fire Lumberjacks and Miners to speed up breeding when needed. (Not geneticists).', 'boolean', null, null, 'advancedSettings');
