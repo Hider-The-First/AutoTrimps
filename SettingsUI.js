@@ -84,12 +84,13 @@ createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1',null, 'autoautoDon
 createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1',null, 'autoautoDonttouch');
 ////Dont touch settings - Really dont touch buttons - Dont touch for real zone
 createSetting('WarpstationCap', 'Limit Trimps', 'Not every one like trimps.', 'boolean', null, null, 'autoautoDonttouch');
-createSetting('LimitEquipment', 'Always Limit Power', 'Not every one need power.', 'boolean', null, null, 'autoautoDonttouch');
 createSetting('CapEquip', 'Limit Power', 'Not every one need power when they are young', 'boolean', null, null, 'autoautoDonttouch');
-createSetting('AlwaysArmorLvl2', 'waste Metal', 'Not every one like metal.', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('LimitEquipment', 'Always Limit Power', 'Not every one need power.', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('AlwaysArmorLvl2', 'Waste Metal', 'Not every one like metal.', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('DynamicPrestige', 'Waste Some Time', 'Imagine a wall of text.', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('DisableFarm', 'Hit Walls', 'Waste A Lot Of Time', 'boolean', null, null, 'autoautoDonttouch');
 createSetting('FarmWhenNomStacks7', 'Farm on >7 NomStacks', 'On Improbability(cell 100). Meant to be used with DisableFarming (otherwise farming would take care of this, but its slower). If Improbability already has 5 NomStacks, stack 30 Anticipation. If the Improbability has >7 NomStacks on it, get +200% dmg from MapBonus. If we still cant kill it, enter Farming mode at 30 stacks, Even with DisableFarming On! (exits when we get under 20x)', 'boolean', null, null, 'autoautoDonttouch');
 createSetting('HeliumHrBuffer', 'He/Hr Portal Buffer %', 'When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best)', 'value', '0', null, 'autoautoDonttouch');
-createSetting('DynamicPrestige', 'Waste Some Time', 'Imagine a wall of text.', 'boolean', null, null, 'autoautoDonttouch');
 
 //advanced settings
 var advBtn = document.createElement("DIV");
@@ -113,7 +114,6 @@ createSetting('MaxTox', 'Max Toxicity Stacks', 'Get maximum toxicity stacks befo
 createSetting('RunNewVoids', 'Run New Voids', 'Run new void maps acquired after the set void map zone. Runs them at Cell 95 by default, unless you set a decimal value indicating the cell, like: 187.75  CAUTION: May severely slow you down by trying to do too-high level voidmaps. Use the adjacent RunNewVoidsUntil setting to limit this.', 'boolean', null, null, 'advancedSettings');
 createSetting('RunNewVoidsUntil', 'Run New Voids Until', 'Put a cap on what zone new voids will run at, until this zone, inclusive. ', 'value', '-1', null, 'advancedSettings');
 createSetting('VoidCheck', 'Void Difficulty Check', 'How many hits to be able to take from a void map boss in dominance stance before we attempt the map. Higher values will get you stronger (by farming for health) before attempting. 2 should be fine.', 'value', '2', null, 'advancedSettings');
-createSetting('DisableFarm', 'Disable Farming', 'Disables the farming section of the automaps algorithm. This will cause it to always return to the zone upon reaching 10 map stacks. TROUBLESHOOTING: Save and Refresh when you toggle this, if necessary. INFO: The new Trimps 3.22 map-buttons greatly eliminate the usefulness of this. ALSO: NO LONGER DISABLES SIPHONOLOGY. ', 'boolean', null, null, 'advancedSettings');
 
 //genBTC advanced settings - Create button.
 var genbtcBtn = document.createElement("DIV");
