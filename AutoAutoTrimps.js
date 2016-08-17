@@ -1682,7 +1682,7 @@ function autoStance() {
     	setFormation(4);
     	return;
     }
-    if (!getCurrentEnemy(1).corrupted || game.global.world-10 <= getPageSetting('VoidMaps') ||
+    if (!getCurrentEnemy(1).corrupted || game.global.world-10 >= getPageSetting('VoidMaps') ||
     (!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2)) {
     	setFormation(4);
     	return;
@@ -2784,7 +2784,7 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive);
         run = spirecheck ? useinspire : run;
     }
-    if ((game.global.mapsActive || !getCurrentEnemy(1).corrupted || game.global.world-10 <= getPageSetting('VoidMaps') ||
+    if ((game.global.mapsActive || !getCurrentEnemy(1).corrupted || game.global.world-10 >= getPageSetting('VoidMaps') ||
     (!getCurrentEnemy(2).corrupted && baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2))
     && run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
