@@ -63,7 +63,7 @@ autoautoDontTuchBtn.id='autoautosDontTuchBTN';
 advHeader.appendChild(autoautosDontTuchBtn);
 //
 var autoautoDontTucadv = document.createElement("DIV");
-autoautoDontTucadv.id = 'scryerSettings';
+autoautoDontTucadv.id = 'autoautoDontTuc';
 autoautoDontTucadv.style.display = 'none';
 document.getElementById("autoSettings").appendChild(autoautoDontTucadv);
 //Dont tuch settings - Dont tuch buttons - Dont tuch zone
