@@ -3006,3 +3006,16 @@ function generateHeirloomIcon(heirloom, location, number){
     return html;
 }
 
+function updateValueFields2() {
+    var fightButtonCol = document.getElementById("battleBtnsColumn");
+    //create hider status
+    newContainer = document.createElement("DIV");
+    newContainer.setAttribute("style", "display: block; font-size: 1.1vw; text-align: center; background-color: rgba(0,0,0,0.3);");
+    abutton = document.createElement("SPAN");
+    abutton.id = 'hiderStatus';
+    newContainer.appendChild(abutton);
+    fightButtonCol.appendChild(newContainer);
+
+    var hiderStatus = document.getElementById('hiderStatus');
+    hiderStatus.innerHTML = 'Crit Chance' + ovklHDratio*100 + '%'; 
+}
