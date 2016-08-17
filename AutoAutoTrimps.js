@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         AutoTrimpsV2+genBTC
+// @name         AutoAutoTrimps-hider
 // @namespace    http://tampermonkey.net/
-// @version      2.1.2.1h-hider-11-8-2016
-// @description  try to take over the world!
+// @version      2.1.3H-hider-17-8-2016
+// @description  Automate the AutoTrimps!
 // @author       zininzinin, spindrjr, belaith, ishakaru, genBTC
 // @include      *trimps.github.io*
 // @grant        none
