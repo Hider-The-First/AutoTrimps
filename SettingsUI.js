@@ -597,6 +597,9 @@ function updateValueFields() {
     else if (!enoughHealth) status.innerHTML = 'Want more health';   
     else if (enoughHealth && enoughDamage) status.innerHTML = 'Advancing';
     
+}
+
+function updateValueFields2() {
     var fightButtonCol = document.getElementById("battleBtnsColumn");
     //create hider status
     newContainer = document.createElement("DIV");
