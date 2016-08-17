@@ -2720,6 +2720,7 @@ function exitSpireCell() {
         endSpire();    
 }
 
+var ovklHDratio
 //use S stance
 function useScryerStance() {
     
@@ -2734,7 +2735,7 @@ function useScryerStance() {
         var Sstance = 0.5;
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
-        var ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
+        ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
         if (ovklHDratio > 0.8) {
             setFormation(4);
             return;
