@@ -71,8 +71,8 @@ autoautoDontTuchBtn.innerHTML = 'Dont tuch zone';
 autoautoDontTuchBtn.setAttribute("onmouseover", 'tooltip(\"Auto Auto Dont tuch zone\", \"customText\", event, \"Here you can ruin things section.\")');
 autoautoDontTuchBtn.setAttribute("onmouseout", 'tooltip("hide")');
 autoautoDontTuchBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
-autoautoDontTuchBtn.id='autoautosDontTuchBTN';
-advHeader.appendChild(autoautosDontTuchBtn);
+autoautoDontTuchBtn.id='autoautoDontTuchBTN';
+advHeader.appendChild(autoautoDontTuchBtn);
 //
 var autoautoDontTucadv = document.createElement("DIV");
 autoautoDontTucadv.id = 'autoautoDontTuc';
