@@ -54,6 +54,45 @@ createSetting('CustomAutoPortal', 'Custom Portal', 'Automatically portal AFTER c
 //advanced settings 2 - here settings will start now
 var advHeader = document.createElement("DIV");
 var advBtn = document.createElement("DIV");
+
+document.getElementById("autoSettings").appendChild(adv);
+
+//Auto Auto Trimps area - Make a Dont touch zone.
+var autoautoDontTouchBtn = document.createElement("DIV");
+autoautoDonttouchBtn.setAttribute('class', 'btn btn-default');
+autoautoDonttouchBtn.setAttribute('onclick', 'autoToggle(\'autoautoDonttouch\')');
+autoautoDonttouchBtn.innerHTML = 'Dont touch zone';
+autoautoDonttouchBtn.setAttribute("onmouseover", 'tooltip(\"Auto Auto Dont touch zone\", \"customText\", event, \"Here you can ruin things section.\")');
+autoautoDonttouchBtn.setAttribute("onmouseout", 'tooltip("hide")');
+autoautoDonttouchBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw; background-color: red; color: black;');
+autoautoDonttouchBtn.id='autoautoDonttouchBTN';
+advHeader.appendChild(autoautoDonttouchBtn);
+//
+var autoautoDonttouchadv = document.createElement("DIV");
+autoautoDonttouchadv.id = 'autoautoDonttouch';
+autoautoDonttouchadv.style.display = 'none';
+document.getElementById("autoSettings").appendChild(autoautoDonttouchadv);
+//Dont touch settings - Dont touch buttons - Dont touch zone
+createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150',null, 'autoautoDonttouch');
+createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1',null, 'autoautoDonttouch');
+createSetting('MaxHut', 'Max Huts', '', 'value', '50',null, 'autoautoDonttouch');
+createSetting('MaxHouse', 'Max Houses', '', 'value', '50',null, 'autoautoDonttouch');
+createSetting('MaxMansion', 'Max Mansions', '', 'value', '50',null, 'autoautoDonttouch');
+createSetting('MaxHotel', 'Max Hotels', '', 'value', '50',null, 'autoautoDonttouch');
+createSetting('MaxResort', 'Max Resorts', '', 'value', '50',null, 'autoautoDonttouch');
+createSetting('MaxGateway', 'Max Gateways', 'WARNING: Not recommended to raise above 25', 'value', '25',null, 'autoautoDonttouch');
+createSetting('MaxCollector', 'Max Collectors', '', 'value', '-1',null, 'autoautoDonttouch');
+createSetting('MaxGym', 'Max Gyms', '', 'value', '-1',null, 'autoautoDonttouch');
+createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1',null, 'autoautoDonttouch');
+createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1',null, 'autoautoDonttouch');
+////Dont touch settings - really Dont touch buttons - Dont touch for real zone
+createSetting('WarpstationCap', 'Warpstation Cap', 'Do not level Warpstations past Basewarp+DeltaGiga **. Without this, if a Giga wasnt available, it would level infinitely (wastes metal better spent on prestiges instead.) **The script bypasses this cap each time a new giga is bought, when it insta-buys as many as it can afford (since AT keeps available metal/gems to a low, overbuying beyond the cap to what is affordable at that first moment is not a bad thing). ', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('CapEquip', 'Cap Equip to 10', 'Do not level equipment past 10. Similar to LimitEquipment, Helps for early game when the script wants to level your tier2s to 40+, but unlike LimitEquipment, does not impact Zone 60+.', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('AlwaysArmorLvl2', 'Always Buy Lvl 2 Armor', 'Always Buy the 2nd point of Armor even if we dont need the HP. Its the most cost effective level, and the need HP decision script isnt always adequate. FORCE on during Spire.', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('FarmWhenNomStacks7', 'Farm on >7 NomStacks', 'On Improbability(cell 100). Meant to be used with DisableFarming (otherwise farming would take care of this, but its slower). If Improbability already has 5 NomStacks, stack 30 Anticipation. If the Improbability has >7 NomStacks on it, get +200% dmg from MapBonus. If we still cant kill it, enter Farming mode at 30 stacks, Even with DisableFarming On! (exits when we get under 20x)', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('HeliumHrBuffer', 'He/Hr Portal Buffer %', 'When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best)', 'value', '0', null, 'autoautoDonttouch');
+createSetting('DynamicPrestige', 'Dynamic Prestige', 'EXPERIMENTAL: Skip getting prestiges at first, and Gradually work up to the desired Prestige setting you have set. Runs with Dagger to save a significant amount of time until we need better gear, then starts increasing the prestige setting near the end of the run. ---NEW ALGORITHM 7/23/2016--- Examines which prestiges you have, how many missing ones youd need to achieve the desired target and starts running 5 maps or 2 maps every zone, Until the target prestige is reached. Example: For mace, starts getting the prerequisite prestiges 10 zones away from max, then more and more, finally reaching the desired prestige by the last final zone (also goes for 9 mapbonus on the last zone). IMPORTANT NOTE PLEASE READ: Final Zone Number is inherently tied to the AutoPortal setting. When using the Helium per Hour setting, it uses the zone we portaled at last run (game.global.lastPortal). If the AutoPortal is set to a challenge, it will use the last zone of the challenge. CAUTION: EXPERIMENTAL, please come to Discord chat if you have problems.', 'boolean', null, null, 'autoautoDonttouch');
+
 advBtn.setAttribute('class', 'btn btn-default');
 advBtn.setAttribute('onclick', 'autoToggle(\'advancedSettings\')');
 advBtn.innerHTML = 'Advanced Settings';
@@ -67,44 +106,6 @@ document.getElementById("autoSettings").appendChild(advHeader);
 var adv = document.createElement("DIV");
 adv.id = 'advancedSettings';
 adv.style.display = 'none';
-document.getElementById("autoSettings").appendChild(adv);
-
-//Auto Auto Trimps area - Make a Dont tuch zone.
-var autoautoDontTuchBtn = document.createElement("DIV");
-autoautoDontTuchBtn.setAttribute('class', 'btn btn-default');
-autoautoDontTuchBtn.setAttribute('onclick', 'autoToggle(\'autoautoDontTuch\')');
-autoautoDontTuchBtn.innerHTML = 'Dont tuch zone';
-autoautoDontTuchBtn.setAttribute("onmouseover", 'tooltip(\"Auto Auto Dont tuch zone\", \"customText\", event, \"Here you can ruin things section.\")');
-autoautoDontTuchBtn.setAttribute("onmouseout", 'tooltip("hide")');
-autoautoDontTuchBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw; background-color: red; color: black;');
-autoautoDontTuchBtn.id='autoautoDontTuchBTN';
-advHeader.appendChild(autoautoDontTuchBtn);
-//
-var autoautoDontTuchadv = document.createElement("DIV");
-autoautoDontTuchadv.id = 'autoautoDontTuch';
-autoautoDontTuchadv.style.display = 'none';
-document.getElementById("autoSettings").appendChild(autoautoDontTuchadv);
-//Dont tuch settings - Dont tuch buttons - Dont tuch zone
-createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150',null, 'autoautoDontTuch');
-createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1',null, 'autoautoDontTuch');
-createSetting('MaxHut', 'Max Huts', '', 'value', '50',null, 'autoautoDontTuch');
-createSetting('MaxHouse', 'Max Houses', '', 'value', '50',null, 'autoautoDontTuch');
-createSetting('MaxMansion', 'Max Mansions', '', 'value', '50',null, 'autoautoDontTuch');
-createSetting('MaxHotel', 'Max Hotels', '', 'value', '50',null, 'autoautoDontTuch');
-createSetting('MaxResort', 'Max Resorts', '', 'value', '50',null, 'autoautoDontTuch');
-createSetting('MaxGateway', 'Max Gateways', 'WARNING: Not recommended to raise above 25', 'value', '25',null, 'autoautoDontTuch');
-createSetting('MaxCollector', 'Max Collectors', '', 'value', '-1',null, 'autoautoDontTuch');
-createSetting('MaxGym', 'Max Gyms', '', 'value', '-1',null, 'autoautoDontTuch');
-createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1',null, 'autoautoDontTuch');
-createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1',null, 'autoautoDontTuch');
-////Dont tuch settings - really Dont tuch buttons - Dont tuch for real zone
-createSetting('WarpstationCap', 'Warpstation Cap', 'Do not level Warpstations past Basewarp+DeltaGiga **. Without this, if a Giga wasnt available, it would level infinitely (wastes metal better spent on prestiges instead.) **The script bypasses this cap each time a new giga is bought, when it insta-buys as many as it can afford (since AT keeps available metal/gems to a low, overbuying beyond the cap to what is affordable at that first moment is not a bad thing). ', 'boolean', null, null, 'autoautoDontTuch');
-createSetting('CapEquip', 'Cap Equip to 10', 'Do not level equipment past 10. Similar to LimitEquipment, Helps for early game when the script wants to level your tier2s to 40+, but unlike LimitEquipment, does not impact Zone 60+.', 'boolean', null, null, 'autoautoDontTuch');
-createSetting('AlwaysArmorLvl2', 'Always Buy Lvl 2 Armor', 'Always Buy the 2nd point of Armor even if we dont need the HP. Its the most cost effective level, and the need HP decision script isnt always adequate. FORCE on during Spire.', 'boolean', null, null, 'autoautoDontTuch');
-createSetting('FarmWhenNomStacks7', 'Farm on >7 NomStacks', 'On Improbability(cell 100). Meant to be used with DisableFarming (otherwise farming would take care of this, but its slower). If Improbability already has 5 NomStacks, stack 30 Anticipation. If the Improbability has >7 NomStacks on it, get +200% dmg from MapBonus. If we still cant kill it, enter Farming mode at 30 stacks, Even with DisableFarming On! (exits when we get under 20x)', 'boolean', null, null, 'autoautoDontTuch');
-createSetting('HeliumHrBuffer', 'He/Hr Portal Buffer %', 'When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best)', 'value', '0', null, 'autoautoDontTuch');
-createSetting('DynamicPrestige', 'Dynamic Prestige', 'EXPERIMENTAL: Skip getting prestiges at first, and Gradually work up to the desired Prestige setting you have set. Runs with Dagger to save a significant amount of time until we need better gear, then starts increasing the prestige setting near the end of the run. ---NEW ALGORITHM 7/23/2016--- Examines which prestiges you have, how many missing ones youd need to achieve the desired target and starts running 5 maps or 2 maps every zone, Until the target prestige is reached. Example: For mace, starts getting the prerequisite prestiges 10 zones away from max, then more and more, finally reaching the desired prestige by the last final zone (also goes for 9 mapbonus on the last zone). IMPORTANT NOTE PLEASE READ: Final Zone Number is inherently tied to the AutoPortal setting. When using the Helium per Hour setting, it uses the zone we portaled at last run (game.global.lastPortal). If the AutoPortal is set to a challenge, it will use the last zone of the challenge. CAUTION: EXPERIMENTAL, please come to Discord chat if you have problems.', 'boolean', null, null, 'autoautoDontTuch');
-
 /*
 //advanced settings
 var advHeader = document.createElement("DIV");
