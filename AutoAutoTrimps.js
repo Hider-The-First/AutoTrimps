@@ -3017,6 +3017,7 @@ function generateHeirloomIcon(heirloom, location, number){
     fightButtonCol.appendChild(newContainer);
 
 function updateValueFields2() {
+    var hiderWindow = document.getElementById('hiderWindow');
     var hiderStatus = document.getElementById('hiderStatus');
     hiderStatus.innerHTML = 'OverKill Chance' + hiderwindow.innerHTML*100 + '%'; 
 }
