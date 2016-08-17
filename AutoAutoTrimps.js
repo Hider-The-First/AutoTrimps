@@ -3006,7 +3006,6 @@ function generateHeirloomIcon(heirloom, location, number){
     return html;
 }
 
-function updateValueFields2() {
     var fightButtonCol = document.getElementById("battleBtnsColumn");
     //create hider status
     newContainer = document.createElement("DIV");
@@ -3016,6 +3015,7 @@ function updateValueFields2() {
     newContainer.appendChild(abutton);
     fightButtonCol.appendChild(newContainer);
 
+function updateValueFields2() {
     var hiderStatus = document.getElementById('hiderStatus');
     hiderStatus.innerHTML = 'Crit Chance' + ovklHDratio*100 + '%'; 
 }
