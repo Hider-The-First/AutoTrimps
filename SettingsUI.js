@@ -53,12 +53,12 @@ createSetting('CustomAutoPortal', 'Custom Portal', 'Automatically portal AFTER c
 //advanced settings 2 - here settings will start now
 var advHeader = document.createElement("DIV");
 
-//Auto Auto Trimps area - Make a Dont touch zone.
+//Auto Auto Trimps area - Make the Dont Touch Zone.
 var autoautoDonttouchBtn = document.createElement("DIV");
 autoautoDonttouchBtn.setAttribute('class', 'btn btn-default');
 autoautoDonttouchBtn.setAttribute('onclick', 'autoToggle(\'autoautoDonttouch\')');
-autoautoDonttouchBtn.innerHTML = 'Dont touch zone';
-autoautoDonttouchBtn.setAttribute("onmouseover", 'tooltip(\"Auto Auto Dont touch zone\", \"customText\", event, \"Here you can ruin things section.\")');
+autoautoDonttouchBtn.innerHTML = 'Dont Touch Zone';
+autoautoDonttouchBtn.setAttribute("onmouseover", 'tooltip(\"Auto Auto Dont Touch Zone\", \"customText\", event, \"Here you can ruin things section.\")');
 autoautoDonttouchBtn.setAttribute("onmouseout", 'tooltip("hide")');
 autoautoDonttouchBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw; background-color: red; color: black;');
 autoautoDonttouchBtn.id='autoautoDonttouchBTN';
@@ -82,13 +82,14 @@ createSetting('MaxCollector', 'Max Collectors', '', 'value', '-1',null, 'autoaut
 createSetting('MaxGym', 'Max Gyms', '', 'value', '-1',null, 'autoautoDonttouch');
 createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1',null, 'autoautoDonttouch');
 createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1',null, 'autoautoDonttouch');
-////Dont touch settings - really Dont touch buttons - Dont touch for real zone
-createSetting('WarpstationCap', 'Warpstation Cap', 'Do not level Warpstations past Basewarp+DeltaGiga **. Without this, if a Giga wasnt available, it would level infinitely (wastes metal better spent on prestiges instead.) **The script bypasses this cap each time a new giga is bought, when it insta-buys as many as it can afford (since AT keeps available metal/gems to a low, overbuying beyond the cap to what is affordable at that first moment is not a bad thing). ', 'boolean', null, null, 'autoautoDonttouch');
-createSetting('CapEquip', 'Cap Equip to 10', 'Do not level equipment past 10. Similar to LimitEquipment, Helps for early game when the script wants to level your tier2s to 40+, but unlike LimitEquipment, does not impact Zone 60+.', 'boolean', null, null, 'autoautoDonttouch');
-createSetting('AlwaysArmorLvl2', 'Always Buy Lvl 2 Armor', 'Always Buy the 2nd point of Armor even if we dont need the HP. Its the most cost effective level, and the need HP decision script isnt always adequate. FORCE on during Spire.', 'boolean', null, null, 'autoautoDonttouch');
+////Dont touch settings - Really dont touch buttons - Dont touch for real zone
+createSetting('WarpstationCap', 'Limit Trimps', 'Not every one like trimps.', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('LimitEquipment', 'Always Limit Power', 'Not every one need power.', 'boolean', null, null, 'advancedSettings');
+createSetting('CapEquip', 'Limit Power', 'Not every one need power when they are young', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('AlwaysArmorLvl2', 'waste Metal', 'Not every one like metal.', 'boolean', null, null, 'autoautoDonttouch');
 createSetting('FarmWhenNomStacks7', 'Farm on >7 NomStacks', 'On Improbability(cell 100). Meant to be used with DisableFarming (otherwise farming would take care of this, but its slower). If Improbability already has 5 NomStacks, stack 30 Anticipation. If the Improbability has >7 NomStacks on it, get +200% dmg from MapBonus. If we still cant kill it, enter Farming mode at 30 stacks, Even with DisableFarming On! (exits when we get under 20x)', 'boolean', null, null, 'autoautoDonttouch');
 createSetting('HeliumHrBuffer', 'He/Hr Portal Buffer %', 'When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best)', 'value', '0', null, 'autoautoDonttouch');
-createSetting('DynamicPrestige', 'Dynamic Prestige', 'EXPERIMENTAL: Skip getting prestiges at first, and Gradually work up to the desired Prestige setting you have set. Runs with Dagger to save a significant amount of time until we need better gear, then starts increasing the prestige setting near the end of the run. ---NEW ALGORITHM 7/23/2016--- Examines which prestiges you have, how many missing ones youd need to achieve the desired target and starts running 5 maps or 2 maps every zone, Until the target prestige is reached. Example: For mace, starts getting the prerequisite prestiges 10 zones away from max, then more and more, finally reaching the desired prestige by the last final zone (also goes for 9 mapbonus on the last zone). IMPORTANT NOTE PLEASE READ: Final Zone Number is inherently tied to the AutoPortal setting. When using the Helium per Hour setting, it uses the zone we portaled at last run (game.global.lastPortal). If the AutoPortal is set to a challenge, it will use the last zone of the challenge. CAUTION: EXPERIMENTAL, please come to Discord chat if you have problems.', 'boolean', null, null, 'autoautoDonttouch');
+createSetting('DynamicPrestige', 'Waste Some Time', 'Imagine a wall of text.', 'boolean', null, null, 'autoautoDonttouch');
 
 //advanced settings
 var advBtn = document.createElement("DIV");
@@ -107,7 +108,6 @@ adv.style.display = 'none';
 document.getElementById("autoSettings").appendChild(adv);
 
 //advanced settings
-createSetting('LimitEquipment', 'Limit Equipment', 'Limit levels of equipment bought to:(level 11 - the prestige level). At or Above Prestige X (10), your equipment will remain at level 1. In other words, do not level equipment after ~level ~51, and only buy Prestiges. CAUTION: may reduce He/hr performance in many cases.', 'boolean', null, null, 'advancedSettings');
 createSetting('BreedFire', 'Breed Fire', 'Fire Lumberjacks and Miners to speed up breeding when needed. (Not geneticists).', 'boolean', null, null, 'advancedSettings');
 createSetting('MaxTox', 'Max Toxicity Stacks', 'Get maximum toxicity stacks before killing the improbability in each zone 60 and above. Generally only recommended for 1 run to maximize bone portal value. This setting will revert to disabled after a successful Max-Tox run + Toxicity Autoportal.', 'boolean', null, null, 'advancedSettings');
 createSetting('RunNewVoids', 'Run New Voids', 'Run new void maps acquired after the set void map zone. Runs them at Cell 95 by default, unless you set a decimal value indicating the cell, like: 187.75  CAUTION: May severely slow you down by trying to do too-high level voidmaps. Use the adjacent RunNewVoidsUntil setting to limit this.', 'boolean', null, null, 'advancedSettings');
