@@ -1682,6 +1682,11 @@ function autoStance() {
     	setFormation(4);
     	return;
     }
+    if (!getCurrentEnemy(1).corrupted || game.global.world-10 <= getPageSetting('VoidMaps') ||
+    (!getCurrentEnemy(2).corrupted && baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2)) {
+    	setFormation(4);
+    	return;
+    }
     if (game.global.gridArray.length === 0) return;
     
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
