@@ -3020,5 +3020,5 @@ var hiderwindow = 0;
 function updateValueFields2() {
     var hiderWindow = document.getElementById('hiderWindow');
     var hiderStatus = document.getElementById('hiderStatus');
-    hiderStatus.innerHTML = 'OverKill Chance ' + hiderwindow.toFixed(3) + '%'; 
+    hiderStatus.innerHTML = 'OverKill Chance ' + hiderwindow.toFixed(2) + '%'; 
 }
