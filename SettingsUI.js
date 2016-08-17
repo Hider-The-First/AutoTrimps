@@ -51,6 +51,18 @@ createSetting('AutoPortal', 'Auto Portal', 'Automatically portal. Will NOT auto-
 createSetting('HeliumHourChallenge', 'Challenge for Helium per Hour and Custom', 'Automatically portal into this challenge when using helium per hour or custom autoportal. Custom portals after cell 100 of the zone specified. ', 'dropdown', 'None', ['None', 'Balance', 'Electricity', 'Crushed', 'Nom', 'Toxicity', 'Watch', 'Lead','Corrupted']);
 createSetting('CustomAutoPortal', 'Custom Portal', 'Automatically portal AFTER clearing this level.(ie: setting to 200 would portal when you first reach level 201)', 'value', '200');
 
+//advanced settings 2 - here settings will start now
+var advHeader = document.createElement("DIV");
+var advBtn = document.createElement("DIV");
+advBtn.setAttribute('class', 'btn btn-default');
+advBtn.setAttribute('onclick', 'autoToggle(\'advancedSettings\')');
+advBtn.innerHTML = 'Advanced Settings';
+advBtn.setAttribute("onmouseover", 'tooltip(\"Advanced Settings\", \"customText\", event, \"Leave off unless you know what you\'re doing with them.\")');
+advBtn.setAttribute("onmouseout", 'tooltip("hide")');
+advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
+advBtn.id='advancedSettingsBTN';
+advHeader.appendChild(advBtn);
+
 //Auto Auto Trimps area - Make a Dont tuch zone.
 var autoautoDontTuchBtn = document.createElement("DIV");
 autoautoDontTuchBtn.setAttribute('class', 'btn btn-default');
@@ -80,6 +92,7 @@ createSetting('MaxGym', 'Max Gyms', '', 'value', '-1');
 createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1');
 createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1');
 
+/*
 //advanced settings
 var advHeader = document.createElement("DIV");
 var advBtn = document.createElement("DIV");
@@ -91,6 +104,7 @@ advBtn.setAttribute("onmouseout", 'tooltip("hide")');
 advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
 advBtn.id='advancedSettingsBTN';
 advHeader.appendChild(advBtn);
+*/
 
 document.getElementById("autoSettings").appendChild(advHeader);
 var adv = document.createElement("DIV");
