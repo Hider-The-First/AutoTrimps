@@ -930,12 +930,13 @@ function initializeAutoTrimps() {
     loadPageVariables();
 
     var atscript = document.getElementById('AutoTrimps-script')
-      , base = 'https://rawgit.com/Hider-The-First/AutoTrimps/patch-3';
+      , base = 'https://genbtc.github.io/AutoTrimps'
+      ;
     if (atscript !== null) {
-        base = atscript.getAttribute('src').replace(/\/LateGameTestings.js$/, '');
+        base = atscript.getAttribute('src').replace(/\/AutoTrimps2\.js$/, '');
     }
-    document.head.appendChild(document.createElement('script')).src = base + '/SettingsUI.js';
-    document.head.appendChild(document.createElement('script')).src = base + '/HiderGraphs.js';
+    document.head.appendChild(document.createElement('script')).src = base + '/NewUI.js';
+    document.head.appendChild(document.createElement('script')).src = base + '/Graphs.js';
     toggleSettingsMenu();
     toggleSettingsMenu();
 }
@@ -2984,7 +2985,7 @@ function generateHeirloomIcon(heirloom, location, number){
     html += locText + ', this)"> <span class="' + icon + '"></span></span>';
     return html;
 }
-/*
+
 var fightButtonCol = document.getElementById("battleBtnsColumn");
 //create hider status
 newContainer = document.createElement("DIV");
@@ -2995,5 +2996,4 @@ newContainer.appendChild(abutton);
 fightButtonCol.appendChild(newContainer);
 
 var hiderStatus = document.getElementById('hiderStatus');
-hiderStatus.innerHTML = 'Hider The First';
-*/
+hiderStatus.innerHTML = 'There is a new script';
