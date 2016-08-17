@@ -72,32 +72,27 @@ autoautoDontTuchadv.id = 'autoautoDontTuch';
 autoautoDontTuchadv.style.display = 'none';
 document.getElementById("autoSettings").appendChild(autoautoDontTuchadv);
 //Dont tuch settings - Dont tuch buttons - Dont tuch zone
-createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150');
-createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1');
-createSetting('MaxHut', 'Max Huts', '', 'value', '50');
-createSetting('MaxHouse', 'Max Houses', '', 'value', '50');
-createSetting('MaxMansion', 'Max Mansions', '', 'value', '50');
-createSetting('MaxHotel', 'Max Hotels', '', 'value', '50');
-createSetting('MaxResort', 'Max Resorts', '', 'value', '50');
-createSetting('MaxGateway', 'Max Gateways', 'WARNING: Not recommended to raise above 25', 'value', '25');
-createSetting('MaxCollector', 'Max Collectors', '', 'value', '-1');
-createSetting('MaxGym', 'Max Gyms', '', 'value', '-1');
-createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1');
-createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1');
+createSetting('MaxExplorers', 'Max Explorers', 'Map the planet!!', 'value', '150',null, 'autoautoDontTuch');
+createSetting('MaxTrainers', 'Max Trainers', 'Fist bump me bro', 'value', '-1',null, 'autoautoDontTuch');
+createSetting('MaxHut', 'Max Huts', '', 'value', '50',null, 'autoautoDontTuch');
+createSetting('MaxHouse', 'Max Houses', '', 'value', '50',null, 'autoautoDontTuch');
+createSetting('MaxMansion', 'Max Mansions', '', 'value', '50',null, 'autoautoDontTuch');
+createSetting('MaxHotel', 'Max Hotels', '', 'value', '50',null, 'autoautoDontTuch');
+createSetting('MaxResort', 'Max Resorts', '', 'value', '50',null, 'autoautoDontTuch');
+createSetting('MaxGateway', 'Max Gateways', 'WARNING: Not recommended to raise above 25', 'value', '25',null, 'autoautoDontTuch');
+createSetting('MaxCollector', 'Max Collectors', '', 'value', '-1',null, 'autoautoDontTuch');
+createSetting('MaxGym', 'Max Gyms', '', 'value', '-1',null, 'autoautoDontTuch');
+createSetting('MaxTribute', 'Max Tributes', '', 'value', '-1',null, 'autoautoDontTuch');
+createSetting('MaxNursery', 'Max Nurseries', '', 'value', '-1',null, 'autoautoDontTuch');
+////Dont tuch settings - really Dont tuch buttons - Dont tuch for real zone
+createSetting('WarpstationCap', 'Warpstation Cap', 'Do not level Warpstations past Basewarp+DeltaGiga **. Without this, if a Giga wasnt available, it would level infinitely (wastes metal better spent on prestiges instead.) **The script bypasses this cap each time a new giga is bought, when it insta-buys as many as it can afford (since AT keeps available metal/gems to a low, overbuying beyond the cap to what is affordable at that first moment is not a bad thing). ', 'boolean', null, null, 'genbtcadvancedSettings');
+createSetting('CapEquip', 'Cap Equip to 10', 'Do not level equipment past 10. Similar to LimitEquipment, Helps for early game when the script wants to level your tier2s to 40+, but unlike LimitEquipment, does not impact Zone 60+.', 'boolean', null, null, 'genbtcadvancedSettings');
+createSetting('AlwaysArmorLvl2', 'Always Buy Lvl 2 Armor', 'Always Buy the 2nd point of Armor even if we dont need the HP. Its the most cost effective level, and the need HP decision script isnt always adequate. FORCE on during Spire.', 'boolean', null, null, 'genbtcadvancedSettings');
+createSetting('FarmWhenNomStacks7', 'Farm on >7 NomStacks', 'On Improbability(cell 100). Meant to be used with DisableFarming (otherwise farming would take care of this, but its slower). If Improbability already has 5 NomStacks, stack 30 Anticipation. If the Improbability has >7 NomStacks on it, get +200% dmg from MapBonus. If we still cant kill it, enter Farming mode at 30 stacks, Even with DisableFarming On! (exits when we get under 20x)', 'boolean', null, null, 'genbtcadvancedSettings');
+createSetting('HeliumHrBuffer', 'He/Hr Portal Buffer %', 'When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best)', 'value', '0', null, 'genbtcadvancedSettings');
+createSetting('DynamicPrestige', 'Dynamic Prestige', 'EXPERIMENTAL: Skip getting prestiges at first, and Gradually work up to the desired Prestige setting you have set. Runs with Dagger to save a significant amount of time until we need better gear, then starts increasing the prestige setting near the end of the run. ---NEW ALGORITHM 7/23/2016--- Examines which prestiges you have, how many missing ones youd need to achieve the desired target and starts running 5 maps or 2 maps every zone, Until the target prestige is reached. Example: For mace, starts getting the prerequisite prestiges 10 zones away from max, then more and more, finally reaching the desired prestige by the last final zone (also goes for 9 mapbonus on the last zone). IMPORTANT NOTE PLEASE READ: Final Zone Number is inherently tied to the AutoPortal setting. When using the Helium per Hour setting, it uses the zone we portaled at last run (game.global.lastPortal). If the AutoPortal is set to a challenge, it will use the last zone of the challenge. CAUTION: EXPERIMENTAL, please come to Discord chat if you have problems.', 'boolean', null, null, 'genbtcadvancedSettings');
 
-
-advBtn.setAttribute('onclick', 'autoToggle(\'advancedSettings\')');
-advBtn.innerHTML = 'Advanced Settings';
-advBtn.setAttribute("onmouseover", 'tooltip(\"Advanced Settings\", \"customText\", event, \"Leave off unless you know what you\'re doing with them.\")');
-advBtn.setAttribute("onmouseout", 'tooltip("hide")');
-advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
-advBtn.id='advancedSettingsBTN';
-advHeader.appendChild(advBtn);
-/*
 //advanced settings
-var advHeader = document.createElement("DIV");
-var advBtn = document.createElement("DIV");
-advBtn.setAttribute('class', 'btn btn-default');
 advBtn.setAttribute('onclick', 'autoToggle(\'advancedSettings\')');
 advBtn.innerHTML = 'Advanced Settings';
 advBtn.setAttribute("onmouseover", 'tooltip(\"Advanced Settings\", \"customText\", event, \"Leave off unless you know what you\'re doing with them.\")');
@@ -105,7 +100,6 @@ advBtn.setAttribute("onmouseout", 'tooltip("hide")');
 advBtn.setAttribute('style', 'margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; font-size: 0.8vw;');
 advBtn.id='advancedSettingsBTN';
 advHeader.appendChild(advBtn);
-*/
 
 document.getElementById("autoSettings").appendChild(advHeader);
 var adv = document.createElement("DIV");
@@ -139,17 +133,11 @@ genbtcadv.style.display = 'none';
 document.getElementById("autoSettings").appendChild(genbtcadv);
 
 //genBTC advanced settings - option buttons.
-createSetting('WarpstationCap', 'Warpstation Cap', 'Do not level Warpstations past Basewarp+DeltaGiga **. Without this, if a Giga wasnt available, it would level infinitely (wastes metal better spent on prestiges instead.) **The script bypasses this cap each time a new giga is bought, when it insta-buys as many as it can afford (since AT keeps available metal/gems to a low, overbuying beyond the cap to what is affordable at that first moment is not a bad thing). ', 'boolean', null, null, 'genbtcadvancedSettings');
 createSetting('WarpstationWall', 'Warpstation Wall', 'Do not level Warpstations if it costs over 1/4th of the current metal we own. (Experimental) ', 'boolean', null, null, 'genbtcadvancedSettings');
-createSetting('CapEquip', 'Cap Equip to 10', 'Do not level equipment past 10. Similar to LimitEquipment, Helps for early game when the script wants to level your tier2s to 40+, but unlike LimitEquipment, does not impact Zone 60+.', 'boolean', null, null, 'genbtcadvancedSettings');
-createSetting('AlwaysArmorLvl2', 'Always Buy Lvl 2 Armor', 'Always Buy the 2nd point of Armor even if we dont need the HP. Its the most cost effective level, and the need HP decision script isnt always adequate. FORCE on during Spire.', 'boolean', null, null, 'genbtcadvancedSettings');
 createSetting('WaitTill60', 'Skip Gear Level 58&59', 'Dont Buy Gear during level 58 and 59, wait till level 60, when cost drops down to 10%.', 'boolean', null, null, 'genbtcadvancedSettings');
 createSetting('DelayArmorWhenNeeded', 'Delay Armor', 'Delay buying armor prestige upgrades during Want More Damage or Farming automap-modes.', 'boolean', null, null, 'genbtcadvancedSettings');
 createSetting('DynamicSiphonology', 'Dynamic Siphonology', 'Use the right level of siphonology based on your damage output.', 'boolean', true, null, 'genbtcadvancedSettings');
-createSetting('FarmWhenNomStacks7', 'Farm on >7 NomStacks', 'On Improbability(cell 100). Meant to be used with DisableFarming (otherwise farming would take care of this, but its slower). If Improbability already has 5 NomStacks, stack 30 Anticipation. If the Improbability has >7 NomStacks on it, get +200% dmg from MapBonus. If we still cant kill it, enter Farming mode at 30 stacks, Even with DisableFarming On! (exits when we get under 20x)', 'boolean', null, null, 'genbtcadvancedSettings');
 createSetting('AutoRoboTrimp', 'AutoRoboTrimp', 'Use RoboTrimps ability starting at this level, and every 5 levels thereafter. (set to 0 to disable)', 'value', '60', null, 'genbtcadvancedSettings');
-createSetting('HeliumHrBuffer', 'He/Hr Portal Buffer %', 'When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best)', 'value', '0', null, 'genbtcadvancedSettings');
-createSetting('DynamicPrestige', 'Dynamic Prestige', 'EXPERIMENTAL: Skip getting prestiges at first, and Gradually work up to the desired Prestige setting you have set. Runs with Dagger to save a significant amount of time until we need better gear, then starts increasing the prestige setting near the end of the run. ---NEW ALGORITHM 7/23/2016--- Examines which prestiges you have, how many missing ones youd need to achieve the desired target and starts running 5 maps or 2 maps every zone, Until the target prestige is reached. Example: For mace, starts getting the prerequisite prestiges 10 zones away from max, then more and more, finally reaching the desired prestige by the last final zone (also goes for 9 mapbonus on the last zone). IMPORTANT NOTE PLEASE READ: Final Zone Number is inherently tied to the AutoPortal setting. When using the Helium per Hour setting, it uses the zone we portaled at last run (game.global.lastPortal). If the AutoPortal is set to a challenge, it will use the last zone of the challenge. CAUTION: EXPERIMENTAL, please come to Discord chat if you have problems.', 'boolean', null, null, 'genbtcadvancedSettings');
 createSetting('RunBionicBeforeSpire', 'Run Bionic Before Spire', 'Run the Bionic Wonderlands I through VI and then repeatedly farms VI(level 200) before attempting Spire, for the purpose of farming. WARNING: The point at which it stops farming has yet to be fully decided upon or set in stone, so it currently runs Bionic VI until it runs out of new prestige item rewards, then runs Bionic VII until it runs out of prestige items from that one, and then attempts the spire. This amounts to somewhere around 144 minutes. DO NOT USE WITH HE/HR PORTAL. Not meant to be used every time, He/Hr suffers.', 'boolean', null, null, 'genbtcadvancedSettings');
 createSetting('TrainerCaptoTributes', 'Cap Trainers to a % of Tributes', 'Only Buy a Trainer when its cost is LESS than X% of cost of a tribute. This setting can work in combination with the other one, or set the other one to -1 and this will take full control. Default: -1 (Disabled). 50% is close to the point where the cap does nothing. You can go as low as you want but recommended is 10% to 1%. (example: Trainer cost of 5001, Tribute cost of 100000, @ 5%, it would NOT buy the trainer.)', 'value', '-1', null, 'genbtcadvancedSettings');
 createSetting('AutoHeirlooms2', 'Auto Heirlooms2', 'New algorithm for Heirlooms. While enabled, the old AutoHeirlooms algorithm will be disabled (the button will stay lit or you can turn that one off). CAUTION: Turning this on will immediately re-sort your heirlooms according to the new algorithm, and turning it off again DOES revert to the original algorithm even though it may NOT have a visible result on your heirlooms. (fyi: This lack of action highlights one of the problems with the old one.) ', 'boolean', null, null, 'genbtcadvancedSettings');
