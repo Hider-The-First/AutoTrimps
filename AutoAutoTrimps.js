@@ -2736,7 +2736,7 @@ function useScryerStance() {
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
-        hiderwindow.innerHTML = ovklHDratio;
+        hiderwindow = ovklHDratio;
         if (ovklHDratio > 0.8) {
             setFormation(4);
             return;
@@ -3016,9 +3016,9 @@ function generateHeirloomIcon(heirloom, location, number){
     newContainer.appendChild(abutton);
     fightButtonCol.appendChild(newContainer);
 
-var hiderwindow.innerHTML = 0;
+var hiderwindow = 0;
 function updateValueFields2() {
     var hiderWindow = document.getElementById('hiderWindow');
     var hiderStatus = document.getElementById('hiderStatus');
-    hiderStatus.innerHTML = 'OverKill Chance' + hiderwindow.innerHTML*100 + '%'; 
+    hiderStatus.innerHTML = 'OverKill Chance' + hiderwindow*100 + '%'; 
 }
