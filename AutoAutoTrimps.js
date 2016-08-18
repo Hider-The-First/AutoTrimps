@@ -1707,7 +1707,7 @@ function autoStance() {
     	return;
     }
     if ((!game.global.mapsActive && !game.global.preMapsActive && ((hiderWindow > 10 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && (!getCurrentEnemy(1).corrupted || hiderWindow > 60 ||
-    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderWindow > 5)) {
+    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderWindow > 5))) {
     	setFormation(4);
     	return;
     }
@@ -2811,7 +2811,7 @@ function useScryerStance() {
         run = spirecheck ? useinspire : run;
     }
     if ((!game.global.mapsActive && !game.global.preMapsActive) && ((hiderWindow > 10 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && (!getCurrentEnemy(1).corrupted || hiderWindow > 60 ||
-    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderWindow > 5)) {
+    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderWindow > 5))) {
     	setFormation(4);
     	return;
     }
