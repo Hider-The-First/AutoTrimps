@@ -1691,12 +1691,10 @@ function autoStance() {
     	setFormation(4);
     	return;
     }
-    if (!game.global.mapsActive && !game.global.preMapsActive) {
-    	if (!getCurrentEnemy(1).corrupted || game.global.world+10 < getPageSetting('VoidMaps') ||
+    if ((!game.global.mapsActive && !game.global.preMapsActive) && (!getCurrentEnemy(1).corrupted || game.global.world+10 < getPageSetting('VoidMaps') ||
     	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2)) {
     	setFormation(4);
     	return;
-    	}
     }
     if (game.global.gridArray.length === 0) return;
     
@@ -2740,12 +2738,7 @@ function exitSpireCell() {
 function useScryerStance() {
 	
     //quit here if its right
-    if (HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98) || game.global.preMapsActive) { autoStance(); return;
-    }
-    if (game.global.mapsActive) {
-    	if (getCurrentMapObject().location == "Void") {
-    		autoStance(); return;
-    	}
+    if ((game.global.preMapsActive || game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98))) { autoStance(); return;
     }
     //Scryer if Overkill
     //calculate internal script variables normally processed by autostance.
@@ -2799,12 +2792,10 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive);
         run = spirecheck ? useinspire : run;
     }
-    if (!game.global.mapsActive && !game.global.preMapsActive) {
-    	if (!getCurrentEnemy(1).corrupted || game.global.world+10 < getPageSetting('VoidMaps') ||
+    if ((!game.global.mapsActive && !game.global.preMapsActive) && (!getCurrentEnemy(1).corrupted || game.global.world+10 < getPageSetting('VoidMaps') ||
     	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2)) {
     	setFormation(4);
     	return;
-    	}
     }
     if (game.global.mapsActive && run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
