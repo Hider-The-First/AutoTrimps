@@ -1898,6 +1898,8 @@ var needPrestige = false;
 var voidCheckPercent = 0;
 var HDratio = 0;
 
+var mapYouSlow = false;
+var mapYouSlow = document.getElementById('mapYouSlow');
 //AutoMap - function originally created by Belaith (in 1971)
 //anything/everything to do with maps.
 function autoMap() {
@@ -2025,6 +2027,7 @@ function autoMap() {
         shouldDoWatchMaps = true;
     }
     if (getPageSetting('BuyBuildings')) {
+    	
 	//mapYouSlow maps
         var mapYouSlow = false;
         var cellClearTime = 540;
