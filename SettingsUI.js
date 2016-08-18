@@ -155,7 +155,7 @@ AGULabel.innerHTML = "Golden Upgrades:";
 AGULabel.setAttribute('style', 'margin-right: 0.4vw; font-size: 0.8vw;');
 document.getElementById("AutoGoldenUpgrades").parentNode.insertBefore(AGULabel,document.getElementById("AutoGoldenUpgrades"))
 createSetting('AutoUpgradeHeirlooms', 'Auto Upgrade Heirlooms', 'Automatically buy the upgrade the script advises for the Equipped shield and staff, until we are out of nullifium.', 'boolean', null, null,'genbtcadvancedSettings');
-createSetting('MinutestoFarmBeforeSpire', 'Spire Farm Min:', 'Farm level 200 maps for X minutes before continuing to beat spire (0 to disable)', 'value', '0', null, 'genbtcadvancedSettings');
+createSetting('MinutestoFarmBeforeSpire', 'Spire Farm In Min', 'Farm level 200 maps for X minutes before continuing to beat spire (0 to disable)', 'value', '0', null, 'genbtcadvancedSettings');
 createSetting('ExitSpireCell', 'Exit Spire After Cell', 'Exits the Spire after completing cell X. example: 40 for Row 4. (0 to disable)', 'value', '0', null, 'genbtcadvancedSettings');
 
 //Manage importexport Settings - Create button.
@@ -198,7 +198,7 @@ createSetting('UseScryerStance', 'Use Scryer Stance', 'Stay in Scryer stance in 
 createSetting('ScryerUseinMaps', 'Use in Maps', 'Use in Maps.', 'boolean', null,null, 'scryerSettings');
 createSetting('ScryerUseinVoidMaps', 'Use in Void Maps', 'Use in Void Maps.', 'boolean', false,null, 'scryerSettings');
 createSetting('ScryerUseinSpire', 'Use in Spire(All)', 'Use in Spire (all cells).', 'boolean', false,null, 'scryerSettings');
-createSetting('ScryerSkipBossPastVoids', 'Skip Improbabilities after voids', 'Doesnt use Scrying stance for world Improbabilities/Bosses (cell 100) if you are past the level you have your voidmaps set to run at.', 'boolean', false,null, 'scryerSettings');
+createSetting('ScryerSkipBossPastVoids', 'Skip Improbabilities After Voids', 'Doesnt use Scrying stance for world Improbabilities/Bosses (cell 100) if you are past the level you have your voidmaps set to run at.', 'boolean', false,null, 'scryerSettings');
 createSetting('ScryerSkipCorrupteds', 'Skip Corrupted Cells', 'Doesnt use Scrying stance for corrupted cells unless you can overkill them.', 'boolean', false,null, 'scryerSettings');
 //createSetting('ScryerUseinSpireSafes', 'Use in Spire(Safes)', 'Use on Spire cells marked with the safe icons - high loot *50 metal reward.', 'boolean', false,null, 'scryerSettings');
 createSetting('ScryerMinZone', 'Min Zone', 'Minimum zone to start using scryer in.(inclusive) rec:(60 or 181)', 'value', '181', null, 'scryerSettings');
