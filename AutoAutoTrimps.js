@@ -1691,7 +1691,7 @@ function autoStance() {
     	setFormation(4);
     	return;
     }
-    if ((!game.global.mapsActive && !game.global.preMapsActive) && (!getCurrentEnemy(1).corrupted || game.global.world+10 < getPageSetting('VoidMaps') ||
+    if ((!game.global.mapsActive && !game.global.preMapsActive) && (!getCurrentEnemy(1).corrupted || hiderWindow > 60 ||
     	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2))) {
     	setFormation(4);
     	return;
@@ -2737,9 +2737,6 @@ function exitSpireCell() {
 //use S stance
 function useScryerStance() {
 	
-    //quit here if its right
-    if (game.global.preMapsActive || (game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98)) { autoStance(); return;
-    }
     //Scryer if Overkill
     //calculate internal script variables normally processed by autostance.
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
@@ -2763,7 +2760,10 @@ function useScryerStance() {
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
-        if (ovklHDratio > 0.8) {
+        //quit here if its right
+        if (game.global.preMapsActive || (game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || hiderWindow < 10 && game.global.lastClearedCell == 98)) { autoStance(); return;
+        }
+        if (ovklHDratio > 0.6) {
             setFormation(4);
             return;
         }
@@ -2792,7 +2792,7 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive);
         run = spirecheck ? useinspire : run;
     }
-    if ((!game.global.mapsActive && !game.global.preMapsActive) && (!getCurrentEnemy(1).corrupted || game.global.world+10 < getPageSetting('VoidMaps') ||
+    if ((!game.global.mapsActive && !game.global.preMapsActive) && (!getCurrentEnemy(1).corrupted || hiderWindow > 60 ||
     	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2))) {
     	setFormation(4);
     	return;
