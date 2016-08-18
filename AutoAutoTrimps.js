@@ -1685,8 +1685,23 @@ function autoStance() {
     baseHealth = game.global.soldierHealthMax;
     baseDamage *= 2;
     baseBlock *= 2;
-    baseHealth *= 2;   
-    
+    baseHealth *= 2;
+    var ovklHDratio;
+    var useoverkill = true; //!!getPageSetting('ScryerUseWhenOverkill');
+    if (useoverkill && game.portal.Overkill.level == 0)
+        setPageSetting('ScryerUseWhenOverkill',false);
+    //Overkill button being on and being able to overkill in S will override any other setting, regardless.
+    if (useoverkill && game.portal.Overkill.level > 0) {
+        var avgDamage = (baseDamage * (1-getPlayerCritChance()) + (baseDamage * getPlayerCritChance() * getPlayerCritDamageMult()))/2;
+        var Sstance = 0.125;
+        var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
+        //are we going to overkill in S?
+        ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
+        hiderwindow = ovklHDratio*100;
+        if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
+            hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
+        }
+    }
     if (game.global.mapsActive && (getCurrentEnemy(1).name == "Jestimp" || getCurrentEnemy(1).name == "Chronoimp")) {
     	setFormation(4);
     	return;
