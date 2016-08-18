@@ -586,7 +586,7 @@ function updateValueFields() {
     //automaps status
     var status = document.getElementById('autoMapStatus');
     if(!autoTrimpSettings.AutoMaps.enabled) status.innerHTML = 'Off';
-    else if(mapYouSlow && !doVoids && !needPrestige) status.innerHTML = 'You Slow...'; //else if(hiderwindow < 10 && !mapYouSlow && !doVoids && !needPrestige) status.innerHTML = 'You Slow...'; else if(hiderwindow > 60 && !mapYouSlow && !doVoids && !needPrestige) status.innerHTML = 'You Slow...';
+    else if(!!mapYouSlow && !doVoids && !needPrestige) status.innerHTML = 'You Slow...'; //else if(hiderwindow < 10 && !mapYouSlow && !doVoids && !needPrestige) status.innerHTML = 'You Slow...'; else if(hiderwindow > 60 && !mapYouSlow && !doVoids && !needPrestige) status.innerHTML = 'You Slow...';
     else if(needPrestige && !doVoids) status.innerHTML = 'Prestige';
     else if(doVoids && voidCheckPercent == 0) status.innerHTML = 'Void Maps: ' + game.global.totalVoidMaps + ' remaining';
     else if(needToVoid && !doVoids && game.global.totalVoidMaps > 0 && !stackingTox) status.innerHTML = 'Prepping for Voids';
