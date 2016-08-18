@@ -3059,6 +3059,7 @@ function generateHeirloomIcon(heirloom, location, number){
     fightButtonCol.appendChild(newContainer);
 
 var hiderwindow = 0;
+var hiderWindow = document.getElementById('hiderWindow');
 function updateValueFields2() {
     var hiderWindow = document.getElementById('hiderWindow');
     var hiderStatus = document.getElementById('hiderStatus');
