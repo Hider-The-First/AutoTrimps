@@ -2738,7 +2738,7 @@ function exitSpireCell() {
 function useScryerStance() {
 	
     //quit here if its right
-    if ((game.global.preMapsActive || game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98))) { autoStance(); return;
+    if (game.global.preMapsActive || (game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98)) { autoStance(); return;
     }
     //Scryer if Overkill
     //calculate internal script variables normally processed by autostance.
