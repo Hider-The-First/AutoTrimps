@@ -2769,7 +2769,7 @@ function useScryerStance() {
     }
         
     //quit here if its right
-    if (HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98) || game.global.preMapsActive) { autoStance(); return;
+    if (getCurrentMapObject().location == "Void" || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98) || game.global.preMapsActive) { autoStance(); return;
     }
 
     //grab settings variables
