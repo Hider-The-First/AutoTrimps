@@ -1707,10 +1707,10 @@ function autoStance() {
     	return;
     }
     if ((!game.global.mapsActive && !game.global.preMapsActive && ((hiderWindow > 10 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && (!getCurrentEnemy(1).corrupted || hiderWindow > 60 ||
-    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderWindow > 5)))
+    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderWindow > 5))) {
     	setFormation(4);
     	return;
-
+    }
     if (game.global.gridArray.length === 0) return;
     
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
@@ -2810,7 +2810,7 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive);
         run = spirecheck ? useinspire : run;
     }
-    if ((!game.global.mapsActive && !game.global.preMapsActive) && ((hiderWindow > 10 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && (!getCurrentEnemy(1).corrupted || hiderWindow > 60 ||
+    if ((!game.global.mapsActive && !game.global.preMapsActive && ((hiderWindow > 10 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && (!getCurrentEnemy(1).corrupted || hiderWindow > 60 ||
     	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderWindow > 5))) {
     	setFormation(4);
     	return;
