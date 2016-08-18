@@ -2739,6 +2739,14 @@ function exitSpireCell() {
 //use S stance
 function useScryerStance() {
 	
+    //quit here if its right
+    if (HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98) || game.global.preMapsActive) { autoStance(); return;
+    }
+    if (game.global.mapsActive) {
+    	if (getCurrentMapObject().location == "Void") {
+    		autoStance(); return;
+    	}
+    }
     //Scryer if Overkill
     //calculate internal script variables normally processed by autostance.
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
@@ -2766,10 +2774,6 @@ function useScryerStance() {
             setFormation(4);
             return;
         }
-    }
-        
-    //quit here if its right
-    if (getCurrentMapObject().location == "Void" || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (game.global.world+10 > getPageSetting('VoidMaps') && game.global.lastClearedCell == 98) || game.global.preMapsActive) { autoStance(); return;
     }
 
     //grab settings variables
