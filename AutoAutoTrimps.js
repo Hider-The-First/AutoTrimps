@@ -2045,10 +2045,8 @@ function autoMap() {
         (game.global.mapBonus < 1 && game.global.world >= 11 && OVKcellsWorld+1 < game.global.lastClearedCell/2) ||
         //force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) ||
-        //Clear maps to unlcok nurseries for genetics.
-        (game.global.world == 50 && game.global.mapBonus < 1) ||
-        (game.global.world == 90 && game.global.mapBonus < 1) ||
-        (game.global.world == 199 && game.global.mapBonus < 1) ||
+        //Clear maps to stack up early warps nurseries for genetics.
+        ((game.global.world == 62 || game.global.world == 72 || game.global.world == 84 || game.global.world == 100 || game.global.world == 160 || game.global.world == 180) && game.global.lastClearedCell > 58  && game.global.mapBonus < 1) ||
         //do maps before new gigastation
         //(stationLevel.indexOf(game.global.world) > -1 && game.global.mapBonus < 1)
         //Farm maps if you are way to slow
