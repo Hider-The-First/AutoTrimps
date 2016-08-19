@@ -2043,7 +2043,7 @@ function autoMap() {
         if (		
         (game.global.mapBonus < 1 && game.global.world >= 11 && OVKcellsWorld+1 < game.global.lastClearedCell/2) ||	//enter map in zones if you miss to overkill, the script will make sure you farm more if you can't overkill in the map.
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) ||	//force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
-        ((game.global.world >= 55 && !!game.buildings.Nursery.locked) ||	//Clear maps to stack up nurseries for genetics before starting warps stucking.
+        ((game.global.world >= 62 && !!game.buildings.Nursery.locked) ||	//Clear maps to stack up nurseries for genetics before starting warps stucking.
         (!game.upgrades.Gigastation.locked && game.global.mapBonus < 1 && !game.global.mapsActive && (game.upgrades.Gigastation.allowed-4 >= game.upgrades.Gigastation.done)) ||	//Clear maps to stack up early warps.
         (HDratio > 7)	//Farm maps if you are way to slow
         //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)	//option to force stay in zone X time in min/cleared maps and farm
