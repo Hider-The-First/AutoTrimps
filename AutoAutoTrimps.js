@@ -2041,20 +2041,12 @@ function autoMap() {
         //levels of new Giga
         var stationLevel = [61,62,63,64,65,66,67,68,69,70,72,74,76,78,81,84,87,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,190,200,210,220,230,240,250,260,270,280,290,300];
         if (		
-        //enter map in zones if you miss to overkill, the script will make sure you farm more if you can't overkill in the map.
-        (game.global.mapBonus < 1 && game.global.world >= 11 && OVKcellsWorld+1 < game.global.lastClearedCell/2) ||
-        //force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
-        (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) ||
-        //Clear maps to stack up early warps nurseries for genetics.
-        (!game.upgrades.Gigastation.locked && game.global.mapBonus < 1 && !game.global.preMapsActive && (game.upgrades.Gigastation.allowed-5 >= game.upgrades.Gigastation.done)) || 
-        //do maps before new gigastation
-        //(stationLevel.indexOf(game.global.world) > -1 && game.global.mapBonus < 1)
-        //Farm maps if you are way to slow
-        (HDratio > 7)
-        //option to force stay in zone X time in min/cleared maps and farm
-        //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)         
-        //option to force stay in zone X time in min and farm		
-        //(game.global.world == 200 && game.global.lastClearedCell > 20 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		
+        (game.global.mapBonus < 1 && game.global.world >= 11 && OVKcellsWorld+1 < game.global.lastClearedCell/2) ||	//enter map in zones if you miss to overkill, the script will make sure you farm more if you can't overkill in the map.
+        (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) ||	//force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
+        (!game.upgrades.Gigastation.locked && game.global.mapBonus < 1 && !game.global.preMapsActive && (game.upgrades.Gigastation.allowed-5 >= game.upgrades.Gigastation.done)) ||	//Clear maps to stack up early warps nurseries for genetics.
+        (HDratio > 7)	//Farm maps if you are way to slow
+        //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)	//option to force stay in zone X time in min/cleared maps and farm
+        //(game.global.world == 200 && game.global.lastClearedCell > 20 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		//option to force stay in zone X time in min and farm		
 	) {		
         shouldDoMaps = true;		
         mapYouSlow = true;		
