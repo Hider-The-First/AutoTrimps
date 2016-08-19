@@ -1255,7 +1255,7 @@ function buyUpgrades() {
         }
         if (upgrade == 'Coordination' && !canAffordCoordinationTrimps()) continue;
         if (upgrade == 'Shieldblock' && !getPageSetting('BuyShieldblock')) continue;
-        if ((game.global.lastWarp-4 >= game.buildings.Warpstation.owned && upgrade == 'Gigastation') || upgrade == 'Gigastation' && (game.global.lastWarp ? (game.buildings.Warpstation.owned < game.global.lastWarp + getPageSetting('DeltaGigastation') + 0 - gameUpgrade.allowed + gameUpgrade.done) : game.buildings.Warpstation.owned < getPageSetting('FirstGigastation'))) continue;
+        if ((game.global.lastWarp+2 >= game.buildings.Warpstation.owned && upgrade == 'Gigastation') || upgrade == 'Gigastation' && (game.global.lastWarp ? (game.buildings.Warpstation.owned < game.global.lastWarp + getPageSetting('DeltaGigastation') + 0 - gameUpgrade.allowed + gameUpgrade.done) : game.buildings.Warpstation.owned < getPageSetting('FirstGigastation'))) continue;
         if ((!game.upgrades.Scientists.done && upgrade != 'Battle') ? (available && upgrade == 'Scientists' && game.upgrades.Scientists.allowed) : (available)) {
             buyUpgrade(upgrade, true, true);
             debug('Upgraded ' + upgrade,"*upload2");
@@ -2046,7 +2046,7 @@ function autoMap() {
         //force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) ||
         //Clear maps to stack up early warps nurseries for genetics.
-        (((game.global.world >= 62 && !!game.buildings.Nursery.locked) || game.global.world == 72 || game.global.world == 84 || game.global.world == 100 || game.global.world == 120  || game.global.world == 140  || game.global.world == 160 || game.global.world == 180) && game.global.lastClearedCell > 58  && game.global.mapBonus < 1) ||
+        (game.upgrades.Gigastation.allowed >= game.buildings.Warpstation.owned) // (((game.global.world >= 62 && !!game.buildings.Nursery.locked) || game.global.world == 72 || game.global.world == 84 || game.global.world == 100 || game.global.world == 120) && game.global.mapBonus < 1) ||
         //do maps before new gigastation
         //(stationLevel.indexOf(game.global.world) > -1 && game.global.mapBonus < 1)
         //Farm maps if you are way to slow
