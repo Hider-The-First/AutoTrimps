@@ -1255,7 +1255,7 @@ function buyUpgrades() {
         }
         if (upgrade == 'Coordination' && !canAffordCoordinationTrimps()) continue;
         if (upgrade == 'Shieldblock' && !getPageSetting('BuyShieldblock')) continue;
-        if ((game.global.lastWarp+1 >= game.buildings.Warpstation.owned && upgrade == 'Gigastation') || upgrade == 'Gigastation' && (game.global.lastWarp ? (game.buildings.Warpstation.owned < game.global.lastWarp + getPageSetting('DeltaGigastation') + 0 - gameUpgrade.allowed + gameUpgrade.done) : game.buildings.Warpstation.owned < getPageSetting('FirstGigastation'))) continue;
+        if ((game.global.lastWarp-1 >= game.buildings.Warpstation.owned && upgrade == 'Gigastation') || upgrade == 'Gigastation' && (game.global.lastWarp ? (game.buildings.Warpstation.owned < game.global.lastWarp + getPageSetting('DeltaGigastation') + 0 - gameUpgrade.allowed + gameUpgrade.done) : game.buildings.Warpstation.owned < getPageSetting('FirstGigastation'))) continue;
         if ((!game.upgrades.Scientists.done && upgrade != 'Battle') ? (available && upgrade == 'Scientists' && game.upgrades.Scientists.allowed) : (available)) {
             buyUpgrade(upgrade, true, true);
             debug('Upgraded ' + upgrade,"*upload2");
