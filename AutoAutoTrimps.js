@@ -2046,7 +2046,7 @@ function autoMap() {
         //force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && (new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length)) ||
         //Clear maps to stack up early warps nurseries for genetics.
-        (!game.upgrades.Gigastation.locked && (game.upgrades.Gigastation.allowed >= game.upgrades.Gigastation.owned)) || // (((game.global.world >= 62 && !!game.buildings.Nursery.locked) || game.global.world == 72 || game.global.world == 84 || game.global.world == 100 || game.global.world == 120) && game.global.mapBonus < 1) ||
+        (!game.upgrades.Gigastation.locked && (game.upgrades.Gigastation.allowed >= game.upgrades.Gigastation.done)) || // (((game.global.world >= 62 && !!game.buildings.Nursery.locked) || game.global.world == 72 || game.global.world == 84 || game.global.world == 100 || game.global.world == 120) && game.global.mapBonus < 1) ||
         //do maps before new gigastation
         //(stationLevel.indexOf(game.global.world) > -1 && game.global.mapBonus < 1)
         //Farm maps if you are way to slow
