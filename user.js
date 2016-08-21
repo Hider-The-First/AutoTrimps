@@ -8,4 +8,4 @@
 // @include        *kongregate.com/games/GreenSatellite/trimps
 // @grant        none
 // ==/UserScript==
-javascript:with(document)(head.appendChild(createElement('script')).src='https://genbtc.github.io/AutoTrimps/AutoTrimps2.js')._;
+javascript:with(document)(head.appendChild(createElement('script')).src='https://github.com/Hider-The-First/AutoTrimps/edit/patch-1/Experimental.js')._;
