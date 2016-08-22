@@ -1924,7 +1924,7 @@ function autoMap() {
     //if we are in mapology and we have no credits, exit
     if (game.global.challengeActive == "Mapology" && game.challenges.Mapology.credits < 1) return;
     //FIND VOID MAPS LEVEL:
-    var voidMapLevelSetting = getPageSetting('VoidMaps');
+    var voidMapLevelSetting = hiderWindow < 10 ? game.global.world : getPageSetting('VoidMaps');
     //decimal void maps are possible, using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
     var voidMapLevelSettingZone = (voidMapLevelSetting+"").split(".")[0];
     var voidMapLevelSettingMap = (voidMapLevelSetting+"").split(".")[1];
@@ -2162,9 +2162,9 @@ function autoMap() {
     //voidArray: make an array with all our voidmaps, so we can sort them by real-world difficulty level
     var voidArray = [];
     //values are easiest to hardest. (hardest has the highest value)
-    var prefixlist = {'Deadly':10, 'Heinous':11, 'Poisonous':20, 'Destructive':30};
+    var prefixlist = {'Deadly':30, 'Heinous':31, 'Poisonous':10, 'Destructive':20}; // {'Deadly':10, 'Heinous':11, 'Poisonous':20, 'Destructive':30}
     var prefixkeys = Object.keys(prefixlist);
-    var suffixlist = {'Descent':7.077, 'Void':8.822, 'Nightmare':9.436, 'Pit':10.6};
+    var suffixlist = {'Descent':10.6, 'Void':9.436, 'Nightmare':8.22, 'Pit':7.077}; // {'Descent':7.077, 'Void':8.822, 'Nightmare':9.436, 'Pit':10.6}
     var suffixkeys = Object.keys(suffixlist);
     for (var map in game.global.mapsOwnedArray) {
         var theMap = game.global.mapsOwnedArray[map];
