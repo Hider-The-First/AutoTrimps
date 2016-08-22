@@ -1924,7 +1924,11 @@ function autoMap() {
     //if we are in mapology and we have no credits, exit
     if (game.global.challengeActive == "Mapology" && game.challenges.Mapology.credits < 1) return;
     //FIND VOID MAPS LEVEL:
-    var voidMapLevelSetting = hiderWindow < 10 ? getPageSetting('VoidMaps') : game.global.world;
+    if (hiderWindow < 5 && game.global.formation = 2) {
+    var voidMapLevelSetting = game.global.world;
+    	else
+    	var voidMapLevelSetting = getPageSetting('VoidMaps');
+    }
     //decimal void maps are possible, using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
     var voidMapLevelSettingZone = (voidMapLevelSetting+"").split(".")[0];
     var voidMapLevelSettingMap = (voidMapLevelSetting+"").split(".")[1];
