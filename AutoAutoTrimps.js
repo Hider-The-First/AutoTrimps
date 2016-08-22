@@ -1925,14 +1925,8 @@ function autoMap() {
     if (game.global.challengeActive == "Mapology" && game.challenges.Mapology.credits < 1) return;
     //FIND VOID MAPS LEVEL:
     var voidMapLevelSetting = getPageSetting('VoidMaps');
-    if (hiderWindow < 1 && game.global.formation == 2) {
-    var voidMapLevelSettingZone = game.global.world;
-    }
-    if (hiderWindow > 1 && game.global.formation == 2) {
-    var voidMapLevelSettingZone = getPageSetting('VoidMaps');
-    }
     //decimal void maps are possible, using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
-    //var voidMapLevelSettingZone = (voidMapLevelSetting+"").split(".")[0];
+    var voidMapLevelSettingZone = (voidMapLevelSetting+"").split(".")[0];
     var voidMapLevelSettingMap = (voidMapLevelSetting+"").split(".")[1];
     if (voidMapLevelSettingMap === undefined || game.global.challengeActive == 'Lead') 
         voidMapLevelSettingMap = 93;
@@ -2168,9 +2162,9 @@ function autoMap() {
     //voidArray: make an array with all our voidmaps, so we can sort them by real-world difficulty level
     var voidArray = [];
     //values are easiest to hardest. (hardest has the highest value)
-    var prefixlist = {'Deadly':30, 'Heinous':31, 'Poisonous':10, 'Destructive':20}; // {'Deadly':10, 'Heinous':11, 'Poisonous':20, 'Destructive':30}
+    var prefixlist = {'Deadly':10, 'Heinous':11, 'Poisonous':20, 'Destructive':30};
     var prefixkeys = Object.keys(prefixlist);
-    var suffixlist = {'Descent':10.6, 'Void':9.436, 'Nightmare':8.22, 'Pit':7.077}; // {'Descent':7.077, 'Void':8.822, 'Nightmare':9.436, 'Pit':10.6}
+    var suffixlist = {'Descent':7.077, 'Void':8.822, 'Nightmare':9.436, 'Pit':10.6};
     var suffixkeys = Object.keys(suffixlist);
     for (var map in game.global.mapsOwnedArray) {
         var theMap = game.global.mapsOwnedArray[map];
@@ -2474,7 +2468,7 @@ function autoPortal() {
                     var bestHeHr = game.stats.bestHeliumHourThisRun.storedValue;
                     var myHeliumHr = game.stats.heliumHour.value();
                     var heliumHrBuffer = Math.abs(getPageSetting('HeliumHrBuffer'));
-                    if(myHeliumHr < bestHeHr * (1-(heliumHrBuffer/100)) && !game.global.challengeActive && hiderWindow < 1 && (game.global.world > getPageSetting('VoidMaps') || hiderWindow < 0.1) && (game.global.totalVoidMaps == 0 || hiderWindow < 0.1)) {
+                    if(myHeliumHr < bestHeHr * (1-(heliumHrBuffer/100)) && !game.global.challengeActive) {
                         debug("My Helium was: " + myHeliumHr + " & the Best Helium was: " + bestHeHr + " at zone: " +  game.stats.bestHeliumHourThisRun.atZone);
                         pushData();
                         if(autoTrimpSettings.HeliumHourChallenge.selected != 'None') 
