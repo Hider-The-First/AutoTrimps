@@ -1924,7 +1924,7 @@ function autoMap() {
     //if we are in mapology and we have no credits, exit
     if (game.global.challengeActive == "Mapology" && game.challenges.Mapology.credits < 1) return;
     //FIND VOID MAPS LEVEL:
-    if (hiderWindow < 5 && game.global.formation == 2) {
+    if (hiderWindow < 1 && game.global.formation == 2) {
     var voidMapLevelSetting = game.global.world;
     } else {
     	var voidMapLevelSetting = getPageSetting('VoidMaps');
