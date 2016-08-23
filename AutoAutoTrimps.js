@@ -2042,7 +2042,7 @@ function autoMap() {
         var stationLevel = [61,62,63,64,65,66,67,68,69,70,72,74,76,78,81,84,87,90,95,100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,190,200,210,220,230,240,250,260,270,280,290,300];
         if (		
         (game.global.mapBonus < 1 && game.global.world >= 11 && OVKcellsWorld+1 < game.global.lastClearedCell/2) ||	//enter map in zones if you miss to overkill, the script will make sure you farm more if you can't overkill in the map.
-        (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && ((new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length) || hiderWindow < 0.06)) ||	//force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
+        (game.global.world >= 15 && ((game.global.mapsActive || game.global.preMapsActive) && game.global.mapBonus < 9) && ((new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length) || hiderWindow < 0.06)) ||	//force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 62 && !!game.buildings.Nursery.locked) ||	//Clear maps to stack up nurseries for genetics before starting warps stucking.
         //(!game.upgrades.Gigastation.locked && game.global.mapBonus < 1 && !game.global.mapsActive && (game.upgrades.Gigastation.allowed-4 >= game.upgrades.Gigastation.done)) ||	//Clear maps to stack up early warps.
         (HDratio > 7)	//Farm maps if you are way to slow
