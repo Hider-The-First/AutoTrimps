@@ -1222,14 +1222,14 @@ function evaluateEquipmentEfficiency(equipName) {
     if (hiderwindow == 100 && equip.Stat == 'attack' && gameResource.level > 1) {
         Wall = true;
     }
-    if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && HDratio < 7) {
+    if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && hiderwindow > 60) {
         Wall = true;
     }
-    if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37 && HDratio < 7) {		
+    if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37 && hiderwindow > 60) {		
         Res = 0;
         Wall = true;
     }
-    if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37 && HDratio > 7) {		
+    if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37 && hiderwindow > 60) {		
         Res = 0;
         Wall = true;
     }
