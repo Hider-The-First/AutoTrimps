@@ -1219,6 +1219,9 @@ function evaluateEquipmentEfficiency(equipName) {
         Res = 9999 - gameResource.prestige;
     }
     //manage prestige
+    if (hiderwindow == 100 && equip.Stat == 'attack' && gameResource.level > 1) {
+        Wall = true;
+    }
     if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && HDratio < 7) {
         Wall = true;
     }
