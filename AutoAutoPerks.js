@@ -28,7 +28,7 @@ var allocatorBtn1 = document.createElement("DIV");
 allocatorBtn1.id = 'allocatorBTN1';
 allocatorBtn1.setAttribute('class', 'settingsBtn settingBtntrue');
 allocatorBtn1.setAttribute('onclick', 'AutoPerks.parseData()');
-allocatorBtn1.textContent = 'Automatically Allocate Perks';
+allocatorBtn1.textContent = 'Use The Right Perks';
 btnParent.appendChild(allocatorBtn1);
 buttonbar.appendChild(btnParent);
 
