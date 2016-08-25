@@ -2167,7 +2167,7 @@ function autoMap() {
     //voidArray: make an array with all our voidmaps, so we can sort them by real-world difficulty level
     var voidArray = [];
     //values are easiest to hardest. (hardest has the highest value)
-    var prefixlist = {'Deadly':30, 'Heinous':31, 'Poisonous':20, 'Destructive':10}; //{'Deadly':10, 'Heinous':11, 'Poisonous':20, 'Destructive':30};
+    var prefixlist = {'Deadly':30, 'Heinous':31, 'Poisonous':5, 'Destructive':10}; //{'Deadly':10, 'Heinous':11, 'Poisonous':20, 'Destructive':30};
     var prefixkeys = Object.keys(prefixlist);
     var suffixlist = {'Descent':10.6, 'Void':9.436, 'Nightmare':8.822, 'Pit':7.077}; //{'Descent':7.077, 'Void':8.822, 'Nightmare':9.436, 'Pit':10.6};
     var suffixkeys = Object.keys(suffixlist);
