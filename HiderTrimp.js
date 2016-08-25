@@ -12,7 +12,7 @@ document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 
 
 //setup convo array
 var conversation = [];
-conversation[0] = {Q:"Hello.",R1:"What?!?!",L1:3,R2:"Oh.",L2:1,R3:"ONE",L1:0,R3:"TWO",L1:1};
+conversation[0] = {Q:"Hello.",R1:"What?!?!",L1:3,R2:"Oh.",L2:1,R3:"ONE",L1:0,R4:"TWO",L1:9};
 conversation[1] = {Q:"What do you want to change? Click the buttons below.",R1:"Nothing.",L1:2,R2:"That's it.",L2:2};
 conversation[2] = {Q:"Ok.",R1:"Hello?",L1:0};
 conversation[3] = {Q:"I figured you'd find me eventually. Before you ask...yes, I can talk. No, none of the other trimps seem to be able to.",R1:"What else do you know?",L1:4};
