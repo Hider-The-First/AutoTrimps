@@ -83,7 +83,7 @@ ratioPreset.setAttribute('style', 'text-align: center; width: 110px; color: blac
 //List of the perk options are populated at the bottom of this file.
 //populate dump perk dropdown list 
 var html = "<option id='zxvPreset'>Hider (He/hr)</option>"
-html += "<option id='zxvNEWPreset'>Hider late (Push more Zones) (</option>"
+html += "<option id='zxvNEWPreset'>Hider More (More Zones) (</option>"
 /*
 html = "<option id='zxvPreset'>ZXV (default)</option>"
 html += "<option id='zxvNEWPreset'>ZXV (new)</option>"
