@@ -8,7 +8,7 @@ document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div i
 document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="autosettings"><div style="border: 1px solid white; background: rgb(84, 83, 83) none repeat scroll 0% 0%; width: 100%; padding: .3vw;" id="autosettings0">Settings</div></div>');
 
 //Add new css rule
-document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 84);
+//document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 84);
 
 //setup convo array
 var conversation = [];
