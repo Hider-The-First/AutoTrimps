@@ -12,9 +12,11 @@ document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 
 
 //setup convo array
 var conversation = [];
-conversation[0] = {Q:"HiThere.",R1:"My name is Minty.",L1:0,R2:"Don't take my Helium.",L1:1};
+conversation[0] = {Q:"HiThere.",R1:"My name is Minty.",L1:1,R2:"Don't take my Helium.",L1:2};
 conversation[1] = {Q:"Thanks for the free Helium.",R1:":(",L2:1,};
 conversation[2] = {Q:"OK.",R1:"TY.",L1:0};
+conversation[3] = {Q:"OK1.",R1:"TY.",L1:0};
+conversation[4] = {Q:"OK2.",R1:"TY.",L1:0};
 updateConvo(0);
 
 /*
