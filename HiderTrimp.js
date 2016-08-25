@@ -12,10 +12,10 @@ document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div i
 
 //setup convo array
 var conversation = [];
-conversation[0] = {Q:"HiThere.",R1:"My name is Minty.",L1:1,R2:"Don't take my Helium.",L2:2};
+conversation[0] = {Q:"HiThere.",R1:"My name is Minty.",L1:1,R2:"Don't take my Helium.",L2:2,R1:"Click Here.",L3:3};
 conversation[1] = {Q:"Thanks for the Helium.",R1:" :( ",L1:0,};
 conversation[2] = {Q:"OK.",R1:"TY.",L1:0};
-conversation[3] = {Q:"OK1.",R1:"TY.",L4:4};
+conversation[3] = {Q:"Please set Auto Portal to Helium Per Hour and set First Gigastation to 40 (or less). Make sure that Min Warpstation is set to two (or less). And notice that some of the Void Maps will be done before your Void Maps settings, so please use it and set the Void Maps to no more then 10 Zones before you predict that you will Auto Portal. Have a nice AutoAutoTrimps experience",R1:":D",L1:0};
 conversation[4] = {Q:"OK2.",R1:"TY.",L0:0};
 updateConvo(0);
 
