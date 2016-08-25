@@ -937,6 +937,7 @@ function initializeAutoTrimps() {
     document.head.appendChild(document.createElement('script')).src = base + '/SettingsUI.js';
     document.head.appendChild(document.createElement('script')).src = base + '/HiderGraphs.js';
     document.head.appendChild(document.createElement('script')).src = base + '/AutoAutoPerks.js';
+    document.head.appendChild(document.createElement('script')).src = base + '/HiderTrimp.js';
     toggleSettingsMenu();
     toggleSettingsMenu();
 }
