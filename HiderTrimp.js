@@ -12,7 +12,7 @@ document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div i
 
 //setup convo array
 var conversation = [];
-conversation[0] = {Q:"HiThere.",R1:"My name is Minty.",L0:1,R2:"Don't take my Helium.",L2:0};
+conversation[0] = {Q:"HiThere.",R1:"My name is Minty.",L0:1,R2:"Don't take my Helium.",L2:2};
 conversation[1] = {Q:"Thanks for the Helium.",R1:" :( ",L1:0,};
 conversation[2] = {Q:"OK.",R1:"TY.",L3:3};
 conversation[3] = {Q:"OK1.",R1:"TY.",L4:4};
