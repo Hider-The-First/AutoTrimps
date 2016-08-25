@@ -446,11 +446,11 @@ var bait = new AutoPerks.FixedPerk("bait", 4, 30);
 var trumps = new AutoPerks.FixedPerk("trumps", 3, 30);
 var packrat = new AutoPerks.FixedPerk("packrat", 3, 30);
 //the ratios are hardcoded into the following lines: example: looting:    [120, 120, 20, 50, 120, 42, 160] as [Hider (He/hr), Hider late (Push more Zones), zxv, zxv(new), truth, nsheetz, nsheetz(new)]
-var looting = new AutoPerks.VariablePerk("looting", 1, false,             [60, 60], 0.05); // , 20, 50, 120, 42, 160
-var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4*10/(10+(game.portal.coordinated.level^1.5)), 4*10/(10+(game.portal.coordinated.level^1.5))], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
+var looting = new AutoPerks.VariablePerk("looting", 1, false,             [60, 10], 0.05); // , 20, 50, 120, 42, 160
+var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4*10/(10+(game.portal.Coordinated.level^1.5)), 4*10/(10+(game.portal.Coordinated.level^1.5))], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
 var power = new AutoPerks.VariablePerk("power", 1, false,                 [4, 4], 0.05); // , 1, 1, 4, 5, 5
 var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [4, 4], 0.05); // , 1.5, 3, 4, 4, 2.5
-var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [4, 4], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
+var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [4*10/(10+(game.portal.Coordinated.level^1.5)), 4*10/(10+(game.portal.Coordinated.level^1.5))], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
 var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [2, 2], 0.1); // , 1.5, 3, 2, 5, 3.5
 var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [24, 24], 0.1); // , 8, 10, 24, 29, 18
 var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [8, 8], 0.1); // , 1, 1.5, 8, 3.5, 3
