@@ -16,7 +16,7 @@ AutoPerks = {};
 var head = document.getElementsByTagName('head')[0];
 var queuescript = document.createElement('script');
 queuescript.type = 'text/javascript';
-queuescript.src = 'https://genbtc.github.io/AutoTrimps/FastPriorityQueue.js';
+queuescript.src = 'https://raw.githubusercontent.com/Hider-The-First/AutoTrimps/3e0650b5aeb067d145333b60f799cb8ce7f89386/FastPriorityQueue.js';
 head.appendChild(queuescript);
 
 //Create button and Add to Trimps Perk Window(and Portal)
