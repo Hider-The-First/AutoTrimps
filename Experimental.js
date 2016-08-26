@@ -65,8 +65,7 @@ updateConvo(0);
 var checking = JSON.parse(localStorage.getItem("autotrimpsave"));
 if (checking != null && checking.versioning == version) {
 	autoTSettings = checking;
-}
-else {
+	}else {
 	var autobuildings = {enabled: 1, description: "Automatically buy storage buildings when they're 90% full", titles: ["Not Buying", "Buying"]};
 	var autogymbutes = {enabled: 0, description: "Automatically buy gyms and tributes when we can afford them", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
 	var autoupgrades = {enabled: 1, description: "Automatically read certain upgrade books to you and the trimps", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
@@ -437,14 +436,11 @@ function getGeneticistsRequiredToSeconds(seconds) {
 
 function getTimeRemaining(addGenesAmt) {
 	var trimps = game.resources.trimps;
-	
 	if (trimps.owned - trimps.employed < 2 || game.global.challengeActive == "Trapper") {
 		return 0;
 	}
-	
 	var potencyMod = trimps.potency;
 	potencyMod = potencyMod * (1 + game.portal.Pheromones.level * game.portal.Pheromones.modifier);
-
 	if (game.unlocks.quickTrimps) {
 		potencyMod *= 2;
 	}
@@ -461,11 +457,9 @@ function getTimeRemaining(addGenesAmt) {
 	} else {
 		multiplier *= Math.pow((1/0.98), -addGenesAmt);
 	}
-	
 	var soldiers = game.portal.Coordinated.level ? game.portal.Coordinated.currentSend : trimps.maxSoldiers;
 	var numerus = (trimps.realMax() - trimps.employed) / (trimps.realMax() - (soldiers + trimps.employed));
 	var base = potencyMod * multiplier + 1;
-
 	return Math.log(numerus)/Math.log(base);
 }
 
@@ -518,7 +512,6 @@ function hireFireGeneticistToSeconds(seconds) {
 			}
 		}
 	}
-	
 	game.global.buyAmt = tempAmt;
 	game.global.firing = tempState;
 	game.global.lockTooltip = tempTooltips;
@@ -593,7 +586,6 @@ function myTimer() {
 			message("Bought us another forge. It's a good forge.", "Loot", "*eye2", "exotic")
 		}
 	}
-
 	//Buy tributes
 	if (autoTSettings.autogymbutes.enabled == 1 || autoTSettings.autogymbutes.enabled == 3) {
 		var buyAmt = game.global.buyAmt;
@@ -605,8 +597,6 @@ function myTimer() {
 		}
 		game.global.buyAmt = buyAmt;
 	}
-
-
 	//Buy gyms
 	if (autoTSettings.autogymbutes.enabled == 1 || autoTSettings.autogymbutes.enabled == 2) {
 		buyAmt = game.global.buyAmt;
@@ -618,12 +608,10 @@ function myTimer() {
 		}
 		game.global.buyAmt = buyAmt;
 	}
-
 	//Buy housing
 	if (autoTSettings.autobuildhouses.enabled == 1 || autoTSettings.autobuildhouses.enabled == 2) {
 		buyGemCheapestHousing();
 	}
-
 	// Buy Nerseries
 	if (autoTSettings.autobuildhouses.enabled == 1 || autoTSettings.autobuildhouses.enabled == 3) {
 		buyAmt = game.global.buyAmt;
@@ -678,7 +666,6 @@ function myTimer() {
 	} else if (autoTSettings.automapbmax.enabled == 0 && game.global.mapsActive && !game.global.preMapsActive) {
 		document.getElementById("repeatBtn").innerHTML = (game.global.repeatMap) ? "Repeat On" : "Repeat Off";
 	}
-	
 	if (autoTSettings.automapbmax.enabled == 2 && !game.global.mapsActive && game.global.mapBonus !== 10){
 
 		mapsClicked();
@@ -690,7 +677,6 @@ function myTimer() {
 		setTimeout(function(){runMap()}, 2000);
 		
 	}
-
 	//Buy gyms
 	if (autoTSettings.autogymbutes.enabled == 1 || autoTSettings.autogymbutes.enabled == 2) {
 		if (getBuildingItemPrice(game.buildings.Gym, "wood", false) <= game.resources.wood.owned && game.buildings.Gym.locked == 0) {
@@ -699,7 +685,6 @@ function myTimer() {
 			message("Bought us a gym. Open 24/7.", "Loot", "*eye2", "exotic")
 		}
 	}
-
 	//Highlight housing
 	if (autoTSettings.autohighlight.enabled == 1 || autoTSettings.autohighlight.enabled == 2) {
 		updateHousingHighlighting();
@@ -718,7 +703,6 @@ function myTimer() {
 			}
 		}
 	}
-
 	if (autoTSettings.autohighlight.enabled == 1 || autoTSettings.autohighlight.enabled == 3) {
 		updateHealthHighlighting();
 		updateAttackHighlighting();
@@ -729,7 +713,6 @@ function myTimer() {
 			if (game.equipment[aAttacking[aAttack]].locked == 0) {
 				gAttacking.push(aAttacking[aAttack]);
 			}
-
 		}
 		for (gAttack in gAttacking) {
 			if (document.getElementById(gAttacking[gAttack]).style.border = "1px solid #FF0000") {
@@ -753,9 +736,6 @@ function myTimer() {
 			}
 		}
 	}
-
-
-
 	//Buy speed upgrades
 	if (autoTSettings.autoupgrades.enabled !== 0) {
 		buyAmt = game.global.buyAmt;
@@ -773,9 +753,7 @@ function myTimer() {
 				}
 			}
 		}
-
 		//Buy coordination
-
 		if (game.upgrades.Coordination.allowed > game.upgrades.Coordination.done) {
 			if (canAffordCoordinationTrimps() && canAffordTwoLevel(game.upgrades.Coordination)){
 				buyUpgrade('Coordination');
