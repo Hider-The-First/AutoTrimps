@@ -1806,7 +1806,7 @@ function autoStance() {
         var enemyHealth = enemy.health;
         var enemyDamage = enemy.attack * 1.2;   //changed by genBTC from 1.19 (there is no fluctuation)
         //check for voidmap Corruption
-        if (autotrimp && enemy.corrupted){
+        if (getCurrentMapObject().location == "Void" && enemy.corrupted){
             enemyHealth *= (getCorruptScale("health") / 2).toFixed(1);
             enemyDamage *= (getCorruptScale("attack") / 2).toFixed(1);
         }
