@@ -59,6 +59,7 @@ conversation[11] = {Q: "As we learn more and more Gymystic, our shields becomes 
 conversation[12] = {Q: "I can help you respec the portal perks if you've already done it this round, and I can automatically flip between Dominance and Heap formations depending on the enemy we're facing.", R1: "Ok.", L1: 13};
 conversation[13] = {Q: "That's it for now, but I'll let you know if I pick up any more tricks. Use the buttons below to let me know what you'd like done.", R1: "Ok.", L1: 2};
 updateConvo(0);
+*/
 
 //setup options
 var checking = JSON.parse(localStorage.getItem("autotrimpsave"));
