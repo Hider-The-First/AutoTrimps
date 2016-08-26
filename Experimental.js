@@ -31,8 +31,6 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div 
 document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div id="autotrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="autotrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://cloud.githubusercontent.com/assets/14081390/9893516/d9db4782-5bde-11e5-8791-91638bb6aaae.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">This is the question.</p><p></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="1" onclick="alert(\'clicked\')">Answer 1</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="2" onclick="alert(\'clicked\')">Answer 2</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="3" onclick="alert(\'clicked\')"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'autotrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
 document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="autosettings"><div style="border: 1px solid white; background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 100%; padding: .3vw;" id="autosettings0">Settings</div></div>');
 //document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="autosettings"><div style="border: 1px solid white; background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 100%; padding: .3vw;" id="autosettings0">Settings</div></div>');
-document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="autosettings"><divstyle="width: 100%; display: table; border-spacing: 0.3vw;" id="autotrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 250%;" id="pic"><img style="max-height: 50vw;" src="http://4.bp.blogspot.com/-ThjUbPTTgNw/TtZagsDqj4I/AAAAAAAAAK8/e4ebiJx-gSI/s1600/q5.jpg"></div><div');
-
 
 //Add new css rule
 //document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 84);
@@ -64,6 +62,7 @@ conversation[13] = {Q: "That's it for now, but I'll let you know if I pick up an
 updateConvo(0);
 */
 
+/*
 //setup options
 var checking = JSON.parse(localStorage.getItem("autotrimpsave"));
 if (checking != null && checking.versioning == version) {
@@ -84,6 +83,7 @@ if (checking != null && checking.versioning == version) {
 	var automapbmax = {enabled: 0, description: "I'll manage turning map repeat on and off so we can reach the max map bonus", titles: ["Not Managing", "Managing","Buy and Manage"]};
 	autoTSettings = {versioning: version, autobuildings: autobuildings, autogymbutes: autogymbutes, autobuildhouses: autobuildhouses, autoworkers: autoworkers, autoupgrades: autoupgrades, autohighlight: autohighlight, autopremaps: autopremaps, automapbmax: automapbmax, autogather: autogather, autosnimps: autosnimps, autoformations: autoformations};
 }
+*/
 
 //add buttonss
 var autosettings = document.getElementById("autosettings0");
@@ -97,6 +97,7 @@ for (var item in autoTSettings) {
 }
 autosettings.innerHTML = html;
 
+/*
 //add genetics buttons
 var breedTimer = document.createElement("span");
 var btnShort = document.createElement("div");
@@ -121,11 +122,13 @@ document.getElementById("fireBtn").parentElement.className = "col-xs-5";
 document.getElementById("fireBtn").parentElement.appendChild(btnShort);
 document.getElementById("fireBtn").parentElement.appendChild(btnLong);
 document.getElementById("goodGuyAttack").parentElement.insertBefore(breedTimer, document.getElementById("critSpan"));
+*/
 
+/*
 //create unlearn shieldblock button
 autosettings.insertAdjacentHTML('beforeend', "<div class='optionContainer'><div id='remove Shieldblock' class='noselect settingBtn btn-warning' onclick='removeShieldblock()'>Unlearn Shieldblock</div><div class='optionItemDescription'>We'll stop teaching the trimps to use shields to block and we'll use them for health again</div></div>");
 autosettings.insertAdjacentHTML('beforeend', "<div class='optionContainer'><div id='add Respec' class='noselect settingBtn btn-warning' onclick='addRespec()'>Add a Respec</div><div class='optionItemDescription'>If you've already used your respec but want to do it again anyway, let me know.</div></div>");
-
+*/
 
 
 //call loop
@@ -147,6 +150,7 @@ function updateConvo (place) {
 	if ("L3" in conversation[place]) {document.getElementById("3").onclick = (function() { var test = conversation[place].L3; return function() {updateConvo(test + '');}})();}
 }
 
+/*
 function removeShieldblock() {
 	if (game.upgrades.Shieldblock.done == 1) {
 		prestigeEquipment("Shield", false, true);
@@ -156,13 +160,16 @@ function removeShieldblock() {
 		game.upgrades.Shieldblock.done = 0;	
 	}
 }
+*/
 
+/*
 function addRespec() {
 	if (game.global.canRespecPerks == false) {
 		game.global.canRespecPerks = true;
 	}
 }
-
+*/
+/*
 function updateHousingHighlighting() {
 	var ahousing = ["Mansion", "Hotel", "Resort", "Collector", "Warpstation"];
 	var ghousing = [];
@@ -189,7 +196,9 @@ function updateHousingHighlighting() {
 		document.getElementById(keysSorted[0]).addEventListener('click',updateHousingHighlighting,false);
 	}
 }
+*/
 
+/*
 function buyGemCheapestHousing() {
 	var buyAmt = game.global.buyAmt;
 	game.global.buyAmt = 1;
@@ -274,7 +283,9 @@ function buyGemCheapestHousing() {
 	}
 	game.global.buyAmt = buyAmt;
 }
+*/
 
+/*
 // send trimps to work if there are a lot waiting around!!
 function sendTrimpsToWork() {
 	var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
@@ -321,7 +332,9 @@ function sendTrimpsToWork() {
 		game.global.buyAmt = buyAmt;
 	}
 }
+*/
 
+/*
 function updateHealthHighlighting() {
 	var ahealth = ["Boots", "Helmet", "Pants", "Shoulderguards", "Breastplate", "Gambeson"];
 	var ghealth = [];
@@ -347,7 +360,9 @@ function updateHealthHighlighting() {
 		document.getElementById(hkeysSorted[0]).addEventListener('click',updateHealthHighlighting,false);
 	}
 }
+*/
 
+/*
 function updateAttackHighlighting() {
 	var aAttacking = ["Dagger", "Mace", "Polearm", "Battleaxe", "Greatsword", "Arbalest"];
 	var gAttacking = [];
@@ -373,6 +388,7 @@ function updateAttackHighlighting() {
 		document.getElementById(akeysSorted[0]).addEventListener('click',updateAttackHighlighting,false);
 	}
 }
+*/
 
 function toggleAutoSetting(setting){
 	var autoOption = autoTSettings[setting];
@@ -393,6 +409,7 @@ function talk() {
 	document.getElementById("autotrimp").style.display = "block";
 }
 
+/*
 function pprestigeEquipment(what) {
 	if (game.upgrades[what].allowed > game.upgrades[what].done) {
 		if (canAffordTwoLevel(game.upgrades[what])) {
@@ -402,7 +419,9 @@ function pprestigeEquipment(what) {
 		}
 	}
 }
+*/
 
+/*
 function getGeneticistsRequiredToSeconds(seconds) {
 	var timeRemaining = getTimeRemaining(0);
 	
@@ -436,7 +455,8 @@ function getGeneticistsRequiredToSeconds(seconds) {
 	else
 	return 0;
 }
-
+*/
+/*
 function getTimeRemaining(addGenesAmt) {
 	var trimps = game.resources.trimps;
 	if (trimps.owned - trimps.employed < 2 || game.global.challengeActive == "Trapper") {
@@ -465,7 +485,9 @@ function getTimeRemaining(addGenesAmt) {
 	var base = potencyMod * multiplier + 1;
 	return Math.log(numerus)/Math.log(base);
 }
+*/
 
+/*
 function hireFireGeneticistToSeconds(seconds) {
 	if(game.jobs["Geneticist"].locked) {
 		return;
@@ -519,7 +541,9 @@ function hireFireGeneticistToSeconds(seconds) {
 	game.global.firing = tempState;
 	game.global.lockTooltip = tempTooltips;
 }
+*/
 
+/*
 function timeTillFull(resourceName) {
 	var perSec = 0;
 	var job = "";
@@ -559,7 +583,10 @@ function timeTillFull(resourceName) {
 	}
 	return Math.floor(remaining / perSec);
 }
+*/
 
+
+/*
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
@@ -825,7 +852,9 @@ function myTimer() {
 
 	//clearInterval(myVar);
 }//end loop
+*/
 
+/*
 function newTimer() {
 	if (game.global.gridArray.length != 0) {
 		document.getElementById("talkBtn").style.display = "block";
@@ -907,5 +936,6 @@ function newTimer() {
 	
 	//set breedtimer
 	breedTimer.innerHTML = "(" + Math.round(getTimeRemaining(0)) + "s) ";
-	
+
 }//end new loop
+*/
