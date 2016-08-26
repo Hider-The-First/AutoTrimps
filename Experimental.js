@@ -885,6 +885,9 @@ function newTimer() {
 			blockformation = 4;
 		break;
 	}*/
+*/
+
+/*
 	//myblock = game.global.block * game.jobs.Trainer.owned * game.jobs.Trainer.modifier * mysoldiers * blockformation;
 	myblock = game.global.soldierCurrentBlock;
 	//myhealth = game.global.health * mysoldiers * mytoughness * healthformation;
@@ -903,7 +906,6 @@ function newTimer() {
 		}
 	}
 
-
 	if (autoTSettings.autoformations.enabled == 1 && game.upgrades.Dominance.done == 1)	{
 		if (game.global.mapsActive && !game.global.preMapsActive){
 			if (game.badGuys[game.global.mapGridArray[game.global.lastClearedMapCell + 1].name].fast) {
@@ -919,7 +921,6 @@ function newTimer() {
 			}
 		}
 	}
-	
 	//check to see if we're building on an empty queue, or if we're gathering when there's building to be done
 	if (autoTSettings.autogather.enabled == 1) {
 		if (game.global.playerGathering != "buildings") {
