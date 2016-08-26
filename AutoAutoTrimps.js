@@ -1806,7 +1806,7 @@ function autoStance() {
         var enemyHealth = enemy.health;
         var enemyDamage = enemy.attack * 1.2;   //changed by genBTC from 1.19 (there is no fluctuation)
         //check for voidmap Corruption
-        if (getCurrentMapObject().location == "Void" && enemy.corrupted){
+        if (autotrimp && enemy.corrupted){
             enemyHealth *= (getCorruptScale("health") / 2).toFixed(1);
             enemyDamage *= (getCorruptScale("attack") / 2).toFixed(1);
         }
@@ -2638,7 +2638,7 @@ function manageGenes() {
     //reset breedFire once we have less than 2 seconds remaining
     if(getBreedTime(true) < 2) breedFire = false;
     //force deth if max antiStacks is available
-    if (game.global.antiStacks < 30 && getBreedTime() >= 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0) {
+    if (game.global.antiStacks < 30 && getBreedTime() >= 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0 && getCurrentMapObject().location != "Void") {
     mapsClicked(); mapsClicked();
     }
 
