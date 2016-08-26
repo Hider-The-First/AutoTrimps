@@ -1688,7 +1688,7 @@ function autoStance() {
     //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     if (game.global.formation != 2) {
-    	baseDamage *= 2;
+    	baseDamage *= 8;
     //} else if (game.global.formation != "0") {
     //    baseDamage *= 2;
     }
@@ -1737,7 +1737,7 @@ function autoStance() {
     //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     if (game.global.formation != 2) {
-    	baseDamage *= 2;
+    	baseDamage *= 8;
     //} else if (game.global.formation != "0") {
     //    baseDamage *= 2;
     }
@@ -2773,7 +2773,7 @@ function useScryerStance() {
     //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     if (game.global.formation != 2) {
-    	baseDamage *= 2;
+    	baseDamage *= 8;
     //} else if (game.global.formation != "0") {
     //    baseDamage *= 2;
     }
@@ -2850,7 +2850,7 @@ function useScryerStance() {
         //baseDamage
     	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     	if (game.global.formation != 2) {
-    		baseDamage *= 2;
+    		baseDamage *= 8;
     	//} else if (game.global.formation != "0") {
     	//    baseDamage *= 2;
     	}
