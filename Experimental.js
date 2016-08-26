@@ -884,7 +884,7 @@ function newTimer() {
 			healthformation = .5;
 			blockformation = 4;
 		break;
-	}*/
+	}
 */
 
 /*
