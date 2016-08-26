@@ -1685,12 +1685,28 @@ function manualLabor() {
 function autoStance() {
 	
     //calculate internal script variables.
+    //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    if (game.global.formation == 2) {
+    	baseDamage /= 4;
+    } else if (game.global.formation != "0") {
+        baseDamage *= 2;
+    }
+    //baseBlock
     baseBlock = game.global.soldierCurrentBlock;
+    if (game.global.formation == 3) {
+        baseBlock /= 4;
+    } else if (game.global.formation != "0") {
+        baseBlock *= 2;
+    }
+    //baseHealth
     baseHealth = game.global.soldierHealthMax;
-    baseDamage *= 2;
-    baseBlock *= 2;
-    baseHealth *= 2;
+    if (game.global.formation == 1) {
+        baseHealth /= 4;
+    } else if (game.global.formation != "0") {
+        baseHealth *= 2;
+   	}
+
     var ovklHDratio;
     var useoverkill = true; //!!getPageSetting('ScryerUseWhenOverkill');
     if (useoverkill && game.portal.Overkill.level == 0)
@@ -1718,6 +1734,7 @@ function autoStance() {
     }
     if (game.global.gridArray.length === 0) return;
     
+    //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     if (game.global.formation == 2) {
         baseDamage /= 4;
@@ -2755,12 +2772,29 @@ function useScryerStance() {
 	
     //Scryer if Overkill
     //calculate internal script variables normally processed by autostance.
+    //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    if (game.global.formation == 2) {
+        baseDamage /= 4;
+    } else if (game.global.formation != "0") {
+        baseDamage *= 2;
+    }
+
+    //baseBlock
     baseBlock = game.global.soldierCurrentBlock;
+    if (game.global.formation == 3) {
+        baseBlock /= 4;
+    } else if (game.global.formation != "0") {
+        baseBlock *= 2;
+    }
+
+    //baseHealth
     baseHealth = game.global.soldierHealthMax;
-    baseDamage *= 2;
-    baseBlock *= 2;
-    baseHealth *= 2;    
+    if (game.global.formation == 1) {
+        baseHealth /= 4;
+    } else if (game.global.formation != "0") {
+        baseHealth *= 2;
+    }    
     var ovklHDratio;
     var useoverkill = true; //!!getPageSetting('ScryerUseWhenOverkill');
     if (useoverkill && game.portal.Overkill.level == 0)
@@ -2816,12 +2850,27 @@ function useScryerStance() {
     if (game.global.mapsActive && run == true && game.global.world >= 60 && (game.global.world >= minzone || minzone <= 0) && (game.global.world < maxzone || maxzone <= 0)) {
         setFormation(4);    //set the S stance
         //calculate internal script variables normally processed by autostance.
+        //baseDamage
         baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
-        baseBlock = game.global.soldierCurrentBlock;
-        baseHealth = game.global.soldierHealthMax;
-        baseDamage *= 2;
-        baseBlock *= 2;
-        baseHealth *= 2;
+    	if (game.global.formation == 2) {
+        	baseDamage /= 4;
+    	} else if (game.global.formation != "0") {
+        	baseDamage *= 2;
+    	}
+    	//baseBlock
+    	baseBlock = game.global.soldierCurrentBlock;
+    	if (game.global.formation == 3) {
+        	baseBlock /= 4;
+    	} else if (game.global.formation != "0") {
+        	baseBlock *= 2;
+    	}
+    	//baseHealth
+    	baseHealth = game.global.soldierHealthMax;
+    	if (game.global.formation == 1) {
+        	baseHealth /= 4;
+    	} else if (game.global.formation != "0") {
+        	baseHealth *= 2;
+    	}
     } else {
         autoStance();    //falls back to autostance when not using S. 
     }
