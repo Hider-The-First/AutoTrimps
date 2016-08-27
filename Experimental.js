@@ -1,8 +1,46 @@
 
 
-//setup talk button
-document.getElementById("menu").style = "width: 75%; float: left;";
-document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 25%; float: right; padding-left: 1.6vw;"><div id="buildingsCollectBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(153, 153, 77) none repeat scroll 0% 0%; margin-top: 0.5vh;">HiderTrimp</div></div>');
+//make things better
+/*
+document.getElementById("bottomRow").style = "background: rgb(255, 128, 255);";
+document.getElementById("topRow").style = "background: rgb(255, 128, 255);";
+document.getElementById("body").style = "background: rgb(255, 128, 255);";
+
+document.getElementById("innerWrapper").style = "background: rgb(0, 0, 0);";
+document.getElementById("battleContainer").style = "background: rgb(255, 128, 255);";
+document.getElementById("gridContainer").style = "background: rgb(255, 128, 255);";
+document.getElementById("science").style = "background: rgb(255, 128, 255);";
+document.getElementById("selectedMapContainer").style = "background: rgb(255, 128, 255);";
+document.getElementById("helium").style = "background: rgb(255, 128, 255);";
+document.getElementById("achievementWrapper").style = "background: rgb(255, 128, 255);";
+document.getElementById("buyContainer").style = "background: rgb(255, 128, 255);";
+document.getElementById("logContainer").style = "background: rgb(255, 128, 255);";
+document.getElementById("queueContainer").style = "background: rgb(255, 128, 255);";
+document.getElementById("wood").style = "background: rgb(255, 128, 255);";
+document.getElementById("fragments").style = "background: rgb(255, 128, 255);";
+document.getElementById("heirloomWrapper").style = "background: rgb(255, 128, 255);";
+document.getElementById("food").style = "background: rgb(255, 128, 255);";
+document.getElementById("metal").style = "background: rgb(255, 128, 255);";
+document.getElementById("gems").style = "background: rgb(255, 128, 255);";
+document.getElementById("trimps").style = "background: rgb(255, 128, 255);";
+*/
+document.getElementById("innerWrapper").style = "background: rgb(255, 128, 255);";
+document.getElementById("battleContainer").style = "background: rgb(0, 0, 0);";
+document.getElementById("gridContainer").style = "background: rgb(0, 0, 0);";
+document.getElementById("science").style = "background: rgb(0, 0, 0);";
+document.getElementById("selectedMapContainer").style = "background: rgb(0, 0, 0);";
+document.getElementById("helium").style = "background: rgb(0, 0, 0);";
+document.getElementById("achievementWrapper").style = "background: rgb(0, 0, 0);";
+document.getElementById("buyContainer").style = "background: rgb(0, 0, 0);";
+document.getElementById("logContainer").style = "background: rgb(0, 0, 0);";
+document.getElementById("queueContainer").style = "background: rgb(0, 0, 0);";
+document.getElementById("wood").style = "background: rgb(0, 0, 0);";
+document.getElementById("fragments").style = "background: rgb(0, 0, 0);";
+document.getElementById("heirloomWrapper").style = "rgb(0, 0, 0);";
+document.getElementById("food").style = "background: rgb(0, 0, 0);";
+document.getElementById("metal").style = "background: rgb(0, 0, 0);";
+document.getElementById("gems").style = "background: rgb(0, 0, 0);";
+document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 
 //setup talk button
