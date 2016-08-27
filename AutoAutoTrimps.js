@@ -1806,7 +1806,7 @@ function autoStance() {
         var enemyHealth = enemy.health;
         var enemyDamage = enemy.attack * 1.2;   //changed by genBTC from 1.19 (there is no fluctuation)
         //check for voidmap Corruption
-        if (getCurrentMapObject().location == "Void" && enemy.corrupted){
+        if ((!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location != "Void") && enemy.corrupted){
             enemyHealth *= (getCorruptScale("health") / 2).toFixed(1);
             enemyDamage *= (getCorruptScale("attack") / 2).toFixed(1);
         }
@@ -2638,7 +2638,7 @@ function manageGenes() {
     //reset breedFire once we have less than 2 seconds remaining
     if(getBreedTime(true) < 2) breedFire = false;
     //force deth if max antiStacks is available
-    if (game.global.antiStacks < 30 && getBreedTime() >= 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0 && getCurrentMapObject().location != "Void") {
+    if (game.global.antiStacks < 30 && getBreedTime() >= 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0 && (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location != "Void")) {
     mapsClicked(); mapsClicked();
     }
 
@@ -2807,7 +2807,7 @@ function useScryerStance() {
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
         //quit here if its right
-        if (game.global.preMapsActive || (game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 80 && game.global.lastClearedCell == 98)) { autoStance(); return;
+        if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location != "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 80 && game.global.lastClearedCell == 98)) { autoStance(); return;
         }
         if (ovklHDratio > 0.6) {
             setFormation(4);
@@ -2830,7 +2830,7 @@ function useScryerStance() {
         //if we are in a map, set to check if he wants to use S in maps.
         run = useinmaps;
         //if we are in a void, set to check if he wants to use S in voids.
-        if (getCurrentMapObject().location == "Void")
+        if (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location != "Void")
             run = useinvoids;
     }
     else {
