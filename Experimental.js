@@ -18,7 +18,7 @@ function getStats() {
     var getPercent = ((game.resources.helium.owned/(game.global.time/3600000))/game.global.totalHeliumEarned)*100;
 //    getPercent.innerHTML = getPercent.toFixed() + '%'; 
     var gp = getPercent.toFixed() + '%'; 
-    return vp;
+    return gp;
 }
 
 //setup convo array
