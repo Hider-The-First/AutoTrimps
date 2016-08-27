@@ -43,7 +43,7 @@ document.getElementById("gems").style = "background: rgb(0, 0, 0);";
 document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 //document.getElementById("battleContainer").style =  "width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://catbox.moe/pictures/qts/1468421480662.png"></div><div
-document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 3vw; float: left; background;" src="http://klubznaniy.ru/%D0%B1%D0%B8%D0%BE%20%D0%B5%D0%B3%D1%8D%2015.png"></div><div');
+document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 2vw; float: left; background;" src="http://klubznaniy.ru/%D0%B1%D0%B8%D0%BE%20%D0%B5%D0%B3%D1%8D%2015.png"></div><div');
 document.getElementById("food").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 3vw; float: left; background;" src="http://www.iconsplace.com/icons/preview/white/cooking-pot-256.png"></div><div');
 document.getElementById("wood").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: left; background;" src="https://www.drevomorava.cz/ftp/images/4.png"></div><div');
 //document.getElementById("metal").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 2vw; float: left; background;" src="http://game-icons.net/icons/lorc/originals/svg/anvil-impact.svg"></div><div');
@@ -64,30 +64,26 @@ document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style
 //Add new css rule
 //document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 84);
 
-
+}
 var getPercent = 0;
-var getPercent = document.getElementById('getPercent');
 var reactPercent = 0;
-var reactPercent = document.getElementById('getPercent');
 function getStats() {
-    //var getPercent = ((game.resources.helium.owned/(game.global.time/3600000))/game.global.totalHeliumEarned)*100;
-    var getPercent = (game.stats.heliumHour.value()/game.global.totalHeliumEarned)*100;
-//    getPercent.innerHTML = getPercent.toFixed() + '%'; 
-    var gp = getPercent.toFixed() + '%';
-    if (getPercent.toFixed() > 5.3) {
-        var reactPercent = "GRATZ, A NEW WORLD RECORD!";
-    } else if (getPercent.toFixed() > 5.2) {
-        var reactPercent = "Only a few ever got this far.";
-    } else if (getPercent.toFixed() > 5.0) {
-        var reactPercent = "it's not shameful to give up.";
-    } else if (getPercent.toFixed() > 4.0) {
-        var reactPercent = "It's the final push.";
-    } else if (getPercent.toFixed() > 3.0) {
-        var reactPercent = "Keep it comming...";
-    } else if (getPercent.toFixed() <= 3.0) {
-        var reactPercent = "Did you just portal?";
+    reactPercent = 0;
+    getPercent = (game.stats.heliumHour.value()/game.global.totalHeliumEarned)*100;
+    if (getPercent.toFixed() > 0.53) {
+        reactPercent = "GRATZ, A NEW WORLD RECORD!";
+    } else if (getPercent.toFixed() > 0.52) {
+        reactPercent = "Only a few ever got this far.";
+    } else if (getPercent.toFixed() > 0.50) {
+        reactPercent = "it's not shameful to give up.";
+    } else if (getPercent.toFixed() > 0.40) {
+        reactPercent = "It's the final push.";
+    } else if (getPercent.toFixed() > 0.30) {
+        reactPercent = "Keep it comming...";
+    } else if (getPercent.toFixed() <= 0.30) {
+        reactPercent = "Did you just portal?";
     }
-    return gp;
+    return getPercent.toFixed() + '%';
 }
 
 //setup convo array
@@ -97,7 +93,7 @@ conversation[1] = {Q:"Thanks for the Helium.",R1:" ε(´סּ︵סּ`)з ",L1:0,};
 conversation[2] = {Q:"OK.",R1:"Again.",L1:0,R2:"How am i doing so far?",L2:5,R3:"What can go wrong in the Don't Touch Zone?",L3:4};
 conversation[3] = {Q:"Please set Auto Portal to Helium Per Hour and set First Gigastation to 40 (or less). Make sure that Min Warpstation is set to two (or less). And notice that some of the Void Maps will be done before your Void Maps settings, so please use it and set the Void Maps to no more then 10 Zones before you predict that you will Auto Portal. Have a nice AutoAutoTrimps experience. ۜ \\(סּںסּَ` )/ۜ ",R1:" óÔÔò ʕ·͡ᴥ·ʔ óÔÔò ",L1:0};
 conversation[4] = {Q:"You.",R1:"Meh.",L1:0};
-conversation[5] = {Q:"Your corrent Helium per hour gain is " + getStats() + reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
+conversation[5] = {Q:"Your corrent Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
 conversation[6] = {Q:"There's an intelligent life down here.",R1:"Lies.",L1:7};
 conversation[7] = {Q:"Never admit!",R1:"Scotty!!.",L1:0};
 updateConvo(0);
