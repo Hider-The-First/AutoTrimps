@@ -70,7 +70,8 @@ var getPercent = document.getElementById('getPercent');
 var reactPercent = 0;
 var reactPercent = document.getElementById('getPercent');
 function getStats() {
-    var getPercent = ((game.resources.helium.owned/(game.global.time/3600000))/game.global.totalHeliumEarned)*100;
+    //var getPercent = ((game.resources.helium.owned/(game.global.time/3600000))/game.global.totalHeliumEarned)*100;
+    var getPercent = (game.stats.heliumHour.value()/game.global.totalHeliumEarned)*100;
 //    getPercent.innerHTML = getPercent.toFixed() + '%'; 
     var gp = getPercent.toFixed() + '%';
     if (getPercent.toFixed() > 5.3) {
