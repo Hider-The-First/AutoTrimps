@@ -21,7 +21,7 @@ function getStats() {
 //    getPercent.innerHTML = getPercent.toFixed() + '%'; 
     var gp = getPercent.toFixed() + '%';
     if (getPercent.toFixed() > 5.3) {
-        var reactPercent.innerHTML = 'GRATZ! A NEW WORLD RECORD!';
+        var reactPercent.innerHTML = "GRATZ! A NEW WORLD RECORD!";
     } else if (getPercent.toFixed() > 5.2) {
         var reactPercent.innerHTML = 'Only a few ever got this far.';
     } else if (getPercent.toFixed() > 5.0) {
