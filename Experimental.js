@@ -42,7 +42,7 @@ document.getElementById("metal").style = "background: rgb(0, 0, 0);";
 document.getElementById("gems").style = "background: rgb(0, 0, 0);";
 document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
-document.getElementById("battleContainer").imgstyle = "src=https://catbox.moe/pictures/qts/1468421480662.png;"
+document.getElementById("battleContainer").style =  width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://catbox.moe/pictures/qts/1468421480662.png"></div><div
 
 
 //setup talk button
