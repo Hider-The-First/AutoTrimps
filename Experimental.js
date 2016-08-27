@@ -28,7 +28,7 @@ function getStats() {
         var reactPercent = "It's the final push."
     } else if (getPercent.toFixed() > 3.0) {
         var reactPercent = "Keep it comming..."
-    } else (getPercent.toFixed() < 3.0) {
+    } else if (getPercent.toFixed() <= 3.0) {
         var reactPercent = "Did you just portal?"
     }
     return gp;
