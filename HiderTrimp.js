@@ -49,17 +49,17 @@ var reactPercent = 0;
 function getStats() {
     reactPercent = 0;
     getPercent = (game.stats.heliumHour.value()/game.global.totalHeliumEarned)*100;
-    if (getPercent.toFixed() > 0.53) {
+    if (getPercent.toFixed(3) > 0.53) {
         reactPercent = " GRATZ, A NEW WORLD RECORD!";
-    } else if (getPercent.toFixed() > 0.52) {
+    } else if (getPercent.toFixed(3) > 0.52) {
         reactPercent = " Only a few ever got this far.";
-    } else if (getPercent.toFixed() > 0.50) {
+    } else if (getPercent.toFixed(3) > 0.50) {
         reactPercent = " it's not shameful to give up.";
-    } else if (getPercent.toFixed() > 0.40) {
+    } else if (getPercent.toFixed(3) > 0.40) {
         reactPercent = " It's the final push.";
-    } else if (getPercent.toFixed() > 0.30) {
+    } else if (getPercent.toFixed(3) > 0.30) {
         reactPercent = " Keep it comming...";
-    } else if (getPercent.toFixed() <= 0.30) {
+    } else if (getPercent.toFixed(3) <= 0.30) {
         reactPercent = " Did you just portal?";
     }
     return getPercent.toFixed() + '%';
