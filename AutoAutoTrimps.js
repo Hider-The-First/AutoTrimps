@@ -1723,7 +1723,7 @@ function autoStance() {
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
     }
-    if (game.global.mapsActive && (getCurrentEnemy(1).name == "Jestimp" || getCurrentEnemy(1).name == "Chronoimp")) {
+    if (game.global.mapsActive || getCurrentEnemy(1).name == "Jestimp" || getCurrentEnemy(1).name == "Chronoimp") {
     	setFormation(4);
     	return;
     }
