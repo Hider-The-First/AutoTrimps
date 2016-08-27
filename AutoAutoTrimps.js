@@ -2807,7 +2807,7 @@ function useScryerStance() {
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
         //quit here if its right
-        if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location != "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 80 && game.global.lastClearedCell == 98)) { autoStance(); return;
+        if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 80 && game.global.lastClearedCell == 98)) { autoStance(); return;
         }
         if (ovklHDratio > 0.6) {
             setFormation(4);
