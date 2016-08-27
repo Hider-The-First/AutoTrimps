@@ -97,7 +97,6 @@ updateConvo(0);
 
 //only functions below here
 function updateConvo (place) {
-  getStats();
   document.getElementById("q").innerHTML = conversation[place].Q;
   document.getElementById("1").innerHTML = conversation[place].R1;
   document.getElementById("1").onclick = (function() { var test = conversation[place].L1; return function() {updateConvo(test + '');}})();
@@ -111,6 +110,5 @@ function updateConvo (place) {
 
 
 function talk() {
-  getStats();
   document.getElementById("autotrimp").style.display = "block";
 }
