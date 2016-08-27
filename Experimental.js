@@ -43,12 +43,12 @@ document.getElementById("gems").style = "background: rgb(0, 0, 0);";
 document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 //document.getElementById("battleContainer").style =  "width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://catbox.moe/pictures/qts/1468421480662.png"></div><div
-document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 6vw; float: left; background;" src="http://klubznaniy.ru/%D0%B1%D0%B8%D0%BE%20%D0%B5%D0%B3%D1%8D%2015.png"></div><div');
-document.getElementById("food").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: left; background;" src="https://cdn3.iconfinder.com/data/icons/solid-amenities-icon-set/64/Food_2-512.png"></div><div');
+document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 2vw; float: left; background;" src="http://klubznaniy.ru/%D0%B1%D0%B8%D0%BE%20%D0%B5%D0%B3%D1%8D%2015.png"></div><div');
+document.getElementById("food").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: left; background;" src="http://www.iconsplace.com/icons/preview/white/cooking-pot-256.png"></div><div');
 document.getElementById("wood").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: left; background;" src="https://www.drevomorava.cz/ftp/images/4.png"></div><div');
 document.getElementById("metal").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: left; background;" src="http://game-icons.net/icons/lorc/originals/svg/anvil.svg"></div><div');
 document.getElementById("trimps").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: left; background;" src="https://image.freepik.com/free-icon/set-of-buildings-in-a-city_318-41262.png"></div><div');
-document.getElementById("queueContainer").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: center; background;" src="https://cdn0.iconfinder.com/data/icons/cars-and-delivery/512/excavator-512.png"></div><div');
+document.getElementById("queueContainer").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: center; background;" src="https://cdn1.iconfinder.com/data/icons/construction-and-renovation/80/Construction_renovation-12-512.png"></div><div');
 
 //beforeend //beforeend //afterbegin //afterend
 
