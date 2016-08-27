@@ -1,30 +1,8 @@
 
 
 //make things better
-/*
-document.getElementById("bottomRow").style = "background: rgb(255, 128, 255);";
-document.getElementById("topRow").style = "background: rgb(255, 128, 255);";
-document.getElementById("body").style = "background: rgb(255, 128, 255);";
 
-document.getElementById("innerWrapper").style = "background: rgb(0, 0, 0);";
-document.getElementById("battleContainer").style = "background: rgb(255, 128, 255);";
-document.getElementById("gridContainer").style = "background: rgb(255, 128, 255);";
-document.getElementById("science").style = "background: rgb(255, 128, 255);";
-document.getElementById("selectedMapContainer").style = "background: rgb(255, 128, 255);";
-document.getElementById("helium").style = "background: rgb(255, 128, 255);";
-document.getElementById("achievementWrapper").style = "background: rgb(255, 128, 255);";
-document.getElementById("buyContainer").style = "background: rgb(255, 128, 255);";
-document.getElementById("logContainer").style = "background: rgb(255, 128, 255);";
-document.getElementById("queueContainer").style = "background: rgb(255, 128, 255);";
-document.getElementById("wood").style = "background: rgb(255, 128, 255);";
-document.getElementById("fragments").style = "background: rgb(255, 128, 255);";
-document.getElementById("heirloomWrapper").style = "background: rgb(255, 128, 255);";
-document.getElementById("food").style = "background: rgb(255, 128, 255);";
-document.getElementById("metal").style = "background: rgb(255, 128, 255);";
-document.getElementById("gems").style = "background: rgb(255, 128, 255);";
-document.getElementById("trimps").style = "background: rgb(255, 128, 255);";
-*/
-document.getElementById("innerWrapper").style = "background: rgb(255, 128, 255);";
+document.getElementById("innerWrapper").style = "background: rgb(140, 20, 240);";
 document.getElementById("battleContainer").style = "background: rgb(0, 0, 0);";
 document.getElementById("gridContainer").style = "background: rgb(0, 0, 0);";
 document.getElementById("science").style = "background: rgb(0, 0, 0);";
@@ -43,7 +21,7 @@ document.getElementById("gems").style = "background: rgb(0, 0, 0);";
 document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 //document.getElementById("battleContainer").style =  "width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://catbox.moe/pictures/qts/1468421480662.png"></div><div
-document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 5vw; float: left; background;" src="http://klubznaniy.ru/%D0%B1%D0%B8%D0%BE%20%D0%B5%D0%B3%D1%8D%2015.png"></div><div');
+document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: left; background;" src="http://klubznaniy.ru/%D0%B1%D0%B8%D0%BE%20%D0%B5%D0%B3%D1%8D%2015.png"></div><div');
 document.getElementById("food").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 3vw; float: left; background;" src="http://www.iconsplace.com/icons/preview/white/cooking-pot-256.png"></div><div');
 document.getElementById("wood").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 4vw; float: left; background;" src="https://www.drevomorava.cz/ftp/images/4.png"></div><div');
 //document.getElementById("metal").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 2vw; float: left; background;" src="http://game-icons.net/icons/lorc/originals/svg/anvil-impact.svg"></div><div');
@@ -70,17 +48,17 @@ function getStats() {
     reactPercent = 0;
     getPercent = (game.stats.heliumHour.value()/game.global.totalHeliumEarned)*100;
     if (getPercent.toFixed() > 0.53) {
-        reactPercent = "GRATZ, A NEW WORLD RECORD!";
+        reactPercent = " GRATZ, A NEW WORLD RECORD!";
     } else if (getPercent.toFixed() > 0.52) {
-        reactPercent = "Only a few ever got this far.";
+        reactPercent = " Only a few ever got this far.";
     } else if (getPercent.toFixed() > 0.50) {
-        reactPercent = "it's not shameful to give up.";
+        reactPercent = " it's not shameful to give up.";
     } else if (getPercent.toFixed() > 0.40) {
-        reactPercent = "It's the final push.";
+        reactPercent = " It's the final push.";
     } else if (getPercent.toFixed() > 0.30) {
-        reactPercent = "Keep it comming...";
+        reactPercent = " Keep it comming...";
     } else if (getPercent.toFixed() <= 0.30) {
-        reactPercent = "Did you just portal?";
+        reactPercent = " Did you just portal?";
     }
     return getPercent.toFixed() + '%';
 }
