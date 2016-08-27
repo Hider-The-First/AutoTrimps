@@ -43,7 +43,9 @@ document.getElementById("gems").style = "background: rgb(0, 0, 0);";
 document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 //document.getElementById("battleContainer").style =  "width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://catbox.moe/pictures/qts/1468421480662.png"></div><div
-document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 8vw;" src="https://catbox.moe/pictures/qts/1468421480662.png"></div><div');
+document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 8vw; float: left; background: src=https://catbox.moe/pictures/qts/1468421480662.png"></div><div');
+document.getElementById("trimps").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 8vw; float: left; background;" src="https://catbox.moe/pictures/qts/1468421480662.png"></div><div');
+
 //beforeend //beforeend //afterbegin //afterend
 
 //setup talk button
