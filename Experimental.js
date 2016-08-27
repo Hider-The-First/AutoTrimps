@@ -64,7 +64,6 @@ document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style
 //Add new css rule
 //document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 84);
 
-}
 var getPercent = 0;
 var reactPercent = 0;
 function getStats() {
