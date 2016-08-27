@@ -21,17 +21,17 @@ function getStats() {
 //    getPercent.innerHTML = getPercent.toFixed() + '%'; 
     var gp = getPercent.toFixed() + '%';
     if (getPercent.toFixed() > 5.3) {
-        var reactPercent = "GRATZ, A NEW WORLD RECORD!"
+        var reactPercent = "GRATZ, A NEW WORLD RECORD!";
     } else if (getPercent.toFixed() > 5.2) {
-        var reactPercent = "Only a few ever got this far."
+        var reactPercent = "Only a few ever got this far.";
     } else if (getPercent.toFixed() > 5.0) {
-        var reactPercent = "it's not shameful to give up."
+        var reactPercent = "it's not shameful to give up.";
     } else if (getPercent.toFixed() > 4.0) {
-        var reactPercent = "It's the final push."
+        var reactPercent = "It's the final push.";
     } else if (getPercent.toFixed() > 3.0) {
-        var reactPercent = "Keep it comming..."
+        var reactPercent = "Keep it comming...";
     } else if (getPercent.toFixed() <= 3.0) {
-        var reactPercent = "Did you just portal?"
+        var reactPercent = "Did you just portal?";
     }
     return gp;
 }
