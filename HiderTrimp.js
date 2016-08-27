@@ -14,14 +14,14 @@ document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style
 
 var getPercent = 0;
 var getPercent = document.getElementById('getPercent');
-var reactPercent = 0;
-var reactPercent = document.getElementById('getPercent');
+var reactPercent.innerHTML = '0';
+var reactPercent.innerHTML = document.getElementById('getPercent');
 function getStats() {
     var getPercent = ((game.resources.helium.owned/(game.global.time/3600000))/game.global.totalHeliumEarned)*100;
 //    getPercent.innerHTML = getPercent.toFixed() + '%'; 
     var gp = getPercent.toFixed() + '%';
     if (getPercent.toFixed() > 5.3) {
-        var reactPercent = 'GRATZ A NEW WORLD RECORD';
+        var reactPercent.innerHTML = 'GRATZ, A NEW WORLD RECORD!';
     } else if (getPercent.toFixed() > 5.2) {
         var reactPercent.innerHTML = 'Only a few ever got this far.';
     } else if (getPercent.toFixed() > 5.0) {
