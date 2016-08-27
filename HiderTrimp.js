@@ -15,23 +15,23 @@ document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style
 var getPercent = 0;
 var getPercent = document.getElementById('getPercent');
 var reactPercent = '0';
-var reactPercent = document.getElementById('getPercent');
+var reactPercent = document.getElementById('reactPercent');
 function getStats() {
     var getPercent = ((game.resources.helium.owned/(game.global.time/3600000))/game.global.totalHeliumEarned)*100;
 //    getPercent.innerHTML = getPercent.toFixed() + '%'; 
     var gp = getPercent.toFixed() + '%';
     if (getPercent.toFixed() > 5.3) {
-        var reactPercent = 'GRATZ, A NEW WORLD RECORD!';
+        var reactPercent = ' GRATZ, A NEW WORLD RECORD!';
     } else if (getPercent.toFixed() > 5.2) {
-        var reactPercent = 'Only a few ever got this far.';
+        var reactPercent = ' Only a few ever got this far.';
     } else if (getPercent.toFixed() > 5.0) {
-        var reactPercent = 'it is not shameful to give up.';
+        var reactPercent = ' it is not shameful to give up.';
     } else if (getPercent.toFixed() > 4.0) {
-        var reactPercent = 'It is the final push.';
+        var reactPercent = ' It is the final push.';
     } else if (getPercent.toFixed() > 3.0) {
-        var reactPercent = 'Keep it comming...';
+        var reactPercent = ' Keep it comming...';
     } else if (getPercent.toFixed() <= 3.0) {
-        var reactPercent = 'Did you just portal?';
+        var reactPercent = ' Did you just portal?';
     }
     return gp;
 }
