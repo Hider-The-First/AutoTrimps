@@ -42,6 +42,8 @@ document.getElementById("metal").style = "background: rgb(0, 0, 0);";
 document.getElementById("gems").style = "background: rgb(0, 0, 0);";
 document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
+document.getElementById("battleContainer").imgstyle = "src=https://catbox.moe/pictures/qts/1468421480662.png;"
+
 
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 75%; float: left;";
