@@ -1075,10 +1075,11 @@ function highlightHousing() {
     }
     game.global.buyAmt = oldBuy;
 }
+/*
 function getNiceThingsDone() {
 	//the pictures
 	if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://randomwallpapers.net/dark-stairs-photography-1920x1200-wallpaper75304.jpg"></div><div');
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://4hdwallpapers.com/wp-content/uploads/2014/12/road_summer-Beautiful_natural_scenery_Desktop_Wallpapers_1366x768-1024x575.jpg"></div><div');
 	} else if (game.global.preMapsActive) {
 	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="https://images6.alphacoders.com/695/695567.jpg"></div><div');
 	} else if (game.global.mapsActive && getCurrentMapObject().location == "Void") {
@@ -1095,6 +1096,8 @@ function getNiceThingsDone() {
 		var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 	}
 }
+*/
+
 //Helper function to buy best "Food" Buildings
 function buyFoodEfficientHousing() {
     // Push the limit auto change your max buildings settings		
@@ -2931,8 +2934,8 @@ function mainLoop() {
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
     updateValueFields2(); //refresh the UI2
-    getNiceThingsDone();
-    getStats(); 
+//    getNiceThingsDone();
+//    getStats(); 
 
     if (getPageSetting('ExitSpireCell')) exitSpireCell(); //"Exit Spire After Cell" (genBTC settings area)
     if (getPageSetting('WorkerRatios')) workerRatios(); //"Auto Worker Ratios"
