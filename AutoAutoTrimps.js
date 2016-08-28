@@ -1086,6 +1086,7 @@ function getNiceThingsDone() {
 	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://previews.123rf.com/images/zhudifeng/zhudifeng1205/zhudifeng120503093/13537723-An-Magnifier-on-a-Treasure-map-background--Stock-Photo-map-world-old.jpg"></div><div');
 	} else if (game.global.world == 200 && game.global.spireActive) {
 	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://vignette3.wikia.nocookie.net/galaxycentre/images/e/e6/VORTEX_Wallpaper_0tk8x.jpg/revision/latest?cb=20131125141428"></div><div');
+	}
 }
 //Helper function to buy best "Food" Buildings
 function buyFoodEfficientHousing() {
