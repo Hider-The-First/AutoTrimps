@@ -62,7 +62,7 @@ function getStats() {
     } else if (getPercent.toFixed(3) <= 0.30) {
         reactPercent = " Did you just portal?";
     }
-    getPercent.toFixed(3) + '%'; //return
+    return getPercent.toFixed(3) + '%'; //return
 }
 
 //setup convo array
