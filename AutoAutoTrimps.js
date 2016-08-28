@@ -1076,7 +1076,6 @@ function highlightHousing() {
     game.global.buyAmt = oldBuy;
 }
 function getNiceThingsDone()
-	getStats(); 
 	if (!game.global.preMapsActive && !game.global.mapsActive) {
 	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://1.bp.blogspot.com/-Rn7H8k6KprI/T9Sa5jIv2YI/AAAAAAAADbE/QPPVKsdP0FA/s1600/99+Steps+2.JPG"></div><div');
 	} else if (game.global.preMapsActive) {
@@ -2924,7 +2923,8 @@ function mainLoop() {
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
     updateValueFields2(); //refresh the UI2
-    getNiceThingsDone()
+    getNiceThingsDone();
+    getStats(); 
 
     if (getPageSetting('ExitSpireCell')) exitSpireCell(); //"Exit Spire After Cell" (genBTC settings area)
     if (getPageSetting('WorkerRatios')) workerRatios(); //"Auto Worker Ratios"
