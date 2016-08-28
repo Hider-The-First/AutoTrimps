@@ -1243,7 +1243,7 @@ function evaluateEquipmentEfficiency(equipName) {
         Res = 9999 - gameResource.prestige;
     }
     //manage prestige
-    if (hiderwindow == 100 && equip.Stat == 'attack' && gameResource.level > 1) {
+    if (hiderwindow == 100 && game.global.world != 200 && equip.Stat == 'attack' && gameResource.level > 1) {
         Wall = true;
     }
     if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && hiderwindow > 60) {
@@ -2107,6 +2107,9 @@ function autoMap() {
     if(getPageSetting('CustomAutoPortal') < 335 && game.global.world == 200 && game.global.mapBonus < 9 ) {
         shouldDoMaps = true;
         shouldDoSpireMaps = true;
+    } else if (game.global.world == 200 && game.global.mapBonus < 2) {
+        shouldDoMaps = true;
+        shouldDoSpireMaps = true;
     }
     //Farm X Minutes Before Spire:
     var needFarmSpire = (((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < getPageSetting('MinutestoFarmBeforeSpire')) && game.global.mapBonus == 10;
@@ -2115,7 +2118,6 @@ function autoMap() {
         shouldDoSpireMaps = true;
     }
 
-    
     //Dynamic Siphonology section (when necessary)
     var siphlvl = game.global.world - game.portal.Siphonology.level;
     var maxlvl = game.talents.mapLoot.purchased ? game.global.world - 1 : game.global.world;
