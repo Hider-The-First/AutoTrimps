@@ -1076,9 +1076,9 @@ function highlightHousing() {
     game.global.buyAmt = oldBuy;
 }
 function getNiceThingsDone() {
-	if (game.global.preMapsActive &&  game.global.gridArray.length === 0)) {
+	if (game.global.preMapsActive && game.global.gridArray.length === 0) {
 		return;;
-	}else if (!game.global.preMapsActive && !game.global.mapsActive && game.global.mapGridArray.length === 0)) {
+	}else if (!game.global.preMapsActive && !game.global.mapsActive && game.global.mapGridArray.length === 0) {
 		return;;
 	}
 	if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive && (new Date().getTime() - game.global.zoneStarted) > 100 &&  game.global.GridArray.length > 5) {
