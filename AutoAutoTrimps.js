@@ -1076,7 +1076,7 @@ function highlightHousing() {
     game.global.buyAmt = oldBuy;
 }
 function getNiceThingsDone() {
-	if (game.global.preMapsActive && (game.global.gridArray.length === 0 && || game.global.gridArray.length < 5)) {
+	if (game.global.preMapsActive && (game.global.gridArray.length === 0 || game.global.gridArray.length < 5)) {
 		return;;
 	}else if (!game.global.preMapsActive && !game.global.mapsActive && (game.global.mapGridArray.length === 0 || game.global.mapGridArray.length < 5)) {
 		return;;
