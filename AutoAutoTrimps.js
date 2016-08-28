@@ -1083,7 +1083,7 @@ function getNiceThingsDone() {
 		return;;
 	}
 	*/
-	if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive &&  game.global.mapGridArray.length > 5) {
+	if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive &&  game.global.GridArray.length > 5) {
 	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://4hdwallpapers.com/wp-content/uploads/2014/12/road_summer-Beautiful_natural_scenery_Desktop_Wallpapers_1366x768-1024x575.jpg"></div><div');
 	var cells = document.getElementById("grid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 	} else if (game.global.preMapsActive) {
