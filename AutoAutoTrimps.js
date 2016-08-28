@@ -1075,7 +1075,19 @@ function highlightHousing() {
     }
     game.global.buyAmt = oldBuy;
 }
-
+function getNiceThingsDone()
+	getStats(); 
+	if (!game.global.preMapsActive && !game.global.mapsActive) {
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://1.bp.blogspot.com/-Rn7H8k6KprI/T9Sa5jIv2YI/AAAAAAAADbE/QPPVKsdP0FA/s1600/99+Steps+2.JPG"></div><div');
+	} else if (game.global.preMapsActive)
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="https://images6.alphacoders.com/695/695567.jpg"></div><div');
+	} else if (game.global.mapsActive && getCurrentMapObject().location == "Void")
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://www.wallpapersxl.com/wallpapers/1920x1200/dreams/1502375/dreams-planet-and-nebula-fantasy-1502375.jpg"></div><div');
+	} else if (game.global.mapsActive && getCurrentMapObject().location != "Void")
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://previews.123rf.com/images/zhudifeng/zhudifeng1205/zhudifeng120503093/13537723-An-Magnifier-on-a-Treasure-map-background--Stock-Photo-map-world-old.jpg"></div><div');
+	} else if (game.global.world == 200 && game.global.spireActive)
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://vignette3.wikia.nocookie.net/galaxycentre/images/e/e6/VORTEX_Wallpaper_0tk8x.jpg/revision/latest?cb=20131125141428"></div><div');
+}
 //Helper function to buy best "Food" Buildings
 function buyFoodEfficientHousing() {
     // Push the limit auto change your max buildings settings		
@@ -2912,6 +2924,7 @@ function mainLoop() {
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
     updateValueFields2(); //refresh the UI2
+    getNiceThingsDone()
 
     if (getPageSetting('ExitSpireCell')) exitSpireCell(); //"Exit Spire After Cell" (genBTC settings area)
     if (getPageSetting('WorkerRatios')) workerRatios(); //"Auto Worker Ratios"
