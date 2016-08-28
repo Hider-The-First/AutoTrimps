@@ -1077,9 +1077,9 @@ function highlightHousing() {
 }
 function getNiceThingsDone() {
 	if (game.global.preMapsActive &&  game.global.mapGridArray.length < 10) {
-		return;
+		break;
 	}else if (!game.global.preMapsActive && !game.global.mapsActive && game.global.gridArray.length < 10) {
-		return;
+		break;
 	}
 	if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://4hdwallpapers.com/wp-content/uploads/2014/12/road_summer-Beautiful_natural_scenery_Desktop_Wallpapers_1366x768-1024x575.jpg"></div><div');
