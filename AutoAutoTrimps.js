@@ -1077,15 +1077,15 @@ function highlightHousing() {
 }
 function getNiceThingsDone() {
 	if (!game.global.preMapsActive && !game.global.mapsActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="width: 400%; vertical-align; background;" src="http://4hdwallpapers.com/wp-content/uploads/2014/12/road_summer-Beautiful_natural_scenery_Desktop_Wallpapers_1366x768-1024x575.jpg"></div><div');
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://4hdwallpapers.com/wp-content/uploads/2014/12/road_summer-Beautiful_natural_scenery_Desktop_Wallpapers_1366x768-1024x575.jpg"></div><div');
 	} else if (game.global.preMapsActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="width: 400%; vertical-align; background;" src="https://images6.alphacoders.com/695/695567.jpg"></div><div');
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="https://images6.alphacoders.com/695/695567.jpg"></div><div');
 	} else if (game.global.mapsActive && getCurrentMapObject().location == "Void") {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="width: 400%; vertical-align; background;" src="http://www.wallpapersxl.com/wallpapers/1920x1200/dreams/1502375/dreams-planet-and-nebula-fantasy-1502375.jpg"></div><div');
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://www.wallpapersxl.com/wallpapers/1920x1200/dreams/1502375/dreams-planet-and-nebula-fantasy-1502375.jpg"></div><div');
 	} else if (game.global.mapsActive && getCurrentMapObject().location != "Void") {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style=width: 400%; vertical-align; background;" src="http://previews.123rf.com/images/zhudifeng/zhudifeng1205/zhudifeng120503093/13537723-An-Magnifier-on-a-Treasure-map-background--Stock-Photo-map-world-old.jpg"></div><div');
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://previews.123rf.com/images/zhudifeng/zhudifeng1205/zhudifeng120503093/13537723-An-Magnifier-on-a-Treasure-map-background--Stock-Photo-map-world-old.jpg"></div><div');
 	} else if (game.global.world == 200 && game.global.spireActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="width: 400%; vertical-align; background;" src="http://vignette3.wikia.nocookie.net/galaxycentre/images/e/e6/VORTEX_Wallpaper_0tk8x.jpg/revision/latest?cb=20131125141428"></div><div');
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://vignette3.wikia.nocookie.net/galaxycentre/images/e/e6/VORTEX_Wallpaper_0tk8x.jpg/revision/latest?cb=20131125141428"></div><div');
 	}
 }
 //Helper function to buy best "Food" Buildings
