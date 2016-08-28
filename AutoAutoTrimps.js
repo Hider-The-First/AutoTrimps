@@ -1746,8 +1746,8 @@ function autoStance() {
     	setFormation(4);
     	return;
     }
-    if ((!game.global.mapsActive && !game.global.preMapsActive && ((hiderwindow > 80 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && ((!getCurrentEnemy(1).corrupted && hiderwindow > 80) ||
-    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderwindow > 80))) {
+    if ((!game.global.mapsActive && !game.global.preMapsActive && ((hiderwindow > 90 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && ((!getCurrentEnemy(1).corrupted && hiderwindow > 90) ||
+    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderwindow > 90))) {
     	setFormation(4);
     	return;
     }
@@ -2826,7 +2826,7 @@ function useScryerStance() {
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
         //quit here if its right
-        if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 80 && game.global.lastClearedCell == 98)) { autoStance(); return;
+        if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location == "Void") || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 90 && game.global.lastClearedCell == 98)) { autoStance(); return;
         }
         if (ovklHDratio > 0.6) {
             setFormation(4);
@@ -2857,8 +2857,8 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive);
         run = spirecheck ? useinspire : run;
     }
-    if ((!game.global.mapsActive && !game.global.preMapsActive && ((hiderwindow > 80 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && ((!getCurrentEnemy(1).corrupted && hiderwindow > 80) ||
-    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderwindow > 80))) {
+    if ((!game.global.mapsActive && !game.global.preMapsActive && ((hiderwindow > 90 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && ((!getCurrentEnemy(1).corrupted && hiderwindow > 90) ||
+    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderwindow > 90))) {
     	setFormation(4);
     	return;
     }
