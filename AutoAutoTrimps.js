@@ -1075,7 +1075,7 @@ function highlightHousing() {
     }
     game.global.buyAmt = oldBuy;
 }
-function getNiceThingsDone()
+function getNiceThingsDone() {
 	if (!game.global.preMapsActive && !game.global.mapsActive) {
 	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://1.bp.blogspot.com/-Rn7H8k6KprI/T9Sa5jIv2YI/AAAAAAAADbE/QPPVKsdP0FA/s1600/99+Steps+2.JPG"></div><div');
 	} else if (game.global.preMapsActive) {
