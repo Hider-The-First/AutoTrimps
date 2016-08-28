@@ -1077,7 +1077,7 @@ function highlightHousing() {
 }
 function getNiceThingsDone() {
 	if (!game.global.preMapsActive && !game.global.mapsActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://1.bp.blogspot.com/-Rn7H8k6KprI/T9Sa5jIv2YI/AAAAAAAADbE/QPPVKsdP0FA/s1600/99+Steps+2.JPG"></div><div');
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://www.wallpapersandbackground.com/images/Green-tree-cover-the-road-beautiful-nature-hd-wallpapers.jpg"></div><div');
 	} else if (game.global.preMapsActive) {
 	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="https://images6.alphacoders.com/695/695567.jpg"></div><div');
 	} else if (game.global.mapsActive && getCurrentMapObject().location == "Void") {
