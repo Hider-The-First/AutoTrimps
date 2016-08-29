@@ -125,5 +125,7 @@ function updateConvo (place) {
 
 
 function talk() {
+  getStats()
+  getStats2()
   document.getElementById("autotrimp").style.display = "block";
 }
