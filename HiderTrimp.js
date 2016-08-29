@@ -84,7 +84,7 @@ function getStats3() {
     reactAutoPortal = true;
     getAutoPortal = (getPageSetting('HeliumHrBuffer') > 0 || autoTrimpSettings.AutoPortal.selected != "Helium Per Hour");
     if (getAutoPortal == true) {
-        reactAutoPortal = "The Helium/Hr Buffer must be set to 0 and Auto Portal is there help you get better Helium per hour, if you don't know how it works, why don't you click on the chat and ask?";
+        reactAutoPortal = "The Helium/Hr Buffer must be set to 0 and Auto Portal is there in order to help you get better Helium per hour, if you don't know how it works, why don't you click on the chat and ask?";
     } else if (getAutoPortal == false) {
         reactAutoPortal = "You know the Truth.";
     }
