@@ -1745,7 +1745,7 @@ function autoStance() {
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
     }
-    if (game.global.mapsActive && (getCurrentEnemy(1).name == "Jestimp" || getCurrentEnemy(1).name == "Chronoimp" || getCurrentMapObject().location != "Void")) {
+    if (game.global.mapsActive && (getCurrentEnemy(1).name == "Jestimp" || getCurrentEnemy(1).name == "Chronoimp" ||  (hiderwindow > 0.01 && getCurrentMapObject().location != "Void"))) {
     	setFormation(4);
     	return;
     }
@@ -2833,7 +2833,7 @@ function useScryerStance() {
         //quit here if its right
         if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location == "Void") || hiderwindow < 90 || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 90 && game.global.lastClearedCell == 98)) { autoStance(); return;
         }
-        if (ovklHDratio > 0.6) {
+        if (ovklHDratio > 0.9) {
             setFormation(4);
             return;
         }
