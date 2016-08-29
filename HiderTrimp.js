@@ -63,7 +63,6 @@ function getStats() {
         reactPercent = " Did you just portal?";
     }
     return getPercent.toFixed(3) + '%'; //return
-    conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
 }
 
 //setup convo array
@@ -98,6 +97,7 @@ updateConvo(0);
 
 //only functions below here
 function updateConvo (place) {
+  conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
   document.getElementById("q").innerHTML = conversation[place].Q;
   document.getElementById("1").innerHTML = conversation[place].R1;
   document.getElementById("1").onclick = (function() { var test = conversation[place].L1; return function() {updateConvo(test + '');}})();
