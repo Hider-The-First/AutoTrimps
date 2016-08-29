@@ -2381,7 +2381,7 @@ function autoMap() {
                 lootAdvMapsRange.value = 9;
                 adjustMap('loot', 9);
                 
-                biomeAdvMapsSelect.value = "Gardens"; //Mountain
+                biomeAdvMapsSelect.value = 'Gardens'; //Mountain
                 updateMapCost();                
             } else if (game.global.world > 60) {
                 sizeAdvMapsRange.value = 9;
@@ -2391,7 +2391,7 @@ function autoMap() {
                 lootAdvMapsRange.value = 9;
                 adjustMap('loot', 9);
 
-                biomeAdvMapsSelect.value = "Gardens"; //Mountain
+                biomeAdvMapsSelect.value = 'Gardens; //Mountain
                 updateMapCost();
             } else if (game.global.world < 16) {
                 sizeAdvMapsRange.value = 9;
@@ -2416,7 +2416,7 @@ function autoMap() {
             }
             //if we are "Farming" for resources, make sure it's metal
             if(game.global.world > 90 && (shouldFarm || needFarmSpire)) {
-                biomeAdvMapsSelect.value = "Gardens"; //Mountain
+                biomeAdvMapsSelect.value = 'Gardens'; //Mountain
             } else {
                 //if we can't afford the map:
                 //Put a priority on small size, and increase the difficulty? for high Helium that just wants prestige = yes.
