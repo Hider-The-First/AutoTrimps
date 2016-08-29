@@ -125,7 +125,5 @@ function updateConvo (place) {
 
 
 function talk() {
-  getStats();
-  getGigaDelta();
   document.getElementById("autotrimp").style.display = "block";
 }
