@@ -78,15 +78,28 @@ function getStats2() {
     return getGigaDelta;
 }
 
+var getAutoPortal = false;
+var reactAutoPortal = false;
+function getStats3() {
+    reactAutoPortal = true;
+    getAutoPortal = (getPageSetting('HeliumHrBuffer') > 0 || autoTrimpSettings.AutoPortal.selected != "Helium Per Hour");
+    if (getAutoPortal == true) {
+        reactAutoPortal = "The Helium/Hr Buffer must be set to 0 and Auto Portal is there help you get better Helium per hour, if you don't know how it works, why don't you click on the chat and ask?";
+    } else if (getAutoPortal == false) {
+        reactAutoPortal = "You know the Truth.";
+    }
+    return getAutoPortal;
+}
+
 //setup convo array
 var conversation = [];
 conversation[0] = {Q:"HiThere.",R1:"Tell me the Truth.",L1:1,R2:"How am i doing so far?",L2:5,R3:"Tell me what to do.",L3:3};
-conversation[1] = {Q:"" +reactGigaDelta,R1:"I know the Truth.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
+conversation[1] = {Q:"" +reactGigaDelta,R1:"I know the Truth.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"Be more honest please.",L3:6};
 conversation[2] = {Q:"OK.",R1:"Again.",L1:0,R2:"How am i doing so far?",L2:5,R3:"What can go wrong in the Don't Touch Zone?",L3:4};
 conversation[3] = {Q:"Please set Auto Portal to Helium Per Hour and set First Gigastation to 40 (or less). Make sure that Min Warpstation is set to two (or less). And notice that some of the Void Maps will be done before your Void Maps settings, so please use it and set the Void Maps to no more then 10 Zones before you predict that you will Auto Portal. Have a nice AutoAutoTrimps experience.",R1:"Wow, HelpfulTrimp!",L1:0};
 conversation[4] = {Q:"You.",R1:"Meh.",L1:0};
-conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
-conversation[6] = {Q:"There's an intelligent life down here.",R1:"Lies.",L1:7};
+conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
+conversation[6] = {Q:"" +reactAutoPortal,R1:"I know the Truth.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
 conversation[7] = {Q:"Never admit!",R1:"Scotty!!.",L1:0};
 updateConvo(0);
 
@@ -127,5 +140,6 @@ function updateConvo (place) {
 function talk() {
   getStats()
   getStats2()
+  getStats3()
   document.getElementById("autotrimp").style.display = "block";
 }
