@@ -123,8 +123,9 @@ updateConvo(0);
 
 //only functions below here
 function updateConvo (place) {
-  conversation[1] = {Q:"" +reactGigaDelta,R1:"I know the Truth.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
-  conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
+  conversation[1] = {Q:"" +reactGigaDelta,R1:"I know the Truth.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"Be more honest please.",L3:6};
+  conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
+  conversation[6] = {Q:"" +reactAutoPortal,R1:"I know the Truth.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
   document.getElementById("q").innerHTML = conversation[place].Q;
   document.getElementById("1").innerHTML = conversation[place].R1;
   document.getElementById("1").onclick = (function() { var test = conversation[place].L1; return function() {updateConvo(test + '');}})();
