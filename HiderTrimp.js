@@ -48,7 +48,9 @@ var getPercent = 0;
 var reactPercent = 0;
 function getStats() {
     reactPercent = 0;
-    getPercent = (game.stats.heliumHour.value()/game.global.totalHeliumEarned)*100;
+    getPercent = (game.stats.heliumHour.value()/(game.global.totalHeliumEarned -(game.global.heliumLeftover + game.resources.helium.owned))*100;
+    if (getPercent.toFixed(3) > 0.54) {
+        reactPercent = " An amazing result, share it with others, they will appriciate it.";
     if (getPercent.toFixed(3) > 0.53) {
         reactPercent = " GRATZ, A NEW WORLD RECORD!";
     } else if (getPercent.toFixed(3) > 0.52) {
