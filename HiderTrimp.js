@@ -65,10 +65,10 @@ function getStats() {
     return getPercent.toFixed(3) + '%'; //return
 }
 
-var getGigaDelta = 0;
-var reactGigaDelta = 0;
+var getGigaDelta = false;
+var reactGigaDelta = false;
 function getGigaDelta() {
-    reactGigaDelta = 0;
+    reactGigaDelta = true;
     getGigaDelta = (getPageSetting('FirstGigastation') > 40 || getPageSetting('DeltaGigastation') > 2);
     if (getGigaDelta == true) {
         reactGigaDelta = "First Gigastation must be under 41 and Min Warpstation must be under two, if you don't know how it works, why don't you click on the chat and ask?";
