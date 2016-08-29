@@ -2288,7 +2288,7 @@ function autoMap() {
                     selectedMap = "create";
             //if needFarmSpire x minutes is true, switch over from wood maps to metal maps.    
             else if (needFarmSpire)
-                if (game.global.mapsOwnedArray[highestMap].location == 'Gardens') //Mountain
+                if (game.global.mapsOwnedArray[highestMap].location == "Gardens") //Mountain
                     selectedMap = game.global.mapsOwnedArray[highestMap].id;
                 else
                     selectedMap = "create";
@@ -2381,7 +2381,7 @@ function autoMap() {
                 lootAdvMapsRange.value = 9;
                 adjustMap('loot', 9);
                 
-                biomeAdvMapsSelect.value = 'Gardens'; //Mountain
+                biomeAdvMapsSelect.value = "Gardens"; //Mountain
                 updateMapCost();                
             } else if (game.global.world > 60) {
                 sizeAdvMapsRange.value = 9;
@@ -2391,7 +2391,7 @@ function autoMap() {
                 lootAdvMapsRange.value = 9;
                 adjustMap('loot', 9);
 
-                biomeAdvMapsSelect.value = 'Gardens'; //Mountain
+                biomeAdvMapsSelect.value = "Gardens"; //Mountain
                 updateMapCost();
             } else if (game.global.world < 16) {
                 sizeAdvMapsRange.value = 9;
@@ -2401,7 +2401,7 @@ function autoMap() {
                 lootAdvMapsRange.value = 9;
                 adjustMap('loot', 9);
 
-                biomeAdvMapsSelect.value = 'Gardens'; //Sea
+                biomeAdvMapsSelect.value = "Gardens"; //Sea
                 updateMapCost();
             } else {
                 sizeAdvMapsRange.value = 9;
@@ -2411,12 +2411,12 @@ function autoMap() {
                 lootAdvMapsRange.value = 9;
                 adjustMap('loot', 9);
 
-                biomeAdvMapsSelect.value = 'Gardens'; //Sea
+                biomeAdvMapsSelect.value = "Gardens"; //Sea
                 updateMapCost();
             }
             //if we are "Farming" for resources, make sure it's metal
             if(game.global.world > 90 && (shouldFarm || needFarmSpire)) {
-                biomeAdvMapsSelect.value = 'Gardens'; //Mountain
+                biomeAdvMapsSelect.value = "Gardens"; //Mountain
             } else {
                 //if we can't afford the map:
                 //Put a priority on small size, and increase the difficulty? for high Helium that just wants prestige = yes.
