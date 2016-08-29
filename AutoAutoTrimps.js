@@ -2830,13 +2830,13 @@ function useScryerStance() {
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
-        //quit here if its right
-        if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location == "Void") || hiderwindow < 90 || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 90 && game.global.lastClearedCell == 98)) { autoStance(); return;
-        }
-        if (ovklHDratio > 0.9) {
-            setFormation(4);
-            return;
-        }
+    //quit here if its right
+    }
+    if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location == "Void") || hiderwindow < 90 || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 90 && game.global.lastClearedCell == 98)) { autoStance(); return;
+    }
+    if (ovklHDratio > 0.9) {
+        setFormation(4);
+        return;
     }
 
     //grab settings variables
