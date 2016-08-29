@@ -2514,7 +2514,7 @@ function autoPortal() {
                     var bestHeHr = game.stats.bestHeliumHourThisRun.storedValue;
                     var myHeliumHr = game.stats.heliumHour.value();
                     var heliumHrBuffer = Math.abs(getPageSetting('HeliumHrBuffer'));
-                    if(myHeliumHr < bestHeHr * (1-(heliumHrBuffer/100)) && !game.global.challengeActive && (game.global.totalVoidMaps == 0 || hiderwindow < 0.02) && (getPageSetting('VoidMaps')+4 < game.global.world || hiderwindow < 0.02)) {
+                    if(myHeliumHr < bestHeHr * (1-(heliumHrBuffer/100)) && !game.global.challengeActive && (game.global.totalVoidMaps == 0 || hiderwindow < 0.1) && (getPageSetting('VoidMaps')+4 < game.global.world || hiderwindow < 0.1)) {
                         debug("My Helium was: " + myHeliumHr + " & the Best Helium was: " + bestHeHr + " at zone: " +  game.stats.bestHeliumHourThisRun.atZone);
                         pushData();
                         if(autoTrimpSettings.HeliumHourChallenge.selected != 'None') 
