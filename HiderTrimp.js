@@ -67,7 +67,7 @@ function getStats() {
 
 var getGigaDelta = false;
 var reactGigaDelta = false;
-function getGigaDelta() {
+function getStats2() {
     reactGigaDelta = true;
     getGigaDelta = (getPageSetting('FirstGigastation') > 40 || getPageSetting('DeltaGigastation') > 2);
     if (getGigaDelta == true) {
