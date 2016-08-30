@@ -2664,7 +2664,7 @@ function manageGenes() {
     if(getBreedTime(true) < 2) breedFire = false;
     //force deth if max antiStacks is available
     if (game.global.antiStacks < 30 && getBreedTime() >= 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0 && (!game.global.preMapsActive && ((game.global.mapsActive && getCurrentMapObject().location != "Void") || (game.global.lastClearedMapCell < 10 || !game.global.mapsActive)))) {
-    mapsClicked(); mapsClicked();
+    mapsClicked(true); mapsClicked(true);
     }
 
 }
