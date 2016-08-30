@@ -1709,25 +1709,25 @@ function autoStance() {
     //calculate internal script variables.
     //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
-    if (game.global.formation != 2) {
-    	baseDamage *= 8;
-    //} else if (game.global.formation != "0") {
-    //    baseDamage *= 2;
-    }
-    //baseBlock
-    baseBlock = game.global.soldierCurrentBlock;
-    if (game.global.formation != 3) {
-        baseBlock *= 2;
-    //} else if (game.global.formation != "0") {
-    //    baseBlock *= 2;
-    }
-    //baseHealth
-    baseHealth = game.global.soldierHealthMax;
-    if (game.global.formation != 1) {
-        baseHealth *= 2;
-    //} else if (game.global.formation != "0") {
-    //    baseHealth *= 2;
-   	}
+    	if (game.global.formation == 0) {
+    		baseDamage *= 4;
+    	} else if (game.global.formation != "2") {
+    	    baseDamage *= 8;
+    	}
+    	//baseBlock
+    	baseBlock = game.global.soldierCurrentBlock;
+    	if (game.global.formation == 0) {
+        	baseBlock *= 4;
+    	} else if (game.global.formation != "3") {
+    	    baseBlock *= 8;
+    	}
+    	//baseHealth
+    	baseHealth = game.global.soldierHealthMax;
+    	if (game.global.formation == 0) {
+        	baseHealth *= 4;
+    	} else if (game.global.formation != "1") {
+    	    baseHealth *= 8;
+    	}
 
     var ovklHDratio;
     var useoverkill = true; //!!getPageSetting('ScryerUseWhenOverkill');
@@ -1758,25 +1758,25 @@ function autoStance() {
     
     //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
-    if (game.global.formation != 2) {
-    	baseDamage *= 8;
-    //} else if (game.global.formation != "0") {
-    //    baseDamage *= 2;
-    }
-    //baseBlock
-    baseBlock = game.global.soldierCurrentBlock;
-    if (game.global.formation != 3) {
-        baseBlock *= 2;
-    //} else if (game.global.formation != "0") {
-    //    baseBlock *= 2;
-    }
-    //baseHealth
-    baseHealth = game.global.soldierHealthMax;
-    if (game.global.formation != 1) {
-        baseHealth *= 2;
-    //} else if (game.global.formation != "0") {
-    //    baseHealth *= 2;
-    }
+    	if (game.global.formation == 0) {
+    		baseDamage *= 4;
+    	} else if (game.global.formation != "2") {
+    	    baseDamage *= 8;
+    	}
+    	//baseBlock
+    	baseBlock = game.global.soldierCurrentBlock;
+    	if (game.global.formation == 0) {
+        	baseBlock *= 4;
+    	} else if (game.global.formation != "3") {
+    	    baseBlock *= 8;
+    	}
+    	//baseHealth
+    	baseHealth = game.global.soldierHealthMax;
+    	if (game.global.formation == 0) {
+        	baseHealth *= 4;
+    	} else if (game.global.formation != "1") {
+    	    baseHealth *= 8;
+    	}
     //no need to continue
     if (!getPageSetting('AutoStance')) return;
 
@@ -1967,7 +1967,7 @@ function autoMap() {
     if (game.global.challengeActive == "Mapology" && game.challenges.Mapology.credits < 1) return;
     //FIND VOID MAPS LEVEL:
     var voidMapLevelSetting = getPageSetting('VoidMaps');
-    if (hiderwindow < 6)
+    if (hiderwindow < 6 && game.global.challengeActive != "Toxicity" && (game.global.challengeActive != "Lead" !! game.global.world % 2 == 1))
         voidMapLevelSetting = game.global.world;
     //decimal void maps are possible, using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
     var voidMapLevelSettingZone = (voidMapLevelSetting+"").split(".")[0];
@@ -2874,24 +2874,24 @@ function useScryerStance() {
         
         //baseDamage
     	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
-    	if (game.global.formation != 2) {
-    		baseDamage *= 8;
-    	//} else if (game.global.formation != "0") {
-    	//    baseDamage *= 2;
+    	if (game.global.formation == 0) {
+    		baseDamage *= 4;
+    	} else if (game.global.formation != "2") {
+    	    baseDamage *= 8;
     	}
     	//baseBlock
     	baseBlock = game.global.soldierCurrentBlock;
-    	if (game.global.formation != 3) {
-        	baseBlock *= 2;
-    	//} else if (game.global.formation != "0") {
-    	//    baseBlock *= 2;
+    	if (game.global.formation == 0) {
+        	baseBlock *= 4;
+    	} else if (game.global.formation != "3") {
+    	    baseBlock *= 8;
     	}
     	//baseHealth
     	baseHealth = game.global.soldierHealthMax;
-    	if (game.global.formation != 1) {
-        	baseHealth *= 2;
-    	//} else if (game.global.formation != "0") {
-    	//    baseHealth *= 2;
+    	if (game.global.formation == 0) {
+        	baseHealth *= 4;
+    	} else if (game.global.formation != "1") {
+    	    baseHealth *= 8;
     	}
     } else {
         autoStance();    //falls back to autostance when not using S. 
