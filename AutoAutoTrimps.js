@@ -2089,7 +2089,8 @@ function autoMap() {
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && ((new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length))) ||	//force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 62 && !!game.buildings.Nursery.locked) ||	//Clear maps to stack up nurseries for genetics before starting warps stucking.
         //(!game.upgrades.Gigastation.locked && game.global.mapBonus < 1 && !game.global.mapsActive && (game.upgrades.Gigastation.allowed-4 >= game.upgrades.Gigastation.done)) ||	//Clear maps to stack up early warps.
-        (game.global.mapBonus < 9 && hiderwindow < 0.5 )	//Farm maps if you are way to slow
+        (game.global.mapBonus < 9 && hiderwindow < 0.5 ) ||	//Farm maps if you are way to slow
+        (game.global.mapsActive && getBreedTime(true) > 0)	//Stay in maps to heal
         //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)	//option to force stay in zone X time in min/cleared maps and farm
         //(game.global.world == 200 && game.global.lastClearedCell > 20 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		//option to force stay in zone X time in min and farm		
 	) {		
@@ -2662,7 +2663,7 @@ function manageGenes() {
     //reset breedFire once we have less than 2 seconds remaining
     if(getBreedTime(true) < 2) breedFire = false;
     //force deth if max antiStacks is available
-    if (game.global.antiStacks < 30 && getBreedTime() >= 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0 && (!game.global.preMapsActive && ((game.global.mapsActive && getCurrentMapObject().location != "Void") || !game.global.mapsActive))) {
+    if (game.global.antiStacks < 30 && getBreedTime() >= 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0 && (!game.global.preMapsActive && ((game.global.mapsActive && getCurrentMapObject().location != "Void") || (game.global.lastClearedMapCell < 10 || !game.global.mapsActive)))) {
     mapsClicked(); mapsClicked();
     }
 
