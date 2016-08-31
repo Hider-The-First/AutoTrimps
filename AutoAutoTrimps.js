@@ -3138,13 +3138,13 @@ function generateHeirloomIcon(heirloom, location, number){
     abutton.id = 'hiderStatus';
     newContainer.appendChild(abutton);
     fightButtonCol.appendChild(newContainer);
-    autoautoDonttouchBtn.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Farm Void when under 30/nUse D stance in maps when under 3/nIgnore high level void limits if over 9/nSave high level void maps if over 30./nGet 200% map bonus if under 2.5/nGet +20% map bonus if in map and breeding if under 3.\")');
-    autoautoDonttouchBtn.setAttribute("onmouseout", 'tooltip("hide")');
+    hiderStatusBtn.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Farm Void when under 30/nUse D stance in maps when under 3/nIgnore high level void limits if over 9/nSave high level void maps if over 30./nGet 200% map bonus if under 2.5/nGet +20% map bonus if in map and breeding if under 3.\")');
+    hiderStatusBtn.setAttribute("onmouseout", 'tooltip("hide")');
 
 var hiderwindow = 0;
 var hiderWindow = document.getElementById('hiderWindow');
 function updateValueFields2() {
     var hiderWindow = document.getElementById('hiderWindow');
     var hiderStatus = document.getElementById('hiderStatus');
-    hiderStatus.innerHTML = 'OverKill Chance ' + hiderwindow.toFixed(2)*5 + '%'; 
+    hiderStatus.innerHTML = 'OverKill Chance ' + (5*hiderwindow).toFixed(2) + '%'; 
 }
