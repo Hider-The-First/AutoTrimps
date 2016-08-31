@@ -1251,14 +1251,14 @@ function evaluateEquipmentEfficiency(equipName) {
     if (hiderwindow == 100 && game.global.world != 200 && equip.Stat == 'attack' && gameResource.level > 1) {
         Wall = true;
     }
-    if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && hiderwindow > 60) {
+    if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && hiderwindow > 15) {
         Wall = true;
     }
-    if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37 && hiderwindow > 60) {		
+    if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37 && hiderwindow > 15) {		
         Res = 0;
         Wall = true;
     }
-    if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37 && hiderwindow > 60) {		
+    if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37 && hiderwindow > 15) {		
         Res = 0;
         Wall = true;
     }
@@ -1754,8 +1754,8 @@ function autoStance() {
     	setFormation(4);
     	return;
     }
-    if ((!game.global.mapsActive && !game.global.preMapsActive && game.global.gridArray.length > 0 && ((hiderwindow > 90 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && ((!getCurrentEnemy(1).corrupted && hiderwindow > 90) ||
-    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderwindow > 90))) {
+    if ((!game.global.mapsActive && !game.global.preMapsActive && game.global.gridArray.length > 0 && ((hiderwindow > 60 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && ((!getCurrentEnemy(1).corrupted && hiderwindow > 60) ||
+    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderwindow > 60))) {
     	setFormation(4);
     	return;
     }
@@ -2840,7 +2840,7 @@ function useScryerStance() {
         }
     //quit here if its right
     }
-    if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location == "Void") || hiderwindow < 90 || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 90 && game.global.lastClearedCell == 98)) { autoStance(); return;
+    if (game.global.preMapsActive || (!game.global.preMapsActive && game.global.mapsActive && getCurrentMapObject().location == "Void") || hiderwindow < 60 || HDratio > 7 || (game.global.spireActive && game.global.lastClearedCell > 77) || game.global.gridArray.length === 0 || game.global.highestLevelCleared < 180 || (hiderwindow < 60 && game.global.lastClearedCell == 98)) { autoStance(); return;
     }
     if (ovklHDratio > 0.9) {
         setFormation(4);
@@ -2870,8 +2870,8 @@ function useScryerStance() {
         var spirecheck = (game.global.world == 200 && game.global.spireActive);
         run = spirecheck ? useinspire : run;
     }
-    if ((!game.global.mapsActive && !game.global.preMapsActive && game.global.gridArray.length > 0 && ((hiderwindow > 90 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && ((!getCurrentEnemy(1).corrupted && hiderwindow > 90) ||
-    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderwindow > 90))) {
+    if ((!game.global.mapsActive && !game.global.preMapsActive && game.global.gridArray.length > 0 && ((hiderwindow > 60 && game.global.lastClearedCell == 98) || game.global.lastClearedCell < 98)) && ((!getCurrentEnemy(1).corrupted && hiderwindow > 60) ||
+    	(!getCurrentEnemy(2).corrupted && 4*baseDamage*getPlayerCritDamageMult() > getCurrentEnemy().health/2 && hiderwindow > 60))) {
     	setFormation(4);
     	return;
     }
@@ -3138,7 +3138,7 @@ function generateHeirloomIcon(heirloom, location, number){
     abutton.id = 'hiderStatus';
     newContainer.appendChild(abutton);
     fightButtonCol.appendChild(newContainer);
-    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Farm Void when under 30.<br>Use D stance in maps when under 3.<br>Ignore high level void limits if over 9.<br>Save high level void maps if over 30.<br>Get 200% map bonus if under 2.5.<br>Get +20% map bonus if in map and breeding if under 3.\")');
+    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Get Dark Essence if over 300%.<br>Buy more Prestige if over 75%.<br>Save high level Void Maps if over 50%.<br>Farm Void Maps if under 30%.<br>Ignore high level Void Maps limits if over 9%.<br>Get +20% Map Bonus if in map and Breeding and if under 3%.<br>Use Dominance Formation in maps if under 3%.<br>Allow He/Hr Auto Portal with Void Maps if under 3%.<br>Get 200% Map Bonus if under 2.5%.<br>Allow He/Hr Auto Portal right after Void Maps settings if under 1%.\")');
     newContainer.setAttribute("onmouseout", 'tooltip("hide")');
 
 var hiderwindow = 0;
