@@ -1972,6 +1972,8 @@ function autoMap() {
     if (game.global.challengeActive == "Mapology" && game.challenges.Mapology.credits < 1) return;
     //FIND VOID MAPS LEVEL:
     var voidMapLevelSetting = getPageSetting('VoidMaps');
+    if (hiderwindow > 10 && game.global.world > 300)
+    	voidMapLevelSetting = 99404; // Stop trolling me Ânsopedi!!!!
     if (hiderwindow < 6 && game.global.challengeActive != "Toxicity" && (game.global.challengeActive != "Lead" || game.global.world % 2 == 1))
         voidMapLevelSetting = game.global.world;
     //decimal void maps are possible, using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
@@ -1985,7 +1987,7 @@ function autoMap() {
                                 ((game.global.world == voidMapLevelSettingZone && !getPageSetting('RunNewVoids')) 
                                                                 || 
                                  (game.global.world >= voidMapLevelSettingZone && getPageSetting('RunNewVoids')))
-                         && ((voidsuntil != -1 && game.global.world <= voidsuntil) || (voidsuntil == -1) || !getPageSetting('RunNewVoids'));
+                         && ((voidsuntil != -1 && game.global.world <= voidsuntil) || (hiderwindow > 3) || (voidsuntil == -1) || !getPageSetting('RunNewVoids'));
     if(game.global.totalVoidMaps == 0 || !needToVoid)
         doVoids = false;
     //calculate if we are behind on prestiges
