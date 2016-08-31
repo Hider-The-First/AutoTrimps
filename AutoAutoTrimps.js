@@ -1073,7 +1073,12 @@ function highlightHousing() {
         } else {
         bestBuilding = null;
     }
-    game.global.buyAmt = oldBuy;
+    //buy the last warpstations in grops of one
+    if (bestBuilding == "Warpstation" && getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.metal.owned/(1+costratio)) {
+        game.global.buyAmt = 1;
+    } else {
+    	game.global.buyAmt = oldBuy;
+    }
 }
 /*
 function getNiceThingsDone() {
