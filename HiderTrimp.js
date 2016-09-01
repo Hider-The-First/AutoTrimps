@@ -34,7 +34,7 @@ var CG = -1;
 var CB = -1;
 
 function getNiceThingsDone() {
-		if (zonePic != -1 && PrePic != -1 && voidPic != -1 && mapPic != -1 && spirePic != -1) {
+		if (zonePic >= 0 && PrePic >= 0 && voidPic >= 0 && mapPic >= 0 && spirePic >= 0) {
 		//bring the art.
 		if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("zonePic").value + '"></div>');
@@ -54,7 +54,7 @@ function getNiceThingsDone() {
 			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
 	}
-	if (BR != -1 && BG != -1 && BB != -1 && CR != -1 && CG != -1 && CB != -1) {
+	if ((BR >= 0 && BG >= 0 && BB >= 0 ) || (>= 0 && CG >= 0 && >= 0 )) {
 	//bring the light.
 	document.getElementById("innerWrapper").style = "background: rgb(" + BR +","+ BG+"," + BB +");";
 	document.getElementById("battleContainer").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
