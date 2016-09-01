@@ -34,6 +34,7 @@ document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 75%; float: left;";
 document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 20%; float: right; vertical-align;"><div id="buildingsCollectBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
+document.getElementById("buildingsCollectBtn");
 buildingsCollectBtn.setAttribute("onmouseover", 'tooltip(\"Talk\", \"customText\", event, \"He knows a lot about how Trimps works.\")');
 buildingsCollectBtn.setAttribute("onmouseout", 'tooltip("hide")');
 //setup talk window
