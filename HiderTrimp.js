@@ -33,7 +33,7 @@ document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 75%; float: left;";
-document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 22%; float: right; vertical-align;"><div id="buildingsCollectBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
+document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 20%; float: right; vertical-align;"><div id="buildingsCollectBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
 //needtofixtthis//Talk.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Get Dark Essence if over 300%.<br>Buy more Prestige if over 75%.<br>Save high level Void Maps if over 50%.<br>Farm Void Maps if under 30%.<br>Ignore high level Void Maps limits if over 9%.<br>Get +20% Map Bonus if in map and Breeding and if under 3%.<br>Use Dominance Formation in maps if under 3%.<br>Allow He/Hr Auto Portal with Void Maps if under 3%.<br>Get 200% Map Bonus if under 2.5%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")');
 //needtofixtthis//Talk.setAttribute("onmouseout", 'tooltip("hide")');
 //setup talk window
