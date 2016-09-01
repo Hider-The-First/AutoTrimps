@@ -5,17 +5,17 @@ var autoTSettings = {};
 var version = "0.37b.17T2";
 
 //nice globals
-var zonePic = -1;
-var PrePic = -1;
-var voidPic = -1;
-var mapPic = -1;
-var spirePic = -1;
-var BR = -1;
-var BG = -1;
-var BB = -1;
-var CR = -1;
-var CG = -1;
-var CB = -1;
+var zonePic = null;
+var PrePic = null;
+var voidPic = null;
+var mapPic = null;
+var spirePic = null;
+var BR = null;
+var BG = null;
+var BB = null;
+var CR = null;
+var CG = null;
+var CB = null;
 
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
