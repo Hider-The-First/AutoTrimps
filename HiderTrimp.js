@@ -37,15 +37,15 @@ function getNiceThingsDone() {
 		if (zonePic != -1 && PrePic != -1 && voidPic != -1 && mapPic != -1 && spirePic != -1) {
 		//bring the art.
 		if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="zonePic"></div><div');
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic">a href="max-height: 9000vw; vertical-align; background;" src="zonePic"></div><div');
 		} else if (game.global.preMapsActive) {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="PrePic"></div><div');
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><a href="max-height: 9000vw; vertical-align; background;" src="PrePic"></div><div');
 		} else if (game.global.mapsActive && getCurrentMapObject().location == "Void") {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="voidPic"></div><div');
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><a href="max-height: 9000vw; vertical-align; background;" src="voidPic"></div><div');
 		} else if (game.global.mapsActive && getCurrentMapObject().location != "Void") {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="mapPic"></div><div');
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><a href="max-height: 9000vw; vertical-align; background;" src="mapPic"></div><div');
 		} else if (game.global.world == 200 && game.global.spireActive) {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="spirePic"></div><div');
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><a href="max-height: 9000vw; vertical-align; background;" src="spirePic"></div><div');
 		}
 		if (!game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
 			var cells = document.getElementById("grid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
