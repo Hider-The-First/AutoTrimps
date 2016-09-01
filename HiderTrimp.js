@@ -182,19 +182,17 @@ var checking = JSON.parse(localStorage.getItem("autotrimpsave"));
 if (checking != null && checking.versioning == version) {
 	autoTSettings = checking;
 	}else {
-	var autobuildings = {enabled: 1, description: "Automatically buy storage buildings when they're 90% full", titles: ["Not Buying", "Buying"]};
-	var autogymbutes = {enabled: 0, description: "Automatically buy gyms and tributes when we can afford them", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
-	var autoupgrades = {enabled: 1, description: "Automatically read certain upgrade books to you and the trimps", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
-	var autobuildhouses = {enabled: 0, description: "Automatically buy housing and nurseries. Cheapest by gems and food", titles: ["Not Buying", "Buying Both", "Houses Only", "Nurseries Only"]};
-	var autoworkers = {enabled: 0, description: "Automatically send trimps to work if there are too many idle", titles: ["Not Jobbing", "Jobbing"]};
-	//	var autohousing = {enabled: 0, description: "Highlight the most gem-efficient housing in green", titles: ["Not Highlighting", "Highlighting"]};
-	//	var autoequipment = {enabled: 0, description: "Highlight the most metal-efficient equipment in blue and red", titles: ["Not Highlighting", "Highlighting"]};
-	var autohighlight = {enabled: 0, description: "Highlight the most gem-efficient housing in green and the most metal-efficient equipment in blue and red", titles: ["Not Highlighting", "Highlighting All", "Housing Only", "Equipment Only"]};
-	var autopremaps = {enabled: 0, description: "Bring us back to the world if we're in the premaps screen for 30 seconds", titles: ["Not Switching", "Switching"]};
-	var autogather = {enabled: 0, description: "I'll make you switch between gathering and building depending on our build queue", titles: ["Not Switching", "Switching"]};
-	var autoformations = {enabled: 0, description: "Automatically switch between Heap and Dominance formations based on enemy", titles: ["Not Switching", "Switching"]};
-	var autosnimps = {enabled: 0, description: "I'll automatically buy items to help us get past snimps, squimps, and other fast enemies", titles: ["Not Avoiding", "Avoiding"]};
-	var automapbmax = {enabled: 0, description: "I'll manage turning map repeat on and off so we can reach the max map bonus", titles: ["Not Managing", "Managing","Buy and Manage"]};
+	var BR = {enabled: 1, description: "Background RGB R", titles: ["-1", "X"]};
+	var BG = {enabled: 0, description: "Background RGB G", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
+	var BB = {enabled: 1, description: "Background RGB B, titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
+	var CR = {enabled: 0, description: "Containers RGB R", titles: ["Not Buying", "Buying Both", "Houses Only", "Nurseries Only"]};
+	var CG = {enabled: 0, description: "Containers RGB G", titles: ["Not Jobbing", "Jobbing"]};
+	var CB = {enabled: 0, description: "Containers RGB B", titles: ["Not Highlighting", "Highlighting All", "Housing Only", "Equipment Only"]};
+	var zonePic = {enabled: 0, description: "Background picture for Zones", titles: ["Not Switching", "Switching"]};
+	var mapPic = {enabled: 0, description: "Background picture for Maps", titles: ["Not Switching", "Switching"]};
+	var PrePic = {enabled: 0, description: "Background picture for PreMaps", titles: ["Not Switching", "Switching"]};
+	var voidPic = {enabled: 0, description: "Background picture for VoidMaps", titles: ["Not Switching", "Switching"]};
+	var spirePic = {enabled: 0, description: "Background picture for Spire", titles: ["Not Avoiding", "Avoiding"]};
 	autoTSettings = {versioning: version, autobuildings: autobuildings, autogymbutes: autogymbutes, autobuildhouses: autobuildhouses, autoworkers: autoworkers, autoupgrades: autoupgrades, autohighlight: autohighlight, autopremaps: autopremaps, automapbmax: automapbmax, autogather: autogather, autosnimps: autosnimps, autoformations: autoformations};
 }
 
