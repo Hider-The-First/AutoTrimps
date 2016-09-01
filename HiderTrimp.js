@@ -94,6 +94,18 @@ letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
 //setup paint window
 document.getElementById("buyContainer").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="http://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><p></p><p id="manualPainting0"></a></p><input></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
 
+	var BR = {enabled: 1, description: "Background RGB R", titles: ["-1", "X"]};
+	var BG = {enabled: 0, description: "Background RGB G", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
+	var BB = {enabled: 1, description: "Background RGB B", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
+	var CR = {enabled: 0, description: "Containers RGB R", titles: ["Not Buying", "Buying Both", "Houses Only", "Nurseries Only"]};
+	var CG = {enabled: 0, description: "Containers RGB G", titles: ["Not Jobbing", "Jobbing"]};
+	var CB = {enabled: 0, description: "Containers RGB B", titles: ["Not Highlighting", "Highlighting All", "Housing Only", "Equipment Only"]};
+	var zonePic = {enabled: 0, description: "Background picture for Zones", titles: ["Not Switching", "Switching"]};
+	var mapPic = {enabled: 0, description: "Background picture for Maps", titles: ["Not Switching", "Switching"]};
+	var PrePic = {enabled: 0, description: "Background picture for PreMaps", titles: ["Not Switching", "Switching"]};
+	var voidPic = {enabled: 0, description: "Background picture for VoidMaps", titles: ["Not Switching", "Switching"]};
+	var spirePic = {enabled: 0, description: "Background picture for Spire", titles: ["Not Avoiding", "Avoiding"]};
+
 //beforebegin //afterbegin //beforeend //afterend
 
 //Add new css rule
@@ -193,23 +205,6 @@ function createInputSetting(pic,div) {
     div.appendChild(picLable);
 }
 
-var checking = JSON.parse(localStorage.getItem("autotrimpsave"));
-if (checking != null && checking.versioning == version) {
-	autoTSettings = checking;
-	}else {
-	var BR = {enabled: 1, description: "Background RGB R", titles: ["-1", "X"]};
-	var BG = {enabled: 0, description: "Background RGB G", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
-	var BB = {enabled: 1, description: "Background RGB B", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
-	var CR = {enabled: 0, description: "Containers RGB R", titles: ["Not Buying", "Buying Both", "Houses Only", "Nurseries Only"]};
-	var CG = {enabled: 0, description: "Containers RGB G", titles: ["Not Jobbing", "Jobbing"]};
-	var CB = {enabled: 0, description: "Containers RGB B", titles: ["Not Highlighting", "Highlighting All", "Housing Only", "Equipment Only"]};
-	var zonePic = {enabled: 0, description: "Background picture for Zones", titles: ["Not Switching", "Switching"]};
-	var mapPic = {enabled: 0, description: "Background picture for Maps", titles: ["Not Switching", "Switching"]};
-	var PrePic = {enabled: 0, description: "Background picture for PreMaps", titles: ["Not Switching", "Switching"]};
-	var voidPic = {enabled: 0, description: "Background picture for VoidMaps", titles: ["Not Switching", "Switching"]};
-	var spirePic = {enabled: 0, description: "Background picture for Spire", titles: ["Not Avoiding", "Avoiding"]};
-	autoTSettings = {versioning: version, autobuildings: autobuildings, autogymbutes: autogymbutes, autobuildhouses: autobuildhouses, autoworkers: autoworkers, autoupgrades: autoupgrades, autohighlight: autohighlight, autopremaps: autopremaps, automapbmax: automapbmax, autogather: autogather, autosnimps: autosnimps, autoformations: autoformations};
-}
 
 //add buttonss
 var manualPainting = document.getElementById("manualPainting0");
