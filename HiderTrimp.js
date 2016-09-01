@@ -10,6 +10,10 @@ var BB = -1;
 var CR = -1;
 var CG = -1;
 var CB = -1;
+
+//tribute.
+document.getElementById("boneFlavorRow").innerHTML = "The Bone Trader trades bones for...bonuses";
+
 function getNiceThingsDone() {
 		if (zonePic != -1 && PrePic != -1 && voidPic != -1 && mapPic != -1 && spirePic != -1) {
 		//bring the art.
@@ -69,7 +73,7 @@ letMePaint = document.getElementById("paintingBtn");
 letMePaint.setAttribute("onmouseover", 'tooltip(\"Paint\", \"customText\", event, \"She can paint things.\")');
 letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
 //setup paint window
-document.getElementById("buyContainer").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="http://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><p></p><p style=></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
+document.getElementById("buyContainer").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="http://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><p></p><p id="manualPainting"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
 //beforebegin //afterbegin //beforeend //afterend
 
 //Add new css rule
@@ -153,6 +157,69 @@ conversation[12] = {Q:"I can help you respec the portal perks if you've already 
 conversation[13] = {Q:"That's it for now, but I'll let you know if I pick up any more tricks. Use the buttons below to let me know what you'd like done.",R1:"Ok.",L1:2};
 updateConvo(0);
 */
+
+//add buttonss
+var manualPainting = document.getElementById("manualPainting");
+var html = "";
+for (var item in manualPainting) {
+	if (item != "versioning") {
+		var optionItem = manualPainting[item]; 
+		var text = optionItem.titles[optionItem.enabled]; 
+		html += "<div class='optionContainer'><div id='toggle" + item + "' class='noselect settingBtn settingBtn" + optionItem.enabled + "' onclick='toggleManualPainting(\"" + item + "\")'>" + text + "</div><div class='optionItemDescription'>" + optionItem.description + "</div></div> ";
+	}
+}
+
+// send trimps to work if there are a lot waiting around!!
+function sendTrimpsToWork() {
+	var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
+	if (workspaces > game.global.buyAmt) {
+		var buyAmt = game.global.buyAmt;
+		game.global.buyAmt = Math.ceil((workspaces- game.global.buyAmt)*0.1);
+		if (game.jobs.Farmer.owned > 1000000) {
+			// if more than 1000000 farmers allocate 3:1:4
+			if (game.jobs.Farmer.owned < game.jobs.Lumberjack.owned * 3 && game.jobs.Farmer.owned * 4 < 2 * game.jobs.Miner.owned) {
+				buyJob("Farmer");
+				tooltip("hide");
+			} else if (game.jobs.Lumberjack.owned * 4 < game.jobs.Miner.owned * 1) {
+				buyJob("Lumberjack");
+				tooltip("hide");
+			} else {
+				buyJob("Miner");
+				tooltip("hide");
+			}
+		} else if (game.jobs.Farmer.owned > 100000) {
+			// if more than 100000 farmers allocate 3:3:5
+			if (game.jobs.Farmer.owned * 3 < game.jobs.Lumberjack.owned * 3 && game.jobs.Farmer.owned * 5 < 3 * game.jobs.Miner.owned) {
+				buyJob("Farmer");
+				tooltip("hide");
+			} else if (game.jobs.Lumberjack.owned * 5 < game.jobs.Miner.owned * 3) {
+				buyJob("Lumberjack");
+				tooltip("hide");
+			} else {
+				buyJob("Miner");
+				tooltip("hide");
+			}
+		} else {
+			// if less than  100000 farmers allocate 1:1:1
+			if (game.jobs.Farmer.owned < game.jobs.Lumberjack.owned && game.jobs.Farmer.owned < game.jobs.Miner.owned) {
+				buyJob("Farmer");
+				tooltip("hide");
+			} else if (game.jobs.Lumberjack.owned < game.jobs.Miner.owned) {
+				buyJob("Lumberjack");
+				tooltip("hide");
+			} else  if(game.jobs.Miner.locked == 0){
+				buyJob("Miner");
+				tooltip("hide");
+			}
+		}
+		game.global.buyAmt = buyAmt;
+	}
+}
+
+
+
+
+manualPainting.innerHTML = html;
 
 //only functions below here
 function updateConvo (place) {
