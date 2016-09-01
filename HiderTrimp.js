@@ -106,6 +106,19 @@ function createInputSetting(pic,div) {
     div.appendChild(picLable);
 }
 
+
+	var BR = {enabled: 1, description: "Background RGB R", titles: ["-1", "X"]};
+	var BG = {enabled: 0, description: "Background RGB G", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
+	var BB = {enabled: 1, description: "Background RGB B", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
+	var CR = {enabled: 0, description: "Containers RGB R", titles: ["Not Buying", "Buying Both", "Houses Only", "Nurseries Only"]};
+	var CG = {enabled: 0, description: "Containers RGB G", titles: ["Not Jobbing", "Jobbing"]};
+	var CB = {enabled: 0, description: "Containers RGB B", titles: ["Not Highlighting", "Highlighting All", "Housing Only", "Equipment Only"]};
+	var zonePic = {enabled: 0, description: "Background picture for Zones", titles: ["Not Switching", "Switching"]};
+	var mapPic = {enabled: 0, description: "Background picture for Maps", titles: ["Not Switching", "Switching"]};
+	var PrePic = {enabled: 0, description: "Background picture for PreMaps", titles: ["Not Switching", "Switching"]};
+	var voidPic = {enabled: 0, description: "Background picture for VoidMaps", titles: ["Not Switching", "Switching"]};
+ 	var spirePic = {enabled: 0, description: "Background picture for Spire", titles: ["Not Avoiding", "Avoiding"]};
+
 //Add new css rule
 //document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 84);
 
