@@ -38,7 +38,7 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 //beforebegin //afterbegin //beforeend //afterend
 
 function getNiceThingsDone() {
-		if (zonePic >= 0 && PrePic >= 0 && voidPic >= 0 && mapPic >= 0 && spirePic >= 0) {
+		if (zonePic != 0 && PrePic != 0 && voidPic != 0 && mapPic != 0 && spirePic != 0) {
 		//bring the art.
 		if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("zonePic").value + '"></div>');
