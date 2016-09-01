@@ -999,7 +999,6 @@ function safeBuyBuilding(building) {
         game.global.buyAmt = 1;
     } else {
     	game.global.buyAmt = 'Max';
-    }
         game.global.maxSplit = 1;
         buyBuilding(building, true, true);
         debug('Building ' + game.global.buyAmt + ' ' + building + 's', '*rocket');
