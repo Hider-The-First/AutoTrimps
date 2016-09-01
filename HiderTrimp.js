@@ -91,23 +91,23 @@ function getNiceThingsDone() {
 	CG0 = document.getElementById("CG").value*1;
 	CB0 = document.getElementById("CB").value*1;
 	
-	document.getElementById("innerWrapper").style =		"background: rgb("+ BR0+","+ BG0+"," + BB0+");";
-	document.getElementById("battleContainer").style =	"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("gridContainer").style =	"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("science").style =		"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("selectedMapContainer").style =	"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("helium").style =		"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("achievementWrapper").style =	"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("buyContainer").style =		"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("logContainer").style =		"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("queueContainer").style =	"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("wood").style =			"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("fragments").style =		"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("heirloomWrapper").style =	"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("food").style =			"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("metal").style =		"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("gems").style =			"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
-	document.getElementById("trimps").style =		"background: rgb("+ CR0+","+ CG0+"," + CB0+");";
+	document.getElementById("innerWrapper").style =		"background: rgb(BR0, BG0, BB0);";
+	document.getElementById("battleContainer").style =	"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("gridContainer").style =	"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("science").style =		"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("selectedMapContainer").style =	"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("helium").style =		"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("achievementWrapper").style =	"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("buyContainer").style =		"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("logContainer").style =		"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("queueContainer").style =	"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("wood").style =			"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("fragments").style =		"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("heirloomWrapper").style =	"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("food").style =			"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("metal").style =		"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("gems").style =			"background: rgb(CR0, CG0, CB0);";
+	document.getElementById("trimps").style =		"background: rgb(CR0, CG0, CB0);";
 	}
 }
 
