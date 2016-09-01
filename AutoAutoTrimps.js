@@ -1077,28 +1077,6 @@ function highlightHousing() {
     }
     game.global.buyAmt = oldBuy;
 }
-/*
-function getNiceThingsDone() {
-	//the pictures
-	if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://4hdwallpapers.com/wp-content/uploads/2014/12/road_summer-Beautiful_natural_scenery_Desktop_Wallpapers_1366x768-1024x575.jpg"></div><div');
-	} else if (game.global.preMapsActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="https://images6.alphacoders.com/695/695567.jpg"></div><div');
-	} else if (game.global.mapsActive && getCurrentMapObject().location == "Void") {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://www.wallpapersxl.com/wallpapers/1920x1200/dreams/1502375/dreams-planet-and-nebula-fantasy-1502375.jpg"></div><div');
-	} else if (game.global.mapsActive && getCurrentMapObject().location != "Void") {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://previews.123rf.com/images/zhudifeng/zhudifeng1205/zhudifeng120503093/13537723-An-Magnifier-on-a-Treasure-map-background--Stock-Photo-map-world-old.jpg"></div><div');
-	} else if (game.global.world == 200 && game.global.spireActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://vignette3.wikia.nocookie.net/galaxycentre/images/e/e6/VORTEX_Wallpaper_0tk8x.jpg/revision/latest?cb=20131125141428"></div><div');
-	}
-	if (!game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
-		var cells = document.getElementById("grid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
-	}
-	if (game.global.mapsActive && (new Date().getTime() - game.global.mapStarted) > 1600 && game.global.mapGridArray.length != 0) {
-		var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
-	}
-}
-*/
 
 //Helper function to buy best "Food" Buildings
 function buyFoodEfficientHousing() {
@@ -2941,8 +2919,6 @@ function mainLoop() {
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
     updateValueFields2(); //refresh the UI2
-//    getNiceThingsDone();
-//    getStats(); 
 
     if (getPageSetting('ExitSpireCell')) exitSpireCell(); //"Exit Spire After Cell" (genBTC settings area)
     if (getPageSetting('WorkerRatios')) workerRatios(); //"Auto Worker Ratios"
