@@ -1,24 +1,8 @@
 
 //original globals
-var gobj = {};
-var hobj = {};
-var aobj = {};
-var hkeysSorted = [];
-var premapscounter = 0;
 var buildcounter = 0;
 var autoTSettings = {};
 var version = "0.37b.17T2";
-var wasgathering = "";
-var badguyMinAtt = 0;
-var badguyMaxAtt = 0;
-var badguyFast = false;
-var mysoldiers = 0;
-var mytoughness = 0;
-var blockformation = 1;
-var healthformation = 1;
-var myblock = 0;
-var myhealth = 0;
-var targetSeconds = 30;
 
 //nice globals
 var zonePic = -1;
@@ -32,6 +16,26 @@ var BB = -1;
 var CR = -1;
 var CG = -1;
 var CB = -1;
+
+//setup talk button
+document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
+document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; margin-left: 1%; margin-right: 1%; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
+letMeTalk = document.getElementById("talkingBtn");
+letMeTalk.setAttribute("onmouseover", 'tooltip(\"Talk\", \"customText\", event, \"It knows a lot about how Trimps works.\")');
+letMeTalk.setAttribute("onmouseout", 'tooltip("hide")');
+//setup talk window
+document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div id="autotrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="autotrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://cloud.githubusercontent.com/assets/14081390/9893516/d9db4782-5bde-11e5-8791-91638bb6aaae.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">This is the question.</p><p></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="1" onclick="alert(\'clicked\')">Answer 1</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="2" onclick="alert(\'clicked\')">Answer 2</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="3" onclick="alert(\'clicked\')"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'autotrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
+document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="genBTCTrimp"><div style="border: 1px solid white; background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 100%; padding: .3vw;" id="autosettings0"> <a href="https://discord.gg/0VbWe0dxB9kIfV2C" target="_blank">Join the chat</div></div>');
+
+//setup paint button
+document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; vertical-align;"><div id="paintingBtn" class="workBtn pointer noselect" onclick="paint()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Paint</div></div>');
+letMePaint = document.getElementById("paintingBtn");
+letMePaint.setAttribute("onmouseover", 'tooltip(\"Paint\", \"customText\", event, \"It can paint things.\")');
+letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
+//setup paint window
+document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: black none repeat scroll 0% 0%; border: 2px solid black; width: 64vw; margin: 7vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: white;"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 25%;" id="pic"><img style="max-height: 16vw;" src="https://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 55%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><div style="display: table-row;text-align: left; font-size: 0.7em; color: white;"><div style="width:65%; position:relative; display:table-cell;"><p  ><input id="zonePic">Zone Picture</p><p><input id="mapPic">Map Picture</p><p><input id="prePic">Pre Map Picture</p><p style=""><input id="voidPic">Void Maps Picture</p><p><input id="spirePic">Spire Picture</p></div><div style="width:35%; position:relative; display:table-cell;"><p><input id="BR" style="width:20%;">BR<input id="BG" style="width:20%;">BG<input id="BB" style="width:20%;">BB</p><p><input id="CR" style="width:20%;">CR<input id="CG" style="width:20%;">CG<input id="CB" style="width:20%;">CB<p></div></div></div><div id="button" style="display: table-cell; width: 20%; background: black none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
+//HiderTryThatFailed//document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><div style="display: table-row;"><div style="width:65%; position:relative; display:table-cell;"><p style="text-align: left; font-size: 0.6em;" ><input id="zonePic">Zone Picture</p><p style="text-align: left; font-size: 0.6em;"><input id="mapPic">Map Picture</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="prePic">Pre Map Picture</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="voidPic">Void Maps Picture</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="spirePic">Spire Picture</p></div><div style="width:35%; position:relative; display:table-cell;" ><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="BR" style="width:10%;">BR</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="BG" style="width:10%;">BG</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="BB" style="width:10%;">BB</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="CR" style="width:10%;">CR<p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="CG" style="width:10%;">CG</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="CB" style="width:10%;">CB</p></div></div></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
+//beforebegin //afterbegin //beforeend //afterend
 
 function getNiceThingsDone() {
 		if (zonePic >= 0 && PrePic >= 0 && voidPic >= 0 && mapPic >= 0 && spirePic >= 0) {
@@ -76,25 +80,20 @@ function getNiceThingsDone() {
 	}
 }
 
-//setup talk button
-document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
-document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; margin-left: 1%; margin-right: 1%; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
-letMeTalk = document.getElementById("talkingBtn");
-letMeTalk.setAttribute("onmouseover", 'tooltip(\"Talk\", \"customText\", event, \"It knows a lot about how Trimps works.\")');
-letMeTalk.setAttribute("onmouseout", 'tooltip("hide")');
-//setup talk window
-document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div id="autotrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="autotrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://cloud.githubusercontent.com/assets/14081390/9893516/d9db4782-5bde-11e5-8791-91638bb6aaae.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">This is the question.</p><p></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="1" onclick="alert(\'clicked\')">Answer 1</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="2" onclick="alert(\'clicked\')">Answer 2</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="3" onclick="alert(\'clicked\')"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'autotrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
-document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="genBTCTrimp"><div style="border: 1px solid white; background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 100%; padding: .3vw;" id="autosettings0"> <a href="https://discord.gg/0VbWe0dxB9kIfV2C" target="_blank">Join the chat</div></div>');
-
-//setup paint button
-document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; vertical-align;"><div id="paintingBtn" class="workBtn pointer noselect" onclick="paint()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Paint</div></div>');
-letMePaint = document.getElementById("paintingBtn");
-letMePaint.setAttribute("onmouseover", 'tooltip(\"Paint\", \"customText\", event, \"It can paint things.\")');
-letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
-//setup paint window
-document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: black none repeat scroll 0% 0%; border: 2px solid black; width: 64vw; margin: 7vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: white;"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 25%;" id="pic"><img style="max-height: 16vw;" src="https://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 55%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><div style="display: table-row;text-align: left; font-size: 0.7em; color: white;"><div style="width:65%; position:relative; display:table-cell;"><p  ><input id="zonePic">Zone Picture</p><p><input id="mapPic">Map Picture</p><p><input id="prePic">Pre Map Picture</p><p style=""><input id="voidPic">Void Maps Picture</p><p><input id="spirePic">Spire Picture</p></div><div style="width:35%; position:relative; display:table-cell;"><p><input id="BR" style="width:20%;">BR<input id="BG" style="width:20%;">BG<input id="BB" style="width:20%;">BB</p><p><input id="CR" style="width:20%;">CR<input id="CG" style="width:20%;">CG<input id="CB" style="width:20%;">CB<p></div></div></div><div id="button" style="display: table-cell; width: 20%; background: black none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
-//document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><div style="display: table-row;"><div style="width:65%; position:relative; display:table-cell;"><p style="text-align: left; font-size: 0.6em;" ><input id="zonePic">Zone Picture</p><p style="text-align: left; font-size: 0.6em;"><input id="mapPic">Map Picture</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="prePic">Pre Map Picture</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="voidPic">Void Maps Picture</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="spirePic">Spire Picture</p></div><div style="width:35%; position:relative; display:table-cell;" ><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="BR" style="width:10%;">BR</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="BG" style="width:10%;">BG</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="BB" style="width:10%;">BB</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="CR" style="width:10%;">CR<p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="CG" style="width:10%;">CG</p><p style="text-align: left; font-size: 0.6em; color: rgb(153, 77 153);"><input id="CB" style="width:10%;">CB</p></div></div></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
-
+//setup options
+function createInputSetting(pic,div) {
+    var picInput = document.createElement("Input");
+    picInput.id = pic + "URL";
+    picInput.setAttribute('style', 'text-align: center; width: 60px; color: black;');
+    picInput.setAttribute('class', 'picInput');
+    var perk1label = document.createElement("Label");
+    picLable.id = pic + 'Label';
+    picLable.innerHTML = pic;
+    picLable.setAttribute('style', 'margin-right: 1vw; width: 120px; color: white;');
+    //add to the div.
+    div.appendChild(picInput);
+    div.appendChild(picLable);
+}
 	var BR = {enabled: 1, description: "Background RGB R", titles: ["-1", "X"]};
 	var BG = {enabled: 0, description: "Background RGB G", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
 	var BB = {enabled: 1, description: "Background RGB B", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
@@ -106,8 +105,6 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 	var PrePic = {enabled: 0, description: "Background picture for PreMaps", titles: ["Not Switching", "Switching"]};
 	var voidPic = {enabled: 0, description: "Background picture for VoidMaps", titles: ["Not Switching", "Switching"]};
 	var spirePic = {enabled: 0, description: "Background picture for Spire", titles: ["Not Avoiding", "Avoiding"]};
-
-//beforebegin //afterbegin //beforeend //afterend
 
 //Add new css rule
 //document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 84);
@@ -190,21 +187,6 @@ conversation[12] = {Q:"I can help you respec the portal perks if you've already 
 conversation[13] = {Q:"That's it for now, but I'll let you know if I pick up any more tricks. Use the buttons below to let me know what you'd like done.",R1:"Ok.",L1:2};
 updateConvo(0);
 */
-
-//setup options
-function createInputSetting(pic,div) {
-    var picInput = document.createElement("Input");
-    picInput.id = pic + "URL";
-    picInput.setAttribute('style', 'text-align: center; width: 60px; color: black;');
-    picInput.setAttribute('class', 'picInput');
-    var perk1label = document.createElement("Label");
-    picLable.id = pic + 'Label';
-    picLable.innerHTML = pic;
-    picLable.setAttribute('style', 'margin-right: 1vw; width: 120px; color: white;');
-    //add to the div.
-    div.appendChild(picInput);
-    div.appendChild(picLable);
-}
 
 
 //only functions below here
