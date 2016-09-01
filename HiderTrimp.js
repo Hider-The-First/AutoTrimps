@@ -38,7 +38,7 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 //beforebegin //afterbegin //beforeend //afterend
 
 function getNiceThingsDone() {
-		if (zonePic != 0 && PrePic != 0 && voidPic != 0 && mapPic != 0 && spirePic != 0) {
+		if (zonePic != 1 || PrePic != 1 || voidPic != 1 || mapPic != 1 || spirePic != 1) {
 		//bring the art.
 		if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("zonePic").value + '"></div>');
@@ -60,23 +60,23 @@ function getNiceThingsDone() {
 	}
 	if ((BR >= 0 && BG >= 0 && BB >= 0 ) || (CR >= 0 && CG >= 0 && CB >= 0 )) {
 	//bring the light.
-	document.getElementById("innerWrapper").style = "background: rgb(" + BR +","+ BG+"," + BB +");";
-	document.getElementById("battleContainer").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("gridContainer").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("science").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("selectedMapContainer").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("helium").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("achievementWrapper").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("buyContainer").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("logContainer").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("queueContainer").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("wood").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("fragments").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
+	document.getElementById("innerWrapper").style = "background: rgb("+ BR +","+ BG +","+ BB +");";
+	document.getElementById("battleContainer").style = "background: rgb("+CR+","+CG+","+CB+");";
+	document.getElementById("gridContainer").style = "background: rgb("+ CR +","+ CG+","+ CB +");";
+	document.getElementById("science").style = "background: rgb("+ CR +","+ CG+","+ CB +");";
+	document.getElementById("selectedMapContainer").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("helium").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("achievementWrapper").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("buyContainer").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("logContainer").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("queueContainer").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("wood").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("fragments").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
 	document.getElementById("heirloomWrapper").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("food").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("metal").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("gems").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
-	document.getElementById("trimps").style = "background: rgb(" + CR +","+ CG+"," + CB +");";
+	document.getElementById("food").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("metal").style = "background: rgb("+ CR +","+ CG+"," + CB +");";
+	document.getElementById("gems").style = "background: rgb("+ CR +","+ CG +","+ CB +");";
+	document.getElementById("trimps").style = "background: rgb("+ CR +","+ CG +"," + CB +");";
 	}
 }
 
