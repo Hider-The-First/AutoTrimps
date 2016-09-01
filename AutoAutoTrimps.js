@@ -1949,7 +1949,7 @@ function autoMap() {
     var voidMapLevelSetting = getPageSetting('VoidMaps');
     if (hiderwindow > 10 && game.global.world > 300)
     	voidMapLevelSetting = 99404; // Stop trolling me Ânsopedi!!!!
-    if (hiderwindow < 6 && game.global.challengeActive != "Toxicity" && (game.global.challengeActive != "Lead" || game.global.world % 2 == 1))
+    if (hiderwindow < 6 && hiderwindow > 3 && game.global.challengeActive != "Toxicity" && (game.global.challengeActive != "Lead" || game.global.world % 2 == 1))
         voidMapLevelSetting = game.global.world;
     //decimal void maps are possible, using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
     var voidMapLevelSettingZone = (voidMapLevelSetting+"").split(".")[0];
