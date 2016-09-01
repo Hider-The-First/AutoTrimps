@@ -192,7 +192,6 @@ updateConvo(0);
 	var autosnimps = {enabled: 0, description: "I'll automatically buy items to help us get past snimps, squimps, and other fast enemies", titles: ["Not Avoiding", "Avoiding"]};
 	var automapbmax = {enabled: 0, description: "I'll manage turning map repeat on and off so we can reach the max map bonus", titles: ["Not Managing", "Managing","Buy and Manage"]};
 	autoTSettings = {versioning: version, autobuildings: autobuildings, autogymbutes: autogymbutes, autobuildhouses: autobuildhouses, autoworkers: autoworkers, autoupgrades: autoupgrades, autohighlight: autohighlight, autopremaps: autopremaps, automapbmax: automapbmax, autogather: autogather, autosnimps: autosnimps, autoformations: autoformations};
-}
 
 //add buttonss
 var manualPainting = document.getElementById("manualPainting0");
