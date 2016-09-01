@@ -178,6 +178,20 @@ updateConvo(0);
 */
 
 //setup options
+function createInputSetting(pic,div) {
+    var picInput = document.createElement("Input");
+    picInput.id = pic + "URL";
+    picInput.setAttribute('style', 'text-align: center; width: 60px; color: black;');
+    picInput.setAttribute('class', 'picInput');
+    var perk1label = document.createElement("Label");
+    picLable.id = pic + 'Label';
+    picLable.innerHTML = pic;
+    picLable.setAttribute('style', 'margin-right: 1vw; width: 120px; color: white;');
+    //add to the div.
+    div.appendChild(picInput);
+    div.appendChild(picLable);
+}
+
 var checking = JSON.parse(localStorage.getItem("autotrimpsave"));
 if (checking != null && checking.versioning == version) {
 	autoTSettings = checking;
