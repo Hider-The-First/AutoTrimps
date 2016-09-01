@@ -28,6 +28,19 @@ var CG = document.getElementById('CG');
 var CB = 0;
 var CB = document.getElementById('CB');
 
+//making the var work
+	var BR = {enabled: 0, description: "Background RGB R",				titles: ["Not Switching", "Switching"]};
+	var BG = {enabled: 0, description: "Background RGB G",				titles: ["Not Switching", "Switching"]};
+	var BB = {enabled: 0, description: "Background RGB B",				titles: ["Not Switching", "Switching"]};
+	var CR = {enabled: 0, description: "Containers RGB R",				titles: ["Not Switching", "Switching"]};
+	var CG = {enabled: 0, description: "Containers RGB G",				titles: ["Not Switching", "Switching"]};
+	var CB = {enabled: 0, description: "Containers RGB B",				titles: ["Not Switching", "Switching"]};
+	var zonePic = {enabled: 0, description: "Background picture for Zones",		titles: ["Not Switching", "Switching"]};
+	var mapPic = {enabled: 0, description: "Background picture for Maps",		titles: ["Not Switching", "Switching"]};
+	var PrePic = {enabled: 0, description: "Background picture for PreMaps",	titles: ["Not Switching", "Switching"]};
+	var voidPic = {enabled: 0, description: "Background picture for VoidMaps",	titles: ["Not Switching", "Switching"]};
+ 	var spirePic = {enabled: 0, description: "Background picture for Spire",	titles: ["Not Switching", "Switching"]};
+ 	
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
 document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; margin-left: 1%; margin-right: 1%; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
@@ -105,19 +118,6 @@ function createInputSetting(pic,div) {
     div.appendChild(picInput);
     div.appendChild(picLable);
 }
-
-
-	var BR = {enabled: 1, description: "Background RGB R", titles: ["-1", "X"]};
-	var BG = {enabled: 0, description: "Background RGB G", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
-	var BB = {enabled: 1, description: "Background RGB B", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
-	var CR = {enabled: 0, description: "Containers RGB R", titles: ["Not Buying", "Buying Both", "Houses Only", "Nurseries Only"]};
-	var CG = {enabled: 0, description: "Containers RGB G", titles: ["Not Jobbing", "Jobbing"]};
-	var CB = {enabled: 0, description: "Containers RGB B", titles: ["Not Highlighting", "Highlighting All", "Housing Only", "Equipment Only"]};
-	var zonePic = {enabled: 0, description: "Background picture for Zones", titles: ["Not Switching", "Switching"]};
-	var mapPic = {enabled: 0, description: "Background picture for Maps", titles: ["Not Switching", "Switching"]};
-	var PrePic = {enabled: 0, description: "Background picture for PreMaps", titles: ["Not Switching", "Switching"]};
-	var voidPic = {enabled: 0, description: "Background picture for VoidMaps", titles: ["Not Switching", "Switching"]};
- 	var spirePic = {enabled: 0, description: "Background picture for Spire", titles: ["Not Avoiding", "Avoiding"]};
 
 //Add new css rule
 //document.styleSheets[2].insertRule(".settingBtn3 {background-color: #337AB7;}", 84);
