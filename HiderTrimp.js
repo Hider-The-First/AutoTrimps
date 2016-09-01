@@ -259,11 +259,7 @@ function updateConvo (place) {
 function toggleManualPainting(setting){
 	var autoOption = manualPainting[peinting];
 	var toggles = autoOption.titles.length;
-	if (toggles == 2)	autoOption.enabled = (autoOption.enabled) ? 0 : 1;
-	else {
-		autoOption.enabled++;
-		if (autoOption.enabled >= toggles) autoOption.enabled = 0;
-	}
+	autoOption.enabled = (autoOption.enabled) ? 0 : 1;
 	if (autoOption.onToggle) autoOption.onToggle();
 	var menuElem = document.getElementById("toggle" + setting);
 	menuElem.innerHTML = autoOption.titles[autoOption.enabled];
