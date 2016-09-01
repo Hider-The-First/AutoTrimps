@@ -84,23 +84,23 @@ function getNiceThingsDone() {
 	}
 	if ((BR > 0 && BG > 0 && BB > 0 ) || (CR > 0 && CG > 0 && CB > 0 )) {
 	//bring the light.
-	document.getElementById("innerWrapper").style =		"background: rgb("+ document.getElementById("BR").value+","+ document.getElementById("BG").value+"," + document.getElementById("BB").value+");";
-	document.getElementById("battleContainer").style =	"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("gridContainer").style =	"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("science").style =		"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("selectedMapContainer").style =	"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("helium").style =		"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("achievementWrapper").style =	"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("buyContainer").style =		"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("logContainer").style =		"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("queueContainer").style =	"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("wood").style =			"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("fragments").style =		"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("heirloomWrapper").style =	"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("food").style =			"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("metal").style =		"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("gems").style =			"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
-	document.getElementById("trimps").style =		"background: rgb("+ document.getElementById("CR").value+","+ document.getElementById("CG").value+"," + document.getElementById("CB").value+");";
+	document.getElementById("innerWrapper").style =		"background: rgb("+ document.getElementById("BR").value*1+","+ document.getElementById("BG").value*1+"," + document.getElementById("BB").value*1+");";
+	document.getElementById("battleContainer").style =	"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("gridContainer").style =	"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("science").style =		"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("selectedMapContainer").style =	"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("helium").style =		"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("achievementWrapper").style =	"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("buyContainer").style =		"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("logContainer").style =		"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("queueContainer").style =	"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("wood").style =			"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("fragments").style =		"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("heirloomWrapper").style =	"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("food").style =			"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("metal").style =		"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("gems").style =			"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
+	document.getElementById("trimps").style =		"background: rgb("+ document.getElementById("CR").value*1+","+ document.getElementById("CG").value*1+"," + document.getElementById("CB").value*1+");";
 	}
 }
 
