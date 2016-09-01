@@ -1,5 +1,29 @@
 
 /*
+function getNiceThingsDone() {
+	//the pictures
+	if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://4hdwallpapers.com/wp-content/uploads/2014/12/road_summer-Beautiful_natural_scenery_Desktop_Wallpapers_1366x768-1024x575.jpg"></div><div');
+	} else if (game.global.preMapsActive) {
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="https://images6.alphacoders.com/695/695567.jpg"></div><div');
+	} else if (game.global.mapsActive && getCurrentMapObject().location == "Void") {
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://www.wallpapersxl.com/wallpapers/1920x1200/dreams/1502375/dreams-planet-and-nebula-fantasy-1502375.jpg"></div><div');
+	} else if (game.global.mapsActive && getCurrentMapObject().location != "Void") {
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://previews.123rf.com/images/zhudifeng/zhudifeng1205/zhudifeng120503093/13537723-An-Magnifier-on-a-Treasure-map-background--Stock-Photo-map-world-old.jpg"></div><div');
+	} else if (game.global.world == 200 && game.global.spireActive) {
+	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://vignette3.wikia.nocookie.net/galaxycentre/images/e/e6/VORTEX_Wallpaper_0tk8x.jpg/revision/latest?cb=20131125141428"></div><div');
+	}
+	if (!game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
+		var cells = document.getElementById("grid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
+	}
+	if (game.global.mapsActive && (new Date().getTime() - game.global.mapStarted) > 1600 && game.global.mapGridArray.length != 0) {
+		var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
+	}
+}
+*/
+
+
+/*
 //make things better
 document.getElementById("innerWrapper").style = "background: rgb(140, 20, 240);";
 document.getElementById("battleContainer").style = "background: rgb(0, 0, 0);";
@@ -33,12 +57,21 @@ document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 75%; float: left;";
-document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 25%; float: right; vertical-align;"><div id="buildingsCollectBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(153, 153, 77) none repeat scroll 0% 0%; margin-top: 0.5vh;">HiderTrimp</div></div>');
-
+document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 20%; float: right; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
+letMeTalk = document.getElementById("talkingBtn");
+letMeTalk.setAttribute("onmouseover", 'tooltip(\"Talk\", \"customText\", event, \"He knows a lot about how Trimps works.\")');
+letMeTalk.setAttribute("onmouseout", 'tooltip("hide")');
 //setup talk window
 document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div id="autotrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="autotrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://cloud.githubusercontent.com/assets/14081390/9893516/d9db4782-5bde-11e5-8791-91638bb6aaae.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 153, 77) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">This is the question.</p><p></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="1" onclick="alert(\'clicked\')">Answer 1</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="2" onclick="alert(\'clicked\')">Answer 2</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="3" onclick="alert(\'clicked\')"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'autotrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
 document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="genBTCTrimp"><div style="border: 1px solid white; background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 100%; padding: .3vw;" id="autosettings0"> <a href="https://discord.gg/0VbWe0dxB9kIfV2C" target="_blank">Join the chat</div></div>');
-//document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="autosettings"><div style="border: 1px solid white; background: rgb(84, 83, 83) none repeat scroll 0% 0%; width: 100%; padding: .3vw;" id="autosettings0">Settings</div></div>');
+
+//setup paint button
+document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 15%; float: right; vertical-align;"><div id="paintingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
+letMePaint = document.getElementById("paintingBtn");
+letMePaint.setAttribute("onmouseover", 'tooltip(\"Paint\", \"customText\", event, \"He knows a lot about how Trimps works.\")');
+letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
+//setup talk window
+document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div id="autotrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="autotrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://s-media-cache-ak0.pinimg.com/originals/b9/96/04/b99604162166ede3dba2dd9ab08cda82.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">This is the question.</p><p></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="1" onclick="alert(\'clicked\')">Answer 1</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="2" onclick="alert(\'clicked\')">Answer 2</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="3" onclick="alert(\'clicked\')"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'autotrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
 
 
 //Add new css rule
@@ -48,8 +81,10 @@ var getPercent = 0;
 var reactPercent = 0;
 function getStats() {
     reactPercent = 0;
-    getPercent = (game.stats.heliumHour.value()/game.global.totalHeliumEarned)*100;
-    if (getPercent.toFixed(3) > 0.53) {
+    getPercent = (game.stats.heliumHour.value() / (game.global.totalHeliumEarned - (game.global.heliumLeftover + game.resources.helium.owned)))*100;
+    if (getPercent.toFixed(3) > 0.54) {
+        reactPercent = " An amazing result, share it with others, they will appriciate it.";
+    } else if (getPercent.toFixed(3) > 0.53) {
         reactPercent = " GRATZ, A NEW WORLD RECORD!";
     } else if (getPercent.toFixed(3) > 0.52) {
         reactPercent = " Only a few ever got this far.";
@@ -65,10 +100,10 @@ function getStats() {
     return getPercent.toFixed(3) + '%'; //return
 }
 
-var getGigaDelta = 0;
-var reactGigaDelta = 0;
-function getStats() {
-    reactGigaDelta = 0;
+var getGigaDelta = false;
+var reactGigaDelta = false;
+function getStats2() {
+    reactGigaDelta = true;
     getGigaDelta = (getPageSetting('FirstGigastation') > 40 || getPageSetting('DeltaGigastation') > 2);
     if (getGigaDelta == true) {
         reactGigaDelta = "First Gigastation must be under 41 and Min Warpstation must be under two, if you don't know how it works, why don't you click on the chat and ask?";
@@ -78,16 +113,29 @@ function getStats() {
     return getGigaDelta;
 }
 
+var getAutoPortal = false;
+var reactAutoPortal = false;
+function getStats3() {
+    reactAutoPortal = true;
+    getAutoPortal = (getPageSetting('HeliumHrBuffer') > 0 || autoTrimpSettings.AutoPortal.selected != "Helium Per Hour");
+    if (getAutoPortal == true) {
+        reactAutoPortal = "The Helium/Hr Buffer must be set to 0 and Auto Portal is there in order to help you get better Helium per hour, if you don't know how it works, why don't you click on the chat and ask?";
+    } else if (getAutoPortal == false) {
+        reactAutoPortal = "You know the Truth.";
+    }
+    return getAutoPortal;
+}
+
 //setup convo array
 var conversation = [];
-conversation[0] = {Q:"HiThere.",R1:"Tell me the Truth.",L1:1,R2:"How am i doing so far?",L2:5,R3:"Tell me what to do.",L3:3};
-conversation[1] = {Q:reactPercent,R1:"I know the Truth.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
+conversation[0] = {Q:"Hello.",R1:"Tell me the Truth.",L1:1,R2:"How am i doing so far?",L2:5,R3:"Tell me what to do.",L3:3};
+conversation[1] = {Q:"" +reactGigaDelta,R1:"Be more honest please.",L1:6,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
 conversation[2] = {Q:"OK.",R1:"Again.",L1:0,R2:"How am i doing so far?",L2:5,R3:"What can go wrong in the Don't Touch Zone?",L3:4};
 conversation[3] = {Q:"Please set Auto Portal to Helium Per Hour and set First Gigastation to 40 (or less). Make sure that Min Warpstation is set to two (or less). And notice that some of the Void Maps will be done before your Void Maps settings, so please use it and set the Void Maps to no more then 10 Zones before you predict that you will Auto Portal. Have a nice AutoAutoTrimps experience.",R1:"Wow, HelpfulTrimp!",L1:0};
 conversation[4] = {Q:"You.",R1:"Meh.",L1:0};
-conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
-conversation[6] = {Q:"There's an intelligent life down here.",R1:"Lies.",L1:7};
-conversation[7] = {Q:"Never admit!",R1:"Scotty!!.",L1:0};
+conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
+conversation[6] = {Q:"" +reactAutoPortal,R1:"Please be much more honest.",L1:7,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
+conversation[7] = {Q:"I am not a real Trimp.",R1:"I knew the Truth.",L1:0};
 updateConvo(0);
 
 /*
@@ -110,8 +158,9 @@ updateConvo(0);
 
 //only functions below here
 function updateConvo (place) {
-  conversation[1] = {Q:reactPercent,R1:"I know the Truth.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
-  conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"beam me up scotty.",L3:6};
+  conversation[1] = {Q:"" +reactGigaDelta,R1:"Be more honest please.",L1:6,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
+  conversation[5] = {Q:"Your current Helium per hour gain is " + getStats() + "" +reactPercent,R1:"Cool.",L1:0,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
+  conversation[6] = {Q:"" +reactAutoPortal,R1:"Please be much more honest.",L1:7,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
   document.getElementById("q").innerHTML = conversation[place].Q;
   document.getElementById("1").innerHTML = conversation[place].R1;
   document.getElementById("1").onclick = (function() { var test = conversation[place].L1; return function() {updateConvo(test + '');}})();
@@ -126,5 +175,7 @@ function updateConvo (place) {
 
 function talk() {
   getStats();
+  getStats2();
+  getStats3();
   document.getElementById("autotrimp").style.display = "block";
 }
