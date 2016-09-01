@@ -57,7 +57,7 @@ document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
-document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 15%; float: right; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
+document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
 letMeTalk = document.getElementById("talkingBtn");
 letMeTalk.setAttribute("onmouseover", 'tooltip(\"Talk\", \"customText\", event, \"He knows a lot about how Trimps works.\")');
 letMeTalk.setAttribute("onmouseout", 'tooltip("hide")');
@@ -66,7 +66,7 @@ document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div i
 document.getElementById("autotrimp").insertAdjacentHTML('beforeend', '<div style="width: 100%; display: table; border-spacing:0.3vw;" id="genBTCTrimp"><div style="border: 1px solid white; background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 100%; padding: .3vw;" id="autosettings0"> <a href="https://discord.gg/0VbWe0dxB9kIfV2C" target="_blank">Join the chat</div></div>');
 
 //setup paint button
-document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 15%; float: right; vertical-align;"><div id="paintingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Paint</div></div>');
+document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; vertical-align;"><div id="paintingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Paint</div></div>');
 letMePaint = document.getElementById("paintingBtn");
 letMePaint.setAttribute("onmouseover", 'tooltip(\"Paint\", \"customText\", event, \"She can paint things.\")');
 letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
