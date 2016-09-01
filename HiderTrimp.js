@@ -38,7 +38,7 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 //beforebegin //afterbegin //beforeend //afterend
 
 function getNiceThingsDone() {
-		if (zonePic != 1 || PrePic != 1 || voidPic != 1 || mapPic != 1 || spirePic != 1) {
+		if (zonePic != null || PrePic != null || voidPic != null || mapPic != null || spirePic != null) {
 		//bring the art.
 		if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("zonePic").value + '"></div>');
@@ -58,7 +58,7 @@ function getNiceThingsDone() {
 			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
 	}
-	if ((BR >= 0 && BG >= 0 && BB >= 0 ) || (CR >= 0 && CG >= 0 && CB >= 0 )) {
+	if ((BR != null && BG != null && BB != null ) || (CR != null && CG != null && CB != null )) {
 	//bring the light.
 	document.getElementById("innerWrapper").style = "background: rgb("+ BR +","+ BG +","+ BB +");";
 	document.getElementById("battleContainer").style = "background: rgb("+CR+","+CG+","+CB+");";
