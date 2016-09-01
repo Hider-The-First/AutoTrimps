@@ -1,59 +1,58 @@
 
-/*
+var zonePic = -1;
+var PrePic = -1;
+var voidPic = -1;
+var mapPic = -1;
+var spirePic = -1;
+var BR = -1;
+var BG = -1;
+var BB = -1;
+var CR = -1;
+var CG = -1;
+var CB = -1;
 function getNiceThingsDone() {
-	//the pictures
-	if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://4hdwallpapers.com/wp-content/uploads/2014/12/road_summer-Beautiful_natural_scenery_Desktop_Wallpapers_1366x768-1024x575.jpg"></div><div');
-	} else if (game.global.preMapsActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="https://images6.alphacoders.com/695/695567.jpg"></div><div');
-	} else if (game.global.mapsActive && getCurrentMapObject().location == "Void") {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://www.wallpapersxl.com/wallpapers/1920x1200/dreams/1502375/dreams-planet-and-nebula-fantasy-1502375.jpg"></div><div');
-	} else if (game.global.mapsActive && getCurrentMapObject().location != "Void") {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://previews.123rf.com/images/zhudifeng/zhudifeng1205/zhudifeng120503093/13537723-An-Magnifier-on-a-Treasure-map-background--Stock-Photo-map-world-old.jpg"></div><div');
-	} else if (game.global.world == 200 && game.global.spireActive) {
-	document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="http://vignette3.wikia.nocookie.net/galaxycentre/images/e/e6/VORTEX_Wallpaper_0tk8x.jpg/revision/latest?cb=20131125141428"></div><div');
+		if (zonePic != -1 && PrePic != -1 && voidPic != -1 && mapPic != -1 && spirePic != -1) {
+		//bring the art.
+		if (!game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="zonePic"></div><div');
+		} else if (game.global.preMapsActive) {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="PrePic"></div><div');
+		} else if (game.global.mapsActive && getCurrentMapObject().location == "Void") {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="voidPic"></div><div');
+		} else if (game.global.mapsActive && getCurrentMapObject().location != "Void") {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="mapPic"></div><div');
+		} else if (game.global.world == 200 && game.global.spireActive) {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img style="max-height: 9000vw; vertical-align; background;" src="spirePic"></div><div');
+		}
+		if (!game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
+			var cells = document.getElementById("grid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
+		}
+		if (game.global.mapsActive && (new Date().getTime() - game.global.mapStarted) > 1600 && game.global.mapGridArray.length != 0) {
+			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
+		}
 	}
-	if (!game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
-		var cells = document.getElementById("grid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
-	}
-	if (game.global.mapsActive && (new Date().getTime() - game.global.mapStarted) > 1600 && game.global.mapGridArray.length != 0) {
-		var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
+	if (BR != -1 && BG != -1 && BB != -1 && CR != -1 && CG != -1 && CB != -1) {
+	//bring the light.
+	document.getElementById("innerWrapper").style = "background: rgb(BR, BG, BB);";
+	document.getElementById("battleContainer").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("gridContainer").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("science").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("selectedMapContainer").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("helium").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("achievementWrapper").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("buyContainer").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("logContainer").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("queueContainer").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("wood").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("fragments").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("heirloomWrapper").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("food").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("metal").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("gems").style = "background: rgb(CR, CG, CB);";
+	document.getElementById("trimps").style = "background: rgb(CR, CG, CB);";
+	//beforbegin //afterbegin //beforeend //afterend
 	}
 }
-*/
-
-
-/*
-//make things better
-document.getElementById("innerWrapper").style = "background: rgb(140, 20, 240);";
-document.getElementById("battleContainer").style = "background: rgb(0, 0, 0);";
-document.getElementById("gridContainer").style = "background: rgb(0, 0, 0);";
-document.getElementById("science").style = "background: rgb(0, 0, 0);";
-document.getElementById("selectedMapContainer").style = "background: rgb(0, 0, 0);";
-document.getElementById("helium").style = "background: rgb(0, 0, 0);";
-document.getElementById("achievementWrapper").style = "background: rgb(0, 0, 0);";
-document.getElementById("buyContainer").style = "background: rgb(0, 0, 0);";
-document.getElementById("logContainer").style = "background: rgb(0, 0, 0);";
-document.getElementById("queueContainer").style = "background: rgb(0, 0, 0);";
-document.getElementById("wood").style = "background: rgb(0, 0, 0);";
-document.getElementById("fragments").style = "background: rgb(0, 0, 0);";
-document.getElementById("heirloomWrapper").style = "rgb(0, 0, 0);";
-document.getElementById("food").style = "background: rgb(0, 0, 0);";
-document.getElementById("metal").style = "background: rgb(0, 0, 0);";
-document.getElementById("gems").style = "background: rgb(0, 0, 0);";
-document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
-*/
-
-//working//document.getElementById("science").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 3vw; float: left; background;" src="http://klubznaniy.ru/%D0%B1%D0%B8%D0%BE%20%D0%B5%D0%B3%D1%8D%2015.png"></div><div');
-//working//document.getElementById("food").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 2vw; float: left; background;" src="http://www.iconsplace.com/icons/preview/white/cooking-pot-256.png"></div><div');
-//working//document.getElementById("wood").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 3vw; float: left; background;" src="https://www.drevomorava.cz/ftp/images/4.png"></div><div');
-//working//document.getElementById("trimps").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 2vw; float: left; background;" src="http://www.freeiconspng.com/uploads/building-city-town-icon-png--3.png"></div><div');
-
-//need to fit better//document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div id="pic"><img style="max-height: 2vw; float: left; background;" src="https://cdn1.iconfinder.com/data/icons/construction-and-renovation/80/Construction_renovation-12-512.png"></div><div');
-//did not work//document.getElementById("battleContainer").style =  "width: 20%;" id="pic"><img style="max-height: 13vw;" src="https://catbox.moe/pictures/qts/1468421480662.png"></div><div
-//cant make it work//document.getElementById("metal").insertAdjacentHTML('afterbegin', '<div id="pic"><img style="max-height: 2vw; float: left; background;" src="http://game-icons.net/icons/lorc/originals/svg/anvil-impact.svg"></div><div');
-
-//beforbegin //afterbegin //beforeend //afterend
 
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
@@ -70,8 +69,8 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div 
 letMePaint = document.getElementById("paintingBtn");
 letMePaint.setAttribute("onmouseover", 'tooltip(\"Paint\", \"customText\", event, \"She can paint things.\")');
 letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
-//setup talk window
-document.getElementById("boneWrapper").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="http://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">This is the question.</p><p></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="1" onclick="alert(\'clicked\')">Answer 1</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="2" onclick="alert(\'clicked\')">Answer 2</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="3" onclick="alert(\'clicked\')"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
+//setup paint window
+document.getElementById("autosettings0").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="http://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">This is the question.</p><p></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="1" onclick="alert(\'clicked\')">Answer 1</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="2" onclick="alert(\'clicked\')">Answer 2</a></p><p style="font-size: 0.8em;"><a style="color: rgb(128, 0, 0); text-decoration: underline;" href="#" id="3" onclick="alert(\'clicked\')"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
 
 
 //Add new css rule
@@ -181,8 +180,6 @@ function talk() {
 }
 
 function paint() {
-  getStats();
-  getStats2();
-  getStats3();
+  getNiceThingsDone();
   document.getElementById("paintTrimp").style.display = "block";
 }
