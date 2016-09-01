@@ -57,7 +57,7 @@ document.getElementById("trimps").style = "background: rgb(0, 0, 0);";
 
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
-document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; margin-left: 1vw; margin-right: 1vw; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
+document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; margin-left: 5%; margin-right: 5%; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
 letMeTalk = document.getElementById("talkingBtn");
 letMeTalk.setAttribute("onmouseover", 'tooltip(\"Talk\", \"customText\", event, \"He knows a lot about how Trimps works.\")');
 letMeTalk.setAttribute("onmouseout", 'tooltip("hide")');
