@@ -214,58 +214,6 @@ for (var item in autoTSettings) {
 }
 autosettings.innerHTML = html;
 
-// send trimps to work if there are a lot waiting around!!
-function sendTrimpsToWork() {
-	var workspaces = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
-	if (workspaces > game.global.buyAmt) {
-		var buyAmt = game.global.buyAmt;
-		game.global.buyAmt = Math.ceil((workspaces- game.global.buyAmt)*0.1);
-		if (game.jobs.Farmer.owned > 1000000) {
-			// if more than 1000000 farmers allocate 3:1:4
-			if (game.jobs.Farmer.owned < game.jobs.Lumberjack.owned * 3 && game.jobs.Farmer.owned * 4 < 2 * game.jobs.Miner.owned) {
-				buyJob("Farmer");
-				tooltip("hide");
-			} else if (game.jobs.Lumberjack.owned * 4 < game.jobs.Miner.owned * 1) {
-				buyJob("Lumberjack");
-				tooltip("hide");
-			} else {
-				buyJob("Miner");
-				tooltip("hide");
-			}
-		} else if (game.jobs.Farmer.owned > 100000) {
-			// if more than 100000 farmers allocate 3:3:5
-			if (game.jobs.Farmer.owned * 3 < game.jobs.Lumberjack.owned * 3 && game.jobs.Farmer.owned * 5 < 3 * game.jobs.Miner.owned) {
-				buyJob("Farmer");
-				tooltip("hide");
-			} else if (game.jobs.Lumberjack.owned * 5 < game.jobs.Miner.owned * 3) {
-				buyJob("Lumberjack");
-				tooltip("hide");
-			} else {
-				buyJob("Miner");
-				tooltip("hide");
-			}
-		} else {
-			// if less than  100000 farmers allocate 1:1:1
-			if (game.jobs.Farmer.owned < game.jobs.Lumberjack.owned && game.jobs.Farmer.owned < game.jobs.Miner.owned) {
-				buyJob("Farmer");
-				tooltip("hide");
-			} else if (game.jobs.Lumberjack.owned < game.jobs.Miner.owned) {
-				buyJob("Lumberjack");
-				tooltip("hide");
-			} else  if(game.jobs.Miner.locked == 0){
-				buyJob("Miner");
-				tooltip("hide");
-			}
-		}
-		game.global.buyAmt = buyAmt;
-	}
-}
-
-
-
-
-manualPainting.innerHTML = html;
-
 //only functions below here
 function updateConvo (place) {
   conversation[1] = {Q:"" +reactGigaDelta,R1:"Be more honest please.",L1:6,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
