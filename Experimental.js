@@ -1,4 +1,15 @@
 
+var zonePic = -1;
+var PrePic = -1;
+var voidPic = -1;
+var mapPic = -1;
+var spirePic = -1;
+var BR = -1;
+var BG = -1;
+var BB = -1;
+var CR = -1;
+var CG = -1;
+var CB = -1;
 function getNiceThingsDone() {
 		if (zonePic != -1 && PrePic != -1 && voidPic != -1 && mapPic != -1 && spirePic != -1) {
 		//bring the art.
