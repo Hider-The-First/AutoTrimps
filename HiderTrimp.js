@@ -199,16 +199,16 @@ if (checking != null && checking.versioning == version) {
 }
 
 //add buttonss
-var autosettings = document.getElementById("autosettings0");
+var manualPainting = document.getElementById("manualPainting0");
 var html = "";
 for (var item in autoTSettings) {
 	if (item != "versioning") {
 		var optionItem = autoTSettings[item]; 
 		var text = optionItem.titles[optionItem.enabled]; 
-		html += "<div class='optionContainer'><div id='toggle" + item + "' class='noselect settingBtn settingBtn" + optionItem.enabled + "' onclick='toggleAutoSetting(\"" + item + "\")'>" + text + "</div><div class='optionItemDescription'>" + optionItem.description + "</div></div> ";
+		html += "<div class='optionContainer'><div id='toggle" + item + "' class='noselect settingBtn settingBtn" + optionItem.enabled + "' onclick='toggleManualPainting(\"" + item + "\")'>" + text + "</div><div class='optionItemDescription'>" + optionItem.description + "</div></div> ";
 	}
 }
-autosettings.innerHTML = html;
+manualPainting.innerHTML = html;
 
 //only functions below here
 function updateConvo (place) {
