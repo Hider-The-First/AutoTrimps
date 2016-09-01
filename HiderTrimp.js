@@ -182,6 +182,10 @@ updateConvo(0);
 */
 
 //setup options
+var checking = JSON.parse(localStorage.getItem("autotrimpsave"));
+if (checking != null && checking.versioning == version) {
+	autoTSettings = checking;
+	}else {
 	var autobuildings = {enabled: 1, description: "Automatically buy storage buildings when they're 90% full", titles: ["Not Buying", "Buying"]};
 	var autogymbutes = {enabled: 0, description: "Automatically buy gyms and tributes when we can afford them", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
 	var autoupgrades = {enabled: 1, description: "Automatically read certain upgrade books to you and the trimps", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
@@ -196,17 +200,19 @@ updateConvo(0);
 	var autosnimps = {enabled: 0, description: "I'll automatically buy items to help us get past snimps, squimps, and other fast enemies", titles: ["Not Avoiding", "Avoiding"]};
 	var automapbmax = {enabled: 0, description: "I'll manage turning map repeat on and off so we can reach the max map bonus", titles: ["Not Managing", "Managing","Buy and Manage"]};
 	autoTSettings = {versioning: version, autobuildings: autobuildings, autogymbutes: autogymbutes, autobuildhouses: autobuildhouses, autoworkers: autoworkers, autoupgrades: autoupgrades, autohighlight: autohighlight, autopremaps: autopremaps, automapbmax: automapbmax, autogather: autogather, autosnimps: autosnimps, autoformations: autoformations};
+}
 
 //add buttonss
-var manualPainting = document.getElementById("manualPainting0");
+var autosettings = document.getElementById("autosettings0");
 var html = "";
-for (var item in manualPainting) {
+for (var item in autoTSettings) {
 	if (item != "versioning") {
-		var optionItem = manualPainting[item]; 
+		var optionItem = autoTSettings[item]; 
 		var text = optionItem.titles[optionItem.enabled]; 
-		html += "<div class='optionContainer'><div id='toggle" + item + "' class='noselect settingBtn settingBtn" + optionItem.enabled + "' onclick='toggleManualPainting(\"" + item + "\")'>" + text + "</div><div class='optionItemDescription'>" + optionItem.description + "</div></div> ";
+		html += "<div class='optionContainer'><div id='toggle" + item + "' class='noselect settingBtn settingBtn" + optionItem.enabled + "' onclick='toggleAutoSetting(\"" + item + "\")'>" + text + "</div><div class='optionItemDescription'>" + optionItem.description + "</div></div> ";
 	}
 }
+autosettings.innerHTML = html;
 
 // send trimps to work if there are a lot waiting around!!
 function sendTrimpsToWork() {
