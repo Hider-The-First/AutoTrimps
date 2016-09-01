@@ -1,4 +1,26 @@
 
+//original globals
+var gobj = {};
+var hobj = {};
+var aobj = {};
+var hkeysSorted = [];
+var premapscounter = 0;
+var buildcounter = 0;
+var autoTSettings = {};
+var version = "0.37b.17T2";
+var wasgathering = "";
+var badguyMinAtt = 0;
+var badguyMaxAtt = 0;
+var badguyFast = false;
+var mysoldiers = 0;
+var mytoughness = 0;
+var blockformation = 1;
+var healthformation = 1;
+var myblock = 0;
+var myhealth = 0;
+var targetSeconds = 30;
+
+//nice globals
 var zonePic = -1;
 var PrePic = -1;
 var voidPic = -1;
