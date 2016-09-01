@@ -33,9 +33,6 @@ var CR = -1;
 var CG = -1;
 var CB = -1;
 
-//tribute.
-document.getElementById("boneFlavorRow").innerHTML = "The Bone Trader trades bones for...bonuses";
-
 function getNiceThingsDone() {
 		if (zonePic != -1 && PrePic != -1 && voidPic != -1 && mapPic != -1 && spirePic != -1) {
 		//bring the art.
@@ -95,7 +92,7 @@ letMePaint = document.getElementById("paintingBtn");
 letMePaint.setAttribute("onmouseover", 'tooltip(\"Paint\", \"customText\", event, \"She can paint things.\")');
 letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
 //setup paint window
-document.getElementById("buyContainer").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="http://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><p></p><p id="manualPainting"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
+document.getElementById("buyContainer").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: rgb(0, 0, 0) none repeat scroll 0% 0%; border: 2px solid rgb(0, 0, 0); width: 64vw; margin: 6vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: rgb(255, 255, 255);"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 20%;" id="pic"><img style="max-height: 13vw;" src="http://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 60%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><p></p><p id="manualPainting0"></a></p></div><div id="button" style="display: table-cell; width: 20%; background: rgb(0, 0, 0) none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
 //beforebegin //afterbegin //beforeend //afterend
 
 //Add new css rule
@@ -181,7 +178,7 @@ updateConvo(0);
 */
 
 //add buttonss
-var manualPainting = document.getElementById("manualPainting");
+var manualPainting = document.getElementById("manualPainting0");
 var html = "";
 for (var item in manualPainting) {
 	if (item != "versioning") {
@@ -259,6 +256,20 @@ function updateConvo (place) {
   if ("L3" in conversation[place]) {document.getElementById("3").onclick = (function() { var test = conversation[place].L3; return function() {updateConvo(test + '');}})();}
 }
 
+function toggleManualPainting(setting){
+	var autoOption = manualPainting[peinting];
+	var toggles = autoOption.titles.length;
+	if (toggles == 2)	autoOption.enabled = (autoOption.enabled) ? 0 : 1;
+	else {
+		autoOption.enabled++;
+		if (autoOption.enabled >= toggles) autoOption.enabled = 0;
+	}
+	if (autoOption.onToggle) autoOption.onToggle();
+	var menuElem = document.getElementById("toggle" + setting);
+	menuElem.innerHTML = autoOption.titles[autoOption.enabled];
+	menuElem.className = "";
+	menuElem.className = "settingBtn settingBtn" + autoOption.enabled;
+}
 
 function talk() {
   getStats();
