@@ -178,10 +178,6 @@ updateConvo(0);
 */
 
 //setup options
-var checking = JSON.parse(localStorage.getItem("autotrimpsave"));
-if (checking != null && checking.versioning == version) {
-	autoTSettings = checking;
-	}else {
 	var autobuildings = {enabled: 1, description: "Automatically buy storage buildings when they're 90% full", titles: ["Not Buying", "Buying"]};
 	var autogymbutes = {enabled: 0, description: "Automatically buy gyms and tributes when we can afford them", titles: ["Not Buying", "Buying Both", "Gyms Only", "Tributes Only"]};
 	var autoupgrades = {enabled: 1, description: "Automatically read certain upgrade books to you and the trimps", titles: ["Not Reading", "Reading", "Reading and Weapons", "Reading and Equipment", "Reading and Armour"]};
