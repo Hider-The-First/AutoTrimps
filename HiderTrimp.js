@@ -6,16 +6,27 @@ var version = "0.37b.17T2";
 
 //nice globals
 var zonePic = null;
+var zonePic = document.getElementById('zonePic');
 var PrePic = null;
+var PrePic = document.getElementById('PrePic');
 var voidPic = null;
+var voidPic = document.getElementById('voidPic');
 var mapPic = null;
+var mapPic = document.getElementById('mapPic');
 var spirePic = null;
+var spirePic = document.getElementById('spirePic');
 var BR = null;
+var BR = document.getElementById('BR');
 var BG = null;
+var BG = document.getElementById('BG');
 var BB = null;
-var CR = null;
-var CG = null;
+var BB = document.getElementById('BB');
+var CR CR= null;
+var CR = document.getElementById('CR');
+var CG = nCGull;
+var CG = document.getElementById('CG');
 var CB = null;
+var CB = document.getElementById('CB');
 
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
