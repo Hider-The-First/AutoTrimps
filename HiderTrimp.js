@@ -230,17 +230,6 @@ function updateConvo (place) {
   if ("L3" in conversation[place]) {document.getElementById("3").onclick = (function() { var test = conversation[place].L3; return function() {updateConvo(test + '');}})();}
 }
 
-function toggleManualPainting(setting){
-	var autoOption = manualPainting[peinting];
-	var toggles = autoOption.titles.length;
-	autoOption.enabled = (autoOption.enabled) ? 0 : 1;
-	if (autoOption.onToggle) autoOption.onToggle();
-	var menuElem = document.getElementById("toggle" + setting);
-	menuElem.innerHTML = autoOption.titles[autoOption.enabled];
-	menuElem.className = "";
-	menuElem.className = "settingBtn settingBtn" + autoOption.enabled;
-}
-
 function talk() {
   getStats();
   getStats2();
