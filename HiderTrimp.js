@@ -207,18 +207,6 @@ function createInputSetting(pic,div) {
 }
 
 
-//add buttonss
-var manualPainting = document.getElementById("manualPainting0");
-var html = "";
-for (var item in autoTSettings) {
-	if (item != "versioning") {
-		var optionItem = autoTSettings[item]; 
-		var text = optionItem.titles[optionItem.enabled]; 
-		html += "<div class='optionContainer'><div id='toggle" + item + "' class='noselect settingBtn settingBtn" + optionItem.enabled + "' onclick='toggleManualPainting(\"" + item + "\")'>" + text + "</div><div class='optionItemDescription'>" + optionItem.description + "</div></div> ";
-	}
-}
-manualPainting.innerHTML = html;
-
 //only functions below here
 function updateConvo (place) {
   conversation[1] = {Q:"" +reactGigaDelta,R1:"Be more honest please.",L1:6,R2:"What can go wrong in the Don't Touch Zone?",L2:4,R3:"I know the Truth.",L3:0};
