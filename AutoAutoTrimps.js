@@ -2941,6 +2941,7 @@ function mainLoop() {
         useScryerStance();                                  //"Use Scryer Stance"
     else
     	autoStance();                                           //"Auto Stance"
+    getNiceThingsDone();					//Paint things.
     if (getPageSetting('AutoFight')) betterAutoFight();     //"Better Auto Fight"
     if (getPageSetting('DynamicPrestige')) prestigeChanging2(); //"Dynamic Prestige" (genBTC settings area)
     else autoTrimpSettings.Prestige.selected = document.getElementById('Prestige').value; //if we dont want to, just make sure the UI setting and the internal setting are aligned.
