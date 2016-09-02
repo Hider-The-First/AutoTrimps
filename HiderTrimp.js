@@ -60,9 +60,8 @@ function getNiceThingsDone() {
 	if ((BR0 > 0 && BG0 > 0 && BB0 > 0) || (CR0 > 0 && CG0 > 0 && CB0 > 0)) {
         var colB = "background: rgb("+BR0+"," +BG0+","+ BB0+");";
         var colC = "background: rgb("+CR0+"," +CG0+","+ CB0+");";
-        //document.getElementById("innerWrapper").style = "background: rgb(BR, BG, BB);";
         document.getElementById("innerWrapper").style = 	colB;
-        //document.getElementById("achievementWrapper").style =	colB;
+        document.getElementById("achievementWrapper").style =	colB;
         document.getElementById("portalWrapper").style =	colB;
         document.getElementById("settingsRow").style =		colB;
         //document.getElementById("equipmentHere").style =	colB;
@@ -74,7 +73,7 @@ function getNiceThingsDone() {
         document.getElementById("science").style =		colC;
         document.getElementById("selectedMapContainer").style =	colC;
         document.getElementById("helium").style =		colC;
-        document.getElementById("pnumTabs").style =		colC;
+        //document.getElementById("pnumTabs").style =		colC;
         document.getElementById("buyContainer").style =		colC;
         document.getElementById("logContainer").style =		colC;
         document.getElementById("queueContainer").style =	colC;
