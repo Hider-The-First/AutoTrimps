@@ -2,19 +2,6 @@
 var buildcounter = 0;
 var autoTSettings = {};
 var version = "0.37b.17T2";
-
-//making the var work
-	var BR = {enabled: 0, description: "Background RGB R",				titles: ["Not Switching", "Switching"]};
-	var BG = {enabled: 0, description: "Background RGB G",				titles: ["Not Switching", "Switching"]};
-	var BB = {enabled: 0, description: "Background RGB B",				titles: ["Not Switching", "Switching"]};
-	var CR = {enabled: 0, description: "Containers RGB R",				titles: ["Not Switching", "Switching"]};
-	var CG = {enabled: 0, description: "Containers RGB G",				titles: ["Not Switching", "Switching"]};
-	var CB = {enabled: 0, description: "Containers RGB B",				titles: ["Not Switching", "Switching"]};
-	var zonePic = {enabled: 0, description: "Background picture for Zones",		titles: ["Not Switching", "Switching"]};
-	var mapPic = {enabled: 0, description: "Background picture for Maps",		titles: ["Not Switching", "Switching"]};
-	var prePic = {enabled: 0, description: "Background picture for PreMaps",	titles: ["Not Switching", "Switching"]};
-	var voidPic = {enabled: 0, description: "Background picture for VoidMaps",	titles: ["Not Switching", "Switching"]};
- 	var spirePic = {enabled: 0, description: "Background picture for Spire",	titles: ["Not Switching", "Switching"]};
  	
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
@@ -62,6 +49,12 @@ function getNiceThingsDone() {
 			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
 	}
+	var BR = document.getElementById("BR").value;
+	var BG = document.getElementById("BG").value;
+	var BB = document.getElementById("BB").value;
+	var CR = document.getElementById("CR").value;
+	var CG = document.getElementById("CG").value;
+	var CB = document.getElementById("CB").value;
 	if ((BR > 0 && BG > 0 && BB > 0) || (CR > 0 && CG > 0 && CB > 0)) {
 	//bring the light.
 	BR0 = document.getElementById("BR").value*1;
