@@ -1,8 +1,9 @@
+
 //original globals
 var buildcounter = 0;
 var autoTSettings = {};
 var version = "0.37b.17T2";
- 	
+
 //setup talk button
 document.getElementById("buildingsQueue").style = "width: 70%; float: left;";
 document.getElementById("queueContainer").insertAdjacentHTML('beforeend', '<div style="color: rgb(255, 255, 255); font-size: 1.2em; text-align: center; width: 10%; float: right; margin-left: 1%; margin-right: 1%; vertical-align;"><div id="talkingBtn" class="workBtn pointer noselect" onclick="talk()" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 0.5vh;">Talk</div></div>');
@@ -49,40 +50,34 @@ function getNiceThingsDone() {
 			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
 	}
-	var BR = document.getElementById("BR").value;
-	var BG = document.getElementById("BG").value;
-	var BB = document.getElementById("BB").value;
-	var CR = document.getElementById("CR").value;
-	var CG = document.getElementById("CG").value;
-	var CB = document.getElementById("CB").value;
-	if ((BR > 0 && BG > 0 && BB > 0) || (CR > 0 && CG > 0 && CB > 0)) {
-	//bring the light.
-	BR0 = document.getElementById("BR").value*1;
-	BG0 = document.getElementById("BG").value*1;
-	BB0 = document.getElementById("BB").value*1;
-	CR0 = document.getElementById("CR").value*1;
-	CG0 = document.getElementById("CG").value*1;
-	CB0 = document.getElementById("CB").value*1;
-	var colB = "background: rgb("+BR0+"," +BG0+","+ BB0+");";
-	var colC = "background: rgb("+CR0+"," +CG0+","+ CB0+");";
-	//document.getElementById("innerWrapper").style = "background: rgb(BR, BG, BB);";
-	document.getElementById("innerWrapper").style = 	colB;
-	document.getElementById("battleContainer").style =	colC;
-	document.getElementById("gridContainer").style =	colC;
-	document.getElementById("science").style =		colC;
-	document.getElementById("selectedMapContainer").style =	colC;
-	document.getElementById("helium").style =		colC;
-	document.getElementById("achievementWrapper").style =	colC;
-	document.getElementById("buyContainer").style =		colC;
-	document.getElementById("logContainer").style =		colC;
-	document.getElementById("queueContainer").style =	colC;
-	document.getElementById("wood").style =			colC;
-	document.getElementById("fragments").style =		colC;
-	document.getElementById("heirloomWrapper").style =	colC;
-	document.getElementById("food").style =			colC;
-	document.getElementById("metal").style =		colC;
-	document.getElementById("gems").style =			colC;
-	document.getElementById("trimps").style =		colC;
+    //bring the light.
+    var BR0 = document.getElementById("BR").value*1;
+    var BG0 = document.getElementById("BG").value*1;
+    var BB0 = document.getElementById("BB").value*1;
+    var CR0 = document.getElementById("CR").value*1;
+    var CG0  = document.getElementById("CG").value*1;
+    var CB0 = document.getElementById("CB").value*1;    
+	if ((BR0 > 0 && BG0 > 0 && BB0 > 0) || (CR0 > 0 && CG0 > 0 && CB0 > 0)) {
+        var colB = "background: rgb("+BR0+"," +BG0+","+ BB0+");";
+        var colC = "background: rgb("+CR0+"," +CG0+","+ CB0+");";
+        //document.getElementById("innerWrapper").style = "background: rgb(BR, BG, BB);";
+        document.getElementById("innerWrapper").style = 	colB;
+        document.getElementById("battleContainer").style =	colC;
+        document.getElementById("gridContainer").style =	colC;
+        document.getElementById("science").style =		colC;
+        document.getElementById("selectedMapContainer").style =	colC;
+        document.getElementById("helium").style =		colC;
+        document.getElementById("achievementWrapper").style =	colC;
+        document.getElementById("buyContainer").style =		colC;
+        document.getElementById("logContainer").style =		colC;
+        document.getElementById("queueContainer").style =	colC;
+        document.getElementById("wood").style =			colC;
+        document.getElementById("fragments").style =		colC;
+        document.getElementById("heirloomWrapper").style =	colC;
+        document.getElementById("food").style =			colC;
+        document.getElementById("metal").style =		colC;
+        document.getElementById("gems").style =			colC;
+        document.getElementById("trimps").style =		colC;
 	}
 }
 
