@@ -7,8 +7,8 @@ var version = "0.37b.17T2";
 //nice globals
 var zonePic = null;
 var zonePic = document.getElementById('zonePic');
-var PrePic = null;
-var PrePic = document.getElementById('PrePic');
+var prePic = null;
+var prePic = document.getElementById('prePic');
 var voidPic = null;
 var voidPic = document.getElementById('voidPic');
 var mapPic = null;
@@ -37,7 +37,7 @@ var CB = document.getElementById('CB');
 	var CB = {enabled: 0, description: "Containers RGB B",				titles: ["Not Switching", "Switching"]};
 	var zonePic = {enabled: 0, description: "Background picture for Zones",		titles: ["Not Switching", "Switching"]};
 	var mapPic = {enabled: 0, description: "Background picture for Maps",		titles: ["Not Switching", "Switching"]};
-	var PrePic = {enabled: 0, description: "Background picture for PreMaps",	titles: ["Not Switching", "Switching"]};
+	var prePic = {enabled: 0, description: "Background picture for PreMaps",	titles: ["Not Switching", "Switching"]};
 	var voidPic = {enabled: 0, description: "Background picture for VoidMaps",	titles: ["Not Switching", "Switching"]};
  	var spirePic = {enabled: 0, description: "Background picture for Spire",	titles: ["Not Switching", "Switching"]};
  	
@@ -63,12 +63,11 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 
 function getNiceThingsDone() {
 }
-/*
-		if (zonePic.length > 5 || PrePic.length > 5 || voidPic.length > 5 || mapPic.length > 5 || spirePic.length > 5) {
+		if (zonePic.length > 5 || prePic.length > 5 || voidPic.length > 5 || mapPic.length > 5 || spirePic.length > 5) {
 		//bring the art. (mapPic.value.length > 5)
 		if (zonePic.length > 5 && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("zonePic").value + '"></div>');
-		} else if (PrePic.length > 5 && game.global.preMapsActive) {
+		} else if (prePic.length > 5 && game.global.preMapsActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("PrePic").value + '"></div>');
 		} else if (voidPic.length > 5 && game.global.mapsActive && getCurrentMapObject().location == "Void") {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("voidPic").value + '"></div>');
