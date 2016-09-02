@@ -30,11 +30,11 @@ function getNiceThingsDone() {
     var mp = document.getElementById("mapPic").value;
     var sp = document.getElementById("spirePic").value;
     if (zp.length > 5 || pp.length > 5 || vp.length > 5 || mp.length > 5 || sp.length > 5) {
-    		zp = zp.replace('https://','http://');
-		pp = pp.replace('https://','http://');
-		vp = vp.replace('https://','http://');
-		mp = mp.replace('https://','http://');
-		sp = sp.replace('https://','http://');
+    		zp = zp.replace('http://','https://');
+		pp = pp.replace('http://','https://');
+		vp = vp.replace('http://','https://');
+		mp = mp.replace('http://','https://');
+		sp = sp.replace('http://','https://');
 		//bring the art. (mp.length > 5)
 		if (zp.length > 5 && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + zp + '"></div>');
