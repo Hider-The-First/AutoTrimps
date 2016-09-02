@@ -92,8 +92,8 @@ function getNiceThingsDone() {
 	CR0 = document.getElementById("CR").value*1;
 	CG0 = document.getElementById("CG").value*1;
 	CB0 = document.getElementById("CB").value*1;
-	var colB = "background: rgb(" + BR0 + "," + BG0 + "," + BB0 + ");";
-	var colC = "background: rgb(" + CR0 + "," + CG0 + "," + CB0 + ");";
+	var colB = "background: rgb("+BR0+"," +BG0+","+ BB0+");";
+	var colC = "background: rgb("+CR0+"," +CG0+","+ CB0+");";
 	//document.getElementById("innerWrapper").style = "background: rgb(BR, BG, BB);";
 	document.getElementById("innerWrapper").style = 	colB;
 	document.getElementById("battleContainer").style =	colC;
