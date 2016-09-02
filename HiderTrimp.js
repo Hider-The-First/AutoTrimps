@@ -62,23 +62,23 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 //beforebegin //afterbegin //beforeend //afterend
 
 function getNiceThingsDone() {
-		if (zonePicvalue != "" || PrePicvalue != "" || voidPicvalue != "" || mapPicvalue != "" || spirePicvalue != "") {
+		if (zonePic.value != "" || PrePic.value != "" || voidPic.value != "" || mapPic.value != "" || spirePic.value != "") {
 		//bring the art. (mapPic.value.length > 5)
-		if (zonePicvalue != "" && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
+		if (zonePic.value != "" && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("zonePic").value + '"></div>');
-		} else if (PrePicvalue != "" && game.global.preMapsActive) {
+		} else if (PrePic.value != "" && game.global.preMapsActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("PrePic").value + '"></div>');
-		} else if (voidPicvalue != "" && game.global.mapsActive && getCurrentMapObject().location == "Void") {
+		} else if (voidPic.value != "" && game.global.mapsActive && getCurrentMapObject().location == "Void") {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("voidPic").value + '"></div>');
-		} else if (mapPicvalue != "" && game.global.mapsActive && getCurrentMapObject().location != "Void") {
+		} else if (mapPic.value != "" && game.global.mapsActive && getCurrentMapObject().location != "Void") {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("mapPic").value + '"></div>');
-		} else if (spirePicvalue != "" && game.global.world == 200 && game.global.spireActive) {
+		} else if (spirePic.value != "" && game.global.world == 200 && game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("spirePic").value + '"></div>');
 		}
-		if ((spirePicvalue != "" || zonePicvalue != "") && game.resources.trimps.soldiers != 0 && !game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
+		if ((spirePic.value != "" || zonePic.value != "") && game.resources.trimps.soldiers != 0 && !game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
 			var cells = document.getElementById("grid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
-		if ((mapPicvalue != "" || voidPicvalue != "") && game.resources.trimps.soldiers != 0 && game.global.mapsActive && (new Date().getTime() - game.global.mapStarted) > 1600 && game.global.mapGridArray.length != 0) {
+		if ((mapPic.value != "" || voidPic.value != "") && game.resources.trimps.soldiers != 0 && game.global.mapsActive && (new Date().getTime() - game.global.mapStarted) > 1600 && game.global.mapGridArray.length != 0) {
 			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
 	}
