@@ -1715,7 +1715,7 @@ function autoStance() {
         setPageSetting('ScryerUseWhenOverkill',false);
     //Overkill button being on and being able to overkill in S will override any other setting, regardless.
     if (useoverkill && game.portal.Overkill.level > 0) {
-        var avgDamage = ((baseDamage * getPlayerCritDamageMult())+baseDamage)/(1/getPlayerCritChance());
+        var avgDamage = baseDamage * ((getPlayerCritDamageMult() * getPlayerCritChance()) + (1 - getPlayerCritChance()));
         var Sstance = 0.125;
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
@@ -2804,7 +2804,7 @@ function useScryerStance() {
         setPageSetting('ScryerUseWhenOverkill',false);
     //Overkill button being on and being able to overkill in S will override any other setting, regardless.
     if (useoverkill && game.portal.Overkill.level > 0) {
-        var avgDamage = ((baseDamage * getPlayerCritDamageMult())+baseDamage)/(1/getPlayerCritChance());
+        var avgDamage = baseDamage * ((getPlayerCritDamageMult() * getPlayerCritChance()) + (1 - getPlayerCritChance()));
         var Sstance = 0.125;
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
