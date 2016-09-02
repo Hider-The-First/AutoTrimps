@@ -21,7 +21,7 @@ head.appendChild(queuescript);
 //Create button and Add to Trimps Perk Window(and Portal)
 var buttonbar = document.getElementById("portalWrapper");
 var btnParent = document.createElement("DIV");
-btnParent.id = 'allocatorBtnContainer';
+btnParent.id = 'portalBtnContainer';
 btnParent.setAttribute('style', 'display: inline-block; margin-left: 1vw; margin-right: 1vw; margin-bottom: 1vw; margin-top: 1vw; width: 10vw;');
 var allocatorBtn1 = document.createElement("DIV");
 allocatorBtn1.id = 'allocatorBTN1';
