@@ -62,7 +62,7 @@ function getNiceThingsDone() {
         var colC = "background: rgb("+CR0+"," +CG0+","+ CB0+");";
         document.getElementById("innerWrapper").style = 	colB;
         document.getElementById("achievementWrapper").style =	colB;
-        document.getElementById("portalWrapper").style =	colB;
+        //document.getElementById("portalWrapper").style =	colB;
         document.getElementById("settingsRow").style =		colB;
         document.getElementById("statsWrapper").style =		colB;
         //document.getElementById("upgradesHere").style =	colB;
