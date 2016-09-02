@@ -5,7 +5,6 @@
 // @description  Trimps Automatic Perk Calculator
 // @author       zxv, genBTC
 // @include      *trimps.github.io*
-// @include      *kongregate.com/games/GreenSatellite/trimps
 // @grant        none
 // ==/UserScript==
 
@@ -456,7 +455,7 @@ var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [24*10
 var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [(1*1000*10/(10+Math.pow(game.portal.Coordinated.level,1.5))).toFixed(), (1*1000*10/(10+Math.pow(game.portal.Coordinated.level,1.5))).toFixed()], 0.1); // , 1, 1.5, 8, 3.5, 3
 var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [(24*1000*((0.01*game.portal.Coordinated.level)+2.5)).toFixed(), (24*1000*((0.01*game.portal.Coordinated.level)+2.5)).toFixed()], 0.1); // , 25, 60, 60, 100, 100
 var resourceful = new AutoPerks.VariablePerk("resourceful", 50000, true,  [2*1000, 2*1000], 0.05); // , 2, 2, 2, 1, 1
-var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [2*1000, 0.5*1000], 0.005, 30); // , 3, 5, 3, 5, 10
+var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [(game.portal.Carpentry.level/3)*1000, (game.portal.Carpentry.level/0.5)*1000], 0.005, 30); // , 3, 5, 3, 5, 10
 //tier2 perks
 var toughness_II = new AutoPerks.ArithmeticPerk("toughness_II", 20000, 500, 0.01, toughness);
 var power_II = new AutoPerks.ArithmeticPerk("power_II", 20000, 500, 0.01, power);
