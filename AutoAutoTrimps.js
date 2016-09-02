@@ -1690,21 +1690,21 @@ function autoStance() {
     //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     	if (game.global.formation == 0) {
-    		baseDamage *= 4;
+    		baseDamage *= 2;
     	} else if (game.global.formation != "2") {
     	    baseDamage *= 8;
     	}
     	//baseBlock
     	baseBlock = game.global.soldierCurrentBlock;
     	if (game.global.formation == 0) {
-        	baseBlock *= 4;
+        	baseBlock *= 2;
     	} else if (game.global.formation != "3") {
     	    baseBlock *= 8;
     	}
     	//baseHealth
     	baseHealth = game.global.soldierHealthMax;
     	if (game.global.formation == 0) {
-        	baseHealth *= 4;
+        	baseHealth *= 2;
     	} else if (game.global.formation != "1") {
     	    baseHealth *= 8;
     	}
@@ -1716,10 +1716,11 @@ function autoStance() {
     //Overkill button being on and being able to overkill in S will override any other setting, regardless.
     if (useoverkill && game.portal.Overkill.level > 0) {
         var avgDamage = (baseDamage * (1-getPlayerCritChance()) + (baseDamage * getPlayerCritChance() * getPlayerCritDamageMult()))/2;
+        var avgDamage = ((baseDamage * getPlayerCritDamageMult())+baseDamage)/(1/getPlayerCritChance());
         var Sstance = 0.125;
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
-        ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
+        ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7);
         hiderwindow = ovklHDratio*100;
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
@@ -1739,21 +1740,21 @@ function autoStance() {
     //baseDamage
     baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     	if (game.global.formation == 0) {
-    		baseDamage *= 4;
+    		baseDamage *= 2;
     	} else if (game.global.formation != "2") {
     	    baseDamage *= 8;
     	}
     	//baseBlock
     	baseBlock = game.global.soldierCurrentBlock;
     	if (game.global.formation == 0) {
-        	baseBlock *= 4;
+        	baseBlock *= 2;
     	} else if (game.global.formation != "3") {
     	    baseBlock *= 8;
     	}
     	//baseHealth
     	baseHealth = game.global.soldierHealthMax;
     	if (game.global.formation == 0) {
-        	baseHealth *= 4;
+        	baseHealth *= 2;
     	} else if (game.global.formation != "1") {
     	    baseHealth *= 8;
     	}
@@ -2780,21 +2781,21 @@ function useScryerStance() {
     	//baseDamage
     	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     	if (game.global.formation == 0) {
-    		baseDamage *= 4;
+    		baseDamage *= 2;
     	} else if (game.global.formation != "2") {
     	    baseDamage *= 8;
     	}
     	//baseBlock
     	baseBlock = game.global.soldierCurrentBlock;
     	if (game.global.formation == 0) {
-        	baseBlock *= 4;
+        	baseBlock *= 2;
     	} else if (game.global.formation != "3") {
     	    baseBlock *= 8;
     	}
     	//baseHealth
     	baseHealth = game.global.soldierHealthMax;
     	if (game.global.formation == 0) {
-        	baseHealth *= 4;
+        	baseHealth *= 2;
     	} else if (game.global.formation != "1") {
     	    baseHealth *= 8;
     	}
@@ -2804,11 +2805,11 @@ function useScryerStance() {
         setPageSetting('ScryerUseWhenOverkill',false);
     //Overkill button being on and being able to overkill in S will override any other setting, regardless.
     if (useoverkill && game.portal.Overkill.level > 0) {
-        var avgDamage = (baseDamage * (1-getPlayerCritChance()) + (baseDamage * getPlayerCritChance() * getPlayerCritDamageMult()))/2;
+        var avgDamage = ((baseDamage * getPlayerCritDamageMult())+baseDamage)/(1/getPlayerCritChance());
         var Sstance = 0.125;
         var ovkldmg = avgDamage * Sstance * (game.portal.Overkill.level*0.005);
         //are we going to overkill in S?
-        ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health"));
+        ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7);
         hiderwindow = ovklHDratio*100;
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
@@ -2857,21 +2858,21 @@ function useScryerStance() {
         //baseDamage
     	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
     	if (game.global.formation == 0) {
-    		baseDamage *= 4;
+    		baseDamage *= 2;
     	} else if (game.global.formation != "2") {
     	    baseDamage *= 8;
     	}
     	//baseBlock
     	baseBlock = game.global.soldierCurrentBlock;
     	if (game.global.formation == 0) {
-        	baseBlock *= 4;
+        	baseBlock *= ;
     	} else if (game.global.formation != "3") {
     	    baseBlock *= 8;
     	}
     	//baseHealth
     	baseHealth = game.global.soldierHealthMax;
     	if (game.global.formation == 0) {
-        	baseHealth *= 4;
+        	baseHealth *= 2;
     	} else if (game.global.formation != "1") {
     	    baseHealth *= 8;
     	}
