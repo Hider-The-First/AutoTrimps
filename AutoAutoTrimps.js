@@ -2864,7 +2864,7 @@ function useScryerStance() {
     	//baseBlock
     	baseBlock = game.global.soldierCurrentBlock;
     	if (game.global.formation == 0) {
-        	baseBlock *= ;
+        	baseBlock *= 2;
     	} else if (game.global.formation != "3") {
     	    baseBlock *= 8;
     	}
