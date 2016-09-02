@@ -82,7 +82,7 @@ function getNiceThingsDone() {
 			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
 	}
-	if ((BR != 0 && BG != 0 && BB != 0) || (CR != 0 && CG != 0 && CB != 0)) {
+	if ((BR > 0 && BG > 0 && BB > 0) || (CR > 0 && CG > 0 && CB > 0)) {
 	//bring the light.
 	BR0 = document.getElementById("BR").value*1;
 	BG0 = document.getElementById("BG").value*1;
