@@ -64,8 +64,8 @@ function getNiceThingsDone() {
         document.getElementById("achievementWrapper").style =	colB;
         document.getElementById("portalWrapper").style =	colB;
         document.getElementById("settingsRow").style =		colB;
-        //document.getElementById("equipmentHere").style =	colB;
-        //document.getElementById("upgradesHere").style =		colB;
+        document.getElementById("statsWrapper").style =		colB;
+        //document.getElementById("upgradesHere").style =	colB;
         //document.getElementById("jobsHere").style =		colB;
         //document.getElementById("buildingsHere").style =	colB;
         document.getElementById("battleContainer").style =	colC;
@@ -74,7 +74,7 @@ function getNiceThingsDone() {
         document.getElementById("selectedMapContainer").style =	colC;
         document.getElementById("helium").style =		colC;
         document.getElementById("buyContainer").style =		colC;
-        //document.getElementById("logContainer").style =		colC;
+        //document.getElementById("logContainer").style =	colC;
         document.getElementById("queueContainer").style =	colC;
         document.getElementById("wood").style =			colC;
         document.getElementById("fragments").style =		colC;
