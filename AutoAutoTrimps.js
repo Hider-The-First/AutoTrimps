@@ -2775,29 +2775,29 @@ function exitSpireCell() {
 //use S stance
 function useScryerStance() {
 	
-    //Scryer if Overkill
-    //calculate internal script variables normally processed by autostance.
-    //baseDamage
-    baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
-    if (game.global.formation != 2) {
-    	baseDamage *= 8;
-    //} else if (game.global.formation != "0") {
-    //    baseDamage *= 2;
-    }
-    //baseBlock
-    baseBlock = game.global.soldierCurrentBlock;
-    if (game.global.formation != 3) {
-        baseBlock *= 2;
-    //} else if (game.global.formation != "0") {
-    //    baseBlock *= 2;
-    }
-    //baseHealth
-    baseHealth = game.global.soldierHealthMax;
-    if (game.global.formation != 1) {
-        baseHealth *= 2;
-    //} else if (game.global.formation != "0") {
-    //    baseHealth *= 2;
-    }    
+    	//Scryer if Overkill
+    	//calculate internal script variables normally processed by autostance.
+    	//baseDamage
+    	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    	if (game.global.formation == 0) {
+    		baseDamage *= 4;
+    	} else if (game.global.formation != "2") {
+    	    baseDamage *= 8;
+    	}
+    	//baseBlock
+    	baseBlock = game.global.soldierCurrentBlock;
+    	if (game.global.formation == 0) {
+        	baseBlock *= 4;
+    	} else if (game.global.formation != "3") {
+    	    baseBlock *= 8;
+    	}
+    	//baseHealth
+    	baseHealth = game.global.soldierHealthMax;
+    	if (game.global.formation == 0) {
+        	baseHealth *= 4;
+    	} else if (game.global.formation != "1") {
+    	    baseHealth *= 8;
+    	}
     var ovklHDratio;
     var useoverkill = true; //!!getPageSetting('ScryerUseWhenOverkill');
     if (useoverkill && game.portal.Overkill.level == 0)
@@ -3112,7 +3112,7 @@ function generateHeirloomIcon(heirloom, location, number){
     abutton.id = 'hiderStatus';
     newContainer.appendChild(abutton);
     fightButtonCol.appendChild(newContainer);
-    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Get Dark Essence if over 300%.<br>Buy more Prestige if over 75%.<br>Save high level Void Maps if over 50%.<br>Farm Void Maps if under 30%.<br>Ignore high level Void Maps limits if over 9%.<br>Get +20% Map Bonus if in map and Breeding and if under 3%.<br>Use Dominance Formation in maps if under 3%.<br>Allow He/Hr Auto Portal with Void Maps if under 3%.<br>Get 200% Map Bonus if under 2.5%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")');
+    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Get Dark Essence if over 300%.<br>Buy more Prestige if over 75%.<br>Save high level Void Maps if over 50%.<br>Farm Void Maps if under 30%.<br>Ignore high level Void Maps limits if over 15%.<br>Get +20% Map Bonus if in map and Breeding and if under 3%.<br>Use Dominance Formation in maps if under 3%.<br>Allow He/Hr Auto Portal with Void Maps if under 3%.<br>Get 200% Map Bonus if under 2.5%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")');
     newContainer.setAttribute("onmouseout", 'tooltip("hide")');
 
 var hiderwindow = 0;
