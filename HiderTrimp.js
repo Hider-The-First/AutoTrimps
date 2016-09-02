@@ -63,7 +63,7 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 
 function getNiceThingsDone() {
 		if (zonePicvalue != "" || PrePicvalue != "" || voidPicvalue != "" || mapPicvalue != "" || spirePicvalue != "") {
-		//bring the art.
+		//bring the art. (mapPic.value.length > 5)
 		if (zonePicvalue != "" && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("zonePic").value + '"></div>');
 		} else if (PrePicvalue != "" && game.global.preMapsActive) {
