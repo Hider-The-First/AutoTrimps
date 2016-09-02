@@ -92,25 +92,26 @@ function getNiceThingsDone() {
 	CR0 = document.getElementById("CR").value*1;
 	CG0 = document.getElementById("CG").value*1;
 	CB0 = document.getElementById("CB").value*1;
-	var colB = "rgb(" + BR0 + "," + BG0 + "," + BB0 + ")";
-	var colC = "rgb(" + CR0 + "," + CG0 + "," + CB0 + ")";
-	document.getElementById("innerWrapper").style.backgroundColor = 	colB;
-	document.getElementById("battleContainer").style.backgroundColor =	colC;
-	document.getElementById("gridContainer").style.backgroundColor =	colC;
-	document.getElementById("science").style.backgroundColor =		colC;
-	document.getElementById("selectedMapContainer").style.backgroundColor =	colC;
-	document.getElementById("helium").style.backgroundColor =		colC;
-	document.getElementById("achievementWrapper").style.backgroundColor =	colC;
-	document.getElementById("buyContainer").style.backgroundColor =		colC;
-	document.getElementById("logContainer").style.backgroundColor =		colC;
-	document.getElementById("queueContainer").style.backgroundColor =	colC;
-	document.getElementById("wood").style.backgroundColor =			colC;
-	document.getElementById("fragments").style.backgroundColor =		colC;
-	document.getElementById("heirloomWrapper").style.backgroundColor =	colC;
-	document.getElementById("food").style.backgroundColor =			colC;
-	document.getElementById("metal").style.backgroundColor =		colC;
-	document.getElementById("gems").style.backgroundColor =			colC;
-	document.getElementById("trimps").style.backgroundColor =		colC;
+	var colB = "background: rgb(" + BR0 + "," + BG0 + "," + BB0 + ");";
+	var colC = "background: rgb(" + CR0 + "," + CG0 + "," + CB0 + ");";
+	//document.getElementById("innerWrapper").style = "background: rgb(BR, BG, BB);";
+	document.getElementById("innerWrapper").style = 	colB;
+	document.getElementById("battleContainer").style =	colC;
+	document.getElementById("gridContainer").style =	colC;
+	document.getElementById("science").style =		colC;
+	document.getElementById("selectedMapContainer").style =	colC;
+	document.getElementById("helium").style =		colC;
+	document.getElementById("achievementWrapper").style =	colC;
+	document.getElementById("buyContainer").style =		colC;
+	document.getElementById("logContainer").style =		colC;
+	document.getElementById("queueContainer").style =	colC;
+	document.getElementById("wood").style =			colC;
+	document.getElementById("fragments").style =		colC;
+	document.getElementById("heirloomWrapper").style =	colC;
+	document.getElementById("food").style =			colC;
+	document.getElementById("metal").style =		colC;
+	document.getElementById("gems").style =			colC;
+	document.getElementById("trimps").style =		colC;
 	}
 }
 
