@@ -21,11 +21,6 @@ letMePaint.setAttribute("onmouseover", 'tooltip(\"Paint\", \"customText\", event
 letMePaint.setAttribute("onmouseout", 'tooltip("hide")');
 //setup paint window
 document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<div id="paintTrimp" style="position: absolute; background: black none repeat scroll 0% 0%; border: 2px solid black; width: 64vw; margin: 7vh 18vw; z-index: 10000000; text-align: center; font-size: 1.3vw; display: none; padding: 0.2vw; color: white;"><div style="width: 100%; display: table; border-spacing: 0.3vw;" id="paintTrimp0"><div style="display: table-row;" id="autorow"><div style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 25%;" id="pic"><img style="max-height: 16vw;" src="https://orig09.deviantart.net/a8d5/f/2010/266/7/a/fortune_teller_by_sephiroth_art-d2zbmhv.jpg"></div><div id="qs" style="border: 1px solid white; background: rgb(153, 77, 153) none repeat scroll 0% 0%; display: table-cell; width: 55%; vertical-align: top; padding: 0.5%;"><p style="text-align: left; font-size: 0.9em;" id="q">Lets paint.</p><div style="display: table-row;text-align: left; font-size: 0.7em; color: SPRINGGREEN;"><div style="width:65%; position:relative; display:table-cell;"><p  ><input id="zonePic"><b>Zone Picture</b></p><p><input id="mapPic"><b>Map Picture</b></p><p><input id="prePic"><b>Pre Map Picture</b></p><p style=""><input id="voidPic"><b>Void Maps Picture</b></p><p><input id="spirePic"><b>Spire Picture</b></p></div><div style="width:35%; position:relative; display:table-cell;"><p><b>Background rgb(R,G,B)</b></p><input id="BR" style="width:20%;"><b>R</b><input id="BG" style="width:20%;"><b>G</b><input id="BB" style="width:20%;"><b>B</b></p><p><b>Container rgb(R,G,B)</b></p><p><input id="CR" style="width:20%;"><b>R</b><input id="CG" style="width:20%;"><b>G</b><input id="CB" style="width:20%;"><b>B</b></p><input id="AA" style="width:20%;"><b>% Picture Cover</b><p></div></div></div><div id="button" style="display: table-cell; width: 20%; background: black none repeat scroll 0% 0%; vertical-align: top;"><div class="boneBtn dangerColor pointer noselect" onclick="document.getElementById(\'paintTrimp\').style.display = \'none\'">Close</div></div></div></div></div>');
-zonePic = zonePic.replace('http://','https://');
-prePic = prePic.replace('http://','https://');
-voidPic = voidPic.replace('http://','https://');
-mapPic = mapPic.replace('http://','https://');
-spirePic = spirePic.replace('http://','https://');
 //beforebegin //afterbegin //beforeend //afterend
 
 function getNiceThingsDone() {
@@ -35,6 +30,11 @@ function getNiceThingsDone() {
     var mp = document.getElementById("mapPic").value;
     var sp = document.getElementById("spirePic").value;
     if (zp.length > 5 || pp.length > 5 || vp.length > 5 || mp.length > 5 || sp.length > 5) {
+    		zp = zp.replace('http://','https://');
+		pp = pp.replace('http://','https://');
+		vp = vp.replace('http://','https://');
+		mp = mp.replace('http://','https://');
+		sp = sp.replace('http://','https://');
 		//bring the art. (mp.length > 5)
 		if (zp.length > 5 && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
 		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + zp + '"></div>');
