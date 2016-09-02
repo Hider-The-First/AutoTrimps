@@ -1,32 +1,9 @@
-
 //original globals
 var buildcounter = 0;
 var autoTSettings = {};
 var version = "0.37b.17T2";
 
-//nice globals
-var zonePic = null;
-var zonePic = document.getElementById('zonePic');
-var prePic = null;
-var prePic = document.getElementById('prePic');
-var voidPic = null;
-var voidPic = document.getElementById('voidPic');
-var mapPic = null;
-var mapPic = document.getElementById('mapPic');
-var spirePic = null;
-var spirePic = document.getElementById('spirePic');
-var BR = 0;
-var BR = document.getElementById('BR');
-var BG = 0;
-var BG = document.getElementById('BG');
-var BB = 0;
-var BB = document.getElementById('BB');
-var CR = 0;
-var CR = document.getElementById('CR');
-var CG = 0;
-var CG = document.getElementById('CG');
-var CB = 0;
-var CB = document.getElementById('CB');
+
 
 //making the var work
 	var BR = {enabled: 0, description: "Background RGB R",				titles: ["Not Switching", "Switching"]};
@@ -62,23 +39,28 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 //beforebegin //afterbegin //beforeend //afterend
 
 function getNiceThingsDone() {
-		if (zonePic.length > 5 || prePic.length > 5 || voidPic.length > 5 || mapPic.length > 5 || spirePic.length > 5) {
-		//bring the art. (mapPic.value.length > 5)
-		if (zonePic.length > 5 && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("zonePic").value + '"></div>');
-		} else if (prePic.length > 5 && game.global.preMapsActive) {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("PrePic").value + '"></div>');
-		} else if (voidPic.length > 5 && game.global.mapsActive && getCurrentMapObject().location == "Void") {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("voidPic").value + '"></div>');
-		} else if (mapPic.length > 5 && game.global.mapsActive && getCurrentMapObject().location != "Void") {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("mapPic").value + '"></div>');
-		} else if (spirePic.length > 5 && game.global.world == 200 && game.global.spireActive) {
-		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + document.getElementById("spirePic").value + '"></div>');
+    var zp = document.getElementById("zonePic").value;
+    var pp = document.getElementById("prePic").value;
+    var vp = document.getElementById("voidPic").value;
+    var mp = document.getElementById("mapPic").value;
+    var sp = document.getElementById("spirePic").value;
+    if (zp.length > 5 || pp.length > 5 || vp.length > 5 || mp.length > 5 || sp.length > 5) {
+		//bring the art. (mp.length > 5)
+		if (zp.length > 5 && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + zp + '"></div>');
+		} else if (pp.length > 5 && game.global.preMapsActive) {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + pp  + '"></div>');
+		} else if (vp.length > 5 && game.global.mapsActive && getCurrentMapObject().location == "Void") {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + vp + '"></div>');
+		} else if (mp.length > 5 && game.global.mapsActive && getCurrentMapObject().location != "Void") {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + mp + '"></div>');
+		} else if (sp.length > 5 && game.global.world == 200 && game.global.spireActive) {
+		document.getElementById("trimps").insertAdjacentHTML('afterend', '<div id="pic"><img src="' + sp + '"></div>');
 		}
-		if ((spirePic.length > 5 || zonePic.length > 5) && game.resources.trimps.soldiers != 0 && !game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
+		if ((sp.length > 5 || zp.length > 5) && game.resources.trimps.soldiers != 0 && !game.global.preMapsActive && !game.global.mapsActive && (new Date().getTime() - game.global.zoneStarted) > 1600 && game.global.gridArray.length != 0) {
 			var cells = document.getElementById("grid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
-		if ((mapPic.length > 5 || voidPic.length > 5) && game.resources.trimps.soldiers != 0 && game.global.mapsActive && (new Date().getTime() - game.global.mapStarted) > 1600 && game.global.mapGridArray.length != 0) {
+		if ((mp.length > 5 || vp.length > 5) && game.resources.trimps.soldiers != 0 && game.global.mapsActive && (new Date().getTime() - game.global.mapStarted) > 1600 && game.global.mapGridArray.length != 0) {
 			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
 	}
