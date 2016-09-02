@@ -61,8 +61,8 @@ function getNiceThingsDone() {
         var colB = "background: rgb("+BR0+"," +BG0+","+ BB0+");";
         var colC = "background: rgb("+CR0+"," +CG0+","+ CB0+");";
         document.getElementById("innerWrapper").style = 	colB;
-        //document.getElementById("achievementWrapper").style =	colB;
-        //document.getElementById("portalWrapper").style =	colB;
+        document.getElementById("achievementTopRow").style =	colB;
+        document.getElementById("achievementsHere").style =	colB;
         document.getElementById("settingsRow").style =		colB;
         document.getElementById("statsWrapper").style =		colB;
         //document.getElementById("upgradesHere").style =	colB;
