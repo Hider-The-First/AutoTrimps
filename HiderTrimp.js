@@ -15,17 +15,17 @@ var mapPic = null;
 var mapPic = document.getElementById('mapPic');
 var spirePic = null;
 var spirePic = document.getElementById('spirePic');
-var BR = null;
+var BR = 0;
 var BR = document.getElementById('BR');
-var BG = null;
+var BG = 0;
 var BG = document.getElementById('BG');
-var BB = null;
+var BB = 0;
 var BB = document.getElementById('BB');
-var CR = null;
+var CR = 0;
 var CR = document.getElementById('CR');
-var CG = null;
+var CG = 0;
 var CG = document.getElementById('CG');
-var CB = null;
+var CB = 0;
 var CB = document.getElementById('CB');
 
 //making the var work
@@ -82,7 +82,7 @@ function getNiceThingsDone() {
 			var cells = document.getElementById("mapGrid").getElementsByClassName("battleCell cellColorBeaten"); var oldstyle = cells[0].getAttribute('style'); for (var i=0; i < cells.length; i++) cells[i].setAttribute('style', oldstyle + '; background-color: rgba(0,0,0,0.3);');
 		}
 	}
-	if ((BR != null && BG != null && BB != null ) || (CR != null && CG!= null && CB != null )) {
+	if ((BR != 0 && BG != 0 && BB != 0) || (CR != 0 && CG != 0 && CB != 0)) {
 	//bring the light.
 	BR0 = document.getElementById("BR").value*1;
 	BG0 = document.getElementById("BG").value*1;
