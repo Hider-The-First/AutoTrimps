@@ -3,8 +3,6 @@ var buildcounter = 0;
 var autoTSettings = {};
 var version = "0.37b.17T2";
 
-
-
 //making the var work
 	var BR = {enabled: 0, description: "Background RGB R",				titles: ["Not Switching", "Switching"]};
 	var BG = {enabled: 0, description: "Background RGB G",				titles: ["Not Switching", "Switching"]};
