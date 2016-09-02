@@ -62,7 +62,6 @@ document.getElementById("queueContainer").insertAdjacentHTML('beforebegin', '<di
 //beforebegin //afterbegin //beforeend //afterend
 
 function getNiceThingsDone() {
-}
 		if (zonePic.length > 5 || prePic.length > 5 || voidPic.length > 5 || mapPic.length > 5 || spirePic.length > 5) {
 		//bring the art. (mapPic.value.length > 5)
 		if (zonePic.length > 5 && !game.global.preMapsActive && !game.global.mapsActive && !game.global.spireActive) {
@@ -113,7 +112,7 @@ function getNiceThingsDone() {
 	document.getElementById("trimps").style =		colC;
 	}
 }
-*/
+
 //setup options
 function createInputSetting(pic,div) {
     var picInput = document.createElement("Input");
