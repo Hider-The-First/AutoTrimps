@@ -73,9 +73,8 @@ function getNiceThingsDone() {
         document.getElementById("science").style =		colC;
         document.getElementById("selectedMapContainer").style =	colC;
         document.getElementById("helium").style =		colC;
-        //document.getElementById("pnumTabs").style =		colC;
         document.getElementById("buyContainer").style =		colC;
-        document.getElementById("logContainer").style =		colC;
+        //document.getElementById("logContainer").style =		colC;
         document.getElementById("queueContainer").style =	colC;
         document.getElementById("wood").style =			colC;
         document.getElementById("fragments").style =		colC;
