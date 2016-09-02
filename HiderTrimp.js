@@ -64,6 +64,7 @@ function getNiceThingsDone() {
         var colC = "background: rgb("+CR0+"," +CG0+","+ CB0+");";
         document.getElementById("battleContainer").style =	colA;
         document.getElementById("selectedMapContainer").style =	colA;
+        document.getElementById("gridContainer").style =	colA;
         document.getElementById("innerWrapper").style = 	colB;
         //document.getElementById("achievementTopRow").style =	colB;
         document.getElementById("achievementsHere").style =	colB;
@@ -72,7 +73,6 @@ function getNiceThingsDone() {
         //document.getElementById("upgradesHere").style =	colB;
         //document.getElementById("jobsHere").style =		colB;
         //document.getElementById("buildingsHere").style =	colB;
-        document.getElementById("gridContainer").style =	colC;
         document.getElementById("science").style =		colC;
         document.getElementById("helium").style =		colC;
         document.getElementById("buyContainer").style =		colC;
