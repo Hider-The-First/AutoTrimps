@@ -92,24 +92,24 @@ function getNiceThingsDone() {
 	CR0 = document.getElementById("CR").value*1;
 	CG0 = document.getElementById("CG").value*1;
 	CB0 = document.getElementById("CB").value*1;
-	
-	document.getElementById("innerWrapper").style =		"background: rgb("+BR0,""+ BG0,""+ BB0+");";
-	document.getElementById("battleContainer").style =	"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("gridContainer").style =	"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("science").style =		"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("selectedMapContainer").style =	"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("helium").style =		"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("achievementWrapper").style =	"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("buyContainer").style =		"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("logContainer").style =		"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("queueContainer").style =	"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("wood").style =			"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("fragments").style =		"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("heirloomWrapper").style =	"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("food").style =			"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("metal").style =		"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("gems").style =			"background: rgb("+CR0,""+ CG0,""+ CB0+");";
-	document.getElementById("trimps").style =		"background: rgb("+CR0,""+ CG0,""+ CB0+");";
+	var col = "rgb(" + BR0 + "," + BG0 + "," + BB0 + ")";
+	document.getElementById("innerWrapper").style.color = col;
+	document.getElementById("battleContainer").style =	col;
+	document.getElementById("gridContainer").style =	col;
+	document.getElementById("science").style =		col;
+	document.getElementById("selectedMapContainer").style =	col;
+	document.getElementById("helium").style =		col;
+	document.getElementById("achievementWrapper").style =	col;
+	document.getElementById("buyContainer").style =		col;
+	document.getElementById("logContainer").style =		col;
+	document.getElementById("queueContainer").style =	col;
+	document.getElementById("wood").style =			col;
+	document.getElementById("fragments").style =		col;
+	document.getElementById("heirloomWrapper").style =	col;
+	document.getElementById("food").style =			col;
+	document.getElementById("metal").style =		col;
+	document.getElementById("gems").style =			col;
+	document.getElementById("trimps").style =		col;
 	}
 }
 
