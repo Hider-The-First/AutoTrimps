@@ -3144,8 +3144,8 @@ var Area51 = document.getElementById('Area51')*1;
 var Area60 = 0;
 var Area60 = document.getElementById('Area60')*1;
 function updateValueFields3() {
-    var Area51 = (document.getElementById('Area51')*1).toFixed(2);
+    var Area51 = document.getElementById('Area51')*1;
     var Area52 = document.getElementById('Area52');
-    var Area60 = (document.getElementById('Area60')*1).toFixed(2);
+    var Area60 = document.getElementById('Area60')*1;
     Area52.innerHTML = 'Home' + Area51 + '<br>Guest' + Area60; 
 }
