@@ -3128,7 +3128,7 @@ function generateHeirloomIcon(heirloom, location, number){
     bbutton.id = 'Area52';
     newContainer2.appendChild(bbutton);
     fightButtonCol.appendChild(newContainer2);
-    newContainer2.setAttribute("onmouseover", 'tooltip(\"Raw Data\", \"customText\", event, \"S-DMG (Scryer Demage) is avgDamageXSstanceXOverkill.levelX0.005.<br>Max-HP is EnemyMaxHealthXCorruptX7.\")');
+    newContainer2.setAttribute("onmouseover", 'tooltip(\"Data Window\", \"customText\", event, \"S-DMG (Scryer Demage) is<br> avgDamageXSstanceXOverkill.levelX0.005.<br>Max-HP is<br> EnemyMaxHealthXCorruptX7.\")');
     newContainer2.setAttribute("onmouseout", 'tooltip("hide")');
 var hiderwindow = 0;
 var hiderWindow = document.getElementById('hiderWindow');
