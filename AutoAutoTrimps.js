@@ -3140,12 +3140,12 @@ function updateValueFields2() {
 }
 
 var Area51 = 0;
-var Area51 = document.getElementById('Area51')*1;
+var Area51 = document.getElementById('Area51');
 var Area60 = 0;
-var Area60 = document.getElementById('Area60')*1;
+var Area60 = document.getElementById('Area60');
 function updateValueFields3() {
-    var Area51 = document.getElementById('Area51')*1;
+    var Area51 = document.getElementById('Area51');
     var Area52 = document.getElementById('Area52');
-    var Area60 = document.getElementById('Area60')*1;
-    Area52.innerHTML = 'Home' + Area51 + '<br>Guest' + Area60; 
+    var Area60 = document.getElementById('Area60');
+    Area52.innerHTML = 'Home:' + Area51 + '<br>Guest:' + Area60; 
 }
