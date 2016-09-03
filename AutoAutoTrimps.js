@@ -2923,6 +2923,7 @@ function mainLoop() {
     setScienceNeeded();  //determine how much science is needed
     updateValueFields(); //refresh the UI
     updateValueFields2(); //refresh the UI2
+    updateValueFields3(); //refresh the UI2
 
     if (getPageSetting('ExitSpireCell')) exitSpireCell(); //"Exit Spire After Cell" (genBTC settings area)
     if (getPageSetting('WorkerRatios')) workerRatios(); //"Auto Worker Ratios"
@@ -3125,7 +3126,7 @@ function generateHeirloomIcon(heirloom, location, number){
     newContainer2.setAttribute("style", "display: block; font-size: 1.1vw; text-align: center; background-color: rgba(0,0,0,0.3);");
     bbutton = document.createElement("SPAN");
     bbutton.id = 'Area52';
-    newContainer2.appendChild(abutton);
+    newContainer2.appendChild(bbutton);
     fightButtonCol.appendChild(newContainer2);
     newContainer2.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Home FTW!\")');
     newContainer2.setAttribute("onmouseout", 'tooltip("hide")');
