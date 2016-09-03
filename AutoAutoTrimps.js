@@ -3128,9 +3128,8 @@ function generateHeirloomIcon(heirloom, location, number){
     bbutton.id = 'Area52';
     newContainer2.appendChild(bbutton);
     fightButtonCol.appendChild(newContainer2);
-    newContainer2.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Home FTW!\")');
+    newContainer2.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Home = avgDamage * Sstance * (game.portal.Overkill.level*0.005.<br>Guest = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7.<br>Home FTW!\")');
     newContainer2.setAttribute("onmouseout", 'tooltip("hide")');
-
 var hiderwindow = 0;
 var hiderWindow = document.getElementById('hiderWindow');
 function updateValueFields2() {
