@@ -2071,8 +2071,8 @@ function autoMap() {
         (game.global.world >= 15 && game.global.mapsActive && game.global.mapBonus < 9 && ((new Date().getTime() - game.global.mapStarted) > (cellClearTime * game.global.mapGridArray.length))) ||	//force to stay in mapYouSlow if you overkill all the cells unless you are about to hit max map bonus.
         (game.global.world >= 62 && !!game.buildings.Nursery.locked) ||	//Clear maps to stack up nurseries for genetics before starting warps stucking.
         //(!game.upgrades.Gigastation.locked && game.global.mapBonus < 1 && !game.global.mapsActive && (game.upgrades.Gigastation.allowed-4 >= game.upgrades.Gigastation.done)) ||	//Clear maps to stack up early warps.
-        ((game.global.mapBonus < 9 && hiderwindow < 0.5 ) || (game.global.mapBonus < 8 && hiderwindow < 0.6 ) || (game.global.mapBonus < 7 && hiderwindow < 0.7 ) || (game.global.mapBonus < 6 && hiderwindow < 0.8 ) || (game.global.mapBonus < 5 && hiderwindow < 0.9 ) || (game.global.mapBonus < 4 && hiderwindow < 1 ) || (game.global.mapBonus < 3 && hiderwindow < 1.1 ) || (game.global.mapBonus < 2 && hiderwindow < 1.2 ) || (game.global.mapBonus < 1 && hiderwindow < 1.3 )) ||	//Farm maps if you are way to slow
-        (game.global.mapsActive && getBreedTime(true) > 0 && hiderwindow < 1)	//Stay in maps to heal
+        ((game.global.mapBonus < 9 && hiderwindow < 0.5 ) || (game.global.mapBonus < 8 && hiderwindow < 0.6 ) || (game.global.mapBonus < 7 && hiderwindow < 0.7 ) || (game.global.mapBonus < 6 && hiderwindow < 0.8 ) || (game.global.mapBonus < 5 && hiderwindow < 0.9 ) || (game.global.mapBonus < 4 && hiderwindow < 1 ) || (game.global.mapBonus < 3 && hiderwindow < 1.1 ) || (game.global.mapBonus < 2 && hiderwindow < 1.2 ) || (game.global.mapBonus < 1 && hiderwindow < 1.3 ))	//Farm maps if you are way to slow
+        //(game.global.mapsActive && getBreedTime(true) > 0 && hiderwindow < 1)	//Stay in maps to heal
         //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)	//option to force stay in zone X time in min/cleared maps and farm
         //(game.global.world == 200 && game.global.lastClearedCell > 20 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		//option to force stay in zone X time in min and farm		
 	) {		
@@ -3112,7 +3112,7 @@ function generateHeirloomIcon(heirloom, location, number){
     abutton.id = 'hiderStatus';
     newContainer.appendChild(abutton);
     fightButtonCol.appendChild(newContainer);
-    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Get Dark Essence if over 100%.<br>Buy more Prestige if over 25%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 10%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Get +20% Map Bonus if in map and Breeding and if under 1%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")');
+    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Get Dark Essence if over 100%.<br>Buy more Prestige if over 25%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 10% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
     newContainer.setAttribute("onmouseout", 'tooltip("hide")');
 
 var hiderwindow = 0;
