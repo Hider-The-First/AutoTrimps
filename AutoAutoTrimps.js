@@ -3147,5 +3147,5 @@ function updateValueFields3() {
     var Area51 = document.getElementById('Area51');
     var Area52 = document.getElementById('Area52');
     var Area60 = document.getElementById('Area60');
-    Area52.innerHTML = 'Home:' + Area51 + '<br>Guest:' + Area60; 
+    Area52.innerHTML = 'Home:' + (Area51).toFixed(2) + '<br>Guest:' + (Area60).toFixed(2); 
 }
