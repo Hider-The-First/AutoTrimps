@@ -3135,7 +3135,7 @@ var hiderWindow = document.getElementById('hiderWindow');
 function updateValueFields2() {
     var hiderWindow = document.getElementById('hiderWindow');
     var hiderStatus = document.getElementById('hiderStatus');
-    hiderStatus.innerHTML = 'OverKill Chance ' + (5*hiderwindow).toFixed(2) + '%'; 
+    hiderStatus.innerHTML = (5*hiderwindow).toFixed(2) + '% O.K.'; 
 }
 
 var Area51i = 0;
