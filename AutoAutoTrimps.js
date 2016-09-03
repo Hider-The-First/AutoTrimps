@@ -3120,8 +3120,8 @@ function generateHeirloomIcon(heirloom, location, number){
     newContainer.setAttribute("onmouseout", 'tooltip("hide")');
     
     //create Area 51
-    Area51 = document.createElement("DIV");
-    Area51.setAttribute("style", "display: block; font-size: 1.1vw; text-align: center; background-color: rgba(0,0,0,0.3);");
+    newContainer2 = document.createElement("DIV");
+    newContainer2.setAttribute("style", "display: block; font-size: 1.1vw; text-align: center; background-color: rgba(0,0,0,0.3);");
     bbutton = document.createElement("SPAN");
     bbutton.id = 'Area52';
     newContainer2.appendChild(abutton);
