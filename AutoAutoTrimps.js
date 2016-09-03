@@ -3119,6 +3119,7 @@ function generateHeirloomIcon(heirloom, location, number){
     newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Use Scryer Formation in zones if over 450%.<br>Get Dark Essence if over 100%.<br>Buy more Prestige if under 25%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 10% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
     newContainer.setAttribute("onmouseout", 'tooltip("hide")');
     
+    var fightButtonCol = document.getElementById("battleBtnsColumn");
     //create Area 51
     newContainer2 = document.createElement("DIV");
     newContainer2.setAttribute("style", "display: block; font-size: 1.1vw; text-align: center; background-color: rgba(0,0,0,0.3);");
@@ -3126,7 +3127,7 @@ function generateHeirloomIcon(heirloom, location, number){
     bbutton.id = 'Area52';
     newContainer2.appendChild(abutton);
     fightButtonCol.appendChild(newContainer2);
-    newContainer2.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Use Scryer Formation in zones if over 450%.<br>Get Dark Essence if over 100%.<br>Buy more Prestige if under 25%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 10% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
+    newContainer2.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Home FTW!\")');
     newContainer2.setAttribute("onmouseout", 'tooltip("hide")');
 
 var hiderwindow = 0;
@@ -3145,5 +3146,5 @@ function updateValueFields3() {
     var Area51 = document.getElementById('Area51');
     var Area52 = document.getElementById('Area52');
     var Area51 = document.getElementById('Area60');
-    Area52.innerHTML = 'Home' + (Area51).toFixed(2) + 'guest' + (Area60).toFixed(2) ; 
+    Area52.innerHTML = 'Home' + (Area51).toFixed(2) + 'Guest' + (Area60).toFixed(2) ; 
 }
