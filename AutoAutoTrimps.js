@@ -1721,8 +1721,8 @@ function autoStance() {
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7);
         hiderwindow = ovklHDratio*100;
-        Area51 = ovkldmg;
-        Area60 = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
+        Area51i = ovkldmg;
+        Area60i = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
@@ -2812,8 +2812,8 @@ function useScryerStance() {
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7);
         hiderwindow = ovklHDratio*100;
-        Area51 = ovkldmg;
-        Area60 = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
+        Area51i = ovkldmg;
+        Area60i = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
@@ -3139,13 +3139,13 @@ function updateValueFields2() {
     hiderStatus.innerHTML = 'OverKill Chance ' + (5*hiderwindow).toFixed(2) + '%'; 
 }
 
-var Area51 = 0;
+var Area51i = 0;
 var Area51 = document.getElementById('Area51');
-var Area60 = 0;
+var Area60i = 0;
 var Area60 = document.getElementById('Area60');
 function updateValueFields3() {
     var Area51 = document.getElementById('Area51');
     var Area52 = document.getElementById('Area52');
     var Area60 = document.getElementById('Area60');
-    Area52.innerHTML = 'Home:' + (Area51).toFixed(2) + '<br>Guest:' + (Area60).toFixed(2); 
+    Area52.innerHTML = 'Home:' + (Area51i).toFixed(2) + '<br>Guest:' + (Area60i).toFixed(2); 
 }
