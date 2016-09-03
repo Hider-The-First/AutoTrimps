@@ -449,11 +449,11 @@ var looting = new AutoPerks.VariablePerk("looting", 1, false,             [((5+M
 var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4, 4], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
 var power = new AutoPerks.VariablePerk("power", 1, false,                 [(game.portal.Carpentry.level/(6+game.portal.Power.level*0.3)).toFixed(2), (game.portal.Carpentry.level/(6+game.portal.Power.level*0.3)).toFixed(2)], 0.05); // , 1, 1, 4, 5, 5
 var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [(game.portal.Carpentry.level/(6+game.portal.Power.level*0.3)).toFixed(2), (game.portal.Carpentry.level/(6+game.portal.Power.level*0.3)).toFixed(2)], 0.05); // , 1.5, 3, 4, 4, 2.5
-var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [(2*10/(10+Math.pow(game.portal.Coordinated.level,1.6))).toFixed(4), (2*10/(10+Math.pow(game.portal.Coordinated.level,1.6))).toFixed(4)], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
+var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [(2*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4), (2*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4)], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
 var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [2, 2], 0.1); // , 1.5, 3, 2, 5, 3.5
 var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [24, 24], 0.1); // , 8, 10, 24, 29, 18
-var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [(1*10/(10+Math.pow(game.portal.Coordinated.level,1.5))).toFixed(4), (1*10/(10+Math.pow(game.portal.Coordinated.level,1.5))).toFixed(4)], 0.1); // , 1, 1.5, 8, 3.5, 3
-var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [(24*((0.03*game.portal.Coordinated.level)+2.5)).toFixed(2), (24*((0.01*game.portal.Coordinated.level)+2.5)).toFixed(2)], 0.1); // , 25, 60, 60, 100, 100
+var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [(1*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4), (1*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4)], 0.1); // , 1, 1.5, 8, 3.5, 3
+var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [(24*((0.04*game.portal.Coordinated.level)+2.5)).toFixed(2), (24*((0.04*game.portal.Coordinated.level)+2.5)).toFixed(2)], 0.1); // , 25, 60, 60, 100, 100
 var resourceful = new AutoPerks.VariablePerk("resourceful", 50000, true,  [2, 2], 0.05); // , 2, 2, 2, 1, 1
 var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [3, 0.5], 0.005, 30); // , 3, 5, 3, 5, 10
 //tier2 perks
