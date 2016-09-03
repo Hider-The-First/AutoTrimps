@@ -1721,6 +1721,8 @@ function autoStance() {
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7);
         hiderwindow = ovklHDratio*100;
+        Area51 = ovkldmg;
+        Area60 = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
@@ -2810,6 +2812,8 @@ function useScryerStance() {
         //are we going to overkill in S?
         ovklHDratio = ovkldmg/(getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7);
         hiderwindow = ovklHDratio*100;
+        Area51 = ovkldmg;
+        Area60 = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
@@ -3114,6 +3118,16 @@ function generateHeirloomIcon(heirloom, location, number){
     fightButtonCol.appendChild(newContainer);
     newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Use Scryer Formation in zones if over 450%.<br>Get Dark Essence if over 100%.<br>Buy more Prestige if under 25%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 10% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
     newContainer.setAttribute("onmouseout", 'tooltip("hide")');
+    
+    //create Area 51
+    Area51 = document.createElement("DIV");
+    Area51.setAttribute("style", "display: block; font-size: 1.1vw; text-align: center; background-color: rgba(0,0,0,0.3);");
+    bbutton = document.createElement("SPAN");
+    bbutton.id = 'Area52';
+    newContainer2.appendChild(abutton);
+    fightButtonCol.appendChild(newContainer2);
+    newContainer2.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Use Scryer Formation in zones if over 450%.<br>Get Dark Essence if over 100%.<br>Buy more Prestige if under 25%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 10% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
+    newContainer2.setAttribute("onmouseout", 'tooltip("hide")');
 
 var hiderwindow = 0;
 var hiderWindow = document.getElementById('hiderWindow');
@@ -3121,4 +3135,15 @@ function updateValueFields2() {
     var hiderWindow = document.getElementById('hiderWindow');
     var hiderStatus = document.getElementById('hiderStatus');
     hiderStatus.innerHTML = 'OverKill Chance ' + (5*hiderwindow).toFixed(2) + '%'; 
+}
+
+var Area51 = 0;
+var Area51 = document.getElementById('Area51');
+var Area60 = 0;
+var Area60 = document.getElementById('Area60');
+function updateValueFields3() {
+    var Area51 = document.getElementById('Area51');
+    var Area52 = document.getElementById('Area52');
+    var Area51 = document.getElementById('Area60');
+    Area52.innerHTML = 'Home' + (Area51).toFixed(2) + 'guest' + (Area60).toFixed(2) ; 
 }
