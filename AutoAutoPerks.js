@@ -81,8 +81,9 @@ ratioPreset.id = 'ratioPreset';
 ratioPreset.setAttribute('style', 'text-align: center; width: 110px; color: black;');
 //List of the perk options are populated at the bottom of this file.
 //populate dump perk dropdown list 
-var html = "<option id='zxvPreset'>Hider (He/hr)</option>"
-html += "<option id='zxvNEWPreset'>Hider More (More Zones)</option>"
+var html = "<option id='HiderHe/hr'>Hider (He/hr)</option>"
+html += "<option id='HiderMore'>Hider More (More Zones)</option>"
+html += "<option id='HiderBase'>Hider Base (Base Ratios)</option>"
 /*
 html = "<option id='zxvPreset'>ZXV (default)</option>"
 html += "<option id='zxvNEWPreset'>ZXV (new)</option>"
@@ -444,18 +445,18 @@ var agility = new AutoPerks.FixedPerk("agility", 4, 20, 20);
 var bait = new AutoPerks.FixedPerk("bait", 4, 30);
 var trumps = new AutoPerks.FixedPerk("trumps", 3, 30);
 var packrat = new AutoPerks.FixedPerk("packrat", 3, 30);
-//the ratios are hardcoded into the following lines: example: looting:    [120, 120, 20, 50, 120, 42, 160] as [Hider (He/hr), Hider late (Push more Zones), zxv, zxv(new), truth, nsheetz, nsheetz(new)]
-var looting = new AutoPerks.VariablePerk("looting", 1, false,             [((5+Math.pow(game.portal.Carpentry.level,1.3))).toFixed(2), ((5+Math.pow(game.portal.Carpentry.level,0.65))).toFixed(2)], 0.05); // , 20, 50, 120, 42, 160
-var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4, 4], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
-var power = new AutoPerks.VariablePerk("power", 1, false,                 [(2*24/(6+(game.portal.Power.level*0.3))).toFixed(2), (24/(6+(game.portal.Power.level*0.3))).toFixed(2)], 0.05); // , 1, 1, 4, 5, 5
-var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [(2*24/(6+(game.portal.Motivation.level*0.3))).toFixed(2), (24/(6+(game.portal.Motivation.level*0.3))).toFixed(2)], 0.05); // , 1.5, 3, 4, 4, 2.5
-var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [(2*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4), (2*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4)], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
-var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [2, 2], 0.1); // , 1.5, 3, 2, 5, 3.5
-var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [24, 24], 0.1); // , 8, 10, 24, 29, 18
-var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [(1*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4), (1*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4)], 0.1); // , 1, 1.5, 8, 3.5, 3
-var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [((24+(24*game.portal.Carpentry_II.level*0.0025))*(2+Math.pow(game.portal.Coordinated.level,0.1))).toFixed(2), ((24+(24*game.portal.Carpentry_II.level*0.0025))*(2+Math.pow(game.portal.Coordinated.level,0.1))).toFixed(2)], 0.1); // , 25, 60, 60, 100, 100
-var resourceful = new AutoPerks.VariablePerk("resourceful", 50000, true,  [2, 2], 0.05); // , 2, 2, 2, 1, 1
-var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [3, 0.5], 0.005, 30); // , 3, 5, 3, 5, 10
+//the ratios are hardcoded into the following lines: example: looting:    [120, 120, 20, 50, 120, 42, 160] as [Hider (He/hr), Hider More (Push more Zones), Hider base,zxv, zxv(new), truth, nsheetz, nsheetz(new)]
+var looting = new AutoPerks.VariablePerk("looting", 1, false,             [((5+Math.pow(game.portal.Carpentry.level,1.3))).toFixed(2), ((5+Math.pow(game.portal.Carpentry.level,0.65))).toFixed(2), 100], 0.05); // , 20, 50, 120, 42, 160
+var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4, 4, 4], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
+var power = new AutoPerks.VariablePerk("power", 1, false,                 [(2*24/(6+(game.portal.Power.level*0.3))).toFixed(2), (24/(6+(game.portal.Power.level*0.3))).toFixed(2)], 0.05, 2); // , 1, 1, 4, 5, 5
+var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [(2*24/(6+(game.portal.Motivation.level*0.3))).toFixed(2), (24/(6+(game.portal.Motivation.level*0.3))).toFixed(2)], 0.05, 2); // , 1.5, 3, 4, 4, 2.5
+var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [(2*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4), (2*10/(10+Math.pow(game.portal.Coordinated.level,1.4,))).toFixed(4), 0.1], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
+var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [2, 2, 2], 0.1); // , 1.5, 3, 2, 5, 3.5
+var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [24, 24, 24], 0.1); // , 8, 10, 24, 29, 18
+var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [(1*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4), (1*10/(10+Math.pow(game.portal.Coordinated.level,1.4))).toFixed(4)], 0.1, 0.1); // , 1, 1.5, 8, 3.5, 3
+var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [((24+(24*game.portal.Carpentry_II.level*0.0025))*(2+Math.pow(game.portal.Coordinated.level,0.1))).toFixed(2), ((24+(24*game.portal.Carpentry_II.level*0.0025))*(2+Math.pow(game.portal.Coordinated.level,0.1))).toFixed(2), 72], 0.1); // , 25, 60, 60, 100, 100
+var resourceful = new AutoPerks.VariablePerk("resourceful", 50000, true,  [2, 2, 2], 0.05); // , 2, 2, 2, 1, 1
+var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [3, 0.5, 3], 0.005, 30); // , 3, 5, 3, 5, 10
 //tier2 perks
 var toughness_II = new AutoPerks.ArithmeticPerk("toughness_II", 20000, 500, 0.01, toughness);
 var power_II = new AutoPerks.ArithmeticPerk("power_II", 20000, 500, 0.01, power);
