@@ -995,7 +995,7 @@ function safeBuyBuilding(building) {
     game.global.firing = false;
     //avoid slow building from clamping
     //buy as many warpstations as we can afford but buys the last warpstations in single.
-    if (bestBuilding == "Warpstation" && getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.metal.owned/5) {
+    if (bestBuilding == "Warpstation" && getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.metal.owned/20) {
         game.global.buyAmt = 1;
     } else {
     	game.global.buyAmt = 'Max';
@@ -1058,7 +1058,7 @@ function highlightHousing() {
                 }
                 if (hiderwindow < 3 || getPageSetting('WarpstationWall') && bestBuilding == "Warpstation") {
                     //Warpstation Wall - allow only warps that cost 1/n'th less then current metal (try to save metal for next prestige) 
-                    var costratio = 4;  //(1/4th)                    
+                    var costratio = 5;  //(1/4th)                    
                     if (getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.metal.owned/costratio)
                         bestBuilding = null;
                 }
