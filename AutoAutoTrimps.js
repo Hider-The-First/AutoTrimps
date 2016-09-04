@@ -1056,7 +1056,7 @@ function highlightHousing() {
                     if (game.buildings.Warpstation.owned >= (Math.floor(game.upgrades.Gigastation.done * getPageSetting('DeltaGigastation')) + getPageSetting('FirstGigastation')))
                         bestBuilding = null;
                 }
-                if (game.global.world < 3 || getPageSetting('WarpstationWall') && bestBuilding == "Warpstation") {
+                if (hiderwindow < 3 || getPageSetting('WarpstationWall') && bestBuilding == "Warpstation") {
                     //Warpstation Wall - allow only warps that cost 1/n'th less then current metal (try to save metal for next prestige) 
                     var costratio = 4;  //(1/4th)                    
                     if (getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.metal.owned/costratio)
@@ -1223,17 +1223,17 @@ function evaluateEquipmentEfficiency(equipName) {
         Res = 9999 - gameResource.prestige;
     }
     //manage prestige
-    if (hiderwindow >= 30 && game.global.world != 200 && equip.Stat == 'attack' && gameResource.level > 1) {
+    if (hiderwindow > 20 && game.global.world != 200 && equip.Stat == 'attack' && gameResource.level > 1) {
         Wall = true;
     }
-    if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && hiderwindow > 5) {
+    if (10*Cos > NextCost && equip.Stat == 'attack' && game.global.world > 37 && hiderwindow > 3) {
         Wall = true;
     }
-    if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37 && hiderwindow > 5) {		
+    if ((gameResource.prestige < ((game.global.world-10)/5)+2 && gameResource.level > 2) && (equip.Stat == 'attack') && game.global.world > 37 && hiderwindow > 3) {		
         Res = 0;
         Wall = true;
     }
-    if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37 && hiderwindow > 5) {		
+    if (gameResource.prestige+1 < ((game.global.world-10)/5)+2 && gameResource.level > 0 && game.global.world > 37 && hiderwindow > 3) {		
         Res = 0;
         Wall = true;
     }
@@ -3117,7 +3117,7 @@ function generateHeirloomIcon(heirloom, location, number){
     abutton.id = 'hiderStatus';
     newContainer.appendChild(abutton);
     fightButtonCol.appendChild(newContainer);
-    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Use Scryer Formation in zones if over 450%.<br>Get Dark Essence if over 100%.<br>Buy more Prestige if under 25%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 10% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
+    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Use Scryer Formation in zones if over 450%.<br>Get Dark Essence if over 100%.<br>Save high level Void Maps.<br>Get less Prestige.<br>buy more Warpstations if over 15%.<br>Farm Void Maps if under 10% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
     newContainer.setAttribute("onmouseout", 'tooltip("hide")');
     
     var fightButtonCol = document.getElementById("battleBtnsColumn");
