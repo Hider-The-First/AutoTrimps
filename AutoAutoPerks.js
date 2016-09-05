@@ -446,7 +446,7 @@ var bait = new AutoPerks.FixedPerk("bait", 4, 30);
 var trumps = new AutoPerks.FixedPerk("trumps", 3, 30);
 var packrat = new AutoPerks.FixedPerk("packrat", 3, 30);
 //the ratios are hardcoded into the following lines: example: looting:    [120, 120, 20, 50, 120, 42, 160] as [Hider (He/hr), Hider More (Push more Zones), Hider base,zxv, zxv(new), truth, nsheetz, nsheetz(new)]
-var looting = new AutoPerks.VariablePerk("looting", 1, false,             [((5+Math.pow(game.portal.Carpentry.level,1.2))).toFixed(0), ((5+Math.pow(game.portal.Carpentry.level,0.6))).toFixed(0), 100], 0.05); // , 20, 50, 120, 42, 160
+var looting = new AutoPerks.VariablePerk("looting", 1, false,             [((5+Math.pow(game.portal.Carpentry.level,1.1))).toFixed(0), ((5+Math.pow(game.portal.Carpentry.level,0.55))).toFixed(0), 100], 0.05); // , 20, 50, 120, 42, 160
 var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4, 4, 4], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
 var power = new AutoPerks.VariablePerk("power", 1, false,                 [(2*24/(6+(game.portal.Power.level*0.3))).toFixed(1), (24/(6+(game.portal.Power.level*0.3))).toFixed(1), 2], 0.05); // , 1, 1, 4, 5, 5
 var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [(2*24/(6+(game.portal.Motivation.level*0.3))).toFixed(1), (24/(6+(game.portal.Motivation.level*0.3))).toFixed(1), 2], 0.05); // , 1.5, 3, 4, 4, 2.5
