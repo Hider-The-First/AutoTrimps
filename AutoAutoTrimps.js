@@ -72,26 +72,8 @@ var equipmentList = {
         Resource: 'metal',
         Equip: true
     },
-    'Boots': {
-        Upgrade: 'Bootboost',
-        Stat: 'health',
-        Resource: 'metal',
-        Equip: true
-    },
-    'Helmet': {
-        Upgrade: 'Hellishmet',
-        Stat: 'health',
-        Resource: 'metal',
-        Equip: true
-    },
-    'Pants': {
-        Upgrade: 'Pantastic',
-        Stat: 'health',
-        Resource: 'metal',
-        Equip: true
-    },
-    'Shoulderguards': {
-        Upgrade: 'Smoldershoulder',
+    'Gambeson': {
+        Upgrade: 'GambesOP',
         Stat: 'health',
         Resource: 'metal',
         Equip: true
@@ -102,15 +84,33 @@ var equipmentList = {
         Resource: 'metal',
         Equip: true
     },
-    'Arbalest': {
-        Upgrade: 'Harmbalest',
-        Stat: 'attack',
+    'Shoulderguards': {
+        Upgrade: 'Smoldershoulder',
+        Stat: 'health',
         Resource: 'metal',
         Equip: true
     },
-    'Gambeson': {
-        Upgrade: 'GambesOP',
+    'Pants': {
+        Upgrade: 'Pantastic',
         Stat: 'health',
+        Resource: 'metal',
+        Equip: true
+    },
+    'Helmet': {
+        Upgrade: 'Hellishmet',
+        Stat: 'health',
+        Resource: 'metal',
+        Equip: true
+    },
+    'Boots': {
+        Upgrade: 'Bootboost',
+        Stat: 'health',
+        Resource: 'metal',
+        Equip: true
+    },
+    'Arbalest': {
+        Upgrade: 'Harmbalest',
+        Stat: 'attack',
         Resource: 'metal',
         Equip: true
     },
