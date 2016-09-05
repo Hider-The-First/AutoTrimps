@@ -1727,6 +1727,7 @@ function autoStance() {
         hiderwindow = ovklHDratio*100;
         Area51i = ovkldmg;
         Area60i = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
+        armorValue = ((baseHealth/8)/(getEnemyMaxAttack(game.global.world)*getCorruptScale("attack")*7)
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
@@ -2818,6 +2819,7 @@ function useScryerStance() {
         hiderwindow = ovklHDratio*100;
         Area51i = ovkldmg;
         Area60i = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
+        armorValue = ((baseHealth/8)/(getEnemyMaxAttack(game.global.world)*getCorruptScale("attack")*7)
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
@@ -3146,6 +3148,7 @@ var Area51i = 0;
 var Area51 = document.getElementById('Area51');
 var Area60i = 0;
 var Area60 = document.getElementById('Area60');
+var armorValue = 0;
 function updateValueFields3() {
     var Area51 = document.getElementById('Area51');
     var Area52 = document.getElementById('Area52');
