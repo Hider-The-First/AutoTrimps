@@ -1095,10 +1095,10 @@ function buyFoodEfficientHousing() {
     var hutWorth = game.buildings.Hut.increase.by / getBuildingItemPrice(game.buildings.Hut, "food", false, 1);
     var hutAtMax = (game.buildings.Hut.owned >= autoTrimpSettings.MaxHut.value && autoTrimpSettings.MaxHut.value != -1);
     //if hutworth is more, but huts are maxed , still buy up to house max
-    if ((houseWorth > hutWorth || hutAtMax) && canAffordBuilding('House') && (game.buildings.House.owned < autoTrimpSettings.MaxHouse.value || autoTrimpSettings.MaxHouse.value == -1)) {
+    if ((houseWorth > hutWorth || hutAtMax) && game.global.buildingsQueue.length == 0 && canAffordBuilding('House') && (game.buildings.House.owned < autoTrimpSettings.MaxHouse.value || autoTrimpSettings.MaxHouse.value == -1)) {
         safeBuyBuilding('House');
     } else {
-        if (!hutAtMax) {
+        if (!hutAtMax && game.global.buildingsQueue.length == 0) {
             safeBuyBuilding('Hut');
         }
     }
@@ -1111,7 +1111,7 @@ function buyBuildings() {
     highlightHousing();
 
     //if housing is highlighted
-    if (bestBuilding !== null) {
+    if (bestBuilding !== null && game.global.buildingsQueue.length == 0) {
         //insert gigastation logic here ###############
         if (!safeBuyBuilding(bestBuilding)) {
             buyFoodEfficientHousing();
