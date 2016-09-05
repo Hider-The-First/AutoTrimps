@@ -1520,10 +1520,10 @@ function autoLevelEquipment() {
                     ( getPageSetting('BuyWeaponUpgrades') && equipmentList[equipName].Stat == 'block' )
                     ||
                     ((getPageSetting('BuyArmorUpgrades') && ((equipmentList[equipName].Resource != 'metal')
-                    || ((gameResource.prestige+5 <= (game.global.world-5)/5 && game.global.soldierHealth > 0 && (armorTempValue < 100 || armorValue < 1000))
-                    || (gameResource.prestige+4 <= (game.global.world-5)/5 && game.global.soldierHealth > 0 && (armorTempValue < 50 || armorValue < 500))
-                    || (gameResource.prestige+3 <= (game.global.world-5)/5 && game.global.soldierHealth > 0 && (armorTempValue < 20|| armorValue < 200))
-                    || (gameResource.prestige+2 <= (game.global.world-5)/5 && game.global.soldierHealth > 0 && (armorTempValue < 10|| armorValue < 100)))
+                    || ((gameResource.prestige+5 <= (game.global.world-5)/5 && game.global.soldierHealth > 0 && ((armorTempValue > 50 && armorTempValue < 100)|| armorValue < 1000))
+                    || (gameResource.prestige+4 <= (game.global.world-5)/5 && game.global.soldierHealth > 0 && ((armorTempValue > 20 && armorTempValue < 50)|| armorValue < 500))
+                    || (gameResource.prestige+3 <= (game.global.world-5)/5 && game.global.soldierHealth > 0 && ((armorTempValue > 10 && armorTempValue < 20)|| armorValue < 200))
+                    || (gameResource.prestige+2 <= (game.global.world-5)/5 && game.global.soldierHealth > 0 && ((armorTempValue > 1 && armorTempValue < 10)|| armorValue < 100)))
                     || gameResource.prestige < 5 || game.global.world == 200 ) && (equipmentList[equipName].Stat == 'health'))
                         && 
                 //Only buy Armor prestiges when 'DelayArmorWhenNeeded' is on, IF:
