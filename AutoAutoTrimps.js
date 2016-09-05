@@ -1519,7 +1519,7 @@ function autoLevelEquipment() {
                     ||
                     ( getPageSetting('BuyWeaponUpgrades') && equipmentList[equipName].Stat == 'block' )
                     ||
-                    ((getPageSetting('BuyArmorUpgrades') && ((equipmentList[equipName].Resource != 'metal') || ((gameResource.prestige+4 <= ((game.global.world-5)/5)) || (gameResource.prestige+2 <= ((game.global.world-5)/5) && armorValue < 1000)) || gameResource.prestige < 5 || game.global.world == 200 ) && (equipmentList[equipName].Stat == 'health'))
+                    ((getPageSetting('BuyArmorUpgrades') && ((equipmentList[equipName].Resource != 'metal') || ((gameResource.prestige+4 <= ((game.global.world-5)/5)) || (gameResource.prestige+2 <= ((game.global.world-5)/5) && (armorTempValue < 50 || armorValue < 1000)) || gameResource.prestige < 5 || game.global.world == 200 ) && (equipmentList[equipName].Stat == 'health'))
                         && 
                 //Only buy Armor prestiges when 'DelayArmorWhenNeeded' is on, IF:
                         (
@@ -1728,6 +1728,7 @@ function autoStance() {
         Area51i = ovkldmg;
         Area60i = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
         armorValue = ((baseHealth/8)/(getEnemyMaxAttack(game.global.world, 95, 'Snimp',0)*getCorruptScale("attack")))
+        armorTempValue = (game.global.soldierHealth/(getEnemyMaxAttack(game.global.world, 95, 'Snimp',0)*getCorruptScale("attack")))
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
@@ -2820,6 +2821,7 @@ function useScryerStance() {
         Area51i = ovkldmg;
         Area60i = getEnemyMaxHealth(game.global.world)*getCorruptScale("health")*7;
         armorValue = ((baseHealth/8)/(getEnemyMaxAttack(game.global.world, 95, 'Snimp',0)*getCorruptScale("attack")))
+        armorTempValue = (game.global.soldierHealth/(getEnemyMaxAttack(game.global.world, 95, 'Snimp',0)*getCorruptScale("attack")))
         if (hiderwindow > 100) { // && game.global.world < getPageSetting('VoidMaps')
             hiderwindow = 100; //enoughDamage = true; enoughHealth = true; shouldFarm = false;
         }
@@ -3149,6 +3151,7 @@ var Area51 = document.getElementById('Area51');
 var Area60i = 0;
 var Area60 = document.getElementById('Area60');
 var armorValue = 0;
+var armorTempValue = 0;
 function updateValueFields3() {
     var Area51 = document.getElementById('Area51');
     var Area52 = document.getElementById('Area52');
