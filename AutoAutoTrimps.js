@@ -964,10 +964,14 @@ function workerRatios() {
         autoTrimpSettings.FarmerRatio.value = '1';
         autoTrimpSettings.LumberjackRatio.value = '11';
         autoTrimpSettings.MinerRatio.value = '48';
-        } else {
+        } else  if (game.buildings.Tribute.owned < 3000) {
         autoTrimpSettings.FarmerRatio.value = '1';
         autoTrimpSettings.LumberjackRatio.value = '1';
         autoTrimpSettings.MinerRatio.value = '98';
+        } else {
+        autoTrimpSettings.FarmerRatio.value = '1';
+        autoTrimpSettings.LumberjackRatio.value = '1';
+        autoTrimpSettings.MinerRatio.value = '998';
         }
     } else if (game.resources.trimps.realMax() > 500000) {
         autoTrimpSettings.FarmerRatio.value = '4';
