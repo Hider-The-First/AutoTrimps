@@ -454,7 +454,7 @@ var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [0.1, 
 var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [2, 2, 2], 0.1); // , 1.5, 3, 2, 5, 3.5
 var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [24, 24, 24], 0.1); // , 8, 10, 24, 29, 18
 var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [0.1, 0.1, 0.1], 0.1); // , 1, 1.5, 8, 3.5, 3
-var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [(24*(2+Math.pow(game.portal.Coordinated.level,0.3))).toFixed(0), (24*(2+Math.pow(game.portal.Coordinated.level,0.3))).toFixed(0), 72], 0.1); // , 25, 60, 60, 100, 100
+var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [(24*(2+Math.pow(game.portal.Coordinated.level,0.2))).toFixed(0), (24*(2+Math.pow(game.portal.Coordinated.level,0.3))).toFixed(0), 72], 0.1); // , 25, 60, 60, 100, 100
 var resourceful = new AutoPerks.VariablePerk("resourceful", 50000, true,  [2, 2, 2], 0.05); // , 2, 2, 2, 1, 1
 var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [3, 0.5, 3], 0.005, 30); // , 3, 5, 3, 5, 10
 //tier2 perks
