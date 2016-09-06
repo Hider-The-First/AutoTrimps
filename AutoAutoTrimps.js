@@ -2603,7 +2603,7 @@ function doPortal(challenge) {
     if(challenge) selectChallenge(challenge);
     activateClicked();
     activatePortal();
-    AutoPerks.parseData();
+    allocatorBTN1 = AutoPerks.parseData();
     activatePortalBtn = activateClicked();
     lastHeliumZone = 0;
 }
