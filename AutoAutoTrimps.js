@@ -2360,7 +2360,7 @@ function autoMap() {
             }
         }
         //forcibly run watch maps
-        if (shouldDoWatchMaps || (getBreedTime(true) < 1 && mapYouSlow)) {
+        if (shouldDoWatchMaps || mapYouSlow) {  //(getBreedTime(true) < 1 && 
             mapsClicked();
         }
     } else if (game.global.preMapsActive) {
