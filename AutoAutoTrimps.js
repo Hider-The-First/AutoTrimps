@@ -2605,9 +2605,9 @@ function doPortal(challenge) {
     activateClicked();
     activatePortal();
     lastHeliumZone = 0;
-    viewPortalUpgrades();
-    AutoPerks.parseData();
-    activateClicked();
+    pastUpgradesBtn = viewPortalUpgrades();
+    allocatorBTN1 = AutoPerks.parseData();
+    activatePortalBtn = activateClicked();
 }
 
 //Controls "Manage Breed Timer" and "Genetecist Timer" - adjust geneticists to reach desired breed timer
