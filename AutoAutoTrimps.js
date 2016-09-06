@@ -2354,7 +2354,7 @@ function autoMap() {
                     (
                     (game.resources.trimps.realMax() <= game.resources.trimps.owned + 1)
                     || (game.global.challengeActive == 'Lead' && game.global.lastClearedCell > 93) 
-                    || (doVoids && game.global.lastClearedCell > 93)
+                    || (doVoids && (game.global.lastClearedCell > 93 || getPageSetting('VoidMaps') > 350))
                     )
                 ){
                 mapsClicked();
