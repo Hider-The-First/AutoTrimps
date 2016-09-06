@@ -2516,11 +2516,11 @@ function autoPortal() {
                     if(myHeliumHr < bestHeHr * (1-(heliumHrBuffer/100)) && !game.global.challengeActive && (game.global.totalVoidMaps == 0 || hiderwindow < 0.2) && (getPageSetting('VoidMaps')+4 < game.global.world || hiderwindow < 0.2)) {
                         debug("My Helium was: " + myHeliumHr + " & the Best Helium was: " + bestHeHr + " at zone: " +  game.stats.bestHeliumHourThisRun.atZone);
                         pushData();
-                        if(autoTrimpSettings.HeliumHourChallenge.selected != 'None') 
+                        if(autoTrimpSettings.HeliumHourChallenge.selected != 'None') {
                             doPortal(autoTrimpSettings.HeliumHourChallenge.selected);
                             AutoPerks.parseData();
                             activateClicked();
-                        else 
+                        } else 
                             doPortal();
                     }
                 }
