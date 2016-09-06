@@ -2518,6 +2518,8 @@ function autoPortal() {
                         pushData();
                         if(autoTrimpSettings.HeliumHourChallenge.selected != 'None') 
                             doPortal(autoTrimpSettings.HeliumHourChallenge.selected);
+                            AutoPerks.parseData();
+                            activateClicked();
                         else 
                             doPortal();
                     }
@@ -3144,8 +3146,8 @@ function generateHeirloomIcon(heirloom, location, number){
     bbutton.id = 'Area52';
     newContainer2.appendChild(bbutton);
     fightButtonCol.appendChild(newContainer2);
-    newContainer2.setAttribute("onmouseover", 'tooltip(\"Data Window\", \"customText\", event, \"S-DMG (Scryer Demage) is<br> avgDamageXSstanceXOverkill.levelX0.005.<br>Max-HP is<br> EnemyMaxHealthXCorruptX7.\")');
-    newContainer2.setAttribute("onmouseout", 'tooltip("hide")');
+    //newContainer2.setAttribute("onmouseover", 'tooltip(\"Data Window\", \"customText\", event, \"S-DMG (Scryer Demage) is<br> avgDamageXSstanceXOverkill.levelX0.005.<br>Max-HP is<br> EnemyMaxHealthXCorruptX7.\")');
+    //newContainer2.setAttribute("onmouseout", 'tooltip("hide")');
 var hiderwindow = 0;
 var hiderWindow = document.getElementById('hiderWindow');
 function updateValueFields2() {
@@ -3164,5 +3166,5 @@ function updateValueFields3() {
     var Area51 = document.getElementById('Area51');
     var Area52 = document.getElementById('Area52');
     var Area60 = document.getElementById('Area60');
-    Area52.innerHTML = 'S-DMG: ' + (Area51i).toPrecision(2) + '<br>Max-HP: ' + (Area60i).toPrecision(2) + '<br>He/hr: ' + getStats(); 
+    Area52.innerHTML = 'Will AutoAutoPerks<br>after AutoPortal,<br>you cant stop it.; //'S-DMG: ' + (Area51i).toPrecision(2) + '<br>Max-HP: ' + (Area60i).toPrecision(2) + '<br>He/hr: ' + getStats(); 
 }
