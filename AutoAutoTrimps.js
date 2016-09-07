@@ -2507,7 +2507,7 @@ function autoPortal() {
     switch (autoTrimpSettings.AutoPortal.selected) {
         //portal if we have lower He/hr than the previous zone (or buffer)
         case "Helium Per Hour":
-            if (game.global.lastClearedCell == 1) {
+            if (game.global.lastClearedCell >= 1  && game.global.lastClearedCell <= 10) {
             var bestHeHr = game.stats.bestHeliumHourThisRun.storedValue;
             }
             game.stats.bestHeliumHourThisRun.evaluate();    //normally, evaluate() is only called once per second, but the script runs at 10x a second.
