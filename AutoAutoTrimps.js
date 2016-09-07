@@ -1965,7 +1965,7 @@ function autoMap() {
     var voidMapLevelSetting = getPageSetting('VoidMaps');
     if (hiderwindow > 3 && game.global.world > 300)
     	voidMapLevelSetting = 99404; // Stop trolling me Ânsopedi!!!!
-    if (hiderwindow < 2 && (getPageSetting('VoidMaps') > game.global.world || hiderwindow > 1) && game.global.challengeActive != "Toxicity" && (game.global.challengeActive != "Lead" || game.global.world % 2 == 1))
+    if (game.global.mapBonus > 1 && game.global.preMapsActive && hiderwindow < 3 && (getPageSetting('VoidMaps') > game.global.world || hiderwindow > 1) && game.global.challengeActive != "Toxicity" && (game.global.challengeActive != "Lead" || game.global.world % 2 == 1))
         voidMapLevelSetting = game.global.world;
     //decimal void maps are possible, using string function to avoid false float precision (0.29999999992). javascript can compare ints to strings anyway.
     var voidMapLevelSettingZone = (voidMapLevelSetting+"").split(".")[0];
@@ -3140,7 +3140,7 @@ function generateHeirloomIcon(heirloom, location, number){
     abutton.id = 'hiderStatus';
     newContainer.appendChild(abutton);
     fightButtonCol.appendChild(newContainer);
-    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Use Scryer Formation in zones if over 450%.<br>Get Dark Essence if over 100%.<br>Get less Prestige if over 15%.<br>buy more Warpstations if over 15%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 10% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
+    newContainer.setAttribute("onmouseover", 'tooltip(\"OverKill Chance\", \"customText\", event, \"Use Scryer Formation in zones if over 450%.<br>Get Dark Essence if over 100%.<br>Get less Prestige if over 15%.<br>buy more Warpstations if over 15%.<br>Save high level Void Maps if over 15%.<br>Farm Void Maps if under 15% and over 5%.<br>Get 20%-200% Map Bonus if 2.5%-6.5%.<br>Ignore high level Void Maps limits if over 5%.<br>Use Dominance Formation in maps if under 1%.<br>Allow He/Hr Auto Portal with Void Maps if under 1%.<br>He/Hr Auto Portal right after Void Maps Settings if under 1%.\")'); //Get +20% Map Bonus if in map and Breeding and if under 1%.<br>
     newContainer.setAttribute("onmouseout", 'tooltip("hide")');
     
     var fightButtonCol = document.getElementById("battleBtnsColumn");
