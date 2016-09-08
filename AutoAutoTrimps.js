@@ -2282,7 +2282,7 @@ function autoMap() {
         if (selectedMap == "world") {
             //if needPrestige, TRY to find current level map as the highest level map we own.
             if (needPrestige)
-                if (game.global.world == game.global.mapsOwnedArray[highestMap].level)
+                if (game.global.world == game.global.mapsOwnedArray[highestMap].level && 26 == game.global.mapsOwnedArray[highestMap].size && 172 > game.global.mapsOwnedArray[highestMap].loot)
                     selectedMap = game.global.mapsOwnedArray[highestMap].id;
                 else
                     selectedMap = "create";
