@@ -2288,7 +2288,7 @@ function autoMap() {
                     selectedMap = "create";
             //if needFarmSpire x minutes is true, switch over from wood maps to metal maps.    
             else if (needFarmSpire)
-                if (26 <= game.global.mapsOwnedArray[highestMap].size) //  && 181 < game.global.mapsOwnedArray[highestMap].loot) //Mountain
+                if (26 <= game.global.mapsOwnedArray[highestMap].size) //  && 181 < game.global.mapsOwnedArray[highestMap].loot) //Mountain //
                     selectedMap = game.global.mapsOwnedArray[highestMap].id;
                 else
                     selectedMap = "create";
