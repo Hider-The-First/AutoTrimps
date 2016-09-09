@@ -2282,18 +2282,18 @@ function autoMap() {
         if (selectedMap == "world") {
             //if needPrestige, TRY to find current level map as the highest level map we own.
             if (needPrestige)
-                if (game.global.world == game.global.mapsOwnedArray[highestMap].level && 26 >= game.global.mapsOwnedArray[highestMap].size && 181 < game.global.mapsOwnedArray[highestMap].loot && game.global.mapsOwnedArray[highestMap].location == "Plentiful")
+                if (game.global.world == game.global.mapsOwnedArray[highestMap].level && 26 >= game.global.mapsOwnedArray[highestMap].size) // && 181 < game.global.mapsOwnedArray[highestMap].loot && game.global.mapsOwnedArray[highestMap].location == "Plentiful")
                     selectedMap = game.global.mapsOwnedArray[highestMap].id;
                 else
                     selectedMap = "create";
             //if needFarmSpire x minutes is true, switch over from wood maps to metal maps.    
             else if (needFarmSpire)
-                if (26 >= game.global.mapsOwnedArray[highestMap].size && 181 < game.global.mapsOwnedArray[highestMap].loot && game.global.mapsOwnedArray[highestMap].location == "Plentiful") //Mountain
+                if (26 >= game.global.mapsOwnedArray[highestMap].size) // && 181 < game.global.mapsOwnedArray[highestMap].loot && game.global.mapsOwnedArray[highestMap].location == "Plentiful") //Mountain
                     selectedMap = game.global.mapsOwnedArray[highestMap].id;
                 else
                     selectedMap = "create";
             //if shouldFarm is true, use a siphonology adjusted map, as long as we aren't trying to prestige                                
-            else if (siphonMap != -1 && 26 >= game.global.mapsOwnedArray[highestMap].size && 181 < game.global.mapsOwnedArray[highestMap].loot && game.global.mapsOwnedArray[highestMap].location == "Plentiful")
+            else if (siphonMap != -1 && 26 >= game.global.mapsOwnedArray[highestMap].size) // && 181 < game.global.mapsOwnedArray[highestMap].loot && game.global.mapsOwnedArray[highestMap].location == "Plentiful") //
                 selectedMap = game.global.mapsOwnedArray[siphonMap].id;
             //if we dont' have an appropriate max level map, or a siphon map, we need to make one
             else
