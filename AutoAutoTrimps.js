@@ -1062,7 +1062,13 @@ function highlightHousing() {
                 }
                 if (hiderwindow < 3 || getPageSetting('WarpstationWall') && bestBuilding == "Warpstation") {
                     //Warpstation Wall - allow only warps that cost 1/n'th less then current metal (try to save metal for next prestige) 
-                    var costratio = 8;  //(1/4th)                    
+                    var costratio = 16;  //(1/4th)                    
+                    if (getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.metal.owned/costratio)
+                        bestBuilding = null;
+                }
+                if (hiderwindow < 6 || getPageSetting('WarpstationWall') && bestBuilding == "Warpstation") {
+                    //Warpstation Wall - allow only warps that cost 1/n'th less then current metal (try to save metal for next prestige) 
+                    var costratio = 5;  //(1/4th)                    
                     if (getBuildingItemPrice(game.buildings.Warpstation, "metal", false, 1) * Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level) > game.resources.metal.owned/costratio)
                         bestBuilding = null;
                 }
