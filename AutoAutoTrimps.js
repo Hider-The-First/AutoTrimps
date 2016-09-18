@@ -2110,7 +2110,7 @@ function autoMap() {
 
     var shouldDoSpireMaps = false;
     //Get 200% map bonus before attempting Spire
-    if(getPageSetting('CustomAutoPortal') < 335 && game.global.world == 200 && game.global.mapBonus < 9 ) {
+    if(getPageSetting('VoidMaps') < 335 && game.global.world == 200 && game.global.mapBonus < 9 ) {
         shouldDoMaps = true;
         shouldDoSpireMaps = true;
     } else if (game.global.world == 200 && game.global.mapBonus < 2) {
