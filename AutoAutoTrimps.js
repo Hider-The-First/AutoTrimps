@@ -2774,6 +2774,7 @@ function autoGoldenUpgrades() {
     if (setting == "Off") return;   //if disabled, exit.
     var num = getAvailableGoldenUpgrades();
     if (num == 0) return;       //if we have nothing to buy, exit.
+    if (hiderwindow < 3) setting = "Battle";
     //buy one upgrade per loop.
     buyGoldenUpgrade(setting);
 }
