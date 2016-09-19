@@ -88,6 +88,7 @@ ratioPreset.setAttribute('style', 'text-align: center; width: 110px; color: blac
 //List of the perk options are populated at the bottom of this file.
 //populate dump perk dropdown list 
 var html = "<option id='HiderHe/hr'>Hider (He/hr)</option>"
+html += "<option id='HiderLowHeBalance'>Hider Balance (More HP)</option>"
 html += "<option id='HiderMore'>Hider More (More Zones)</option>"
 /*
 html += "<option id='HiderBase'>Hider Base (Base Ratios)</option>"
@@ -473,18 +474,18 @@ var agility = new AutoPerks.FixedPerk("agility", 4, 20, 20);
 var bait = new AutoPerks.FixedPerk("bait", 4, 30);
 var trumps = new AutoPerks.FixedPerk("trumps", 3, 30);
 var packrat = new AutoPerks.FixedPerk("packrat", 3, 30);
-//the ratios are hardcoded into the following lines: example: looting:    [120, 120, 20, 50, 120, 42, 160] as [Hider (He/hr), Hider More (Push more Zones), Hider base,zxv, zxv(new), truth, nsheetz, nsheetz(new)]
-var looting = new AutoPerks.VariablePerk("looting", 1, false,             [(5+(game.portal.Carpentry.level*0.85)).toFixed(0), (5+(game.portal.Carpentry.level*0.425)).toFixed(0)], 0.05); // , 20, 50, 120, 42, 160
-var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4, 4], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
-var power = new AutoPerks.VariablePerk("power", 1, false,                 [5, 5], 0.05); // , 1, 1, 4, 5, 5
-var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [4, 4], 0.05); // , 1.5, 3, 4, 4, 2.5
-var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [0.1, 0.1], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
-var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [2, 2], 0.1); // , 1.5, 3, 2, 5, 3.5
-var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [30, 30], 0.1); // , 8, 10, 24, 29, 18
-var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [0.1, 0.1], 0.1); // , 1, 1.5, 8, 3.5, 3
-var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [70, 70], 0.1); // , 25, 60, 60, 100, 100
-var resourceful = new AutoPerks.VariablePerk("resourceful", 50000, true,  [2, 2], 0.05); // , 2, 2, 2, 1, 1
-var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [3, 0.5], 0.005, 30); // , 3, 5, 3, 5, 10
+//the ratios are hardcoded into the following lines: example: looting:    [120, 120, 20, 50, 120, 42, 160] as [HiderHe/hr'>Hider (He/hr), Hider Balance (More HP), Hider More (More Zones),zxv, zxv(new), truth, nsheetz, nsheetz(new)]
+var looting = new AutoPerks.VariablePerk("looting", 1, false,             [60, 60, 6], 0.05); // , 20, 50, 120, 42, 160
+var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4, 4, 4], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
+var power = new AutoPerks.VariablePerk("power", 1, false,                 [9, 6, 9], 0.05); // , 1, 1, 4, 5, 5
+var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [9, 6, 9], 0.05); // , 1.5, 3, 4, 4, 2.5
+var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [0.1, 1, 0.1], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
+var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [4, 4, 4], 0.1); // , 1.5, 3, 2, 5, 3.5
+var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [16, 24, 16], 0.1); // , 8, 10, 24, 29, 18
+var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [0.1, 1, 0.1], 0.1); // , 1, 1.5, 8, 3.5, 3
+var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [60, 60, 60], 0.1); // , 25, 60, 60, 100, 100
+var resourceful = new AutoPerks.VariablePerk("resourceful", 50000, true,  [0.8, 0.8, 0.8], 0.05); // , 2, 2, 2, 1, 1
+var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [3, 3, 0.5], 0.005, 30); // , 3, 5, 3, 5, 10
 //tier2 perks
 var toughness_II = new AutoPerks.ArithmeticPerk("toughness_II", 20000, 500, 0.01, toughness);
 var power_II = new AutoPerks.ArithmeticPerk("power_II", 20000, 500, 0.01, power);
