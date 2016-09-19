@@ -86,7 +86,7 @@ var ratioPreset = document.createElement("select");
 ratioPreset.id = 'ratioPreset';
 ratioPreset.setAttribute('style', 'text-align: center; width: 110px; color: black;');
 //List of the perk options are populated at the bottom of this file.
-//populate dump perk dropdown list 
+//populate dump perk dropdown list
 var html = "<option id='HiderHe/hr'>Hider (He/hr)</option>"
 html += "<option id='HiderLowHeBalance'>Hider Balance (More HP)</option>"
 html += "<option id='HiderMore'>Hider More (More Zones)</option>"
