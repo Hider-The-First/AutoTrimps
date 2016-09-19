@@ -2798,6 +2798,7 @@ function betterAutoFight() {
     //Click Fight fight group is small (if you died from daily challange)
     if (game.upgrades.Battle.done && !game.global.fighting && game.global.soldierHealth == 0 && game.resources.trimps.realMax()/100 > game.resources.trimps.soldiers)
         fightManual();
+    }
 }
 
 //Exits the Spire after completing the specified cell.
