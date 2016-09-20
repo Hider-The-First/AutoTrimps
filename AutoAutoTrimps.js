@@ -3138,6 +3138,8 @@ function newSelectHeirloom(number, location, elem){
     protectHeirloom();
 }
 
+//Moved to HiderTrimp
+/*
 //replacement function that inserts a new onclick action into the heirloom icons so it can populate the proper Protect icon. (yes this is the best way to do it.)
 function generateHeirloomIcon(heirloom, location, number){
     if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
@@ -3151,7 +3153,7 @@ function generateHeirloomIcon(heirloom, location, number){
     html += locText + ', this)"> <span class="' + icon + '"></span></span>';
     return html;
 }
-
+*/
     var fightButtonCol = document.getElementById("battleBtnsColumn");
     //create hider status
     newContainer = document.createElement("DIV");
