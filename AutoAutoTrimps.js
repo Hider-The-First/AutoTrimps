@@ -3125,12 +3125,6 @@ function protectHeirloom(element,modify){
         element.innerHTML = heirloom.protected ? 'UnProtect' : 'Protect';
 }
 
-//wrapper for selectHeirloom, to handle the protect button
-function newSelectHeirloom(number, location, elem){
-    selectHeirloom(number, location, elem);
-    protectHeirloom();
-}
-
 //replacement function that inserts a new onclick action into the heirloom icons so it can populate the proper Protect icon. (yes this is the best way to do it.)
 function generateHeirloomIcon(heirloom, location, number){
     if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
