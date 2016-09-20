@@ -93,26 +93,6 @@ function getNiceThingsDone() {
         document.getElementById("trimps").style =		colC;
 	}
 }
-document.getElementById("equippedHeirlooms").innerHTML = '<div class="row"><div class="col-xs-6">Equipped Chest Armor<br/><div font-size: 0.9em; id="ShieldEquipped"></div><br/><span id="ShieldEquippedName"></span></div><div class="col-xs-6">Equipped Legs Armor<br/><div id="StaffEquipped"></div><br/><span id="StaffEquippedName"></span></div></div><div id="equippedHeirloomsBtnGroup" class="heirloomBtnGroup" style="visibility: hidden"><div id="unequipHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="unequipHeirloom()">Unequip</div></div></div>';
-
-var hrlmProtBtn1 = document.createElement("DIV");
-hrlmProtBtn1.setAttribute('class', 'noselect heirloomBtnActive heirBtn');
-hrlmProtBtn1.setAttribute('onclick', 'protectHeirloom(this,true)');
-hrlmProtBtn1.innerHTML = 'Protect/Unprotect';  //since we cannot detect the selected heirloom on load, ambiguous name
-hrlmProtBtn1.id='protectHeirloomBTN1';
-var hrlmProtBtn2 = document.createElement("DIV");
-hrlmProtBtn2.setAttribute('class', 'noselect heirloomBtnActive heirBtn');
-hrlmProtBtn2.setAttribute('onclick', 'protectHeirloom(this,true)');
-hrlmProtBtn2.innerHTML = 'Protect/Unprotect';
-hrlmProtBtn2.id='protectHeirloomBTN2';
-var hrlmProtBtn3 = document.createElement("DIV");
-hrlmProtBtn3.setAttribute('class', 'noselect heirloomBtnActive heirBtn');
-hrlmProtBtn3.setAttribute('onclick', 'protectHeirloom(this,true)');
-hrlmProtBtn3.innerHTML = 'Protect/Unprotect';
-hrlmProtBtn3.id='protectHeirloomBTN3';
-document.getElementById('equippedHeirloomsBtnGroup').appendChild(hrlmProtBtn1);
-document.getElementById('carriedHeirloomsBtnGroup').appendChild(hrlmProtBtn2);
-document.getElementById('extraHeirloomsBtnGroup').appendChild(hrlmProtBtn3);
 
 function generateHeirloomIcon(heirloom, location, number){
     if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
