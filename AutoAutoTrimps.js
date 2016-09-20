@@ -3168,7 +3168,7 @@ function generateHeirloomIcon(heirloom, location, number){
     var locText = "";
     if (location == "Equipped") locText += '-1,\'' + heirloom.type + 'Equipped\'';
     else locText += number + ', \'heirlooms' + location + '\'';    
-    html += '" onmouseover="tooltip(\'Heirloom\', null, event, null, ' + locText + ')" onmouseout="tooltip(\'hide\')" onclick="selectHeirloom(';
+    html += '" onmouseover="tooltip(\'Heirloom\', null, event, null, ' + locText + ')" onmouseout="tooltip(\'hide\')" onclick="newSelectHeirloom(';
     html += locText + ', this)"> <span class="' + icon + '"></span></span>';
     return html;
 }
