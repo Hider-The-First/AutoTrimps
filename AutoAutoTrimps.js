@@ -3143,25 +3143,25 @@ function newSelectHeirloom(number, location, elem){
 function generateHeirloomIcon(heirloom, location, number){
     if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
     if (heirloom.rarity == 6) {
-    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="http://s21.postimg.org/4imgb9nqv/Transparent_Armor_6.png"' : 'id="Staff"><img style="max-height: 3vw;" src="http://s16.postimg.org/a1m5f2gqd/Transparent_Legs_6.png"';
+    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="https://s21.postimg.org/4imgb9nqv/Transparent_Armor_6.png"' : 'id="Staff"><img style="max-height: 3vw;" src="https://s16.postimg.org/a1m5f2gqd/Transparent_Legs_6.png"';
     }
     if (heirloom.rarity == 5) {
-    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="http://s21.postimg.org/m7anwg63b/Transparent_Armor_5.png"' : 'id="Staff"><img style="max-height: 3vw;" src="http://s12.postimg.org/96714wb5p/Transparent_Legs_5.png"';
+    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="https://s21.postimg.org/m7anwg63b/Transparent_Armor_5.png"' : 'id="Staff"><img style="max-height: 3vw;" src="https://s12.postimg.org/96714wb5p/Transparent_Legs_5.png"';
     }
     if (heirloom.rarity == 4) {
-    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="http://s9.postimg.org/p3lns1qjj/Transparent_Armor_4.png"' : 'id="Staff"><img style="max-height: 3vw;" src="http://s12.postimg.org/f6ply8bwd/Transparent_Legs_4.png"';
+    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="https://s9.postimg.org/p3lns1qjj/Transparent_Armor_4.png"' : 'id="Staff"><img style="max-height: 3vw;" src="https://s12.postimg.org/f6ply8bwd/Transparent_Legs_4.png"';
     }
     if (heirloom.rarity == 3) {
-    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="http://s10.postimg.org/c2pquh94p/Transparent_Armor_3.png"' : 'id="Staff"><img style="max-height: 3vw;" src="http://s11.postimg.org/roo3t7v7n/Transparent_Legs_3.png"';
+    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="https://s10.postimg.org/c2pquh94p/Transparent_Armor_3.png"' : 'id="Staff"><img style="max-height: 3vw;" src="https://s11.postimg.org/roo3t7v7n/Transparent_Legs_3.png"';
     }
     if (heirloom.rarity == 2) {
-    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="http://s18.postimg.org/jprvnxg15/Transparent_Armor_2.png"' : 'id="Staff"><img style="max-height: 3vw;" src="http://s16.postimg.org/fupq997qd/Transparent_Legs_2.png"';
+    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="https://s18.postimg.org/jprvnxg15/Transparent_Armor_2.png"' : 'id="Staff"><img style="max-height: 3vw;" src="https://s16.postimg.org/fupq997qd/Transparent_Legs_2.png"';
     }
     if (heirloom.rarity == 1) {
-    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="http://s21.postimg.org/iouuqjc8n/Transparent_Armor_1.png"' : 'id="Staff"><img style="max-height: 3vw;" src="http://s10.postimg.org/nxsok6djt/Transparent_Legs_1.png"';
+    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="https://s21.postimg.org/iouuqjc8n/Transparent_Armor_1.png"' : 'id="Staff"><img style="max-height: 3vw;" src="https://s10.postimg.org/nxsok6djt/Transparent_Legs_1.png"';
     }
     if (heirloom.rarity == 0) {
-    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="http://s14.postimg.org/dcw0kj0ep/Transparent_Armor_0.png"' : 'id="Staff"><img style="max-height: 3vw;" src="http://s18.postimg.org/lh7kxanbd/Transparent_Legs_0.png"';
+    var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="https://s14.postimg.org/dcw0kj0ep/Transparent_Armor_0.png"' : 'id="Staff"><img style="max-height: 3vw;" src="https://s18.postimg.org/lh7kxanbd/Transparent_Legs_0.png"';
     }
     var html = '<span class="heirloomThing heirloomRare' + heirloom.rarity;
     if (location == "Equipped") html += ' equipped';
