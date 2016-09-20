@@ -94,6 +94,8 @@ function getNiceThingsDone() {
 	}
 }
 
+/*
+//change some icons (made by Zxv).
 function generateHeirloomIcon(heirloom, location, number){
     if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
     if (heirloom.rarity == 6) {
@@ -117,29 +119,6 @@ function generateHeirloomIcon(heirloom, location, number){
     if (heirloom.rarity == 0) {
     var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 3vw;" src="http://s14.postimg.org/dcw0kj0ep/Transparent_Armor_0.png"' : 'id="Staff"><img style="max-height: 3vw;" src="http://s18.postimg.org/lh7kxanbd/Transparent_Legs_0.png"';
     }
-    var html = '<span class="heirloomThing heirloomRare' + heirloom.rarity;
-    if (location == "Equipped") html += ' equipped';
-    var locText = "";
-    if (location == "Equipped") locText += '-1,\'' + heirloom.type + 'Equipped\'';
-    else locText += number + ', \'heirlooms' + location + '\'';    
-    html += '" onmouseover="tooltip(\'Heirloom\', null, event, null, ' + locText + ')" onmouseout="tooltip(\'hide\')" onclick="selectHeirloom(';
-    html += locText + ', this)"> <span class="' + icon + '"></span></span>';
-    return html;
-}
-
-/*
-//change some icons (made by Zxv).
-var link = document.createElement("link");
-link.rel = "stylesheet";
-
-link.href = "https://i.icomoon.io/public/temp/a01e8e7672/UntitledProject/style.css";
-document.getElementsByTagName('head')[0].appendChild(link);
-document.getElementById('ShieldEquipped').childNodes[0].childNodes[1].className = "icomoon icon-Leg2"
-document.getElementById('StaffEquipped').childNodes[0].childNodes[1].className = "icomoon icon-Armor2"
-
-function generateHeirloomIcon(heirloom, location, number){
-    if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
-    var icon = (heirloom.type == "Shield") ? 'icomoon icon-Armor2' : 'icomoon icon-Leg2';
     var html = '<span class="heirloomThing heirloomRare' + heirloom.rarity;
     if (location == "Equipped") html += ' equipped';
     var locText = "";
