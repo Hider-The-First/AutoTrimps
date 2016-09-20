@@ -3108,6 +3108,7 @@ document.getElementById('equippedHeirloomsBtnGroup').appendChild(hrlmProtBtn1);
 document.getElementById('carriedHeirloomsBtnGroup').appendChild(hrlmProtBtn2);
 document.getElementById('extraHeirloomsBtnGroup').appendChild(hrlmProtBtn3);
 
+
 function protectHeirloom(element,modify){
     var selheirloom = game.global.selectedHeirloom;  //[number,location]
     var heirloomlocation = selheirloom[1];
@@ -3129,6 +3130,12 @@ function protectHeirloom(element,modify){
     }
     if (element)
         element.innerHTML = heirloom.protected ? 'UnProtect' : 'Protect';
+}
+
+//wrapper for selectHeirloom, to handle the protect button
+function newSelectHeirloom(number, location, elem){
+    selectHeirloom(number, location, elem);
+    protectHeirloom();
 }
 
 //replacement function that inserts a new onclick action into the heirloom icons so it can populate the proper Protect icon. (yes this is the best way to do it.)
