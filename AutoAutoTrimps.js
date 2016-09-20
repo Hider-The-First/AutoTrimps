@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         AutoAutoTrimps-hider
 // @namespace    http://tampermonkey.net/
-// @version      2.1.3H-hider-17-8-2016
+// @version      2.2 H-hider-20-9-2016
 // @description  Automate the AutoTrimps!
-// @author       zininzinin, spindrjr, belaith, ishakaru, genBTC
+// @author       zininzinin, spindrjr, belaith, ishakaru, genBTC, Hider, Ansopedi, Zxv.
 // @include      *trimps.github.io*
 // @grant        none
 // ==/UserScript==
