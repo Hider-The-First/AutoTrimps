@@ -3080,6 +3080,8 @@ function filterMessage2(what){
     log.scrollTop = log.scrollHeight;
 }
 
+//this section moved to Hider Trimp
+/*
 var hrlmProtBtn1 = document.createElement("DIV");
 hrlmProtBtn1.setAttribute('class', 'noselect heirloomBtnActive heirBtn');
 hrlmProtBtn1.setAttribute('onclick', 'protectHeirloom(this,true)');
@@ -3098,7 +3100,7 @@ hrlmProtBtn3.id='protectHeirloomBTN3';
 document.getElementById('equippedHeirloomsBtnGroup').appendChild(hrlmProtBtn1);
 document.getElementById('carriedHeirloomsBtnGroup').appendChild(hrlmProtBtn2);
 document.getElementById('extraHeirloomsBtnGroup').appendChild(hrlmProtBtn3);
-
+*/
 
 function protectHeirloom(element,modify){
     var selheirloom = game.global.selectedHeirloom;  //[number,location]
