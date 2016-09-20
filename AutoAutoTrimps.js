@@ -3087,7 +3087,7 @@ function filterMessage2(what){
 }
 
 //change names.
-document.getElementById("equippedHeirlooms").innerHTML = '<div class="row"><div class="col-xs-6">Equipped Chest Armor<br/><div font-size: 0.9em; id="ShieldEquipped"></div><br/><span id="ShieldEquippedName"></span></div><div class="col-xs-6">Equipped Legs Armor<br/><div id="StaffEquipped"></div><br/><span id="StaffEquippedName"></span></div></div><div id="equippedHeirloomsBtnGroup" class="heirloomBtnGroup" style="visibility: hidden"><div id="unequipHeirloomBtn" class="noselect heirloomBtnActive heirBtn" onclick="unequipHeirloom()">Unequip</div> </div></div>';
+document.getElementById("equippedHeirlooms").innerHTML = '<div class="row"><div class="col-xs-6">Equipped<br>Chest Armor<br/><div font-size: 0.9em; id="ShieldEquipped"></div><br/><span id="ShieldEquippedName"></span></div><div class="col-xs-6">Equipped<br>Legs Armor<br/><div id="StaffEquipped"></div><br/><span id="StaffEquippedName"></span></div></div><div id="equippedHeirloomsBtnGroup" class="heirloomBtnGroup" style="visibility: hidden"><div id="unequipHeirloomBtn" class="noselect heirloomBtnActive heirBtn" onclick="unequipHeirloom()">Unequip</div> </div></div>';
 
 var hrlmProtBtn1 = document.createElement("DIV");
 hrlmProtBtn1.setAttribute('class', 'noselect heirloomBtnActive heirBtn');
