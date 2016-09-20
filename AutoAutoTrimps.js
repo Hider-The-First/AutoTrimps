@@ -3046,6 +3046,12 @@ function message2(messageString, type, lootIcon, extraClass) {
     trimMessages(type);
 }
 
+//wrapper for selectHeirloom, to handle the protect button
+function newSelectHeirloom(number, location, elem){
+    selectHeirloom(number, location, elem);
+    protectHeirloom();
+}
+
 //HTML For adding a 5th tab to the message window
 //
 var ATbutton = document.createElement("button");
@@ -3080,8 +3086,9 @@ function filterMessage2(what){
     log.scrollTop = log.scrollHeight;
 }
 
-//this section moved to Hider Trimp
-/*
+//change names.
+document.getElementById("equippedHeirlooms").innerHTML = '<div class="row"><div class="col-xs-6">Equipped Chest Armor<br/><div font-size: 0.9em; id="ShieldEquipped"></div><br/><span id="ShieldEquippedName"></span></div><div class="col-xs-6">Equipped Legs Armor<br/><div id="StaffEquipped"></div><br/><span id="StaffEquippedName"></span></div></div><div id="equippedHeirloomsBtnGroup" class="heirloomBtnGroup" style="visibility: hidden"><div id="unequipHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="unequipHeirloom()">Unequip</div></div></div>';
+
 var hrlmProtBtn1 = document.createElement("DIV");
 hrlmProtBtn1.setAttribute('class', 'noselect heirloomBtnActive heirBtn');
 hrlmProtBtn1.setAttribute('onclick', 'protectHeirloom(this,true)');
@@ -3100,7 +3107,6 @@ hrlmProtBtn3.id='protectHeirloomBTN3';
 document.getElementById('equippedHeirloomsBtnGroup').appendChild(hrlmProtBtn1);
 document.getElementById('carriedHeirloomsBtnGroup').appendChild(hrlmProtBtn2);
 document.getElementById('extraHeirloomsBtnGroup').appendChild(hrlmProtBtn3);
-*/
 
 function protectHeirloom(element,modify){
     var selheirloom = game.global.selectedHeirloom;  //[number,location]
