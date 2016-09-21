@@ -986,6 +986,8 @@ function workerRatios() {
 
 //An error-resilient function that will actually purchase buildings and return a success status
 function safeBuyBuilding(building) {
+    if (game.buildings[building].locked)		
+        return false;
     //limit to 1 building per queue
     for (var b in game.global.buildingsQueue) {
         if (game.global.buildingsQueue[b].includes(building)) return false;
@@ -1706,7 +1708,7 @@ function autoStance() {
 	
     //calculate internal script variables.
     //baseDamage
-    baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2)*(1+game.goldenUpgrades.Battle.currentBonus));
     	if (game.global.formation == 0) {
     		baseDamage *= 2;
     	} else if (game.global.formation != "2") {
@@ -1759,7 +1761,7 @@ function autoStance() {
     if (game.global.gridArray.length === 0) return;
     
     //baseDamage
-    baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2)*(1+game.goldenUpgrades.Battle.currentBonus));
     	if (game.global.formation == 0) {
     		baseDamage *= 2;
     	} else if (game.global.formation != "2") {
@@ -2784,7 +2786,7 @@ function betterAutoFight() {
     //Manually fight instead of using builtin auto-fight
     if (game.global.autoBattle) {
         if (!game.global.pauseFight) {
-            pauseFight(); //Disable autofight
+            //pauseFight(); //Disable autofight	
         }
     }
     lowLevelFight = game.resources.trimps.maxSoldiers < (game.resources.trimps.owned - game.resources.trimps.employed) * 0.5 && (game.resources.trimps.owned - game.resources.trimps.employed) > game.resources.trimps.realMax() * 0.1 && game.global.world < 5 && game.global.sLevel > 0;
@@ -2812,7 +2814,7 @@ function useScryerStance() {
     	//Scryer if Overkill
     	//calculate internal script variables normally processed by autostance.
     	//baseDamage
-    	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2)*(1+game.goldenUpgrades.Battle.currentBonus));
     	if (game.global.formation == 0) {
     		baseDamage *= 2;
     	} else if (game.global.formation != "2") {
@@ -2893,7 +2895,7 @@ function useScryerStance() {
         //calculate internal script variables normally processed by autostance.
         
         //baseDamage
-    	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2));
+    	baseDamage = game.global.soldierCurrentAttack * (1 + (game.global.achievementBonus / 100)) * ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier) + 1) * (1 + (game.global.roboTrimpLevel * 0.2)*(1+game.goldenUpgrades.Battle.currentBonus));
     	if (game.global.formation == 0) {
     		baseDamage *= 2;
     	} else if (game.global.formation != "2") {
@@ -2981,7 +2983,7 @@ function mainLoop() {
     else
     	autoStance();                                           //"Auto Stance"
     getNiceThingsDone();					//Paint things.
-    if (getPageSetting('AutoFight')) betterAutoFight();     //"Better Auto Fight"
+    if (getPageSetting('AutoFight')) fightManual();//betterAutoFight();     //"Better Auto Fight"	
     if (getPageSetting('DynamicPrestige')) prestigeChanging2(); //"Dynamic Prestige" (genBTC settings area)
     else autoTrimpSettings.Prestige.selected = document.getElementById('Prestige').value; //if we dont want to, just make sure the UI setting and the internal setting are aligned.
     
