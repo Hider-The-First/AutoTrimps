@@ -1001,7 +1001,9 @@ function safeBuyBuilding(building) {
     game.global.firing = false;
     //avoid slow building from clamping
     //buy as many warpstations as we can afford but buys the last warpstations in single.
-    if (bestBuilding == "Warpstation" && hiderwindow < 10) {
+    if (bestBuilding == "Warpstation" && hiderwindow < 10 && game.buildings.Warpstation.owned/game.global.lastWarp < 0.75 ) {
+        game.global.buyAmt = 25;
+    } else if (bestBuilding == "Warpstation" && hiderwindow < 10 && game.buildings.Warpstation.owned/game.global.lastWarp > 0.75 ) {
         game.global.buyAmt = 1;
     } else {
     	game.global.buyAmt = 'Max';
@@ -1080,7 +1082,7 @@ function highlightHousing() {
         if (game.global.mapsActive && bestBuilding != "Warpstation" && !game.buildings.Warpstation.locked && game.global.world < 190) {
         	bestBuilding = "Warpstation";
         	safeBuyBuilding('Warpstation');
-        } else if (!game.buildings.Warpstation.locked && game.global.world < 190){
+        } else if (!game.buildings.Warpstation.locked && (game.global.world < 190 || game.buildings.Warpstation.owned/game.global.lastWarp < 0.95){
         	safeBuyBuilding('Warpstation');
         }
         if (bestBuilding) {
@@ -1096,12 +1098,12 @@ function highlightHousing() {
 //Helper function to buy best "Food" Buildings
 function buyFoodEfficientHousing() {
     // Push the limit auto change your max buildings settings		
-    autoTrimpSettings.MaxHut.value = game.global.world < 35 ? 50 : game.global.world*2.3; //10+game.buildings.House.owned;2.5		
-    autoTrimpSettings.MaxHouse.value = game.global.world < 35 ? 50 : game.global.world*2.6;		
-    autoTrimpSettings.MaxMansion.value = game.global.world < 35 ? 50 : game.global.world*2.8; //20+game.buildings.House.owned;2.9		
-    autoTrimpSettings.MaxHotel.value = game.global.world < 35 ? 50 : game.global.world*3; //30+game.buildings.House.owned;3.1		
-    autoTrimpSettings.MaxResort.value = game.global.world < 35 ? 50 : game.global.world*3.2; //40+game.buildings.House.owned; 3.3		
-    autoTrimpSettings.MaxGateway.value = game.global.world < 35 ? 25 : game.global.world*0.8;
+    autoTrimpSettings.MaxHut.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*2.3; //10+game.buildings.House.owned;2.5		
+    autoTrimpSettings.MaxHouse.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*2.6;		
+    autoTrimpSettings.MaxMansion.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*2.8; //20+game.buildings.House.owned;2.9		
+    autoTrimpSettings.MaxHotel.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*3; //30+game.buildings.House.owned;3.1		
+    autoTrimpSettings.MaxResort.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*3.2; //40+game.buildings.House.owned; 3.3		
+    autoTrimpSettings.MaxGateway.value = (game.global.world < 35 || game.global.world > 190) ? 25 : game.global.world*0.8;
     var houseWorth = game.buildings.House.locked ? 0 : game.buildings.House.increase.by / getBuildingItemPrice(game.buildings.House, "food", false, 1);
     var hutWorth = game.buildings.Hut.increase.by / getBuildingItemPrice(game.buildings.Hut, "food", false, 1);
     var hutAtMax = (game.buildings.Hut.owned >= autoTrimpSettings.MaxHut.value && autoTrimpSettings.MaxHut.value != -1);
