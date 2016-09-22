@@ -990,7 +990,7 @@ function safeBuyBuilding(building) {
         return false;
     //limit to 1 building per queue
     for (var b in game.global.buildingsQueue) {
-        if (game.global.buildingsQueue[b].includes(building)) return false;
+        if (game.global.buildingsQueue[b].includes(building) || bestBuilding != "Warpstation") return false;
     }
     preBuy();
     game.global.buyAmt = 1;
