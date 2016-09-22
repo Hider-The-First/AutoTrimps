@@ -1082,7 +1082,7 @@ function highlightHousing() {
         if (game.global.mapsActive && bestBuilding != "Warpstation" && !game.buildings.Warpstation.locked && game.global.world < 190) {
         	bestBuilding = "Warpstation";
         	safeBuyBuilding('Warpstation');
-        } else if (!game.buildings.Warpstation.locked && (game.global.world < 190 || game.buildings.Warpstation.owned/game.global.lastWarp < 0.95)) {
+        } else if (!game.buildings.Warpstation.locked && (game.global.world < 190 || game.buildings.Warpstation.owned/game.global.lastWarp < 0.98)) {
         	safeBuyBuilding('Warpstation');
         }
         if (bestBuilding) {
