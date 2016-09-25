@@ -2098,7 +2098,7 @@ function autoMap() {
         (game.global.world >= 62 && !!game.buildings.Nursery.locked) ||	//Clear maps to stack up nurseries for genetics before starting warps stucking.
         //(!game.upgrades.Gigastation.locked && game.global.mapBonus < 1 && !game.global.mapsActive && (game.upgrades.Gigastation.allowed-4 >= game.upgrades.Gigastation.done)) ||	//Clear maps to stack up early warps.
         ((game.global.mapBonus < 9 && hiderwindow < 1 ) || (game.global.mapBonus < 8 && hiderwindow < 1.2 ) || (game.global.mapBonus < 7 && hiderwindow < 1.4 ) || (game.global.mapBonus < 6 && hiderwindow < 1.6 ) || (game.global.mapBonus < 5 && hiderwindow < 1.8 ) || (game.global.mapBonus < 4 && hiderwindow < 2 ) || (game.global.mapBonus < 3 && hiderwindow < 2.2 ) || (game.global.mapBonus < 2 && hiderwindow < 2.4 ) || (game.global.mapBonus < 1 && hiderwindow < 2.6 )) ||	//Farm maps if you are way to slow
-        ((game.global.preMapsActive || game.global.mapsActive) && (getBreedTime(true) > 5 || game.global.antiStacks < 30) && hiderwindow < 4) ||
+        ((game.global.preMapsActive || game.global.mapsActive) && (getBreedTime(true) > 5 || game.global.antiStacks < 30) && hiderwindow < 4)
         //(game.global.mapsActive && getBreedTime(true) > 0 && hiderwindow < 1)	//Stay in maps to heal
         //(game.global.world >= 310 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)	//option to force stay in zone X time in min/cleared maps and farm
         //(game.global.world == 200 && game.global.lastClearedCell > 20 && ((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) < 10)		//option to force stay in zone X time in min and farm		
