@@ -481,9 +481,9 @@ var power = new AutoPerks.VariablePerk("power", 1, false,                 [5, 5,
 var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [6, 6, 6], 0.05); // , 1.5, 3, 4, 4, 2.5
 var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [0.1, 1, 0.1], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
 var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [6, 6, 6], 0.1); // , 1.5, 3, 2, 5, 3.5
-var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [16, 24, 24], 0.1); // , 8, 10, 24, 29, 18
+var carpentry = new AutoPerks.VariablePerk("carpentry", 25, true,         [24, 24, 24], 0.1); // , 8, 10, 24, 29, 18
 var resilience = new AutoPerks.VariablePerk("resilience", 100, true,      [0.1, 1, 0.1], 0.1); // , 1, 1.5, 8, 3.5, 3
-var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [65, 70, 75], 0.1); // , 25, 60, 60, 100, 100
+var coordinated = new AutoPerks.VariablePerk("coordinated", 150000, true, [75, 75, 75], 0.1); // , 25, 60, 60, 100, 100
 var resourceful = new AutoPerks.VariablePerk("resourceful", 50000, true,  [0.5, 0.5, 0.5], 0.05); // , 2, 2, 2, 1, 1
 var overkill = new AutoPerks.VariablePerk("overkill", 1000000, true,      [3, 3, 0.5], 0.005, 30); // , 3, 5, 3, 5, 10
 //tier2 perks
