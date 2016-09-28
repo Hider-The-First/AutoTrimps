@@ -2651,12 +2651,12 @@ function manageGenes() {
     if (game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined')) {
 	autoTrimpSettings.GeneticistTimer.value = '9';
 	toggleSetting("GeneticistassistTarget", this);
-	target1.defaultValue = 9; target2.defaultValue = 9.1; target3.defaultValue = 9.2;
+	target1.defaultValue = '9'; target2.defaultValue = '9.1'; target3.defaultValue = '9.2';
 	customizeGATargets();
     } else { autoTrimpSettings.GeneticistTimer.value = '30';
 	autoTrimpSettings.GeneticistTimer.value = '30';
 	toggleSetting("GeneticistassistTarget", this);
-	target1.defaultValue = 30; target2.defaultValue = 30.1; target3.defaultValue = 30.2;
+	target1.defaultValue = '30'; target2.defaultValue = '30.1'; target3.defaultValue = '30.2';
 	customizeGATargets()
     }
     var inDamageStance = game.upgrades.Dominance.done ? game.global.formation == 2 : game.global.formation == 0;
