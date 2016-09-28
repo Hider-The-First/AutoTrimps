@@ -2645,6 +2645,8 @@ function manageGenes() {
         }
         else autoTrimpSettings.GeneticistTimer.value = '30';
     }
+    if (GeneticistassistSetting.innerHTML == "Disabled") {
+	toggleGeneticistassist()
     if (game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined')) {
 	autoTrimpSettings.GeneticistTimer.value = '9';
 	GeneticistassistSetting.innerHTML= "9 Seconds";
