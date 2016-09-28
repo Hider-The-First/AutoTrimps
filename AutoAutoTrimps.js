@@ -2647,8 +2647,7 @@ function manageGenes() {
     }
     if (game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined')) {
 	autoTrimpSettings.GeneticistTimer.value = '9';
-    }
-        else autoTrimpSettings.GeneticistTimer.value = '30';
+    } else { autoTrimpSettings.GeneticistTimer.value = '30';
     }
     var inDamageStance = game.upgrades.Dominance.done ? game.global.formation == 2 : game.global.formation == 0;
     var inScryerStance = (game.global.world >= 60 && game.global.highestLevelCleared >= 180) && game.global.formation == 4;
