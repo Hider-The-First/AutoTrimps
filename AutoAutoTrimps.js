@@ -3198,7 +3198,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
     html += ')" id="selectedHeirloomTitle">' + heirloom.name + '</span> '
     if (!fromTooltip) html += '<span id="renameContainer"></span>';
     html+= '</div></div>';
-    if (!fromTooltip && (game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "ShieldEquipped")) html += '<span style="max-height: 8vw"; style="max-width: 8vw"; class="heirloomEquipped">Equipped</span><br/>';
+    if (!fromTooltip && (game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "ShieldEquipped")) html += '<span class="heirloomEquipped">Equipped</span><br/>';
     var noneEmpty = true;
     var opacity = (modSelected) ? 'style="opacity: 0.5" ' : '';
     for (var x = 0; x < heirloom.mods.length; x++){
