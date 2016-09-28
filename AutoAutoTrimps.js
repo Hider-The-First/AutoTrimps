@@ -2648,16 +2648,19 @@ function manageGenes() {
     if (GeneticistassistSetting.innerHTML == "Disabled") {
 	toggleGeneticistassist()
     }
-    if (game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined')) {
-	autoTrimpSettings.GeneticistTimer.value = '9';
-	toggleSetting("GeneticistassistTarget", this);
-	target1.defaultValue = '9'; target2.defaultValue = '9.1'; target3.defaultValue = '9.2';
-	customizeGATargets();
-    } else { autoTrimpSettings.GeneticistTimer.value = '30';
-	autoTrimpSettings.GeneticistTimer.value = '30';
-	toggleSetting("GeneticistassistTarget", this);
-	target1.defaultValue = '30'; target2.defaultValue = '30.1'; target3.defaultValue = '30.2';
-	customizeGATargets()
+    //Set Auto genetics
+    if (game.resources.trimps.soldiers > 1 && game.resources.trimps.realMax()*0.003 < game.resources.trimps.soldiers) {
+	    if (game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined')) {
+		    autoTrimpSettings.GeneticistTimer.value = '9';
+		    toggleSetting("GeneticistassistTarget", this);
+		    target1.defaultValue = '9'; target2.defaultValue = '9.1'; target3.defaultValue = '9.2';
+		    customizeGATargets();
+	    } else { autoTrimpSettings.GeneticistTimer.value = '30';
+		    autoTrimpSettings.GeneticistTimer.value = '30';
+		    toggleSetting("GeneticistassistTarget", this);
+		    target1.defaultValue = '30'; target2.defaultValue = '30.1'; target3.defaultValue = '30.2';
+		    customizeGATargets()
+	    }
     }
     var inDamageStance = game.upgrades.Dominance.done ? game.global.formation == 2 : game.global.formation == 0;
     var inScryerStance = (game.global.world >= 60 && game.global.highestLevelCleared >= 180) && game.global.formation == 4;
