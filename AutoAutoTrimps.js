@@ -2650,10 +2650,10 @@ function manageGenes() {
     }
     if (game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined')) {
 	autoTrimpSettings.GeneticistTimer.value = '9';
-	GeneticistassistSetting.innerHTML= "9 Seconds";
+	target1 = 9; target2 = 9.1; target3 = 9.2;
     } else { autoTrimpSettings.GeneticistTimer.value = '30';
 	autoTrimpSettings.GeneticistTimer.value = '30';
-	GeneticistassistSetting.innerHTML= "30 Seconds";
+	target1 = 30; target2 = 30.1; target3 = 30.2;;
     }
     var inDamageStance = game.upgrades.Dominance.done ? game.global.formation == 2 : game.global.formation == 0;
     var inScryerStance = (game.global.world >= 60 && game.global.highestLevelCleared >= 180) && game.global.formation == 4;
