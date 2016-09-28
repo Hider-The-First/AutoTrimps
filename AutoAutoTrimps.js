@@ -3193,7 +3193,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
     if (fromPopup && !game.options.menu.voidPopups.enabled) return;
     var heirloom = getSelectedHeirloom(locationOvr, indexOvr);
     var icon = getHeirloomIcon(heirloom);
-    var html = '<div class="selectedHeirloomItem heirloomRare' + heirloom.rarity + '"><div style="max-height: 3vw"; class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon"><span class="' + icon + '"></span></div><div class="col-xs-10"><span onclick="renameHeirloom(';
+    var html = '<div class="selectedHeirloomItem heirloomRare' + heirloom.rarity + '"><div style="max-height: 5vw"; class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon"><span class="' + icon + '"></span></div><div class="col-xs-10"><span onclick="renameHeirloom(';
     if (fromPopup) html += 'false, true';
     html += ')" id="selectedHeirloomTitle">' + heirloom.name + '</span> '
     if (!fromTooltip) html += '<span id="renameContainer"></span>';
