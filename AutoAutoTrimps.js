@@ -2645,11 +2645,11 @@ function manageGenes() {
         }
         else autoTrimpSettings.GeneticistTimer.value = '30';
     }
-    if (GeneticistassistSetting.innerHTML == "Disabled") {
-	toggleGeneticistassist()
-    }
     //Set Auto genetics
     if (!game.jobs.Geneticist.locked && game.resources.trimps.soldiers > 1 && game.resources.trimps.realMax()*0.003 < game.resources.trimps.soldiers && wrapper.clientHeight > 0 && autotrimp.clientHeight < 1 && boneWrapper.clientHeight < 1 && portalWrapper.clientHeight < 1 && achievementWrapper.clientHeight < 1 && statsWrapper.clientHeight < 1 && heirloomWrapper.clientHeight < 1 && achievementPopup.clientHeight < 1 && heirloomsPopup.clientHeight < 1 && tooltipDiv.clientHeight < 1) {
+	    if (GeneticistassistSetting.innerHTML == "Disabled") {
+		    toggleGeneticistassist();
+	    }
 	    if (game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined')) {
 		    autoTrimpSettings.GeneticistTimer.value = '9';
 		    toggleSetting("GeneticistassistTarget", this);
