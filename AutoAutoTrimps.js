@@ -3165,7 +3165,7 @@ function newSelectHeirloom(number, location, elem){
 //change some icons (made by Zxv).
 function getHeirloomIcon(heirloom) {
 	if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
-	if (heirloom.rarity == 6) {`
+	if (heirloom.rarity == 6) {
 	var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 75%;" src="https://s21.postimg.org/4imgb9nqv/Transparent_Armor_6.png"' : 'id="Staff"><img style="max-height: 75%;" src="https://s16.postimg.org/a1m5f2gqd/Transparent_Legs_6.png"';
 	}
 	if (heirloom.rarity == 5) {
