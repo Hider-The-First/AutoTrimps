@@ -3166,7 +3166,7 @@ function newSelectHeirloom(number, location, elem){
 function getHeirloomIcon(heirloom) {
 	if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
 	if (heirloom.rarity == 6) {
-	var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 75%;" src="https://s21.postimg.org/4imgb9nqv/Transparent_Armor_6.png"' : 'id="Staff"><img style="max-height: 75%;" src="https://s16.postimg.org/a1m5f2gqd/Transparent_Legs_6.png"';
+	var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 100%;" src="https://s21.postimg.org/4imgb9nqv/Transparent_Armor_6.png"' : 'id="Staff"><img style="max-height: 100%;" src="https://s16.postimg.org/a1m5f2gqd/Transparent_Legs_6.png"';
 	}
 	if (heirloom.rarity == 5) {
 	var icon = (heirloom.type == "Shield") ? 'id="Shield"><img style="max-height: 100%;" src="https://s21.postimg.org/m7anwg63b/Transparent_Armor_5.png"' : 'id="Staff"><img style="max-height: 100%;" src="https://s12.postimg.org/96714wb5p/Transparent_Legs_5.png"';
