@@ -477,7 +477,7 @@ var packrat = new AutoPerks.FixedPerk("packrat", 3, 30);
 //the ratios are hardcoded into the following lines: example: looting:    [120, 120, 20, 50, 120, 42, 160] as [HiderHe/hr'>Hider (He/hr), Hider Balance (More HP), Hider More (More Zones),zxv, zxv(new), truth, nsheetz, nsheetz(new)]
 var looting = new AutoPerks.VariablePerk("looting", 1, false,             [120, 75, 7.5], 0.05); // , 20, 50, 120, 42, 160
 var toughness = new AutoPerks.VariablePerk("toughness", 1, false,         [4, 4, 4], 0.05); // , 0.5, 0.75, 4, 1.75, 1.5
-var power = new AutoPerks.VariablePerk("power", 1, false,                 [12, 8, 4], 0.05); // , 1, 1, 4, 5, 5
+var power = new AutoPerks.VariablePerk("power", 1, false,                 [14, 8, 4], 0.05); // , 1, 1, 4, 5, 5
 var motivation = new AutoPerks.VariablePerk("motivation", 2, false,       [4, 4, 7], 0.05); // , 1.5, 3, 4, 4, 2.5
 var pheromones = new AutoPerks.VariablePerk("pheromones", 3, false,       [0.0005, 1, 0.01], 0.1); // , 0.5, 0.75, 4, 1.5, 1.5
 var artisanistry = new AutoPerks.VariablePerk("artisanistry", 15, true,   [4, 4, 7], 0.1); // , 1.5, 3, 2, 5, 3.5
