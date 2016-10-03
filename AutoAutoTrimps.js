@@ -1098,7 +1098,7 @@ function highlightHousing() {
 //Helper function to buy best "Food" Buildings
 function buyFoodEfficientHousing() {
     // Push the limit auto change your max buildings settings		
-    autoTrimpSettings.MaxHut.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*2.3; //10+game.buildings.House.owned;2.5		
+    autoTrimpSettings.MaxHut.value = (game.global.world < 35 || game.global.world > 190) ? (game.global.world == 10 ? 999:50) : game.global.world*2.3; //10+game.buildings.House.owned;2.5		
     autoTrimpSettings.MaxHouse.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*2.6;		
     autoTrimpSettings.MaxMansion.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*2.8; //20+game.buildings.House.owned;2.9		
     autoTrimpSettings.MaxHotel.value = (game.global.world < 35 || game.global.world > 190) ? 50 : game.global.world*3; //30+game.buildings.House.owned;3.1		
