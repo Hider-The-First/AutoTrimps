@@ -1409,7 +1409,7 @@ function buyJobs() {
             var buyScientists = Math.floor((scientistRatio / totalRatio * totalDistributableWorkers) - game.jobs.Scientist.owned);
             //bandaid to prevent situation where 1 scientist is bought, causing floor calculation to drop by 1, making next calculation -1 and entering hiring/firing loop
             //proper fix is including scientists in totalDistributableWorkers and the scientist ratio in the total ratio, but then it waits for 4 jobs
-            if(buyScientists > 0 && freeWorkers > 0) safeBuyJob('Scientist', buyScientists);
+            if((buyScientists > 0 || game.jobs.Scientist.owned < 100) && freeWorkers > 0) safeBuyJob('Scientist', buyScientists);
         }
         //once over 250k farmers, fire our scientists and rely on manual gathering of science
         //else if (game.jobs.Scientist.owned > 0) safeBuyJob('Scientist', game.jobs.Scientist.owned * -1);
