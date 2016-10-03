@@ -1318,6 +1318,7 @@ function buyStorage() {
 
 //Hires and Fires all workers (farmers/lumberjacks/miners/scientists/trainers/explorers)
 function buyJobs() {
+    if (!game.jobs.Scientist.locked && game.jobs.Scientist.owned < 100) buyJob('Scientist');
     var freeWorkers = Math.ceil(game.resources.trimps.realMax() / 2) - game.resources.trimps.employed;
     var trimps = game.resources.trimps;
     var totalDistributableWorkers = freeWorkers + game.jobs.Farmer.owned + game.jobs.Miner.owned + game.jobs.Lumberjack.owned;    
