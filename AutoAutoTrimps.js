@@ -2655,15 +2655,15 @@ function manageGenes() {
 	    }
 	    if (
 		    game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.bogged !== 'undefined')) { //typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined'
-		    autoTrimpSettings.GeneticistTimer.value = '9';
+		    autoTrimpSettings.GeneticistTimer.value = game.global.antiStacks;
 		    toggleSetting("GeneticistassistTarget", this);
-		    target1.defaultValue = '9'; target2.defaultValue = '9.1'; target3.defaultValue = '9.2';
+		    target1.defaultValue = game.global.antiStacks ; target2.defaultValue = game.global.antiStacks + 0.1; target3.defaultValue = game.global.antiStacks + 0.2;
 		    customizeGATargets();
 	    } else if (
 		    game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.plague !== 'undefined')) {
-		    autoTrimpSettings.GeneticistTimer.value = '5';
+		    autoTrimpSettings.GeneticistTimer.value = game.global.antiStacks;
 		    toggleSetting("GeneticistassistTarget", this);
-		    target1.defaultValue = '3'; target2.defaultValue = '3.1'; target3.defaultValue = '3.2';
+		    target1.defaultValue = game.global.antiStacks ; target2.defaultValue = game.global.antiStacks + 0.1; target3.defaultValue = game.global.antiStacks + 0.2;
 		    customizeGATargets()
 	    } else {
 		    autoTrimpSettings.GeneticistTimer.value = '30';
