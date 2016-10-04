@@ -2661,9 +2661,9 @@ function manageGenes() {
 		    customizeGATargets();
 	    } else if (
 		    game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.plague !== 'undefined')) {
-		    autoTrimpSettings.GeneticistTimer.value = '14';
+		    autoTrimpSettings.GeneticistTimer.value = '5';
 		    toggleSetting("GeneticistassistTarget", this);
-		    target1.defaultValue = '14'; target2.defaultValue = '14.1'; target3.defaultValue = '14.2';
+		    target1.defaultValue = '5'; target2.defaultValue = '5.1'; target3.defaultValue = '5.2';
 		    customizeGATargets()
 	    } else {
 		    autoTrimpSettings.GeneticistTimer.value = '30';
