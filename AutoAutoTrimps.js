@@ -2706,7 +2706,7 @@ function manageGenes() {
     //reset breedFire once we have less than 2 seconds remaining
     if(getBreedTime(true) < 2) breedFire = false;
     //force deth if max antiStacks is available
-    if (!game.jobs.Geneticist.locked && game.global.antiStacks < 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0 && (!game.global.preMapsActive && ((game.global.mapsActive && getCurrentMapObject().location != "Void") || (game.global.lastClearedMapCell < 10 || !game.global.mapsActive)))) {
+    if (!game.jobs.Geneticist.locked && game.resources.trimps.realMax()*0.003 < game.resources.trimps.soldiers && game.global.antiStacks < 30 && getBreedTime(true) == 0 && game.resources.trimps.soldiers > 0 && (!game.global.preMapsActive && ((game.global.mapsActive && getCurrentMapObject().location != "Void") || (game.global.lastClearedMapCell < 10 || !game.global.mapsActive)))) {
     mapsClicked(true); mapsClicked(true);
     }
 
