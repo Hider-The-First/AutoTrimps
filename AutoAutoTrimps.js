@@ -3283,7 +3283,7 @@ function generateHeirloomIcon(heirloom, location, number){
     fightButtonCol.appendChild(newContainer2);
     //newContainer2.setAttribute("onmouseover", 'tooltip(\"Data Window\", \"customText\", event, \"S-DMG (Scryer Demage) is<br> avgDamageXSstanceXOverkill.levelX0.005.<br>Max-HP is<br> EnemyMaxHealthXCorruptX7.\")');
     //newContainer2.setAttribute("onmouseout", 'tooltip("hide")');
-var hiderwindow = 0;
+var hiderwindow = 'preset';
 var hiderWindow = document.getElementById('hiderWindow');
 function updateValueFields2() {
     var hiderWindow = document.getElementById('hiderWindow');
