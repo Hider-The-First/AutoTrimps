@@ -2609,13 +2609,13 @@ function checkSettings() {
 	    if (game.global.challengeActive == "Daily") {
             portalLevel = hiderwindow <= 0.004 ? 'YesNow' : 9999;
 	    if (portalLevel == 'YesNow') {
-		    viewPortalUpgrades(); abandonChallenge(); confirmAbandonChallenge(); cancelTooltip();
+		viewPortalUpgrades(); abandonChallenge(); confirmAbandonChallenge(); cancelTooltip();
+	    	}
 	    }
 	    if (game.global.challengeActive != "Daily") {
 	    portalLevel = hiderwindow <= 0.002 ? game.global.world : 9999;
             break;
 	    }
-	}
     }
     if(portalLevel == -1)
         return portalLevel;
