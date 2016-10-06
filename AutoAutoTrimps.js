@@ -3003,6 +3003,7 @@ function mainLoop() {
     updateValueFields2(); //refresh the UI2
     updateValueFields3(); //refresh the UI2
 
+    checkSettings(); //make daily portal work
     if (getPageSetting('ExitSpireCell')) exitSpireCell(); //"Exit Spire After Cell" (genBTC settings area)
     if (getPageSetting('WorkerRatios')) workerRatios(); //"Auto Worker Ratios"
     if (getPageSetting('BuyUpgrades')) buyUpgrades();   //"Buy Upgrades"
