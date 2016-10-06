@@ -2559,6 +2559,7 @@ function autoPortal() {
         case "Watch":
         case "Lead":
         case "Corrupted":
+	case "Daily":
             if(!game.global.challengeActive) {
                 pushData();
                 doPortal(autoTrimpSettings.AutoPortal.selected);
@@ -2604,6 +2605,16 @@ function checkSettings() {
         case "Corrupted":
             portalLevel = 191;
             break;
+        case "Daily":
+	    if (game.global.challengeActive == "Daily") {
+            portalLevel = hiderwindow < 0.004 ? 'YesNow' : 9999;
+	    if (portalLevel == 'YesNow') {
+		    viewPortalUpgrades(); abandonChallenge(); confirmAbandonChallenge(); cancelTooltip();
+	    }
+	    if (game.global.challengeActive != "Daily") {
+	    portalLevel = hiderwindow < 0.002 ? game.global.world : 9999;
+            break;
+	    }
     }
     if(portalLevel == -1)
         return portalLevel;
@@ -2827,7 +2838,7 @@ function betterAutoFight() {
     if (game.upgrades.Battle.done && !game.global.fighting && getBreedTime() < 2 && ((game.global.lastBreedTime/1000) > autoTrimpSettings.GeneticistTimer.value || getBreedTime(true) < 0.1 ) && game.global.soldierHealth == 0)
         fightManual();
     }
-    //Click Fight fight group is small (if you died from daily challange)
+    //Click Fight fight group is small (if you died from daily challenge)
     if (game.upgrades.Battle.done && !game.global.fighting && game.global.soldierHealth == 0 && game.resources.trimps.realMax()/100 > game.resources.trimps.maxSoldiers) {
         fightManual();
 }
