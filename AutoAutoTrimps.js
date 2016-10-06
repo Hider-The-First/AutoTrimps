@@ -2615,6 +2615,7 @@ function checkSettings() {
 	    portalLevel = hiderwindow < 0.002 ? game.global.world : 9999;
             break;
 	    }
+	}
     }
     if(portalLevel == -1)
         return portalLevel;
