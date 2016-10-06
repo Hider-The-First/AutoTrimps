@@ -2569,7 +2569,7 @@ function autoPortal() {
             break;
     }
 }
-var portalLevel = -1;
+var portalLevel = 9999;
 //Checks portal related UI settings (TODO: split into two, and move the validation check to NewUI)
 function checkSettings() {
     var portalLevel = -1;
