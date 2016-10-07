@@ -2675,7 +2675,7 @@ function manageGenes() {
 		    game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.plague !== 'undefined')) {
 		    autoTrimpSettings.GeneticistTimer.value = game.global.antiStacks;
 		    toggleSetting("GeneticistassistTarget", this);
-		    target1.defaultValue = (game.global.antiStacks < 3) ? (game.global.antiStacks + 1) : (2) ; target2.defaultValue = (game.global.antiStacks < 3) ? (game.global.antiStacks + 1.5) : (2.1) ; target3.defaultValue = (game.global.antiStacks < 3) ? (game.global.antiStacks + 2) : (2.2);
+		    target1.defaultValue = 2 ; target2.defaultValue = 2.1 ; target3.defaultValue = 2.2 ;
 		    customizeGATargets()
 	    } else {
 		    autoTrimpSettings.GeneticistTimer.value = '30';
