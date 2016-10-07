@@ -2836,7 +2836,7 @@ function betterAutoFight() {
         fightManual();
     }
     //Click Fight if we are dead and already have enough for our breed timer, and fighting would not add a significant amount of time
-    if (game.upgrades.Battle.done && !game.global.fighting && getBreedTime() < 2 && ((game.global.lastBreedTime/1000) > autoTrimpSettings.GeneticistTimer.value || getBreedTime(true) < 0.1 ) && game.global.soldierHealth == 0)
+    if (game.upgrades.Battle.done && !game.global.fighting && getBreedTime() < 2 && ((game.global.lastBreedTime/1000) > autoTrimpSettings.GeneticistTimer.value || getBreedTime(true) < 0.1 ) && game.global.soldierHealth == 0 && typeof game.global.dailyChallenge.plague == 'undefined')
         fightManual();
     }
     //Click Fight if fight group is small (if you died from daily challenge)
