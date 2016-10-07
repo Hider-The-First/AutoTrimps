@@ -2706,7 +2706,7 @@ function manageGenes() {
     }
         //otherwise, if we have some geneticists, start firing them
     else if ((targetBreed*1.02 < getBreedTime() || targetBreed*1.02 < getBreedTime(true)) && !game.jobs.Geneticist.locked && game.jobs.Geneticist.owned > 10 && getBreedTime(true) > 2) {
-        safeBuyJob('Geneticist', -10);
+        safeBuyJob('Geneticist', -50);
         //debug('fired a geneticist');
         
     }
@@ -2839,7 +2839,7 @@ function betterAutoFight() {
     if (game.upgrades.Battle.done && !game.global.fighting && getBreedTime() < 2 && ((game.global.lastBreedTime/1000) > autoTrimpSettings.GeneticistTimer.value || getBreedTime(true) < 0.1 ) && game.global.soldierHealth == 0)
         fightManual();
     }
-    //Click Fight fight group is small (if you died from daily challenge)
+    //Click Fight if fight group is small (if you died from daily challenge)
     if (game.upgrades.Battle.done && !game.global.fighting && game.global.soldierHealth == 0 && game.resources.trimps.realMax()/100 > game.resources.trimps.maxSoldiers) {
         fightManual();
 }
