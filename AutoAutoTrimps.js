@@ -3027,7 +3027,7 @@ function mainLoop() {
     else
     	autoStance();                                           //"Auto Stance"
     getNiceThingsDone();					//Paint things.
-    if (getPageSetting('AutoFight')) fightManual();//betterAutoFight();     //"Better Auto Fight"	
+    if (getPageSetting('AutoFight')) betterAutoFight(); //betterAutoFight();     //"Better Auto Fight"	//fightManual();
     if (getPageSetting('DynamicPrestige')) prestigeChanging2(); //"Dynamic Prestige" (genBTC settings area)
     else autoTrimpSettings.Prestige.selected = document.getElementById('Prestige').value; //if we dont want to, just make sure the UI setting and the internal setting are aligned.
     
