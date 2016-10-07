@@ -2669,13 +2669,13 @@ function manageGenes() {
 		    game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.bogged !== 'undefined')) { //typeof game.global.dailyChallenge.weakness !== 'undefined' || typeof game.global.dailyChallenge.toxic !== 'undefined'
 		    autoTrimpSettings.GeneticistTimer.value = game.global.antiStacks;
 		    toggleSetting("GeneticistassistTarget", this);
-		    target1.defaultValue = game.global.antiStacks + 1 ; target2.defaultValue = game.global.antiStacks + 1.5; target3.defaultValue = game.global.antiStacks + 2;
+		    target1.defaultValue = (game.global.antiStacks < 14) ? (game.global.antiStacks + 1) : (14) ; target2.defaultValue = (game.global.antiStacks < 14) ? (game.global.antiStacks + 1.5) : (14) ; target3.defaultValue = (game.global.antiStacks < 14) ? (game.global.antiStacks + 2) : (14);
 		    customizeGATargets();
 	    } else if (
 		    game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.plague !== 'undefined')) {
 		    autoTrimpSettings.GeneticistTimer.value = game.global.antiStacks;
 		    toggleSetting("GeneticistassistTarget", this);
-		    target1.defaultValue = game.global.antiStacks + 1 ; target2.defaultValue = game.global.antiStacks + 1.5; target3.defaultValue = game.global.antiStacks + 2;
+		    target1.defaultValue = (game.global.antiStacks < 14) ? (game.global.antiStacks + 1) : (14) ; target2.defaultValue = (game.global.antiStacks < 14) ? (game.global.antiStacks + 1.5) : (14) ; target3.defaultValue = (game.global.antiStacks < 14) ? (game.global.antiStacks + 2) : (14);
 		    customizeGATargets()
 	    } else {
 		    autoTrimpSettings.GeneticistTimer.value = '30';
