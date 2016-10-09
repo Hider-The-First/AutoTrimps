@@ -2840,7 +2840,7 @@ function betterAutoFight() {
         fightManual();
     }
     //Click Fight if fight group is small (if you died from daily challenge)
-    if (game.upgrades.Battle.done && !game.global.fighting && game.global.soldierHealth == 0 && game.resources.trimps.realMax()/100 > game.resources.trimps.maxSoldiers && typeof game.global.dailyChallenge.plague == 'undefined') {
+    if (game.upgrades.Battle.done && !game.global.fighting && game.global.soldierHealth == 0 && (game.resources.trimps.realMax()/100 > game.resources.trimps.maxSoldiers || game.resources.trimps.realMax()/1000 >= game.resources.trimps.owned) && typeof game.global.dailyChallenge.plague == 'undefined') {
         fightManual();
 }
 
