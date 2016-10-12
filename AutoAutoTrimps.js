@@ -27,8 +27,6 @@ var baseDamage = 0;
 var baseBlock = 0;
 var baseHealth = 0;
 
-var portalLevel = 9999;
-
 var preBuyAmt = game.global.buyAmt;
 var preBuyFiring = game.global.firing;
 var preBuyTooltip = game.global.lockTooltip;
@@ -2611,10 +2609,9 @@ function checkSettings() {
 	    var stopDaily = 0;
 	    if (game.global.challengeActive == "Daily") {
 	    stopDaily = (hiderwindow <= 0.02) ? "stopIt" : 0;
+	    }
 	    if (stopDaily == "stopIt") {
 		    viewPortalUpgrades(); abandonChallenge(); confirmAbandonChallenge(); cancelTooltip();
-		    stopDaily = "didIt";
-	    	}
 	    }
 	    if (game.global.challengeActive != "Daily") {
 	    portalLevel = (hiderwindow <= 0.01) ? game.global.world : 9999;
