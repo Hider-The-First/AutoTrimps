@@ -2572,7 +2572,7 @@ function autoPortal() {
 	    portalLevel = (hiderwindow <= 0.01) ? game.global.world : 9999;
             break;
 	    }		    
-            if(!game.global.challengeActive && 	(case != "Daily" || portalLevel == game.global.world )) {
+            if(!game.global.challengeActive && 	(autoTrimpSettings.AutoPortal.selected != "Daily" || portalLevel == game.global.world )) {
                 pushData();
                 doPortal(autoTrimpSettings.AutoPortal.selected);
             }
