@@ -2607,8 +2607,9 @@ function checkSettings() {
             break;
         case "Daily":
 	    portalLevel = 9998;
+	    var stopDaily = 0;
 	    if (game.global.challengeActive == "Daily") {
-	    var stopDaily = (hiderwindow <= 0.02) ? "stopIt" : 9999;
+	    stopDaily = (hiderwindow <= 0.02) ? "stopIt" : 0;
 	    if (stopDaily == "stopIt") {
 		    viewPortalUpgrades(); abandonChallenge(); confirmAbandonChallenge(); cancelTooltip();
 	    	}
