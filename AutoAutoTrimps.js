@@ -2560,7 +2560,19 @@ function autoPortal() {
         case "Lead":
         case "Corrupted":
 	case "Daily":
-            if(!game.global.challengeActive) {
+	    portalLevel = 9998;
+	    var stopDaily = 0;
+	    if (game.global.challengeActive == "Daily") {
+	    stopDaily = (hiderwindow <= 0.02) ? "stopIt" : 0;
+	    }
+	    if (stopDaily == "stopIt") {
+		    viewPortalUpgrades(); abandonChallenge(); confirmAbandonChallenge(); cancelTooltip();
+	    }
+	    if (game.global.challengeActive != "Daily") {
+	    portalLevel = (hiderwindow <= 0.01) ? game.global.world : 9999;
+            break;
+	    }		    
+            if(!game.global.challengeActive && 	(!case "Daily" || portalLevel == game.global.world )) {
                 pushData();
                 doPortal(autoTrimpSettings.AutoPortal.selected);
             }
