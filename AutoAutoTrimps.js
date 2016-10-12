@@ -2613,6 +2613,7 @@ function checkSettings() {
 	    stopDaily = (hiderwindow <= 0.02) ? "stopIt" : 0;
 	    if (stopDaily == "stopIt") {
 		    viewPortalUpgrades(); abandonChallenge(); confirmAbandonChallenge(); cancelTooltip();
+		    stopDaily = "didIt";
 	    	}
 	    }
 	    if (game.global.challengeActive != "Daily") {
