@@ -2606,15 +2606,15 @@ function checkSettings() {
             portalLevel = 191;
             break;
         case "Daily":
-            var baseLevel = 0;
+	    portalLevel = 9998;
 	    if (game.global.challengeActive == "Daily") {
-		    baseLevel = (hiderwindow <= 0.004) ? game.global.world+1 : 9999;
-	    }
-	    if (baseLevel == game.global.world+1) {
+	    var stopDaily = (hiderwindow <= 0.02) ? "stopIt" : 9999;
+	    if (stopDaily == "stopIt") {
 		    viewPortalUpgrades(); abandonChallenge(); confirmAbandonChallenge(); cancelTooltip();
+	    	}
 	    }
 	    if (game.global.challengeActive != "Daily") {
-	    portalLevel = (hiderwindow <= 0.002) ? baseLevel : 9999;
+	    portalLevel = (hiderwindow <= 0.01) ? game.global.world : 9999;
             break;
 	    }
     }
