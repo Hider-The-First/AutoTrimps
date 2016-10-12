@@ -27,6 +27,8 @@ var baseDamage = 0;
 var baseBlock = 0;
 var baseHealth = 0;
 
+var portalLevel = 9999;
+
 var preBuyAmt = game.global.buyAmt;
 var preBuyFiring = game.global.firing;
 var preBuyTooltip = game.global.lockTooltip;
@@ -2569,7 +2571,6 @@ function autoPortal() {
             break;
     }
 }
-var portalLevel = 9999;
 //Checks portal related UI settings (TODO: split into two, and move the validation check to NewUI)
 function checkSettings() {
     var portalLevel = -1;
